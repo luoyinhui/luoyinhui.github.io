@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>殷回的博客</title>
+  
+  <subtitle>大学生的瞎折腾日记</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2025-08-08T13:12:09.234Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>luoyinhui</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SPC new students&#39; problem</title>
+    <link href="http://example.com/2025/08/08/SPC-new-students-problem/"/>
+    <id>http://example.com/2025/08/08/SPC-new-students-problem/</id>
+    <published>2025-08-08T12:39:56.000Z</published>
+    <updated>2025-08-08T13:12:09.234Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://fastly.jsdelivr.net/gh/bucketio/img19@main/2025/08/08/1754656934728-330e7b32-4fad-4a86-81bd-a29cbe64c38c.png"></p><p>大意就是一个pdf文件，进了winhex后可发现：<br>1 pdf文件头<br>2 txt文件头<br>3 pdf文件尾1号<br>4 pdf文件尾2号<br>5 docx文件头<br>6 docx文件尾</p><p>已经尝试：<br>1 从2到结尾提取，无flag<br>2 从1到3&#x2F;4，无flag<br>3 从5到6，文件被破坏无法打开</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/gh/bucketio/img19@main/2025/08/08/1754656934728-330e7b32-4fad-4a86-81bd-a29cbe64c38c.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;大</summary>
+      
+    
+    
+    
+    
+    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+    <category term="待解决" scheme="http://example.com/tags/%E5%BE%85%E8%A7%A3%E5%86%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>archive of completed help</title>
+    <link href="http://example.com/2025/08/07/archive-of-completed-help/"/>
+    <id>http://example.com/2025/08/07/archive-of-completed-help/</id>
+    <published>2025-08-07T11:38:27.000Z</published>
+    <updated>2025-08-08T13:12:14.036Z</updated>
+    
+    <content type="html"><![CDATA[<p>2025-08-03<br><strong><strong>问题：openlist挂载卡在使用raildrive mount进行其集成网盘映射至本地文件夹一步</strong></strong><br>解决：取消勾选网络https:&#x2F;&#x2F;选项<br>反思：看攻略不够仔细，攻略中有这一步漏了</p><p>2025-08-03<br><strong><strong>问题：openlist自启动文件失败</strong></strong><br>解决：没有放在同级文件夹<br>反思：自动文件如.bat后缀文件，需要注意是否有放置位置要求</p><p>2025-08-03<br><strong><strong>问题：桌面出现观看视频名称，具体表现为网页观看任一视频出现名称在桌面左上角，且位于fence分类界面下方</strong></strong><br>解决：是wallpaper engine的壁纸问题，具体原因不清楚，有大佬怀疑壁纸随音乐律动模块把媒体控件拉过来了<br>反思：一开始一个个关闭桌面美化软件来确定问题来源时，漏了壁纸</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;2025-08-03&lt;br&gt;&lt;strong&gt;&lt;strong&gt;问题：openlist挂载卡在使用raildrive mount进行其集成网盘映射至本地文件夹一步&lt;/strong&gt;&lt;/strong&gt;&lt;br&gt;解决：取消勾选网络https:&amp;#x2F;&amp;#x2F;选项&lt;br&gt;反思：</summary>
+      
+    
+    
+    
+    
+    <category term="已完结求助" scheme="http://example.com/tags/%E5%B7%B2%E5%AE%8C%E7%BB%93%E6%B1%82%E5%8A%A9/"/>
+    
+  </entry>
+  
+</feed>
