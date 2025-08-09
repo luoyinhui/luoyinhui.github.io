@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-08-09T07:35:27.385Z</updated>
+  <updated>2025-08-09T12:41:48.767Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,18 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>rsa preliminary learning</title>
+    <link href="http://example.com/2025/08/09/rsa-preliminary-learning/"/>
+    <id>http://example.com/2025/08/09/rsa-preliminary-learning/</id>
+    <published>2025-08-09T07:38:03.000Z</published>
+    <updated>2025-08-09T12:41:48.767Z</updated>
+    
+    <content type="html"><![CDATA[<p>1 因数，质数，余数</p><p>2 公钥，私钥<br>1）制作过程：<br><img src="https://fastly.jsdelivr.net/gh/bucketio/img13@main/2025/08/09/1754726458974-0bf7d74d-7f84-45e9-ad2c-d6dc39787f4d.jpg"><br>2） 实际操作过程：<br><img src="https://fastly.jsdelivr.net/gh/bucketio/img11@main/2025/08/09/1754726659480-8194f384-4d0c-4e79-b7cd-98c70cdffa41.jpg"></p><p>3 具体题目解题过程中获得知识点<br>1）克拉默法则：<br>功能：确定线性方程组是否有解，以及解的唯一性。<br>重点！！！：只适用于方程组中未知量个数与方程个数相等的情形（具体原因？<br>基本形式：如果线性方程组的系数行列式不等于零，那么该方程组一定有唯一解。这个行列式可以通过将线性方程组的右端项b1, b2, …, bn分别代入原行列式的相应列元素中得到。<br>定理与推论：<br>定理1：如果线性方程组的系数行列式D不等于零，那么该方程组一定有唯一解。<br>定理2：如果线性方程组无解或有多个不同的解，那么它的系数行列式D必为零。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;1 因数，质数，余数&lt;/p&gt;
+&lt;p&gt;2 公钥，私钥&lt;br&gt;1）制作过程：&lt;br&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/gh/bucketio/img13@main/2025/08/09/1754726458974-0bf7d74d-7f</summary>
+      
+    
+    
+    
+    
+    <category term="crypto" scheme="http://example.com/tags/crypto/"/>
+    
+    <category term="rsa" scheme="http://example.com/tags/rsa/"/>
+    
+    <category term="note" scheme="http://example.com/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
     <title>summary of solved questions</title>
     <link href="http://example.com/2025/08/09/summary-of-solved-questions/"/>
     <id>http://example.com/2025/08/09/summary-of-solved-questions/</id>
     <published>2025-08-09T07:29:24.000Z</published>
-    <updated>2025-08-09T07:35:27.385Z</updated>
+    <updated>2025-08-09T13:08:04.350Z</updated>
     
-    <content type="html"><![CDATA[<p>2025-08-09<br>题目类型：misc<br>出题人：spc学长sq<br>解决步骤：<br>1 虚拟机VMware+kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码<br>2 图片编辑补齐三角<br>3 扫码获得文本，使用社会主义核心价值观编码解开获得flag<br>反思：<br>难点主要只是工具配置和方向，所以还是要多问（笑）</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="2025-08-09题目类型：misc题目来源：spc学长sq解决步骤：1-虚拟机VMware-kali-linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码2-图片编辑补齐三角3-扫码获得文本，使用社会主义核心价值观编码解开获得flag反思：难点主要只是工具配置和方向，所以还是要多问（笑）"><a href="#2025-08-09题目类型：misc题目来源：spc学长sq解决步骤：1-虚拟机VMware-kali-linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码2-图片编辑补齐三角3-扫码获得文本，使用社会主义核心价值观编码解开获得flag反思：难点主要只是工具配置和方向，所以还是要多问（笑）" class="headerlink" title="2025-08-09题目类型：misc题目来源：spc学长sq解决步骤：1 虚拟机VMware + kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码2 图片编辑补齐三角3 扫码获得文本，使用社会主义核心价值观编码解开获得flag反思：难点主要只是工具配置和方向，所以还是要多问（笑）"></a><strong>2025-08-09</strong><br>题目类型：misc<br>题目来源：spc学长sq<br>解决步骤：<br>1 虚拟机VMware + kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码<br>2 图片编辑补齐三角<br>3 扫码获得文本，使用社会主义核心价值观编码解开获得flag<br>反思：<br>难点主要只是工具配置和方向，所以还是要多问（笑）</h2>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;2025-08-09&lt;br&gt;题目类型：misc&lt;br&gt;出题人：spc学长sq&lt;br&gt;解决步骤：&lt;br&gt;1 虚拟机VMware+kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码&lt;br&gt;2 图片编辑补齐三角&lt;br&gt;3 扫码获得文本，使用社会主</summary>
+    <summary type="html">&lt;h2 id=&quot;2025-08-09题目类型：misc题目来源：spc学长sq解决步骤：1-虚拟机VMware-kali-linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码2-图片编辑补齐三角3-扫码获得文本，使用社会主义核心价值观编码解开获得flag反思</summary>
       
     
     
