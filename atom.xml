@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-08-08T13:12:09.234Z</updated>
+  <updated>2025-08-09T07:35:27.385Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,27 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SPC new students&#39; problem</title>
-    <link href="http://example.com/2025/08/08/SPC-new-students-problem/"/>
-    <id>http://example.com/2025/08/08/SPC-new-students-problem/</id>
-    <published>2025-08-08T12:39:56.000Z</published>
-    <updated>2025-08-08T13:12:09.234Z</updated>
+    <title>summary of solved questions</title>
+    <link href="http://example.com/2025/08/09/summary-of-solved-questions/"/>
+    <id>http://example.com/2025/08/09/summary-of-solved-questions/</id>
+    <published>2025-08-09T07:29:24.000Z</published>
+    <updated>2025-08-09T07:35:27.385Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://fastly.jsdelivr.net/gh/bucketio/img19@main/2025/08/08/1754656934728-330e7b32-4fad-4a86-81bd-a29cbe64c38c.png"></p><p>大意就是一个pdf文件，进了winhex后可发现：<br>1 pdf文件头<br>2 txt文件头<br>3 pdf文件尾1号<br>4 pdf文件尾2号<br>5 docx文件头<br>6 docx文件尾</p><p>已经尝试：<br>1 从2到结尾提取，无flag<br>2 从1到3&#x2F;4，无flag<br>3 从5到6，文件被破坏无法打开</p>]]></content>
+    <content type="html"><![CDATA[<p>2025-08-09<br>题目类型：misc<br>出题人：spc学长sq<br>解决步骤：<br>1 虚拟机VMware+kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码<br>2 图片编辑补齐三角<br>3 扫码获得文本，使用社会主义核心价值观编码解开获得flag<br>反思：<br>难点主要只是工具配置和方向，所以还是要多问（笑）</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://fastly.jsdelivr.net/gh/bucketio/img19@main/2025/08/08/1754656934728-330e7b32-4fad-4a86-81bd-a29cbe64c38c.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;大</summary>
+    <summary type="html">&lt;p&gt;2025-08-09&lt;br&gt;题目类型：misc&lt;br&gt;出题人：spc学长sq&lt;br&gt;解决步骤：&lt;br&gt;1 虚拟机VMware+kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码&lt;br&gt;2 图片编辑补齐三角&lt;br&gt;3 扫码获得文本，使用社会主</summary>
       
     
     
     
     
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    <category term="存档" scheme="http://example.com/tags/%E5%AD%98%E6%A1%A3/"/>
     
-    <category term="待解决" scheme="http://example.com/tags/%E5%BE%85%E8%A7%A3%E5%86%B3/"/>
+    <category term="ctf 题目" scheme="http://example.com/tags/ctf-%E9%A2%98%E7%9B%AE/"/>
     
   </entry>
   
