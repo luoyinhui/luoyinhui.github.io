@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-08-12T04:04:02.967Z</updated>
+  <updated>2025-08-13T13:37:45.961Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>misc note</title>
+    <link href="http://example.com/2025/08/13/misc-note/"/>
+    <id>http://example.com/2025/08/13/misc-note/</id>
+    <published>2025-08-13T13:35:53.000Z</published>
+    <updated>2025-08-13T13:37:45.961Z</updated>
+    
+    <content type="html"><![CDATA[<p>· sstv：</p><ol><li>下载方法：pip install sstv<br>使用方法：<br>wav音频文件放到sstv根目录（C:\Windows\System32\sstv），打开cmd，输入</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd sstv</span><br><span class="line">sstv -d 文件名.wav -o result.png#输出图片名</span><br><span class="line"></span><br></pre></td></tr></table></figure><ol start="2"><li>RX-SSTV解码软件<br>下载地址：<a href="https://www.qsl.net/on6mu/rxsstv.htm">https://www.qsl.net/on6mu/rxsstv.htm</a><br>虚拟声卡e2eSoft<br>由于SSTV工具是根据音频传递图片信息，正常解法需要一台设备播放一台设备收音，所以需要一个虚拟声卡，还能避免杂音的干扰。<br>下载地址：<a href="https://www.e2esoft.cn/vsc/">https://www.e2esoft.cn/vsc/</a><br><img src="/images/sstv.jpeg"></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;· sstv：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载方法：pip install sstv&lt;br&gt;使用方法：&lt;br&gt;wav音频文件放到sstv根目录（C:&#92;Windows&#92;System32&#92;sstv），打开cmd，输入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;high</summary>
+      
+    
+    
+    
+    
+    <category term="misc" scheme="http://example.com/tags/misc/"/>
+    
+    <category term="ctf" scheme="http://example.com/tags/ctf/"/>
+    
+  </entry>
   
   <entry>
     <title>software download method archiving</title>
