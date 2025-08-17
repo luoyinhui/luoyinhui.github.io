@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="summary of fragmentary knowledge"/>
+        <meta property="og:title" content="ctf writeup"/>
     
 
     <!--Open Graph Description-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>summary of fragmentary knowledge - 落殷回的博客</title>
+    <title>ctf writeup - 落殷回的博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -168,13 +168,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>summary of fragmentary knowledge</h1>
+                    <h1>ctf writeup</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2025-08-16
+                            2025-08-09
                         
                     </span>
                 </div>
@@ -195,7 +195,7 @@
                         
 
 
-<a href="/tags/存档/">#存档</a>
+<a href="/tags/ctf/">#ctf</a>
 
 
                     
@@ -210,33 +210,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>[toc]<br>#零碎知识点<br>##1. HTTP请求包（浏览器信息）<br>##2. 报错解决：error: externally-managed-environment<br>##3. 报错解决：E：invalid opertion install</p>
-<p>#零碎知识点<br>##1. HTTP请求包（浏览器信息）<br>我们先看看Request包的结构, Request包分为3部分，第一部分叫Request line（请求行）, 第二部分叫Request header（请求头）,第三部分是body（主体）。header和body之间有个空行，请求包的例子所示:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET//请求行: 请求方法 请求URL HTTP协议/协议版本</span><br><span class="line">Host：//服务端的主机名</span><br><span class="line">User-Agent：//浏览器信息</span><br><span class="line">Accept：//客户端能接收的MIME</span><br><span class="line">Accept-Encoding：//是否支持流压缩</span><br><span class="line">Accept-Charset：//客户端字符编码集</span><br><span class="line">//空行,用于分割请求头和消息体</span><br><span class="line">//消息体,请求资源参数,例如POST传递的参数</span><br></pre></td></tr></table></figure>
-<p>HTTP协议定义了很多与服务器交互的请求方法，最基本的有4种，分别是GET,POST,PUT,DELETE。一个URL地址用于描述一个网络上的资源，而HTTP中的GET, POST, PUT, DELETE就对应着对这个资源的查，增，改，删4个操作。我们最常见的就是GET和POST了。GET一般用于获取&#x2F;查询资源信息，而POST一般用于更新资源信息。</p>
-<p>GET和POST的区别:</p>
-<blockquote>
-<ol>
-<li>我们可以看到GET请求消息体为空，POST请求带有消息体。</li>
-<li>GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&amp;相连，如EditPosts.aspx?name&#x3D;test1&amp;id&#x3D;123456。POST方法是把提交的数据放在HTTP包的body中。</li>
-<li>GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制。</li>
-<li>GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码</li>
-</ol>
-</blockquote>
-<p>HTTP响应包（服务器信息）<br>我们再来看看HTTP的response包，他的结构如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK						//状态行</span><br><span class="line">Server: nginx/1.0.8					//服务器使用的WEB软件名及版本</span><br><span class="line">Date:Date: Tue, 30 Oct 2012 04:14:25 GMT		//发送时间</span><br><span class="line">Content-Type: text/html				//服务器发送信息的类型</span><br><span class="line">Transfer-Encoding: chunked			//表示发送HTTP包是分段发的</span><br><span class="line">Connection: keep-alive				//保持连接状态</span><br><span class="line">Content-Length: 90					//主体内容长度</span><br><span class="line">//空行 用来分割消息头和主体</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;... //消息体</span><br></pre></td></tr></table></figure>
-<p>Response包中的第一行叫做状态行，由HTTP协议版本号， 状态码， 状态消息 三部分组成。<br>状态码用来告诉HTTP客户端,HTTP服务器是否产生了预期的Response。<br>HTTP&#x2F;1.1协议中定义了5类状态码， 状态码由三位数字组成，第一个数字定义了响应的类别</p>
-<blockquote>
-<p>1XX 提示信息 - 表示请求已被成功接收，继续处理<br>2XX 成功 - 表示请求已被成功接收，理解，接受<br>3XX 重定向 - 要完成请求必须进行更进一步的处理<br>4XX 客户端错误 - 请求有语法错误或请求无法实现<br>5XX 服务器端错误 - 服务器未能实现合法的请求<br>————————————————<br>版权声明：本文为CSDN博主「hespecial」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_50376770/article/details/132438222">https://blog.csdn.net/m0_50376770/article/details/132438222</a></p>
-</blockquote>
-<p>##2. 报错解决：error: externally-managed-environment<br>方法1：安装venv虚拟环境（网上推荐但失败）<br>方法2：安装pipx，成功但使用不便<br>方法3：强行避免报错<br>具体：<br>原来安装代码：pip install 对象名<br>现在安装代码：pip install –break-system-packages 对象名</p>
-<p>##3. 报错解决：E：invalid opertion install<br>更换源代码：<br>sudo add-apt-repository main<br>sudo add-apt-repository universe<br>sudo add-apt-repository restricted<br>sudo add-apt-repository multiverse<br>sudo apt-get update</p>
-<p>##4. 常用命令：【kali】进入退出root命令<br>设置root密码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
-<p>进入root：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-<p>退出root：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su 用户名</span><br></pre></td></tr></table></figure>
+                <p>2025-08-09<br>题目类型：misc<br>题目来源：spc学长sq<br>解决步骤：<br>1 虚拟机VMware + kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码<br>2 图片编辑补齐三角<br>3 扫码获得文本，使用社会主义核心价值观编码解开获得flag<br>反思：<br>难点主要只是工具配置和方向，所以还是要多问（笑）</p>
 
 
                 
