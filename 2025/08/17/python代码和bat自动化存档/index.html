@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="实现进制与字符串转换的python代码和bat自动化"/>
+        <meta property="og:title" content="python代码和bat自动化存档"/>
     
 
     <!--Open Graph Description-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>实现进制与字符串转换的python代码和bat自动化 - 落殷回的博客</title>
+    <title>python代码和bat自动化存档 - 落殷回的博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -168,7 +168,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>实现进制与字符串转换的python代码和bat自动化</h1>
+                    <h1>python代码和bat自动化存档</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -211,12 +211,14 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ol>
-<li><p>bat文件<br>@echo off<br>python “python文件绝对路径\文件名.py” &amp; pause<br>注意：另存为时编码保存为ANSI，防止乱码</p>
+<li><p>bat文件<br>@echo off<br>python “python文件绝对路径\文件名.py” &amp; pause<br>注意：<br>1）另存为时编码保存为ANSI，防止乱码<br>2）引号必须是英文引号</p>
 </li>
-<li><p>python代码</p>
+<li><p>实现进制与字符串转换的python代码</p>
 </li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">astart = input(&#x27;输入待处理数字或字符串：&#x27;)</span><br><span class="line">#a = int(astart)</span><br><span class="line">bs = input(&#x27;输入选择：1=数字2=字符串&#x27;)</span><br><span class="line">b = int(bs)</span><br><span class="line">if b == 1:</span><br><span class="line">    c = int(input(&#x27;数字是1=二进制2=十进制3=十六进制4=八进制&#x27;))</span><br><span class="line">    if  c == 1:</span><br><span class="line">        a10 = int(astart,2)</span><br><span class="line">        print(&#x27;转为十进制为：&#x27;,a10,&#x27;\n转为八进制0o为：&#x27;,oct(a10),&#x27;\n转为十六进制0xc为：&#x27;,hex(a10))</span><br><span class="line">    elif c == 2:</span><br><span class="line">        a = int(astart)</span><br><span class="line">        a10 = a</span><br><span class="line">        print(&#x27;转为二进制0b为：&#x27;,bin(a),&#x27;\n转为八进制0o为：&#x27;,oct(a),&#x27;\n转为十六进制0xc为：&#x27;,hex(a))</span><br><span class="line">    elif c == 3:</span><br><span class="line">        a10 = int(astart,16)</span><br><span class="line">        print(&#x27;转为十进制为：&#x27;,a10,&#x27;\n转为八进制0o为：&#x27;,oct(a10),&#x27;\n转为十六进制0xc为：&#x27;,hex(a10))</span><br><span class="line">    elif c == 4:</span><br><span class="line">        a10 = int(astart,8)</span><br><span class="line">        print(&#x27;转为十进制为：&#x27;,a10,&#x27;\n转为八进制0o为：&#x27;,oct(a10),&#x27;\n转为十六进制0xc为：&#x27;,hex(a10))</span><br><span class="line">    by = a10.to_bytes((a10.bit_length() + 7) // 8, &#x27;big&#x27;)   # 大端</span><br><span class="line">    print(&#x27;转为字符串为：&#x27;,by)</span><br><span class="line">elif b == 2:</span><br><span class="line">    a2 = astart.encode(&#x27;utf-8&#x27;)</span><br><span class="line">    a2_10 = int.from_bytes(a2,&#x27;big&#x27;)</span><br><span class="line">    print(&#x27;转为二进制0b为：&#x27;,bin(a2_10),&#x27;\n转为八进制0o为：&#x27;,oct(a2_10),&#x27;\n转为十六进制0xc为：&#x27;,hex(a2_10),&#x27;\n转为十进制为：&#x27;,a2_10)</span><br></pre></td></tr></table></figure>
+
+
 
                 
             </div>
