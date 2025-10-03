@@ -1,0 +1,12 @@
+18930614574_db_user
+keUryPprSLeXHrKs
+
+mongodb+srv://18930614574_db_user:keUryPprSLeXHrKs@cluster0.wspq7eg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+message": "bad auth : Authentication failed."
+
+
+mongodb+srv://18930614574_db_user:keUryPprSLeXHrKs@cluster0.wspq7eg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+envId
+https://twikoo-vercel01.vercel.app/
