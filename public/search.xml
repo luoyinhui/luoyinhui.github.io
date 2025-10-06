@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>扩展欧几里得算法</title>
+      <link href="/2025/10/06/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
+      <url>/2025/10/06/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>知识递进：</p><ol><li>同余符号：a &#x3D; b % c ; b ≡ a mod c → <strong>a % c &#x3D; b % c</strong><br>rsa中应用：c &#x3D; m ^ e % n ；m ^ e ≡ c mod n</li><li>gcd(a,b)<br>基础算法：for i in range(0,min(a,b)):<br>         if a % i &#x3D;&#x3D; 0 | b % i &#x3D;&#x3D; 0:<br>             return i</li><li>欧几里得算法又称辗转相除法，是指用于计算两个正整数a，b的最大公约数。<br>[此时mod等同于%] gcd(a,b) &#x3D; gcd(b,a mod b)<br>原理：两个整数的最大公约数等于其中较小的数和两数相除余数的最大公约数。<br>算法：<br>求gcd(a,b)[假设a&gt;b]：<br>a ÷ b &#x3D; c mod d<br>b ÷ d &#x3D; e mod f<br>d ÷ f &#x3D; g mod h<br>if h &#x3D;&#x3D; 0 → f &#x3D; gcd(a,b)</li><li>证明：gcd(a,b) &#x3D; gcd(b,a mod b) (不妨设a＞b 且r&#x3D;a mod b ,r不为0)</li></ol><ul><li>法一：公约数是最大公约数的因子，得到d &#x3D; e<br><img src="/images%5C3-5.png"></li><li>法二(感觉网上这个有点错误，改了下)<br>假设c &#x3D; gcd(a,b),则存在m,n，使a &#x3D; mc, b &#x3D; nc;<br>令r &#x3D; a mod b，即存在k，a &#x3D; kb+r, 使r &#x3D; a-kb &#x3D; mc - knc &#x3D; (m-kn)c;<br>故gcd(b,a mod b) &#x3D; gcd(b,r) &#x3D; gcd(nc,(m-kn)c) &#x3D; gcd(n,m-kn)c;<br>则c为b与a mod b的公约数;<br>假设d &#x3D; gcd(n,m-kn), 则存在x,y, 使n &#x3D; xd, m-kn &#x3D; yd; 故m &#x3D; yd+kn &#x3D; yd+kxd &#x3D; (y+kx)d;<br>故有a &#x3D; mc &#x3D; (y+kx)dc, b &#x3D; nc &#x3D; xdc; 可得 gcd(a,b) &#x3D; gcd((y+kx)dc,xdc) &gt;&#x3D; dc;<br>由于gcd(a,b) &#x3D; c, 【故 c &gt;&#x3D; dc, d &lt;&#x3D; 1 ,又d &#x3D; gcd(n,m-kn)，所以d &gt;&#x3D; 1, 】[^1]综上：d &#x3D; 1;<br>即gcd(n,m-kn) &#x3D; 1, 故可得gcd(b,a mod b) &#x3D; c;<br>故得证gcd(a,b) &#x3D; gcd(b,a mod b).</li></ul><p><a href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/1647675">原解法来源</a></p><p>[^1]自己删改部分</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> crypto </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SPC新生讲座题目</title>
       <link href="/2025/10/06/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE/"/>
       <url>/2025/10/06/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE/</url>
@@ -143,7 +164,7 @@
       <link href="/2025/08/16/ctf-%E7%A2%8E%E7%89%87%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/"/>
       <url>/2025/08/16/ctf-%E7%A2%8E%E7%89%87%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<p>[toc]<br>#零碎知识点<br>##1. HTTP请求包（浏览器信息）<br>##2. 报错解决：error: externally-managed-environment<br>##3. 报错解决：E：invalid opertion install<br>##4. 常用命令：【kali】进入退出root命令</p><p>#零碎知识点<br>##1. HTTP请求包（浏览器信息）<br>我们先看看Request包的结构, Request包分为3部分，第一部分叫Request line（请求行）, 第二部分叫Request header（请求头）,第三部分是body（主体）。header和body之间有个空行，请求包的例子所示:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GET//请求行: 请求方法 请求URL HTTP协议/协议版本</span><br><span class="line">Host：//服务端的主机名</span><br><span class="line">User-Agent：//浏览器信息</span><br><span class="line">Accept：//客户端能接收的MIME</span><br><span class="line">Accept-Encoding：//是否支持流压缩</span><br><span class="line">Accept-Charset：//客户端字符编码集</span><br><span class="line">//空行,用于分割请求头和消息体</span><br><span class="line">//消息体,请求资源参数,例如POST传递的参数</span><br></pre></td></tr></table></figure><p>HTTP协议定义了很多与服务器交互的请求方法，最基本的有4种，分别是GET,POST,PUT,DELETE。一个URL地址用于描述一个网络上的资源，而HTTP中的GET, POST, PUT, DELETE就对应着对这个资源的查，增，改，删4个操作。我们最常见的就是GET和POST了。GET一般用于获取&#x2F;查询资源信息，而POST一般用于更新资源信息。</p><p>GET和POST的区别:</p><blockquote><ol><li>我们可以看到GET请求消息体为空，POST请求带有消息体。</li><li>GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&amp;相连，如EditPosts.aspx?name&#x3D;test1&amp;id&#x3D;123456。POST方法是把提交的数据放在HTTP包的body中。</li><li>GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制。</li><li>GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码</li></ol></blockquote><p>HTTP响应包（服务器信息）<br>我们再来看看HTTP的response包，他的结构如下：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTTP/1.1 200 OK//状态行</span><br><span class="line">Server: nginx/1.0.8//服务器使用的WEB软件名及版本</span><br><span class="line">Date:Date: Tue, 30 Oct 2012 04:14:25 GMT//发送时间</span><br><span class="line">Content-Type: text/html//服务器发送信息的类型</span><br><span class="line">Transfer-Encoding: chunked//表示发送HTTP包是分段发的</span><br><span class="line">Connection: keep-alive//保持连接状态</span><br><span class="line">Content-Length: 90//主体内容长度</span><br><span class="line">//空行 用来分割消息头和主体</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;... //消息体</span><br></pre></td></tr></table></figure><p>Response包中的第一行叫做状态行，由HTTP协议版本号， 状态码， 状态消息 三部分组成。<br>状态码用来告诉HTTP客户端,HTTP服务器是否产生了预期的Response。<br>HTTP&#x2F;1.1协议中定义了5类状态码， 状态码由三位数字组成，第一个数字定义了响应的类别</p><blockquote><p>1XX 提示信息 - 表示请求已被成功接收，继续处理<br>2XX 成功 - 表示请求已被成功接收，理解，接受<br>3XX 重定向 - 要完成请求必须进行更进一步的处理<br>4XX 客户端错误 - 请求有语法错误或请求无法实现<br>5XX 服务器端错误 - 服务器未能实现合法的请求<br>————————————————<br>版权声明：本文为CSDN博主「hespecial」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/m0_50376770/article/details/132438222">https://blog.csdn.net/m0_50376770/article/details/132438222</a></p></blockquote><p>##2. 报错解决：error: externally-managed-environment<br>方法1：安装venv虚拟环境（网上推荐但失败）<br>方法2：安装pipx，成功但使用不便<br>方法3：强行避免报错<br>具体：<br>原来安装代码：pip install 对象名<br>现在安装代码：pip install –break-system-packages 对象名</p><p>##3. 报错解决：E：invalid opertion install<br>更换源代码：<br>sudo add-apt-repository main<br>sudo add-apt-repository universe<br>sudo add-apt-repository restricted<br>sudo add-apt-repository multiverse<br>sudo apt-get update</p><p>##4. 常用命令：【kali】进入退出root命令<br>设置root密码：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure><p>进入root：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure><p>退出root：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su 用户名</span><br></pre></td></tr></table></figure><p>##5. 零宽隐写<br><a href="https://tool.bfw.wiki/tool/1695021695027599.html">https://tool.bfw.wiki/tool/1695021695027599.html</a><br>注意：用ctrl+A复制</p>]]></content>
+        <content type="html"><![CDATA[<ul><li><a href="#%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9">零碎知识点</a><ul><li><a href="#1-http%E8%AF%B7%E6%B1%82%E5%8C%85%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BF%A1%E6%81%AF">1. HTTP请求包（浏览器信息）</a></li><li><a href="#2-%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3error-externally-managed-environment">2. 报错解决：error: externally-managed-environment</a></li><li><a href="#3-%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3einvalid-opertion-install">3. 报错解决：E：invalid opertion install</a></li><li><a href="#4-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4kali%E8%BF%9B%E5%85%A5%E9%80%80%E5%87%BAroot%E5%91%BD%E4%BB%A4">4. 常用命令：【kali】进入退出root命令</a></li><li><a href="#5-%E9%9B%B6%E5%AE%BD%E9%9A%90%E5%86%99">5. 零宽隐写</a></li></ul></li></ul><h1 id="零碎知识点"><a href="#零碎知识点" class="headerlink" title="零碎知识点"></a>零碎知识点</h1><h2 id="1-HTTP请求包（浏览器信息）"><a href="#1-HTTP请求包（浏览器信息）" class="headerlink" title="1. HTTP请求包（浏览器信息）"></a>1. HTTP请求包（浏览器信息）</h2><p>我们先看看Request包的结构, Request包分为3部分，第一部分叫Request line（请求行）, 第二部分叫Request header（请求头）,第三部分是body（主体）。header和body之间有个空行，请求包的例子所示:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GET//请求行: 请求方法 请求URL HTTP协议/协议版本</span><br><span class="line">Host：//服务端的主机名</span><br><span class="line">User-Agent：//浏览器信息</span><br><span class="line">Accept：//客户端能接收的MIME</span><br><span class="line">Accept-Encoding：//是否支持流压缩</span><br><span class="line">Accept-Charset：//客户端字符编码集</span><br><span class="line">//空行,用于分割请求头和消息体</span><br><span class="line">//消息体,请求资源参数,例如POST传递的参数</span><br></pre></td></tr></table></figure><p>HTTP协议定义了很多与服务器交互的请求方法，最基本的有4种，分别是GET,POST,PUT,DELETE。一个URL地址用于描述一个网络上的资源，而HTTP中的GET, POST, PUT, DELETE就对应着对这个资源的查，增，改，删4个操作。我们最常见的就是GET和POST了。GET一般用于获取&#x2F;查询资源信息，而POST一般用于更新资源信息。</p><p>GET和POST的区别:</p><blockquote><ol><li>我们可以看到GET请求消息体为空，POST请求带有消息体。</li><li>GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&amp;相连，如EditPosts.aspx?name&#x3D;test1&amp;id&#x3D;123456。POST方法是把提交的数据放在HTTP包的body中。</li><li>GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制。</li><li>GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码</li></ol></blockquote><p>HTTP响应包（服务器信息）<br>我们再来看看HTTP的response包，他的结构如下：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTTP/1.1 200 OK//状态行</span><br><span class="line">Server: nginx/1.0.8//服务器使用的WEB软件名及版本</span><br><span class="line">Date:Date: Tue, 30 Oct 2012 04:14:25 GMT//发送时间</span><br><span class="line">Content-Type: text/html//服务器发送信息的类型</span><br><span class="line">Transfer-Encoding: chunked//表示发送HTTP包是分段发的</span><br><span class="line">Connection: keep-alive//保持连接状态</span><br><span class="line">Content-Length: 90//主体内容长度</span><br><span class="line">//空行 用来分割消息头和主体</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;... //消息体</span><br></pre></td></tr></table></figure><p>Response包中的第一行叫做状态行，由HTTP协议版本号， 状态码， 状态消息 三部分组成。<br>状态码用来告诉HTTP客户端,HTTP服务器是否产生了预期的Response。<br>HTTP&#x2F;1.1协议中定义了5类状态码， 状态码由三位数字组成，第一个数字定义了响应的类别</p><blockquote><p>1XX 提示信息 - 表示请求已被成功接收，继续处理<br>2XX 成功 - 表示请求已被成功接收，理解，接受<br>3XX 重定向 - 要完成请求必须进行更进一步的处理<br>4XX 客户端错误 - 请求有语法错误或请求无法实现<br>5XX 服务器端错误 - 服务器未能实现合法的请求<br>————————————————<br>版权声明：本文为CSDN博主「hespecial」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/m0_50376770/article/details/132438222">https://blog.csdn.net/m0_50376770/article/details/132438222</a></p></blockquote><h2 id="2-报错解决：error-externally-managed-environment"><a href="#2-报错解决：error-externally-managed-environment" class="headerlink" title="2. 报错解决：error: externally-managed-environment"></a>2. 报错解决：error: externally-managed-environment</h2><p>方法1：安装venv虚拟环境（网上推荐但失败）<br>方法2：安装pipx，成功但使用不便<br>方法3：强行避免报错<br>具体：<br>原来安装代码：pip install 对象名<br>现在安装代码：pip install –break-system-packages 对象名</p><h2 id="3-报错解决：E：invalid-opertion-install"><a href="#3-报错解决：E：invalid-opertion-install" class="headerlink" title="3. 报错解决：E：invalid opertion install"></a>3. 报错解决：E：invalid opertion install</h2><p>更换源代码：<br>sudo add-apt-repository main<br>sudo add-apt-repository universe<br>sudo add-apt-repository restricted<br>sudo add-apt-repository multiverse<br>sudo apt-get update</p><h2 id="4-常用命令：【kali】进入退出root命令"><a href="#4-常用命令：【kali】进入退出root命令" class="headerlink" title="4. 常用命令：【kali】进入退出root命令"></a>4. 常用命令：【kali】进入退出root命令</h2><p>设置root密码：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure><p>进入root：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure><p>退出root：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su 用户名</span><br></pre></td></tr></table></figure><h2 id="5-零宽隐写"><a href="#5-零宽隐写" class="headerlink" title="5. 零宽隐写"></a>5. 零宽隐写</h2><p><a href="https://tool.bfw.wiki/tool/1695021695027599.html">https://tool.bfw.wiki/tool/1695021695027599.html</a><br>注意：用ctrl+A复制</p>]]></content>
       
       
       
@@ -175,7 +196,7 @@
       <link href="/2025/08/13/misc-%E7%AC%94%E8%AE%B0/"/>
       <url>/2025/08/13/misc-%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<p>目录：</p><ul><li><a href="#sstv">sstv</a></li></ul><h2 id="sstv"><a href="#sstv" class="headerlink" title="sstv"></a>sstv</h2><ol><li>下载方法：pip install sstv<br>使用方法：<br>wav音频文件放到sstv根目录（C:\Windows\System32\sstv），打开cmd，输入</li></ol><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd sstv</span><br><span class="line">sstv -d 文件名.wav -o result.png#输出图片名</span><br><span class="line"></span><br></pre></td></tr></table></figure><ol start="2"><li>RX-SSTV解码软件<br>下载地址：<a href="https://www.qsl.net/on6mu/rxsstv.htm">https://www.qsl.net/on6mu/rxsstv.htm</a><br>虚拟声卡e2eSoft<br>由于SSTV工具是根据音频传递图片信息，正常解法需要一台设备播放一台设备收音，所以需要一个虚拟声卡，还能避免杂音的干扰。<br>下载地址：<a href="https://www.e2esoft.cn/vsc/">https://www.e2esoft.cn/vsc/</a><br><img src="/images/sstv.jpeg"></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>目录：</p><ul><li><a href="#sstv">sstv</a></li></ul><h2 id="sstv"><a href="#sstv" class="headerlink" title="sstv"></a>sstv</h2><ol><li>下载方法：pip install sstv<br>使用方法：<br>wav音频文件放到sstv根目录（C:\Windows\System32\sstv），打开cmd，输入</li></ol><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> sstv</span><br><span class="line">sstv -d 文件名.wav -o result.png#输出图片名</span><br><span class="line"></span><br></pre></td></tr></table></figure><ol start="2"><li>RX-SSTV解码软件<br>下载地址：<a href="https://www.qsl.net/on6mu/rxsstv.htm">https://www.qsl.net/on6mu/rxsstv.htm</a><br>虚拟声卡e2eSoft<br>由于SSTV工具是根据音频传递图片信息，正常解法需要一台设备播放一台设备收音，所以需要一个虚拟声卡，还能避免杂音的干扰。<br>下载地址：<a href="https://www.e2esoft.cn/vsc/">https://www.e2esoft.cn/vsc/</a><br><img src="/images/sstv.jpeg"></li></ol>]]></content>
       
       
       
@@ -223,11 +244,11 @@
       
         <tags>
             
+            <tag> ctf </tag>
+            
             <tag> LSB </tag>
             
             <tag> 图片隐写 </tag>
-            
-            <tag> ctf </tag>
             
         </tags>
       
@@ -260,8 +281,8 @@
     
     <entry>
       <title>ctf writeup</title>
-      <link href="/2025/08/09/ctf-writeup/"/>
-      <url>/2025/08/09/ctf-writeup/</url>
+      <link href="/2025/08/09/ctf-%E9%9B%B6%E6%95%A3writeup/"/>
+      <url>/2025/08/09/ctf-%E9%9B%B6%E6%95%A3writeup/</url>
       
         <content type="html"><![CDATA[<p>2025-08-09<br>题目类型：misc<br>题目来源：spc学长sq<br>解决步骤：<br>1 虚拟机VMware + kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码<br>2 图片编辑补齐三角<br>3 扫码获得文本，使用社会主义核心价值观编码解开获得flag<br>反思：<br>难点主要只是工具配置和方向，所以还是要多问（笑）</p>]]></content>
       
@@ -305,17 +326,6 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -332,6 +342,17 @@
       <url>/try/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" href="/comments/comments.css"><div class="container">    <!-- 这里粘贴上面的HTML内容 -->    <!DOCTYPE html><html lang="zh-CN"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>留言板 - 弹幕互动</title>    <link rel="stylesheet" href="comments.css"></head><body>    <div class="container">        <div class="header">            <h1>💬 留言板 & 弹幕互动</h1>            <p>留下您的想法，参与实时弹幕互动</p>        </div>        <pre><code>    &lt;div class=&quot;content&quot;&gt;        &lt;!-- 留言板区域 --&gt;        &lt;div class=&quot;comments-section&quot;&gt;            &lt;div class=&quot;comment-form&quot;&gt;                &lt;h3&gt;发表留言&lt;/h3&gt;                &lt;form id=&quot;commentForm&quot;&gt;                    &lt;div class=&quot;form-group&quot;&gt;                        &lt;label for=&quot;name&quot;&gt;昵称&lt;/label&gt;                        &lt;input type=&quot;text&quot; id=&quot;name&quot; placeholder=&quot;请输入您的昵称&quot; required&gt;                    &lt;/div&gt;                    &lt;div class=&quot;form-group&quot;&gt;                        &lt;label for=&quot;email&quot;&gt;邮箱&lt;/label&gt;                        &lt;input type=&quot;email&quot; id=&quot;email&quot; placeholder=&quot;请输入您的邮箱&quot;&gt;                    &lt;/div&gt;                    &lt;div class=&quot;form-group&quot;&gt;                        &lt;label for=&quot;message&quot;&gt;留言内容&lt;/label&gt;                        &lt;textarea id=&quot;message&quot; rows=&quot;4&quot; placeholder=&quot;请输入您的留言...&quot; required&gt;&lt;/textarea&gt;                    &lt;/div&gt;                    &lt;button type=&quot;submit&quot; class=&quot;submit-btn&quot;&gt;发布留言&lt;/button&gt;                &lt;/form&gt;            &lt;/div&gt;                        &lt;div class=&quot;comments-list&quot; id=&quot;commentsList&quot;&gt;                &lt;!-- 留言列表将通过 JavaScript 动态生成 --&gt;            &lt;/div&gt;        &lt;/div&gt;                &lt;!-- 弹幕区域 --&gt;        &lt;div class=&quot;danmaku-section&quot;&gt;            &lt;canvas id=&quot;danmakuCanvas&quot;&gt;&lt;/canvas&gt;            &lt;div class=&quot;danmaku-controls&quot;&gt;                &lt;div class=&quot;danmaku-input&quot;&gt;                    &lt;input type=&quot;text&quot; id=&quot;danmakuInput&quot; placeholder=&quot;输入弹幕内容...&quot; maxlength=&quot;30&quot;&gt;                    &lt;button class=&quot;danmaku-send&quot; onclick=&quot;sendDanmaku()&quot;&gt;发射&lt;/button&gt;                &lt;/div&gt;            &lt;/div&gt;        &lt;/div&gt;    &lt;/div&gt;&lt;/div&gt;&lt;script src=&quot;comments.js&quot;&gt;&lt;/script&gt;</code></pre></body></html></div><script src="/comments/comments.js"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
