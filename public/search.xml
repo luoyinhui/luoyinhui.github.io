@@ -389,22 +389,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/html/try.html"/>
-      <url>/html/try.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<!DOCTYPE html><html lang="zh-CN"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>留言板 - 弹幕互动</title>    <link rel="stylesheet" href="comments.css"></head><body>    <div class="container">        <div class="header">            <h1>💬 留言板 & 弹幕互动</h1>            <p>留下您的想法，参与实时弹幕互动</p>        </div>                <div class="content">            <!-- 留言板区域 -->            <div class="comments-section">                <div class="comment-form">                    <h3>发表留言</h3>                    <form id="commentForm">                        <div class="form-group">                            <label for="name">昵称</label>                            <input type="text" id="name" placeholder="请输入您的昵称" required>                        </div>                        <div class="form-group">                            <label for="email">邮箱</label>                            <input type="email" id="email" placeholder="请输入您的邮箱">                        </div>                        <div class="form-group">                            <label for="message">留言内容</label>                            <textarea id="message" rows="4" placeholder="请输入您的留言..." required></textarea>                        </div>                        <button type="submit" class="submit-btn">发布留言</button>                    </form>                </div>                                <div class="comments-list" id="commentsList">                    <!-- 留言列表将通过 JavaScript 动态生成 -->                </div>            </div>                        <!-- 弹幕区域 -->            <div class="danmaku-section">                <canvas id="danmakuCanvas"></canvas>                <div class="danmaku-controls">                    <div class="danmaku-input">                        <input type="text" id="danmakuInput" placeholder="输入弹幕内容..." maxlength="30">                        <button class="danmaku-send" onclick="sendDanmaku()">发射</button>                    </div>                </div>            </div>        </div>    </div>    <script src="comments.js"></script></body></html>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title></title>
+      <link href="/html/try.html"/>
+      <url>/html/try.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<!DOCTYPE html><html lang="zh-CN"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>留言板 - 弹幕互动</title>    <link rel="stylesheet" href="comments.css"></head><body>    <div class="container">        <div class="header">            <h1>💬 留言板 & 弹幕互动</h1>            <p>留下您的想法，参与实时弹幕互动</p>        </div>                <div class="content">            <!-- 留言板区域 -->            <div class="comments-section">                <div class="comment-form">                    <h3>发表留言</h3>                    <form id="commentForm">                        <div class="form-group">                            <label for="name">昵称</label>                            <input type="text" id="name" placeholder="请输入您的昵称" required>                        </div>                        <div class="form-group">                            <label for="email">邮箱</label>                            <input type="email" id="email" placeholder="请输入您的邮箱">                        </div>                        <div class="form-group">                            <label for="message">留言内容</label>                            <textarea id="message" rows="4" placeholder="请输入您的留言..." required></textarea>                        </div>                        <button type="submit" class="submit-btn">发布留言</button>                    </form>                </div>                                <div class="comments-list" id="commentsList">                    <!-- 留言列表将通过 JavaScript 动态生成 -->                </div>            </div>                        <!-- 弹幕区域 -->            <div class="danmaku-section">                <canvas id="danmakuCanvas"></canvas>                <div class="danmaku-controls">                    <div class="danmaku-input">                        <input type="text" id="danmakuInput" placeholder="输入弹幕内容..." maxlength="30">                        <button class="danmaku-send" onclick="sendDanmaku()">发射</button>                    </div>                </div>            </div>        </div>    </div>    <script src="comments.js"></script></body></html>]]></content>
       
     </entry>
     
