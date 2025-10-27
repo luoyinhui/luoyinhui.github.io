@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
   const animateElements = show => {
     const action = show ? 'animateIn' : 'animateOut'
     const maskAnimation = show ? 'to_show 0.5s' : 'to_hide 0.5s'
-    const dialogAnimation = show ? 'titleScale 0.5s' : 'search_close .5s'
+    const dialogAnimation = show ? 'searchDialogScale 0.5s' : 'searchDialogClose .5s'
     btf[action]($searchMask, maskAnimation)
     btf[action]($searchDialog, dialogAnimation)
   }
@@ -273,7 +273,23 @@ window.addEventListener('load', () => {
 
     const hitsHTML = hits.map((hit, index) => {
       const itemNumber = page * hitsPerPage + index + 1
-      const link = hit.permalink || (GLOBAL_CONFIG.root + hit.path)
+      // Build a robust link:
+      // 1) Prefer relative path if available (works for local preview and production)
+      // 2) If path is missing, derive pathname from absolute permalink
+      // 3) Fallback to '#'
+      let link = '#'
+      try {
+        if (hit && typeof hit.path === 'string' && hit.path.trim()) {
+          link = GLOBAL_CONFIG.root + hit.path
+        } else if (hit && typeof hit.permalink === 'string' && hit.permalink.trim()) {
+          const urlObj = new URL(hit.permalink, location.origin)
+          const pathname = urlObj.pathname || '/'
+          const cleaned = pathname.replace(/^\//, '')
+          link = GLOBAL_CONFIG.root + cleaned
+        }
+      } catch (e) {
+        // keep link as '#'
+      }
       const result = hit._highlightResult || hit
 
       // Content extraction

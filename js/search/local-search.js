@@ -492,7 +492,7 @@ window.addEventListener('load', () => {
   const openSearch = () => {
     btf.overflowPaddingR.add()
     btf.animateIn($searchMask, 'to_show 0.5s')
-    btf.animateIn($searchDialog, 'titleScale 0.5s')
+    btf.animateIn($searchDialog, 'searchDialogScale 0.5s')
     setTimeout(() => { input.focus() }, 300)
     if (!loadFlag) {
       !localSearch.isfetched && localSearch.fetchData()
@@ -513,7 +513,7 @@ window.addEventListener('load', () => {
 
   const closeSearch = () => {
     btf.overflowPaddingR.remove()
-    btf.animateOut($searchDialog, 'search_close .5s')
+    btf.animateOut($searchDialog, 'searchDialogClose .5s')
     btf.animateOut($searchMask, 'to_hide 0.5s')
     window.removeEventListener('resize', fixSafariHeight)
   }
