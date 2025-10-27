@@ -8,6 +8,8 @@ window.addEventListener('load', () => {
 
   const $searchMask = document.getElementById('search-mask')
   const $searchDialog = document.querySelector('#algolia-search .search-dialog')
+  const ownerName = 'algolia'
+  let isOpening = false
 
   const animateElements = show => {
     const action = show ? 'animateIn' : 'animateOut'
@@ -24,6 +26,10 @@ window.addEventListener('load', () => {
   }
 
   const openSearch = () => {
+    // Guard against immediate close due to accidental mask click
+    isOpening = true
+    // 标记遮罩归属，避免被其他搜索模块的遮罩点击监听误关掉
+    if ($searchMask) $searchMask.dataset.searchOwner = ownerName
     btf.overflowPaddingR.add()
     animateElements(true)
     showLoading(false)
@@ -43,20 +49,34 @@ window.addEventListener('load', () => {
     document.addEventListener('keydown', handleEscape)
     fixSafariHeight()
     window.addEventListener('resize', fixSafariHeight)
+
+    // release opening guard after animation starts
+    setTimeout(() => { isOpening = false }, 300)
   }
 
   const closeSearch = () => {
-    btf.overflowPaddingR.remove()
-    animateElements(false)
+    if (isOpening) return
+    // 仅关闭本弹窗；遮罩只在归属为当前模块时才隐藏
+    if ($searchDialog) btf.animateOut($searchDialog, 'searchDialogClose .5s')
+    if ($searchMask && $searchMask.dataset.searchOwner === ownerName) {
+      btf.overflowPaddingR.remove()
+      btf.animateOut($searchMask, 'to_hide 0.5s')
+      delete $searchMask.dataset.searchOwner
+    }
     window.removeEventListener('resize', fixSafariHeight)
   }
 
   const searchClickFn = () => {
-    btf.addEventListenerPjax(document.querySelector('#search-button > .search'), 'click', openSearch)
+    const btn = document.querySelector('#search-button > .search')
+    if (btn) btf.addEventListenerPjax(btn, 'click', e => { e.stopPropagation(); openSearch() })
   }
 
   const searchFnOnce = () => {
-    $searchMask.addEventListener('click', closeSearch)
+    $searchMask.addEventListener('click', () => {
+      // 只有当前模块拥有遮罩时才响应点击关闭
+      if ($searchMask.dataset.searchOwner !== ownerName) return
+      if (!isOpening) closeSearch()
+    })
     document.querySelector('#algolia-search .search-close-button').addEventListener('click', closeSearch)
   }
 
@@ -253,10 +273,23 @@ window.addEventListener('load', () => {
     get stats () { return document.querySelector('#algolia-info .ais-Stats-text') },
   }
 
+  // Remove any injected PoweredBy link/logo from Algolia/InstantSearch/DocSearch
+  const removePoweredBy = () => {
+    try {
+      const nodes = document.querySelectorAll(
+        '#algolia-info .algolia-poweredBy, #algolia-info .ais-PoweredBy, .DocSearch-Footer a[href*="algolia.com"]'
+      )
+      nodes.forEach(node => node.remove())
+    } catch (e) {
+      // noop
+    }
+  }
+
   // Show/hide search results area
   const toggleResultsVisibility = hasResults => {
     elements.pagination.style.display = hasResults ? '' : 'none'
     elements.stats.style.display = hasResults ? '' : 'none'
+    removePoweredBy()
   }
 
   // Render search results
@@ -564,6 +597,7 @@ window.addEventListener('load', () => {
 
     // Initial state
     toggleResultsVisibility(false)
+    removePoweredBy()
   }
 
   // Initialize
@@ -574,5 +608,6 @@ window.addEventListener('load', () => {
   window.addEventListener('pjax:complete', () => {
     if (!btf.isHidden($searchMask)) closeSearch()
     searchClickFn()
+    removePoweredBy()
   })
 })
