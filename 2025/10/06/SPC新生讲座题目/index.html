@@ -1,0 +1,589 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SPC新生讲座题目wp | 落殷回的博客</title><meta name="author" content="luoyinhui"><meta name="copyright" content="luoyinhui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="目录：  鸣谢 曼波曼波曼波 ida使用.exe twoEs1 twoEs2 签个到吧！ xor  第一步 第二步 解密代码   这羽毛球怎么只有一半啊（恼）  【待】   掩码爆破 F12? F12 test word-03 Basic Number theory basic-RSA hackbar super_baby_eval baby_upload baby_eval super_baby">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SPC新生讲座题目wp">
+<meta property="og:url" content="https://luoyinhui.github.io/2025/10/06/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE/index.html">
+<meta property="og:site_name" content="落殷回的博客">
+<meta property="og:description" content="目录：  鸣谢 曼波曼波曼波 ida使用.exe twoEs1 twoEs2 签个到吧！ xor  第一步 第二步 解密代码   这羽毛球怎么只有一半啊（恼）  【待】   掩码爆破 F12? F12 test word-03 Basic Number theory basic-RSA hackbar super_baby_eval baby_upload baby_eval super_baby">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luoyinhui.github.io/img/fenlei.png">
+<meta property="article:published_time" content="2025-10-05T16:43:52.000Z">
+<meta property="article:modified_time" content="2025-10-21T13:45:39.428Z">
+<meta property="article:author" content="luoyinhui">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="spc">
+<meta property="article:tag" content="wp">
+<meta property="article:tag" content="共模攻击">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://luoyinhui.github.io/img/fenlei.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SPC新生讲座题目wp",
+  "url": "https://luoyinhui.github.io/2025/10/06/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE/",
+  "image": "https://luoyinhui.github.io/img/fenlei.png",
+  "datePublished": "2025-10-05T16:43:52.000Z",
+  "dateModified": "2025-10-21T13:45:39.428Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "luoyinhui",
+      "url": "https://luoyinhui.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/zhandian.png"><link rel="canonical" href="https://luoyinhui.github.io/2025/10/06/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"DLCXYNBEA7","apiKey":"55cb2783d393395612712be2263ebaf1","indexName":"index","hitsPerPage":10,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: luoyinhui","link":"链接: ","source":"来源: 落殷回的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SPC新生讲座题目wp',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/fenlei.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">落殷回的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">SPC新生讲座题目wp</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div id="local-search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 本地搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">SPC新生讲座题目wp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-05T16:43:52.000Z" title="发表于 2025-10-06 00:43:52">2025-10-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-21T13:45:39.428Z" title="更新于 2025-10-21 21:45:39">2025-10-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/wp/">wp</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>目录：</p>
+<ul>
+<li><a href="#%E9%B8%A3%E8%B0%A2">鸣谢</a></li>
+<li><a href="#%E6%9B%BC%E6%B3%A2%E6%9B%BC%E6%B3%A2%E6%9B%BC%E6%B3%A2">曼波曼波曼波</a></li>
+<li><a href="#ida%E4%BD%BF%E7%94%A8exe">ida使用.exe</a></li>
+<li><a href="#twoes1">twoEs1</a></li>
+<li><a href="#twoes2">twoEs2</a></li>
+<li><a href="#%E7%AD%BE%E4%B8%AA%E5%88%B0%E5%90%A7">签个到吧！</a></li>
+<li><a href="#xor">xor</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5">第一步</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5">第二步</a></li>
+<li><a href="#%E8%A7%A3%E5%AF%86%E4%BB%A3%E7%A0%81">解密代码</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%99%E7%BE%BD%E6%AF%9B%E7%90%83%E6%80%8E%E4%B9%88%E5%8F%AA%E6%9C%89%E4%B8%80%E5%8D%8A%E5%95%8A%E6%81%BC">这羽毛球怎么只有一半啊（恼）</a>
+<ul>
+<li><a href="#%E5%BE%85">【待】</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8E%A9%E7%A0%81%E7%88%86%E7%A0%B4">掩码爆破</a></li>
+<li><a href="#f12">F12?</a></li>
+<li><a href="#f12-1">F12</a></li>
+<li><a href="#test">test</a></li>
+<li><a href="#word-03">word-03</a></li>
+<li><a href="#basic-number-theory">Basic Number theory</a></li>
+<li><a href="#basic-rsa">basic-RSA</a></li>
+<li><a href="#hackbar">hackbar</a></li>
+<li><a href="#super_baby_eval">super_baby_eval</a></li>
+<li><a href="#baby_upload">baby_upload</a></li>
+<li><a href="#baby_eval">baby_eval</a></li>
+<li><a href="#super_baby_include">super_baby_include</a></li>
+<li><a href="#robots">robots</a></li>
+<li><a href="#%E7%88%86%E7%A0%B4">爆破</a></li>
+</ul>
+<h3 id="鸣谢"><a class="header-anchor" href="#鸣谢">¶</a>鸣谢</h3>
+<ul>
+<li>感谢sq,xc学长和cty学姐的帮助和教导！！！</li>
+<li>除了大头像放后面做其他也是完结了，第一次wp磕磕绊绊做出来了嘻嘻</li>
+</ul>
+<h3 id="曼波曼波曼波"><a class="header-anchor" href="#曼波曼波曼波">¶</a>曼波曼波曼波</h3>
+<ul>
+<li>倒转的base，翻转脚本：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 读取 txt 文件并翻转内容</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_txt_file</span>(<span class="params">input_path, output_path</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(input_path, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">            content = file.read()</span><br><span class="line">        </span><br><span class="line">        reversed_content = content[::-<span class="number">1</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(output_path, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">            file.write(reversed_content)</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;成功！原文件: <span class="subst">&#123;input_path&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;反转文件: <span class="subst">&#123;output_path&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;原内容长度: <span class="subst">&#123;<span class="built_in">len</span>(content)&#125;</span> 字符&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;反转内容长度: <span class="subst">&#123;<span class="built_in">len</span>(reversed_content)&#125;</span> 字符&quot;</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;错误：找不到文件 <span class="subst">&#123;input_path&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;错误：<span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">input_file = <span class="string">r&#x27;E:\app-down\题目工作区\mbmb\smn.txt&#x27;</span></span><br><span class="line">output_file = <span class="string">r&#x27;E:\app-down\题目工作区\reversed_smn.txt&#x27;</span></span><br><span class="line"></span><br><span class="line">reverse_txt_file(input_file, output_file)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>AI：Base64 编码的 ZIP 文件数据，解码后就恢复成原始的 ZIP 二进制文件。</li>
+<li>使用 CyberChef（厨子）：<a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a>
+<ul>
+<li>Input (Base64字符串)</li>
+<li>Drag “From Base64” recipe</li>
+<li>得到二进制数据</li>
+<li>点击右下角下载按钮保存为 .zip 文件</li>
+</ul>
+</li>
+<li>双图盲水印：
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.shuzhiduo.com/A/kjdwEn0wJN/">方法原地址</a></li>
+<li>注意：在文件下打开poweshell</li>
+<li>存档-电脑此工具位置：E:\app-down\双图盲水印\BlindWaterMark-master\BlindWaterMark-master</li>
+</ul>
+</li>
+</ul>
+<h3 id="ida使用-exe"><a class="header-anchor" href="#ida使用-exe">¶</a>ida使用.exe</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Welcome to Reverse Engineering!!!</span><br><span class="line">欢迎来到逆向工程！！！</span><br><span class="line"></span><br><span class="line">Press Enter to find flag1</span><br><span class="line">按 Enter 键查找 flag1</span><br><span class="line"></span><br><span class="line">NSSCTF&#123;</span><br><span class="line">NSSCTF&#123;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Next, I will teach you how to use ida.</span><br><span class="line">接下来，我将教你如何使用 IDA。</span><br><span class="line"></span><br><span class="line">The first step is to open the exe file with ida.</span><br><span class="line">第一步是用 IDA 打开 exe 文件。</span><br><span class="line"></span><br><span class="line">F5 can convert the current interface into pseudo C code</span><br><span class="line">F5 可以将当前界面转换为伪 C 代码</span><br><span class="line"></span><br><span class="line">The shortcut key shfit + F12 is to view strings. We can often find the entry point here.</span><br><span class="line">快捷键 Shift + F12 用于查看字符串。我们经常可以在这里找到入口点。</span><br><span class="line"></span><br><span class="line">You can see flag2 there</span><br><span class="line">你可以在那里看到 flag2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>function页面找main文件，在“You can see flag2 there”处快捷键 Shift + F12 ，找到：IDA_1s_4_VeRy_Impo</li>
+<li>双击后页面按X连接可以看到flag2<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_2-11.png" alt="alt text"></li>
+<li>Tab 键进入伪C代码页面，双击函数可进入详细界面</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The tab key can switch between the assembly and disassembly interfaces, and sometimes disassembly can interfere with our analysis.</span><br><span class="line">Tab 键可以在汇编和反汇编界面之间切换，有时候反汇编会干扰我们的分析。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Tab 键进入汇编页面，观察call类型以及灰色翻译部分<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_2-9.png" alt="alt text"></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">In ida, shift+E can extract data in order of the size of the program</span><br><span class="line">在 IDA 中，Shift+E 可以按程序大小顺序提取数据</span><br><span class="line"></span><br><span class="line">The R key is to convert data into character form</span><br><span class="line">R 键是将数据转换为字符形式</span><br><span class="line"></span><br><span class="line">Try to find flag3</span><br><span class="line">尝试找到 flag3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>看mov，英文猜测important所以是倒序</li>
+<li>断店操作：Debugger-local windows debugger-运行（如果没有窗口window-reset desktop）</li>
+<li>直接双击找shift+E R 导出为string，得到：rTant_t0ol_iN_<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_3-1.png" alt="alt text"></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The left side of ida is the function, and sometimes you can find important information from the function name.</span><br><span class="line">IDA 的左侧是函数列表，有时候你可以从函数名中找到重要信息。</span><br><span class="line"></span><br><span class="line">The patch method can achieve our goal by directly modifying the binary file</span><br><span class="line">打补丁的方法可以通过直接修改二进制文件来实现我们的目标</span><br><span class="line"></span><br><span class="line">FLAG4 NOT HRER</span><br><span class="line">FLAG4 不在这里</span><br></pre></td></tr></table></figure>
+<ul>
+<li>flag4(void)（？汇编文件，选取函数名称搞补丁<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_3-2.png" alt="alt text"></li>
+<li>通过任选printf()右键Assemble，改call后为函数名称，enter修改<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_3-3.png" alt="alt text"></li>
+<li>右键Patching-apply导出，运行新程序得到：rever5e_en8ine3ring}<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_3-4.png" alt="alt text"></li>
+<li>注：在 IDA 中从流程图视图切换回连续的文本/表格视图用空格键</li>
+<li>最后答案：NSSCTF{IDA_1s_4_VeRy_ImporTant_t0ol_iN_rever5e_en8ine3ring}</li>
+</ul>
+<h3 id="twoEs1"><a class="header-anchor" href="#twoEs1">¶</a>twoEs1</h3>
+<ul>
+<li>题目：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Cryptodome.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">flag=<span class="string">b&quot;SPCCTF&#123;********&#125;&quot;</span></span><br><span class="line"></span><br><span class="line">p, q = getPrime(<span class="number">512</span>), getPrime(<span class="number">512</span>)</span><br><span class="line">n = p * q</span><br><span class="line"></span><br><span class="line">e1 = random.getrandbits(<span class="number">32</span>)</span><br><span class="line">e2 = random.getrandbits(<span class="number">32</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">s,s1,s2=gmpy2.gcdext(e1,e2)</span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line"><span class="comment">#导入 gmpy2 库进行大数运算 </span></span><br><span class="line"><span class="comment">#gmpy2.gcdext(a,b)计算扩展欧几里得算法 返回 (g,s,t)，其中 g=gcd(a,b)，且 s*a + t*b = g</span></span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c1 = <span class="built_in">pow</span>(m, e1, n)</span><br><span class="line">c2 = <span class="built_in">pow</span>(m, e2, n)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;n = &#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;e1 = &#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;e2 = &#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;c1 = &#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;c2 = &#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">n = 77653027019410283582708662091841984922043011758121679079881183020813164663803315218162399044305258074482737579924642303624296916990420038267507847806411365847770079739424288020008734096352715536212355610499244337263033620679172659903396470522388964976403280440005666750783772493205491694203801534799771603973</span></span><br><span class="line"><span class="string">e1 = 1550550838</span></span><br><span class="line"><span class="string">e2 = 4196113069</span></span><br><span class="line"><span class="string">c1 = 10879882027555312937608696756143487708492509877667613620249639748606727334006539946052668627697088875994270713711095280209616987454727654075073679556671706894288288425066016765935927179268631914629763649753266424293357163466575462028472324055698901991171526421270840161635556574472647431065514324250656887711</span></span><br><span class="line"><span class="string">c2 = 3011958986718808526365150648555525977083765700624932707761381505508399298854491454270664897732491521128964864382168158216240628717617068568110917894811504799962807736416471284350198523924590448858301736435406723758509936349838419125901147351088181623044341056413457153562300106346324761118425649126782967195</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>解决方案(基于gcd = 1以及n相同加密)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Cryptodome.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line"></span><br><span class="line">n = <span class="number">77653027019410283582708662091841984922043011758121679079881183020813164663803315218162399044305258074482737579924642303624296916990420038267507847806411365847770079739424288020008734096352715536212355610499244337263033620679172659903396470522388964976403280440005666750783772493205491694203801534799771603973</span></span><br><span class="line">e1 = <span class="number">1550550838</span></span><br><span class="line">e2 = <span class="number">4196113069</span></span><br><span class="line">c1 = <span class="number">10879882027555312937608696756143487708492509877667613620249639748606727334006539946052668627697088875994270713711095280209616987454727654075073679556671706894288288425066016765935927179268631914629763649753266424293357163466575462028472324055698901991171526421270840161635556574472647431065514324250656887711</span></span><br><span class="line">c2 = <span class="number">3011958986718808526365150648555525977083765700624932707761381505508399298854491454270664897732491521128964864382168158216240628717617068568110917894811504799962807736416471284350198523924590448858301736435406723758509936349838419125901147351088181623044341056413457153562300106346324761118425649126782967195</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查是否互质</span></span><br><span class="line">gcd, u, v = gmpy2.gcdext(e1, e2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;gcd(e1,e2) = <span class="subst">&#123;gcd&#125;</span>&quot;</span>)  <span class="comment"># 应该是 1</span></span><br><span class="line"><span class="comment"># u × e1 + v × e2 = gcd(e1, e2)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> gcd == <span class="number">1</span>:</span><br><span class="line">    <span class="comment"># 计算明文</span></span><br><span class="line">    <span class="keyword">if</span> u &lt; <span class="number">0</span>:</span><br><span class="line">        c1 = gmpy2.invert(c1, n)</span><br><span class="line">        u = -u</span><br><span class="line">    <span class="keyword">if</span> v &lt; <span class="number">0</span>:</span><br><span class="line">        c2 = gmpy2.invert(c2, n) </span><br><span class="line">        v = -v</span><br><span class="line">    m = (<span class="built_in">pow</span>(c1, u, n) * <span class="built_in">pow</span>(c2, v, n)) % n</span><br><span class="line">    flag = long_to_bytes(m)</span><br><span class="line">    <span class="built_in">print</span>(flag.decode())</span><br></pre></td></tr></table></figure>
+<ul>
+<li>共模攻击：[ pow(a, b, n) → n为模数 ]（详见RSA）
+<ul>
+<li>攻击原理：<br>
+如果 gcd(e1, e2) = 1，可以通过扩展欧几里得算法找到 u, v 使得：<br>
+u × e1 + v × e2 = 1<br>
+c1^u × c2^v ≡ m^(u×e1) × m^(v×e2) ≡ m^(u×e1 + v×e2) ≡ m^1 ≡ m (mod n)</li>
+<li>根本原因：RSA 的安全性依赖于大数分解困难性，但当使用相同模数加密相同消息时，攻击者可以利用代数关系绕过分解问题。</li>
+</ul>
+</li>
+</ul>
+<h3 id="twoEs2"><a class="header-anchor" href="#twoEs2">¶</a>twoEs2</h3>
+<ul>
+<li>题目：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Cryptodome.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">flag=<span class="string">b&quot;SPCCTF&#123;********&#125;&quot;</span></span><br><span class="line"></span><br><span class="line">p, q = getPrime(<span class="number">512</span>), getPrime(<span class="number">512</span>)</span><br><span class="line">n = p * q</span><br><span class="line"></span><br><span class="line">e1 = random.getrandbits(<span class="number">32</span>)</span><br><span class="line">e2 = random.getrandbits(<span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c1 = <span class="built_in">pow</span>(m, e1, n)</span><br><span class="line">c2 = <span class="built_in">pow</span>(m, e2, n)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;n = &#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;e1 = &#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;e2 = &#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;c1 = &#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;c2 = &#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">n = 97600241525101615748091592571664660926639880623676630098513390980179339048294452878617774530804846547759693682625720452045482941031433063601264167464483345140203593650062234011147495096867025786848883396312986373098722431552517575960894385653813275110519118159478403718867113163144951756435064109978693850991</span></span><br><span class="line"><span class="string">e1 = 3739335288</span></span><br><span class="line"><span class="string">e2 = 3124897683</span></span><br><span class="line"><span class="string">c1 = 33002001040793361121205743705051566694083960204437803400110996553874970546459769940895274538944142911035661180721041433582055055901827086366079458238180515982882281159369335115689197909674012289803866694817803339799332165760217770985620911446230237865457225365735286754884597360255964535103536362788889343153</span></span><br><span class="line"><span class="string">c2 = 28612632923221914052449458260170537094022260373135401108346955487860713981145320349945832078855063911329616383875004373295934310132767249858424266864981319085969453037587482565982836138763906635775429377847559657878241052164215585546465219419202751784070881845017799754069244601020027997406547478196338470880</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>解法：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Cryptodome.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="comment">#from Crypto.Util.number import *</span></span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">n = <span class="number">97600241525101615748091592571664660926639880623676630098513390980179339048294452878617774530804846547759693682625720452045482941031433063601264167464483345140203593650062234011147495096867025786848883396312986373098722431552517575960894385653813275110519118159478403718867113163144951756435064109978693850991</span></span><br><span class="line">e1 = <span class="number">3739335288</span></span><br><span class="line">e2 = <span class="number">3124897683</span></span><br><span class="line">c1 = <span class="number">33002001040793361121205743705051566694083960204437803400110996553874970546459769940895274538944142911035661180721041433582055055901827086366079458238180515982882281159369335115689197909674012289803866694817803339799332165760217770985620911446230237865457225365735286754884597360255964535103536362788889343153</span></span><br><span class="line">c2 = <span class="number">28612632923221914052449458260170537094022260373135401108346955487860713981145320349945832078855063911329616383875004373295934310132767249858424266864981319085969453037587482565982836138763906635775429377847559657878241052164215585546465219419202751784070881845017799754069244601020027997406547478196338470880</span></span><br><span class="line"></span><br><span class="line">s,s1,s2=gmpy2.gcdext(e1,e2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;s = &#x27;</span>,s)</span><br><span class="line"></span><br><span class="line">m = <span class="built_in">pow</span>(c1, s1, n)*<span class="built_in">pow</span>(c2, s2, n) % n  <span class="comment"># 最后别忘记再模上一个n，整体都在模n中</span></span><br><span class="line"><span class="comment">#flag = long_to_bytes(m).decode()</span></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(iroot(m, <span class="number">3</span>)[<span class="number">0</span>]))</span><br><span class="line"><span class="comment">#print(flag) </span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://saga131.github.io/2024/09/17/%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/">参考</a>；<a target="_blank" rel="noopener" href="https://www.cnblogs.com/SevensNight/p/18766177">未看</a></li>
+</ul>
+<h3 id="签个到吧！"><a class="header-anchor" href="#签个到吧！">¶</a>签个到吧！</h3>
+<ul>
+<li>题目：</li>
+</ul>
+<figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line">&gt;<span class="literal">+++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++</span><span class="title">[</span>&lt;<span class="literal">++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++</span><span class="title">[</span>&lt;<span class="literal">++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++</span><span class="title">[</span>&lt;<span class="literal">++++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++</span><span class="title">[</span>&lt;<span class="literal">++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++</span><span class="title">[</span>&lt;<span class="literal">++++++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">++++++++</span><span class="title">[</span>&lt;<span class="literal">++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++</span><span class="title">[</span>&lt;<span class="literal">+++++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span>&gt;<span class="literal">+++++++++++++++++++++++++</span><span class="title">[</span>&lt;<span class="literal">+++++</span>&gt;<span class="literal">-+-+-+-</span><span class="title">]</span>&lt;<span class="title">[</span><span class="literal">-</span><span class="title">]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>试图解释：
+<ul>
+<li>快速笔记：“.”为指针位置</li>
+<li>&gt;+<ins><ins><ins><ins><ins><ins><ins><ins>[&lt;</ins></ins></ins>&gt;-±±±]&lt;[-]&gt;</ins></ins></ins></ins></ins><ins>[&lt;</ins>+++++++&gt;-±±±]
+<ul>
+<li>&gt;+17 ; [&lt;+6&gt;-1] ; ; &gt;+12 ; [&lt;+9&gt;-] ;</li>
+<li>0 17. ; 17<em>6 = 102 0. ; 0. 0 ; 0 12. ; 9</em>12 = 108 0. ;</li>
+<li>102 0. → 108 0.</li>
+</ul>
+</li>
+<li>&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-±±±]
+<ul>
+<li>&lt; ; &gt;+97 ; [&lt;+&gt;-]</li>
+<li>108. 0 ; 108 97. ; 108 + 97 = 205 0.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>大概理解了，开造</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">brainfuck</span>(<span class="params">a</span>):</span><br><span class="line">    li = [<span class="number">0</span>]</span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    kuo = []</span><br><span class="line">    output = []</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(a):</span><br><span class="line">        <span class="keyword">if</span> a[i] == <span class="string">&#x27;+&#x27;</span> <span class="keyword">or</span> a[i] == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            li[index] = <span class="built_in">eval</span>(<span class="built_in">str</span>(li[index]) + a[i] + <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> a[i] == <span class="string">&#x27;&gt;&#x27;</span>:</span><br><span class="line">            index += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(li) &lt;= index:</span><br><span class="line">                li.append(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">elif</span> a[i] == <span class="string">&#x27;&lt;&#x27;</span>:</span><br><span class="line">            index -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> a[i] == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(li[index], end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            output.append(li[index])</span><br><span class="line">        <span class="keyword">elif</span> a[i] == <span class="string">&#x27;,&#x27;</span>:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            li[index] = <span class="built_in">ord</span>(a[i])</span><br><span class="line">        <span class="keyword">elif</span> a[i] == <span class="string">&#x27;[&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span> li[index] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">while</span> a[i] != <span class="string">&#x27;]&#x27;</span>:</span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                kuo.append(i)</span><br><span class="line">        <span class="keyword">elif</span> a[i] == <span class="string">&#x27;]&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span> li[index] != <span class="number">0</span>:</span><br><span class="line">                i = kuo.pop()-<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                temp = kuo.pop()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line">a = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&gt;+++++++++++++++++[&lt;++++++&gt;-+-+-+-]&lt;[-]&gt;++++++++++++[&lt;+++++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++[&lt;+++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++[&lt;+++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++[&lt;+++&gt;-+-+-+-]&lt;[-]&gt;++++++++++++[&lt;+++++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-+-+-+-]&lt;[-]&gt;++++++++[&lt;++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++[&lt;++++&gt;-+-+-+-]&lt;[-]&gt;++++++++[&lt;++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++[&lt;++++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-+-+-+-]&lt;[-]&gt;++++++++++++[&lt;+++++++&gt;-+-+-+-]&lt;[-]&gt;++++++++++[&lt;+++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]&gt;++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]&gt;++++++++[&lt;++++++&gt;-+-+-+-]&lt;[-]&gt;++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;+&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++[&lt;+++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++[&lt;++++++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++++++++++++++++++++++++++[&lt;++&gt;-+-+-+-]&lt;[-]&gt;++++++++[&lt;++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]&gt;+++++++[&lt;+++++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++++++[&lt;++++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++[&lt;+++&gt;-+-+-+-]&lt;[-]&gt;+++++++++++++++++++++++++[&lt;+++++&gt;-+-+-+-]&lt;[-]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">a = a.replace(<span class="string">&#x27;[-]&#x27;</span>, <span class="string">&#x27;.[-]&#x27;</span>)</span><br><span class="line">output = brainfuck(a)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> output:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(i), end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解释：就是指针内容没有用.输出，所以在[-]删除前加输出从而得到结果</li>
+<li>教训：人要好好学习不要偷懒用AI哈哈哈讲的差不多理解就是完全没理解</li>
+</ul>
+<h3 id="xor"><a class="header-anchor" href="#xor">¶</a>xor</h3>
+<h4 id="第一步"><a class="header-anchor" href="#第一步">¶</a>第一步</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_4-1.png" alt="alt text"></p>
+<ul>
+<li>循环28次（i从0到27）说明flag长度为28个字符</li>
+<li>验证条件
+<ul>
+<li>v4[i]：用户输入的第i个字符</li>
+<li>(unsigned __int8)：将字符转换为无符号8位整数（0-255）</li>
+<li>^ 0x7A：与十六进制0x7A（十进制122）进行异或运算</li>
+<li>enc_0[i]：预设的正确加密值的第i个元素</li>
+<li>!=：比较是否不相等</li>
+</ul>
+</li>
+</ul>
+<h4 id="第二步"><a class="header-anchor" href="#第二步">¶</a>第二步</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_4-2.png" alt="alt text"></p>
+<ul>
+<li>db：Define Byte 表示定义字节数据</li>
+<li>有 h 后缀：明确表示十六进制</li>
+<li>n dup (a)：表示n个a</li>
+</ul>
+<h4 id="解密代码"><a class="header-anchor" href="#解密代码">¶</a>解密代码</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">enc_0 = [</span><br><span class="line">    <span class="number">0x34</span>, <span class="number">0x29</span>, <span class="number">0x29</span>, <span class="number">0x39</span>, <span class="number">0x2E</span>, <span class="number">0x3C</span>, <span class="number">0x01</span>, <span class="number">0x22</span>, <span class="number">0x15</span>, <span class="number">0x08</span>, <span class="number">0x25</span>,</span><br><span class="line">    <span class="number">0x13</span>, <span class="number">0x09</span>, <span class="number">0x25</span>, <span class="number">0x18</span>, <span class="number">0x1B</span>, <span class="number">0x09</span>, <span class="number">0x13</span>, <span class="number">0x19</span>, <span class="number">0x25</span>, <span class="number">0x08</span>, <span class="number">0x1F</span>, <span class="number">0x0C</span>,</span><br><span class="line">    <span class="number">0x1F</span>, <span class="number">0x08</span>, <span class="number">0x09</span>, <span class="number">0x1F</span>, <span class="number">0x07</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decrypt_flag</span>(<span class="params">enc_data</span>):</span><br><span class="line">    flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> encrypted <span class="keyword">in</span> enc_data:</span><br><span class="line">        <span class="comment"># 异或解密：encrypted ^ 0x7A</span></span><br><span class="line">        original_char = encrypted ^ <span class="number">0x7A</span></span><br><span class="line">        flag += <span class="built_in">chr</span>(original_char)</span><br><span class="line">    <span class="keyword">return</span> flag</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解密</span></span><br><span class="line">flag = decrypt_flag(enc_0)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;解密后的flag:&quot;</span>, flag)</span><br></pre></td></tr></table></figure>
+<h3 id="这羽毛球怎么只有一半啊（恼）"><a class="header-anchor" href="#这羽毛球怎么只有一半啊（恼）">¶</a>这羽毛球怎么只有一半啊（恼）</h3>
+<ul>
+<li>crc高度题 010editor打开下方有报错信息，记得拉上来看！</li>
+<li>代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">crcbp = <span class="built_in">open</span>(<span class="string">&quot;./羽毛球.png&quot;</span>, <span class="string">&quot;rb&quot;</span>).read()    <span class="comment">#打开图片</span></span><br><span class="line">crc32frombp = <span class="built_in">int</span>(crcbp[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(),<span class="number">16</span>)     <span class="comment">#读取图片中的CRC校验值</span></span><br><span class="line"><span class="built_in">print</span>(crc32frombp)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                        <span class="comment">#宽度1-4000进行枚举</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                    <span class="comment">#高度1-4000进行枚举</span></span><br><span class="line">        data = crcbp[<span class="number">12</span>:<span class="number">16</span>] + \</span><br><span class="line">            struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)+struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, j)+crcbp[<span class="number">24</span>:<span class="number">29</span>]</span><br><span class="line">        crc32 = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="comment">#print(crc32)</span></span><br><span class="line">        <span class="keyword">if</span>(crc32 == crc32frombp):            <span class="comment">#计算当图片大小为i:j时的CRC校验值，与图片中的CRC比较，当相同，则图片大小已经确定</span></span><br><span class="line">            <span class="built_in">print</span>(i, j)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;hex:&#x27;</span>, <span class="built_in">hex</span>(i), <span class="built_in">hex</span>(j))</span><br><span class="line">            exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="【待】"><a class="header-anchor" href="#【待】">¶</a>【待】</h4>
+<ul>
+<li>修改高度（额看了wp改的怎么找）bushi没法理解为什么修改这里<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_4-3.png" alt="alt text"></li>
+</ul>
+<h3 id="掩码爆破"><a class="header-anchor" href="#掩码爆破">¶</a>掩码爆破</h3>
+<ul>
+<li>如题，简单</li>
+</ul>
+<h3 id="F12"><a class="header-anchor" href="#F12">¶</a>F12?</h3>
+<ul>
+<li>当个别网页禁用F12，无法查看网页源代码时，可以通过地址栏操作后使用F12：</li>
+<li>打开目标网页后，不要直接按F12，而是先用鼠标点击浏览器地址栏，全选当前网址。在全选网址的状态下，按下F12键。此时，部分网页可能会因为这一操作而解除对F12的禁用，从而允许你打开开发者工具查看源代码。</li>
+</ul>
+<h3 id="F12-v2"><a class="header-anchor" href="#F12-v2">¶</a>F12</h3>
+<ul>
+<li>极其简单，如题</li>
+</ul>
+<h3 id="test"><a class="header-anchor" href="#test">¶</a>test</h3>
+<ul>
+<li>极其简单，如题</li>
+</ul>
+<h3 id="word-03"><a class="header-anchor" href="#word-03">¶</a>word-03</h3>
+<ul>
+<li>伪加密<a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaozhaidada/article/details/124538768">参考</a>
+<ul>
+<li>特征：
+<ul>
+<li>压缩源文件数据区的全局方式位标记应当为 00 00  （50 4B 03 04 14 00 后）</li>
+<li>且压缩源文件目录区的全局方式位标记应当为 09 00   （50 4B 01 02 14 00 后）</li>
+</ul>
+</li>
+<li>修改方法：
+<ul>
+<li>确定是伪加密后就需要将其修改为无加密，方法很简单，就是将压缩源文件目录区的全局方式位标记从09 00改为00 00。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>将这个word文件重命名为zip后，发现还能继续解压</li>
+<li>找到flag</li>
+<li>反思：搜索时注意是搜索文本还是十六进制，好愚蠢的问题已经第二次犯了|-_-··|</li>
+</ul>
+<h3 id="Basic-Number-theory"><a class="header-anchor" href="#Basic-Number-theory">¶</a>Basic Number theory</h3>
+<ul>
+<li>同余基本性质
+<ul>
+<li>‌反身性‌：a ≡ a (mod m)，任何整数与其自身同余。</li>
+<li>‌对称性‌：若a ≡ b (mod m)，则b ≡ a (mod m)，同余关系可逆。‌</li>
+<li>‌传递性‌：若a ≡ b (mod m)且b ≡ c (mod m)，则a ≡ c (mod m)，允许链式推导。</li>
+<li>‌运算性质‌：
+<ul>
+<li>加减性：若a ≡ b (mod m)且c ≡ d (mod m)，则a±c ≡ b±d (mod m)。‌</li>
+<li>乘性：若a ≡ b (mod m)且c ≡ d (mod m)，则ac ≡ bd (mod m)，推广至幂次有aⁿ ≡ bⁿ (mod m)。‌</li>
+<li>消去律‌：若ca ≡ cb (mod m)且(c,m)=1（c与m互质），则a ≡ b (mod m)。‌‌</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>解决代码+详细计算过程</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p = <span class="number">105567001902149483225233801278030547652749833525571608392930512645364400245999</span></span><br><span class="line">q = <span class="number">81511997683966846473333390828680375856568631631277717336250575831122994340471</span></span><br><span class="line">gift1 = <span class="number">105419799642658114984760815640014033297217363704585842609128111376906603236722</span></span><br><span class="line">gift2 = <span class="number">81364795424475478232860405190663861501036161810291951552448174562665197331194</span></span><br><span class="line"><span class="comment">#根据模运算的基本性质：如果 a ≡ b (mod n)，那么 a² ≡ b² (mod n)</span></span><br><span class="line"><span class="keyword">from</span> Cryptodome.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="built_in">print</span>(gift1 == <span class="built_in">pow</span>(gift1,<span class="number">1</span>,p))</span><br><span class="line"><span class="comment"># &gt;&gt;&gt; True</span></span><br><span class="line"><span class="comment"># 所以gift1² ≡ m^(q+1) (mod q)</span></span><br><span class="line"><span class="comment"># 继续用费马小定理：</span></span><br><span class="line"><span class="comment"># gift1² ≡ m^(q+1) (mod q)</span></span><br><span class="line"><span class="comment">#        ≡ m^q × m (mod q)</span></span><br><span class="line"><span class="comment"># 根据费马小定理：m^q ≡ m (mod q)（当 q 是素数时）</span></span><br><span class="line"><span class="comment"># gift1² ≡ m × m (mod q) ≡ m² (mod q)</span></span><br><span class="line"><span class="comment"># 实际上我们有：gift1^2 ≡ m^2 mod q ; gift2^2 ≡ m^2 mod p</span></span><br><span class="line"><span class="comment"># 这意味着：gift1^2 - m^2 ≡ 0 mod q  =&gt; q | (gift1^2 - m^2)</span></span><br><span class="line"><span class="comment">#          gift2^2 - m^2 ≡ 0 mod p  =&gt; p | (gift2^2 - m^2)</span></span><br><span class="line"><span class="comment"># 所以(gift1 - m)(gift1 + m) ≡ 0 mod q</span></span><br><span class="line"><span class="comment">#     (gift2 - m)(gift2 + m) ≡ 0 mod p</span></span><br><span class="line"><span class="comment"># 关键数学原理：在模素数的情况下，如果 a × b ≡ 0 mod p（其中 p 是素数），那么：</span></span><br><span class="line"><span class="comment"># 要么 a ≡ 0 mod p</span></span><br><span class="line"><span class="comment"># 要么 b ≡ 0 mod p</span></span><br><span class="line"><span class="comment"># 这是因为素数的一个重要性质：模素数的环是整环，没有零因子。</span></span><br><span class="line"><span class="comment"># 因此 m ≡ ±gift1 mod q ; m ≡ ±gift2 mod p</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.gcd(p,q))</span><br><span class="line"><span class="comment"># &gt;&gt;&gt; 1</span></span><br><span class="line"><span class="comment"># https://oi-wiki.org/math/number-theory/crt/#%E8%BF%87%E7%A8%8B</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sympy.ntheory.modular <span class="keyword">import</span> crt</span><br><span class="line"></span><br><span class="line">a = [-gift1,-gift2]</span><br><span class="line">r = [p,q]</span><br><span class="line"></span><br><span class="line">m = crt(r, a)[<span class="number">0</span>]</span><br><span class="line">flag = long_to_bytes(m)</span><br><span class="line"><span class="built_in">print</span>(flag.decode())</span><br></pre></td></tr></table></figure>
+<h3 id="basic-RSA"><a class="header-anchor" href="#basic-RSA">¶</a>basic-RSA</h3>
+<ul>
+<li>在RAS笔记里学长给做过，考察inverse()函数的应用</li>
+</ul>
+<h3 id="hackbar"><a class="header-anchor" href="#hackbar">¶</a>hackbar</h3>
+<ul>
+<li>hackbar浏览器插件使用方法：先LOAD后Use POST method加载网页<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-1.png" alt="alt text"></li>
+<li>直接URL后面添加，插件里添加后按EXECUTE执行<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-2.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-3.png" alt="alt text"></li>
+<li>讲座后复刻，好像和学姐教的不一样？（但成功了~~后面问下</li>
+<li>愚蠢，只需要下面部分，&lt;?php&gt;<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-4.png" alt="alt text"></li>
+<li>第三关：浏览器身份挑战-要求：我要battlefield_six浏览器</li>
+<li>直接更改User-Agent<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-5.png" alt="alt text"></li>
+<li>要求：我要本地访问</li>
+<li>解法：如图</li>
+</ul>
+<h3 id="super-baby-eval"><a class="header-anchor" href="#super-baby-eval">¶</a>super_baby_eval</h3>
+<ul>
+<li>网页</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;eval&#x27;</span>]) &amp;&amp; <span class="variable">$_GET</span>[<span class="string">&#x27;eval&#x27;</span>] === <span class="string">&#x27;gogogo&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;666&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;evalpost&#x27;</span>]))&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;evalpost&#x27;</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">show_source</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-6.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-7.png" alt="alt text"></p>
+<ul>
+<li>查看详细文件信息<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-8.png" alt="alt text"></li>
+<li>硬搜flag获得<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-9.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-10.png" alt="alt text"></li>
+</ul>
+<h3 id="baby-upload"><a class="header-anchor" href="#baby-upload">¶</a>baby_upload</h3>
+<ul>
+<li>上传php文件</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">@<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;shell&#x27;</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开Burpsuite代理，记录端口信息<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-11.png" alt="alt text"></li>
+<li>打开中国蚁剑，右键添加数据，密码为php文件变量名<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-12.png" alt="alt text"></li>
+<li>双击数据进入网站文件，根目录寻找flag</li>
+<li>成功！</li>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/antswordproject/antsword/uvmwzn">参考</a></li>
+</ul>
+<h3 id="baby-eval"><a class="header-anchor" href="#baby-eval">¶</a>baby_eval</h3>
+<ul>
+<li>hackbar body处输入code=/???/?a??64 /??a?</li>
+<li>怀疑是/bin因为/?a?没反应应该不是cat</li>
+<li>base64解码</li>
+</ul>
+<h3 id="super-baby-include"><a class="header-anchor" href="#super-baby-include">¶</a>super_baby_include</h3>
+<ul>
+<li>简单<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-13.png" alt="alt text"></li>
+</ul>
+<h3 id="robots"><a class="header-anchor" href="#robots">¶</a>robots</h3>
+<ul>
+<li>在HackBar的URL输入：<a target="_blank" rel="noopener" href="http://xn--ces6a955gg50c/robots.txt">http://靶机地址/robots.txt</a></li>
+<li>选择GET方法（不是POST）!!!</li>
+<li>得到/f1agggggggg.txt</li>
+<li>输入URL得到flag<a href="flag%7BYou_1InD_ROB0T5!!!_20576b704467%7D"></a></li>
+</ul>
+<h3 id="爆破"><a class="header-anchor" href="#爆破">¶</a>爆破</h3>
+<ul>
+<li>Burpsuite也可以，但注意光标偏移问题payload位置以添加完毕显示为准，而且有自动添加payload功能只是删除多余payload也要注意偏移问题！！！</li>
+<li>yakit成功<a target="_blank" rel="noopener" href="https://blog.csdn.net/miraclehw/article/details/134138197">参考</a><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE_5-14.png" alt="alt text"></li>
+<li>没找到本地文件导入，但有临时文件导入按行读取功能一样成功，( •̀ ω •́ )耶</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io">luoyinhui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io/2025/10/06/SPC%E6%96%B0%E7%94%9F%E8%AE%B2%E5%BA%A7%E9%A2%98%E7%9B%AE/">https://luoyinhui.github.io/2025/10/06/SPC新生讲座题目/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://luoyinhui.github.io" target="_blank">落殷回的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ctf/">ctf</a><a class="post-meta__tags" href="/tags/wp/">wp</a><a class="post-meta__tags" href="/tags/%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/">共模攻击</a><a class="post-meta__tags" href="/tags/spc/">spc</a></div><div class="post-share"><div class="social-share" data-image="/img/fenlei.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/weixin.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/weixin.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhifubao.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zhifubao.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/10/06/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/" title="扩展欧几里得算法[待]"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">扩展欧几里得算法[待]</div></div><div class="info-2"><div class="info-item-1">知识递进：  同余符号：a = b % c ; b ≡ a mod c → a % c = b % c rsa中应用：c = m ^ e % n ；m ^ e ≡ c mod n gcd(a,b) 基础算法：for i in range(0,min(a,b)): if a % i == 0 | b % i == 0: return i 欧几里得算法又称辗转相除法，是指用于计算两个正整数a，b的最大公约数。 [此时mod等同于%] gcd(a,b) = gcd(b,a mod b) 原理：两个整数的最大公约数等于其中较小的数和两数相除余数的最大公约数。 算法： 求gcd(a,b)[假设a&gt;b]： a ÷ b = c mod d b ÷ d = e mod f d ÷ f = g mod h if h == 0 → f = gcd(a,b) 证明：gcd(a,b) = gcd(b,a mod b) (不妨设a＞b 且r=a mod b ,r不为0)   法一：公约数是最大公约数的因子，得到d = e    法二(感觉网上这个有点错误，改了下) 假设c = gcd(a,b),则存...</div></div></div></a><a class="pagination-related" href="/2025/10/01/%E7%AC%AC%E4%B8%89%E5%B1%8A%E9%95%BF%E5%AE%89%E6%9D%AF%E7%AC%94%E8%AE%B0/" title="第三届长安杯笔记"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wenzhang.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">第三届长安杯笔记</div></div><div class="info-2"><div class="info-item-1">¶鸣谢  感谢sq学长和cty学姐的帮助和教导！！！ 第一个大型比赛复刻学习结束了，好累(｡し_し｡)但是继续出发(≧▽≦)哈哈哈  ¶2021年4月25日，上午8点左右，警方接到被害人金某报案，声称自己被敲诈数万元；经询问，昨日金某被嫌疑人诱导裸聊，下载了某“裸聊”软件，导致自己的通讯录和裸聊视频被嫌疑人获取，对其进行敲诈，最终金某不堪重负，选择了报警；警方从金某提供的本人手机中，定向采集到了该“裸聊”软件的安装包–zhibo.apk（检材一），请各位回答下列问题：（题目中需要通过分析出来的答案对检材二三四五解压，解压密码为IP的情况，需要在密码后增加-CAB2021，例：192.168.100.100-CAB2021） ¶1. 请计算检材一Apk的SHA256值： 1）直接将apk拖入hashcal计算 2）雷电APP智能分析直接出，但注意SHA256的主体是检材  3）window自带工具：certutil -hashfile 检材一-zhibo.apk sha256 ¶2. 该APK的应用包名为 1）使用jadx反编译，查看AndroidManifest.xml，pack...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/10/20/2024%E7%BE%8E%E4%BA%9A%E6%9D%AF%E4%B8%AA%E4%BA%BA%E8%B5%84%E6%A0%BC%E8%B5%9Bwp/" title="2024美亚杯个人资格赛wp"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-20</div><div class="info-item-2">2024美亚杯个人资格赛wp</div></div><div class="info-2"><div class="info-item-1"> 由于学校网络太烂，平航杯检材误删。。开始先看网上的2024美亚杯个人资格赛wp，先行梳理思路  ¶题目：  ¶1. [单选题] Emma已经几天没有收到她姐姐Clara的消息了，报警失踪，她焦虑地将手机提交给警察，希望能找到线索。警察将手机交给你进行电子数据取证。你成功提取了Emma手机的镜像。请根据取证结果回答以下问题。根据Emma_Mobile.zip，Emma和Clara的微信聊天记录，Emma最后到警署报案并拍摄写有报案编号的卡片，拍摄时的经纬值是多少？(2分) A. 22.451721666667, 114.171853333333 B. 22.451553333333, 114.172845 C. 22.451928333333, 114.170503333333 D. 22.451638333333, 114.16993  图片经纬度  法一：exiftool查看器：便利使用方法是把图片拖到exe文件上打开，此题信息没藏里面但有学习价值；已知是苹果手机，所以我们应该去手机数据库中找到原有格式的手机相关内容，翻到数据库中的最后标签为19的heic文件时间和之前我们找...</div></div></div></a><a class="pagination-related" href="/2025/10/23/SPC%E6%96%B0%E7%94%9F%E8%B5%9B%E5%8D%B3%E7%BE%8E%E4%BA%9A%E6%9D%AF%E9%80%89%E6%8B%94%E8%B5%9B/" title="SPC新生赛即美亚杯选拔赛"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wenzhang.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-23</div><div class="info-item-2">SPC新生赛即美亚杯选拔赛</div></div><div class="info-2"><div class="info-item-1">¶致谢  感谢cty学姐和dh学长的帮助！！ 拿到了蛮好的成绩嘿嘿嘿开心，但也要认真复盘ヽ( ω ゞ )   题目来源：某省刑侦个⼈  ¶手机取证 ¶6.【填空题】分析嫌疑人的手机，应用“备忘录记事”中记录了多少年龄小于30岁的人员信息？（答案格式：123） 正确答案： 4 分值：1分  火眼 耗时任务 其他应用 这题没用 火眼-文件-直接找包名sql文件  注意有两页哦   X-ways 方法同火眼  注意文件打开按钮按下面那个      编码调整   ¶8.【单选题】分析嫌疑人的手机，嫌疑人使用文档扫描软件扫描的文件内容是什么？（ ） A. 提成分红记录 B. 诈骗业绩指标 C. 伪装身份话术 D. 人员名单 【正确答案】C. 伪装身份话术 分值：1分  火眼-文件-直接找包名文件夹内-temp图片 X-way同  ¶9.【填空题】分析嫌疑人的手机，嫌疑人使用的名称为“薄荷记账”的记账软件共记录了多少笔交易？（答案格式：123） 正确答案： 13 分值：1分  X-ways  递归操作：一般在操作栏左侧选中你需要的文件右键，就把树状结构拍成一个平面 打开文件最好解压缩后打开文...</div></div></div></a><a class="pagination-related" href="/2025/10/15/ctfshow-pwn%E5%90%88%E9%9B%86wp/" title="ctfshow-pwn合集wp"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-15</div><div class="info-item-2">ctfshow-pwn合集wp</div></div><div class="info-2"><div class="info-item-1">¶pwn0【待】   通过打开容器后获得命令，在finalshell通过手动输入信息成功ssh连上 注意：虚拟机开启NAT模式才能连上，更改模式后重启才生效  pwd指令查看当前目录 ls发现当前目录下没东西 cd /回到上一级目录 ls发现当前目录下有文件ctfshow_flag cat ctfshow_flag得到 flag  ¶pwn1  chmod 777 pwn给附件加权限 checksec pwn查看附件信息，64 位  wp要ida看但其实试运行一遍还有题目都提示nc链接，容器给的命令直接复制黏贴就好了   ¶pwn2  加权限-查信息-运行-nc连接-shell输入代码 system(bin/sh)就是给shell？？  ¶pwn4   反编译程序理解-shell获得  ¶pwn40  参考1；参考2；参考3：sq-wp 目前进度：仅复刻 注意：exp.py有基于容器修改点  from pwn import *context.log_level = &#x27;debug&#x27;p = remote(&#x27;152.32.191.198&#x27;, 33...</div></div></div></a><a class="pagination-related" href="/2025/08/09/ctf-%E9%9B%B6%E6%95%A3writeup/" title="ctf writeup"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/fenlei.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-09</div><div class="info-item-2">ctf writeup</div></div><div class="info-2"><div class="info-item-1">2025-08-09 题目类型：misc 题目来源：spc学长sq 解决步骤： 1 虚拟机VMware + kali linux中的binwalk工具，使用-e命令分解文件，得到缺三角的二维码 2 图片编辑补齐三角 3 扫码获得文本，使用社会主义核心价值观编码解开获得flag 反思： 难点主要只是工具配置和方向，所以还是要多问（笑） 2025-10-15 要注意文件可以与文字xor!!!  </div></div></div></a><a class="pagination-related" href="/2025/10/20/ctfshow-web%E5%90%88%E9%9B%86wp/" title="ctfshow-web合集wp"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-20</div><div class="info-item-2">ctfshow-web合集wp</div></div><div class="info-2"><div class="info-item-1">¶web1  使用浏览器自带的审计功能F12可以查看网站源代码. 前端的HTML（超文本标记语言）中，如果想要添加注释，需要使用 注释标签。该标签用来在源文档中插入注释，注释不会在浏览器中显示。 在URL前可以通过添加 view-source:URL 实现绕过前端限制显示网页源码.  ¶web2  JavaScript实现禁用代码审计  //禁用鼠标右键window.document.oncontextmenu = function() &#123;    return false;&#125;//禁用复制window.document.onselectstart = function() &#123;    return false;&#125;//禁用F12document.onkeydown = function() &#123;    if(window.event &amp;&amp; window.event.keyCode == 123) &#123;        event.keyCode = 0;        event.returnValue = fals...</div></div></div></a><a class="pagination-related" href="/2025/08/11/LSB%E9%9A%90%E5%86%99%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%B3%95/" title="LSB隐写题目解法"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-11</div><div class="info-item-2">LSB隐写题目解法</div></div><div class="info-2"><div class="info-item-1"> </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="author-info-name">luoyinhui</div><div class="author-info-description">记录踩坑与瞎折腾，由Hexo+Github搭建</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luoyinhui"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/luoyinhui" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/13611971037@163.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%B8%A3%E8%B0%A2"><span class="toc-text">鸣谢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%BC%E6%B3%A2%E6%9B%BC%E6%B3%A2%E6%9B%BC%E6%B3%A2"><span class="toc-text">曼波曼波曼波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ida%E4%BD%BF%E7%94%A8-exe"><span class="toc-text">ida使用.exe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#twoEs1"><span class="toc-text">twoEs1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#twoEs2"><span class="toc-text">twoEs2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%BE%E4%B8%AA%E5%88%B0%E5%90%A7%EF%BC%81"><span class="toc-text">签个到吧！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xor"><span class="toc-text">xor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5"><span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5"><span class="toc-text">第二步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%AF%86%E4%BB%A3%E7%A0%81"><span class="toc-text">解密代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E7%BE%BD%E6%AF%9B%E7%90%83%E6%80%8E%E4%B9%88%E5%8F%AA%E6%9C%89%E4%B8%80%E5%8D%8A%E5%95%8A%EF%BC%88%E6%81%BC%EF%BC%89"><span class="toc-text">这羽毛球怎么只有一半啊（恼）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%80%90%E5%BE%85%E3%80%91"><span class="toc-text">【待】</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A9%E7%A0%81%E7%88%86%E7%A0%B4"><span class="toc-text">掩码爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F12"><span class="toc-text">F12?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F12-v2"><span class="toc-text">F12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#test"><span class="toc-text">test</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#word-03"><span class="toc-text">word-03</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-Number-theory"><span class="toc-text">Basic Number theory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-RSA"><span class="toc-text">basic-RSA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hackbar"><span class="toc-text">hackbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super-baby-eval"><span class="toc-text">super_baby_eval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#baby-upload"><span class="toc-text">baby_upload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#baby-eval"><span class="toc-text">baby_eval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super-baby-include"><span class="toc-text">super_baby_include</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#robots"><span class="toc-text">robots</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%86%E7%A0%B4"><span class="toc-text">爆破</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/27/SPC%E6%96%B0%E7%94%9F%E8%B5%9B%E5%8D%B3%E7%BE%8E%E4%BA%9A%E6%9D%AF%E9%80%89%E6%8B%94%E8%B5%9B%E4%BF%9D%E5%AF%86%E9%83%A8%E5%88%86/" title="SPC新生赛即美亚杯选拔赛保密部分"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/fenlei.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="SPC新生赛即美亚杯选拔赛保密部分"/></a><div class="content"><a class="title" href="/2025/10/27/SPC%E6%96%B0%E7%94%9F%E8%B5%9B%E5%8D%B3%E7%BE%8E%E4%BA%9A%E6%9D%AF%E9%80%89%E6%8B%94%E8%B5%9B%E4%BF%9D%E5%AF%86%E9%83%A8%E5%88%86/" title="SPC新生赛即美亚杯选拔赛保密部分">SPC新生赛即美亚杯选拔赛保密部分</a><time datetime="2025-10-27T08:09:36.000Z" title="发表于 2025-10-27 16:09:36">2025-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E6%B1%87%E6%80%BB/" title="网络安全竞赛技术分享汇总"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wenzhang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="网络安全竞赛技术分享汇总"/></a><div class="content"><a class="title" href="/2025/10/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB%E6%B1%87%E6%80%BB/" title="网络安全竞赛技术分享汇总">网络安全竞赛技术分享汇总</a><time datetime="2025-10-26T03:32:17.000Z" title="发表于 2025-10-26 11:32:17">2025-10-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/25/2025-10-25-ctf%E7%8E%A9%E8%80%8D/" title="2025-10-25?ctf玩耍"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="2025-10-25?ctf玩耍"/></a><div class="content"><a class="title" href="/2025/10/25/2025-10-25-ctf%E7%8E%A9%E8%80%8D/" title="2025-10-25?ctf玩耍">2025-10-25?ctf玩耍</a><time datetime="2025-10-25T11:02:09.000Z" title="发表于 2025-10-25 19:02:09">2025-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/25/2025%E5%88%91%E4%BA%8B%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B/" title="2025刑事技能大赛"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="2025刑事技能大赛"/></a><div class="content"><a class="title" href="/2025/10/25/2025%E5%88%91%E4%BA%8B%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B/" title="2025刑事技能大赛">2025刑事技能大赛</a><time datetime="2025-10-25T07:36:17.000Z" title="发表于 2025-10-25 15:36:17">2025-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/25/%E5%90%8E%E7%BC%80%E7%AC%94%E8%AE%B0/" title="后缀笔记"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/fenlei.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="后缀笔记"/></a><div class="content"><a class="title" href="/2025/10/25/%E5%90%8E%E7%BC%80%E7%AC%94%E8%AE%B0/" title="后缀笔记">后缀笔记</a><time datetime="2025-10-25T07:25:28.000Z" title="发表于 2025-10-25 15:25:28">2025-10-25</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By luoyinhui</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div id="swiper_container" style="margin: 2rem 0;">
+  <div class="swiper-container" style="width: 100%; height: 400px; border-radius: 12px; overflow: hidden;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+        幻灯片 1 - 欢迎来到我的博客，这里是施工现场，请移步其他区域
+      </div>
+      <div class="swiper-slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+        幻灯片 2 - 前面的区域以后再来探索吧~
+      </div>
+      <div class="swiper-slide" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+        幻灯片 3 - 欢迎你来！
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+<script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div><hr><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><span class="algolia-poweredBy-text">Search powered by Algolia</span></div></div></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"></div><hr><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/lite/builds/browser.umd.min.js"></script><script src="/js/search/algolia.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
