@@ -6,7 +6,7 @@
   <link href="https://luoyinhui.github.io/atom.xml" rel="self"/>
   
   <link href="https://luoyinhui.github.io/"/>
-  <updated>2025-11-16T19:50:57.681Z</updated>
+  <updated>2025-11-19T00:54:47.968Z</updated>
   <id>https://luoyinhui.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>警铮杯准备</title>
+    <link href="https://luoyinhui.github.io/2025/11/18/%E8%AD%A6%E9%93%AE%E6%9D%AF%E5%87%86%E5%A4%87/"/>
+    <id>https://luoyinhui.github.io/2025/11/18/%E8%AD%A6%E9%93%AE%E6%9D%AF%E5%87%86%E5%A4%87/</id>
+    <published>2025-11-18T08:22:19.000Z</published>
+    <updated>2025-11-19T00:54:47.968Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="比赛范围"><a class="header-anchor" href="#比赛范围">¶</a>比赛范围</h2><p>以下是本次比赛的考核范围(仅供参考)：<br>1.Linux:选择题<br>文字教程(从Linux简介到Linux vi/vim命令):<a href="https://www.runoob.com/linux/linux-file-content-manage.html">https://www.runoob.com/linux/linux-file-content-manage.html</a><br>视频教程(P1-P26):<a href="https://www.bilibili.com/video/BV1n84y1i7td">https://www.bilibili.com/video/BV1n84y1i7td</a><br>2.Mysql:客观题+实操题<br>文字教程(从Mysql安装到Mysql delete语句):<a href="https://www.runoob.com/mysql/mysql-administration.html">https://www.runoob.com/mysql/mysql-administration.html</a><br>视频教程( (P1-P26)):<a href="https://www.bilibili.com/video/BV1iF411z7Pu">https://www.bilibili.com/video/BV1iF411z7Pu</a><br>4.Python:客观题+实操题<br>文字教程(第一章-第六章匿名函数):<br><a href="https://blog.csdn.net/weixin_42399800/article/details/143822422">https://blog.csdn.net/weixin_42399800/article/details/143822422</a><br>视频教程(第一阶段-第一章-01-初识Python——第一阶段-第九章-07-安装第三方包，第二阶段-第一章-01-初识对象——第二阶段-第一章-03-类和对象):<br><a href="https://www.bilibili.com/video/BV1qW4y1a7fU">https://www.bilibili.com/video/BV1qW4y1a7fU</a><br>数字警务技术应用：<br>电子数据取证(理论题+实操题):电⼦数据取证基础知识、windows取证、⼿机取证、服务器取证、数据分析<br>网络安全与攻防(实操题):图片隐写，图片修复，stegsolve应用，压缩包密码爆破，压缩包伪加密，流量分析，osint，脚本编写，base家族编码，凯撒密码，栅栏密码，rsa，异或，exe程序逆向分析，exe程序脱壳<br>警务大数据(实操题):excel应用（数据清洗，数据分析）<br>网站开发(客观题):前后端语言用法，网站开发体系内容，二进制转换，全栈开发，网站开发与web服务器</p><ul><li>如此可怕的范围</li></ul><h2 id="学习笔记"><a class="header-anchor" href="#学习笔记">¶</a>学习笔记</h2><h3 id="Linux视频教程"><a class="header-anchor" href="#Linux视频教程">¶</a>Linux视频教程</h3><ul><li>硬件、软件（操作系统）</li><li>Linux系统的组成<ul><li>Linux系统内核：提供系统最核心的功能，如：调度CPU、调度内存、调度文件系统、调度网络通讯、调度IO等。</li><li>系统级应用程序：可以理解为出厂自带程序，可供用户快速上手操作系统，如：文件管理器、任务管理器、图片查看、音乐播放等。</li></ul></li><li>Linux系统发行版<ul><li>内核无法被用户直接使用，需要配合应用程序才能被用户使用。</li><li>在内核之上，封装系统级应用程序，组合在一起就称之为Linux发行版。</li></ul></li></ul><h4 id="kali-ssh连接finalshell"><a class="header-anchor" href="#kali-ssh连接finalshell">¶</a>kali ssh连接finalshell</h4><ul><li>kali默认是禁用ssh 我们需要修改配置文件设置开机自启动。<ul><li>输入：sudo -i （进入root管理员用户）</li><li>输入：vim /etc/ssh/sshd_config 回车 （编辑配置文件）</li><li>输入：：set nu 回车（显示行数）</li><li>输入：按i键进入编辑模式找到第34行，将#去掉 后面变成yes（允许root用户登录）</li><li>找到第57行，将#去掉 后面变成yes（允许密码登录）</li><li>按Esc键退出编辑 输入：wq 保存文件</li><li>输入：systemctl start ssh （开启ssh服务）</li><li>设置开机自启：update-rc.d ssh enable</li><li>输入 systemctl status ssh</li></ul></li></ul><h4 id="命令"><a class="header-anchor" href="#命令">¶</a>命令</h4><h4 id="切换root"><a class="header-anchor" href="#切换root">¶</a>切换root</h4><ul><li>可以通过<code>su - root</code>，并输入密码</li><li>通过输入exit命令，退回普通用户</li></ul><h5 id="ls"><a class="header-anchor" href="#ls">¶</a>ls</h5><ul><li>ls [-a -l -h] [way]</li><li>直接输入ls命令，表示列出当前工作自录下的内容</li><li>当前工作自录是:<ul><li>Linux系统的命令行终端，在启动的时候，默认会加载当前登录用户的HOME目录作为当前工作目录，所以ls命令列出的是HOME目录的内容</li><li>HOME自录：每个Linux操作用户在Linux系统的个人账户自录，路径在：/home/用户名</li></ul></li><li><code>-a</code>选项：all的意思，即列出全部文件（包含隐藏的文件/文件夹）<ul><li>以.开头的，表示是Linux系统的隐藏文件/文件夹（只要以.开头，就能自动隐藏）</li></ul></li><li><code>-l</code>选项：竖向排列显示</li><li><code>-h</code>选项，需要和<code>-l</code>  选项搭配使用，以更加人性化的方式显示文件的大小单位</li><li><code>-la</code>,<code>-al</code>,<code>-l -a</code>都可以</li></ul><h5 id="cd：change-directory"><a class="header-anchor" href="#cd：change-directory">¶</a>cd：change directory</h5><ul><li>cd不带参数回用户根目录</li></ul><h5 id="pwd：print-work-directory"><a class="header-anchor" href="#pwd：print-work-directory">¶</a>pwd：print work directory</h5><ul><li><code>-p</code> ：显示出确实的路径，而非使用链接 (link) 路径。</li></ul><h5 id="特殊路径符："><a class="header-anchor" href="#特殊路径符：">¶</a>特殊路径符：</h5><ul><li><code>.</code> 表示当前目录，比如<code>cd./Desktop</code>表示切换到当前目录下的Desktop目录内，和<code>cd Desktop</code>效果一致</li><li><code>..</code>表示上一级目录，比如：<code>cd..</code>即可切换到上一级目录，<code>cd ../..</code>切换到上二级的目录</li><li><code>~</code>表示HOME目录，比如：<code>cd ~</code>即可切换到HOME目录或<code>cd~/Desktop</code>，切换到HOME内的Desktop目录</li></ul><h5 id="mkdir：MakeDirectory【蓝色深色-d】"><a class="header-anchor" href="#mkdir：MakeDirectory【蓝色深色-d】">¶</a>mkdir：MakeDirectory【蓝色深色/d】</h5><ul><li>通过mkdir命令可以创建新的目录（文件夹）</li><li><code>-p</code>可选，表示自动创建不存在的父目录，适用于创建连续多层级的目录</li><li>注意：创建文件夹需要修改权限，请确保操作均在HOME目录内，不要在HOME外操作</li></ul><h5 id="touch创建文件【浅色-】"><a class="header-anchor" href="#touch创建文件【浅色-】">¶</a>touch创建文件【浅色/- 】</h5><p>可以通过touch命令创建文件语法：touchLinux路径<br>·touch命令无选项，参数必填，表示要创建的文件路径，相对、绝对、特殊路径符均可以使用</p><h5 id="cat命令查看文件内容"><a class="header-anchor" href="#cat命令查看文件内容">¶</a>cat命令查看文件内容</h5><ul><li>可以通过cat命令查看文件的内容。</li></ul><h5 id="more命令查看文件内容"><a class="header-anchor" href="#more命令查看文件内容">¶</a>more命令查看文件内容</h5><ul><li>more命令同样可以查看文件内容，同cat不同的是： cat是直接将内容金部显示出来，more支持翻页，如果文件内容过多，可以一页页的展</li><li>在查看的过程中，通过空格翻页，通过q退出查看</li></ul><h5 id="cp命令：copy"><a class="header-anchor" href="#cp命令：copy">¶</a>cp命令：copy</h5><ul><li>cp命令可以用于复制文件\文件夹，cp命令来自英文单词：</li><li><code>cp [-r] 参数1 参数2</code><ul><li><code>-r</code>选项，可选，用于复制文件夹使用，表示递归</li><li>参数1，Linux路径，表示被复制的文件或文件夹</li><li>参数2，Linux路径，表示要复制去的地方</li></ul></li></ul><h5 id="rm：remove"><a class="header-anchor" href="#rm：remove">¶</a>rm：remove</h5><ul><li>rm命令可用于删除文件、文件夹</li><li><code>rm [-r-f] 参数1 参数2 参数N</code><ul><li><code>-r</code>选项用于删除文件夹</li><li><code>-f</code>表示force，强制删除（不会弹出提示确认信息）<ul><li>普通用户副除内容不会弹出提示，只有root管理员用户副除内容会有提示所以一般营通用户用不到-f选项</li></ul></li><li>参数1、参数2、、参数N表示要除的文件或文件夹路径，按照空格隔开</li></ul></li></ul><h5 id="mv：move"><a class="header-anchor" href="#mv：move">¶</a>mv：move</h5><ul><li>mv命令可以用于移动文件\文件夹</li><li>mv 参数1 参数2<ul><li>参数1，Linux路径，表示被移动的文件或文件夹</li><li>参数2，Linux路径，表示要移动去的地方，如果目标不存在，则进行改名，确保目标存在</li></ul></li><li>rm命令支持通配符，用来做模糊匹配</li></ul><h5 id="which-命令名"><a class="header-anchor" href="#which-命令名">¶</a>which 命令名</h5><ul><li>输出命令文件位置</li></ul><h5 id="find-起始路径-name-“文件名”（可用通配符-）"><a class="header-anchor" href="#find-起始路径-name-“文件名”（可用通配符-）">¶</a>find 起始路径 -name “文件名”（可用通配符*）</h5><ul><li>按文件大小查找文件语法：<code>find 起始路径 -size +|-n[kMG]</code><ul><li><code>+</code>、<code>-</code>表示大于和小于</li><li><code>n</code>表示大小数字</li><li>kMG表示大小单位，k（小写字母）表示kb，M表示MB，G表示GB</li></ul></li></ul><h5 id="grep"><a class="header-anchor" href="#grep">¶</a>grep</h5><ul><li>从文件中通过关键字过滤文件</li><li>grep [-n] 关键字 文件路径<ul><li>-n，可选，表示在结果中显示匹配的行的行号。</li></ul></li></ul><h5 id="wc命令"><a class="header-anchor" href="#wc命令">¶</a>wc命令</h5><ul><li>统计文件的行数、单词数量等</li><li><code>wc [-c -m -l -w] </code>文件路径<ul><li>直接使用就显示：行数，单词数，字节数，文件名</li><li><code>-c</code>，统计bytes数量</li><li><code>-m</code>，统计字符数量</li><li><code>-l</code>，统计行数</li><li><code>-w</code>，统计单词数量</li></ul></li></ul><h5 id="管道符"><a class="header-anchor" href="#管道符">¶</a>管道符 <code>|</code></h5><h5 id="echo"><a class="header-anchor" href="#echo">¶</a>echo</h5><ul><li>带有空格或\等特殊符号，建议使用双引号包围</li></ul><h5 id="反引号"><a class="header-anchor" href="#反引号">¶</a>反引号``</h5><ul><li>包围内容作为命令执行</li></ul><h5 id="重定向符"><a class="header-anchor" href="#重定向符">¶</a>重定向符</h5><ul><li>&gt;，将左侧命令的结果，<strong>覆盖</strong>写入到符号右侧指定的文件中</li><li>&gt;&gt;，将左侧命令的结果，<strong>追加</strong>写入到符号右侧指定的文件中</li></ul><h5 id="tail命令"><a class="header-anchor" href="#tail命令">¶</a>tail命令</h5><ul><li><code>tail [-f-num] Linux路径</code><ul><li>-f，表示持续跟踪，ctrl+C强行终止</li><li>-num，表示，查看尾部多少行，不填默认10行【-5，-10的意思不是-num字面意思】</li></ul></li></ul><h5 id="vi-vim"><a class="header-anchor" href="#vi-vim">¶</a>vi vim</h5><ul><li>命令/输入i/底线命令模式</li><li>使用vim</li><li>vim 文件路径<ul><li>底线命令模式：<code>:wq</code></li></ul></li></ul><table><thead><tr><th style="text-align:center">模式</th><th style="text-align:center">命令</th><th style="text-align:center">描述</th></tr></thead><tbody><tr><td style="text-align:center">命令模式</td><td style="text-align:center">a</td><td style="text-align:center">在当前光标位置之后进入输入模式</td></tr><tr><td style="text-align:center">命令模式</td><td style="text-align:center">I(大写i)</td><td style="text-align:center">在当前行的开头，进入输入模式</td></tr><tr><td style="text-align:center">命令模式</td><td style="text-align:center">A</td><td style="text-align:center">在当前行的结尾，进入输入模式</td></tr><tr><td style="text-align:center">命令模式</td><td style="text-align:center">o</td><td style="text-align:center">在当前光标下一行进入输入模式</td></tr><tr><td style="text-align:center">命令模式</td><td style="text-align:center">O</td><td style="text-align:center">在当前光标上一行进入输入模式</td></tr></tbody></table><p>|命令模式|向上移动光标<br>命令模式<br>命令模式<br>命令模式<br>命令模式<br>命令模式<br>合令模式<br>命令模式<br>命令模式<br>命令模式<br>命令模式</p><h4 id="finalshell小技巧"><a class="header-anchor" href="#finalshell小技巧">¶</a>finalshell小技巧</h4><ul><li>ctrl+L清屏幕</li></ul><h3 id="MySQL视频教程"><a class="header-anchor" href="#MySQL视频教程">¶</a>MySQL视频教程</h3><ul><li>计算机语言概述<br>计算机语言（programminglanguage）可以简单的理解为一种计算机和人都能识别的语言。<ul><li>机器语言、汇编语言、高级语言</li></ul></li><li>SQL的概述<ul><li>SQL全称：StructuredQuery,Language，是结构化查询语言，用于访问和处理数据库的标准的计算机语言。</li><li>非过程化语言，与其他语言可以结合</li><li>对大小写不敏感，以;结尾</li></ul></li><li>注释方式<ul><li><code>-- </code></li><li><code>#</code></li><li><code>/**/</code></li></ul></li><li>数据库分类<ul><li>关系型数据库（RDBMS）<ul><li>Oracle数据库（老大，最挣钱的数据库）</li><li>MySQL数据库（最流行中型数据库）</li><li>SQLserver数据库（Windows上最好的数据库）</li><li>PostgreSQL（功能最强大的开源数据库）</li><li>SQLite（最流行的嵌入式数据库）</li></ul></li><li>非关系型数据库(NoSQL)<ul><li>Redis（最好的缓存数据库）</li><li>MongoDB（最好的文档型数据库）</li><li>Elasticsearch（最好的搜索服务）</li><li>Cassandra（最好的列式数据库）</li><li>HBase（优秀的分布式、列式数据库）</li></ul></li></ul></li><li>alpha是测试版本</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;比赛范围&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#比赛范围&quot;&gt;¶&lt;/a&gt;比赛范围&lt;/h2&gt;
+&lt;p&gt;以下是本次比赛的考核范围(仅供参考)：&lt;br&gt;
+1.Linux:选择题&lt;br&gt;
+文字教程(从Linux简介到Linux vi/vim命令):</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>日记（25-11-17凌晨）</title>
@@ -43,36 +66,6 @@
     <category term="瞎写" scheme="https://luoyinhui.github.io/tags/%E7%9E%8E%E5%86%99/"/>
     
     <category term="胡思乱想" scheme="https://luoyinhui.github.io/tags/%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>25美亚</title>
-    <link href="https://luoyinhui.github.io/2025/11/13/25%E7%BE%8E%E4%BA%9A/"/>
-    <id>https://luoyinhui.github.io/2025/11/13/25%E7%BE%8E%E4%BA%9A/</id>
-    <published>2025-11-12T23:23:59.000Z</published>
-    <updated>2025-11-14T15:46:34.819Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>可能全局搜英文名字</li><li>0840发密码1000可以交答案1100结束<br><code>ipconfig /all</code></li><li>截图必须<strong>全屏</strong></li><li>解压，建索引</li></ul><hr><p><img src="/img/25%E7%BE%8E%E4%BA%9A_image-1.png" alt="alt text"></p><h2 id="个人赛案情"><a class="header-anchor" href="#个人赛案情">¶</a>个人赛案情</h2><ul><li>警方接获报案，前往西贡布袋澳处理一宗“伤人”事件。经初步调查，怀疑男子<strong>陈民浩</strong>以木棍袭击男子<strong>冯子超</strong>，导致冯子超头部受伤昏迷。冯子超已被送往医院救治，陈民浩则因涉嫌“伤人”罪被警方当场拘捕，被捕后一直保持缄默，拒绝交代案情细节。</li><li>进一步调查显示，两人冲突疑因女子<strong>梁燕玲</strong>而起。根据现场迹象推断，梁燕玲曾于事发时在场出现，经警方多方搜索后，至今仍未能与她取得联络。请参赛者根据提供的资料，深入分析线索，寻找梁燕玲下落，并还原事件真相。</li><li>背景资料：<ul><li>Green Technology Supply Co. Ltd.（绿创科技系统有限公司）为本港网络工程公司，主要业务是为企业客户铺设网络服务及安装各类服务器。</li><li>男子 FUNG Chi-chiu（冯子超），英文名为Duncan，30岁，未婚，香港出生，在Green Technology Supply Co. Ltd.任职工程师。</li><li>男子 CHAN Man-ho（陈民浩），英文名为Hogan，35岁，未婚，香港出生，在Green Technology Supply Co. Ltd. 任职系统工程师。</li><li>女子 LEUNG Yin-ling（梁燕玲），英文名为Ling，28岁，未婚，香港出生，现为自由职业平面设计师。</li></ul></li><li>附加资料：<ul><li>梁燕玲与陈民浩为同居情侣关系，梁燕玲通过陈民浩认识冯子超，三人均为密码学（<strong>Crypto</strong>）及隐写术（<strong>Stego</strong>）爱好者。</li><li>陈民浩经常驾车接载三人前往郊区聚餐，并一同钻研相关技术话题</li></ul></li></ul><p><img src="/img/25%E7%BE%8E%E4%BA%9A_image.png" alt="alt text"></p><h2 id="团体赛案情"><a class="header-anchor" href="#团体赛案情">¶</a>团体赛案情</h2><ul><li>警方调查发现一宗虚拟货币投资诈骗案件，涉及“优盛金融控股有限公司”(Manson Finance Holding Company) 旗下的一项投资计划。据该公司首席执行官<strong>林嘉熙</strong>表示，该计划目前仍处于筹备阶段，但是财务总监<strong>梁雪媚</strong>则称她在一次线上会议上，收到林嘉熙的指示启动该计划。林嘉熙对此坚决否认，同时指出他从未参与相关的线上会议并提供了充分不在场的证明，证明其当时正在外地休假，同时怀疑有人利用AI变面技术参与公司的线上会议。</li><li>经初步调查，警方相信案件背后涉及一个由密码学与隐写术爱好者组成的犯罪团伙。请各参赛队伍根据所提供的资料，深入分析各类线索，并承接个人赛已掌握的证据还原案件真相，设法<strong>破解被刻意隐藏的加密钱包登录资料</strong>，为受害人追回损失。</li><li>背景资料：<ul><li>优盛金融控股公司（Manson Finance Holding Company）于2025年初在注册成立，主营业务为金融业跨业整合投资，控股范围包括信托业、证券业、期货业、创投业、外汇融资等，近期计划拓展业务。</li><li>男子LAM Ka-hei(<strong>林嘉熙</strong>)，英文名为Hayson，40岁，已婚，香港出生，在优盛金融控股公司任职首席执行官。林嘉熙先生计划开发加密货币投资项目，项目由财务总监梁雪媚小姐领导的销售团队进行市场调研及筹划。</li><li>女子LEUNG Suet-mei (<strong>梁雪媚</strong>)，英文名为May，45岁，已婚，香港出生，在优盛金融控股公司任职财务总监。梁雪媚小姐领导销售团队进行加密货币投资项目市场调研及筹划。</li><li>男子WONG Chi-wah (<strong>黄智华</strong>)，英文名为Titus，30岁，已婚，香港出生，在优盛金融控股公司任职信息技术部主管，负责管理公司的计算机及网络系统。为配合公司发展，将公司客户资料及其财务状况整合到人工智能系统，授权员工可通过公司网页直接查询相关资料，并利用人工智能进行大数据分析。</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;可能全局搜英文名字&lt;/li&gt;
-&lt;li&gt;0840发密码1000可以交答案1100结束&lt;br&gt;
-&lt;code&gt;ipconfig /all&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;截图必须&lt;strong&gt;全屏&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;解压，建索引&lt;/li&gt;
-&lt;/ul</summary>
-      
-    
-    
-    
-    <category term="wp" scheme="https://luoyinhui.github.io/categories/wp/"/>
-    
-    
-    <category term="电子取证" scheme="https://luoyinhui.github.io/tags/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/"/>
     
   </entry>
   
@@ -253,7 +246,7 @@
     <link href="https://luoyinhui.github.io/2025/10/28/%E5%AF%86%E7%A0%81%E4%BF%9D%E7%AE%A1%E7%AE%B1/"/>
     <id>https://luoyinhui.github.io/2025/10/28/%E5%AF%86%E7%A0%81%E4%BF%9D%E7%AE%A1%E7%AE%B1/</id>
     <published>2025-10-28T03:25:02.000Z</published>
-    <updated>2025-11-08T04:42:28.162Z</updated>
+    <updated>2025-11-16T20:41:20.781Z</updated>
     
     <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重试。" data-whm="内容认证失败，但仍可尝试查看。">  <script id="hbeData" type="hbeData" data-hmacdigest="8637f902fdb4db74700825f3e0c61975ba8ffb69d4d6460da719a8f8f0fad2bb">0fb841af6ca425c7c32eea7bae87dbb34be87225fe10c2c68f7236cf7674debbf80ad61bc387afb3122fa5cb5cab6e834dc01dfdcfb7f2983b6362935060adaf3e440628044a1dbfa4f122c7ada90357dd676f00603ffc7b0005f420c5c1b38bd1a44979b6f83730779c0c423d7f4536e0fede61cfd8bb65c7ddf725381277b824d50b7ea26449dccca59bb0807bb477c8395206a48d56bf803cbced20d3cc125f4e2a79bb851a1b5b96f312d240d44651e933286e401953cee0d3d1c3cafad6a679f8cb83734e6f05683d89407dd7403f5b3492bcd65f62fdd5184f23f074777608d69ab02abea8a855d1d11724026324121c7f8a9b4bee435fe6b6c1472c643a764a4b553fd63c09e1e9b796c11bb92b64fb8fcb3fef4f8197bab689f9ee00dc7e2bac47cd3e7e6d6e518d285586e059527e274398a18bef665db12a2c24eafe525e895ba1b909131e4b8c7db5e872f459f297ce330d9452b783d0d9b22a7ffdcd46c59b76b22c0c7d87026df03b046f093b5651b0ce0de29c1277290d00a5d85087d68e4ae4e5c1dc6e8aea6a2eb0db76284ae2d2d1487977fc984a05cd68b714b4151509a6ebe33b80ddbf18795dada1f9c00018f844e9520253e5c352b44c8148f4c7e773d069a57b7d456e4c00515aaa3b204a5bd8657c79fbea97f68f299f81a85329a7e92155f7b135079aef22c2e5498ef36a4d91cdd82ca328deab</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码查看本文。</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
@@ -419,9 +412,9 @@
     <category term="wp" scheme="https://luoyinhui.github.io/categories/wp/"/>
     
     
-    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
-    
     <category term="ctf" scheme="https://luoyinhui.github.io/tags/ctf/"/>
+    
+    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
     
   </entry>
   
@@ -533,11 +526,11 @@
     <category term="wp" scheme="https://luoyinhui.github.io/categories/wp/"/>
     
     
-    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
-    
     <category term="ctf" scheme="https://luoyinhui.github.io/tags/ctf/"/>
     
     <category term="美亚杯" scheme="https://luoyinhui.github.io/tags/%E7%BE%8E%E4%BA%9A%E6%9D%AF/"/>
+    
+    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
     
   </entry>
   
@@ -564,9 +557,9 @@
     <category term="wp" scheme="https://luoyinhui.github.io/categories/wp/"/>
     
     
-    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
-    
     <category term="ctf" scheme="https://luoyinhui.github.io/tags/ctf/"/>
+    
+    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
     
     <category term="pwn" scheme="https://luoyinhui.github.io/tags/pwn/"/>
     
@@ -646,9 +639,9 @@
     <category term="wp" scheme="https://luoyinhui.github.io/categories/wp/"/>
     
     
-    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
-    
     <category term="ctf" scheme="https://luoyinhui.github.io/tags/ctf/"/>
+    
+    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
     
     <category term="pwn" scheme="https://luoyinhui.github.io/tags/pwn/"/>
     
@@ -737,11 +730,11 @@
     <category term="知识点笔记" scheme="https://luoyinhui.github.io/categories/%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="电子取证" scheme="https://luoyinhui.github.io/tags/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/"/>
-    
     <category term="ctf" scheme="https://luoyinhui.github.io/tags/ctf/"/>
     
     <category term="笔记" scheme="https://luoyinhui.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="电子取证" scheme="https://luoyinhui.github.io/tags/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/"/>
     
   </entry>
   
@@ -798,9 +791,9 @@ rsa中应用：c = m ^ e % n ；m ^ e ≡ c mod n&lt;/li&gt;
     <category term="wp" scheme="https://luoyinhui.github.io/categories/wp/"/>
     
     
-    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
-    
     <category term="ctf" scheme="https://luoyinhui.github.io/tags/ctf/"/>
+    
+    <category term="wp" scheme="https://luoyinhui.github.io/tags/wp/"/>
     
     <category term="共模攻击" scheme="https://luoyinhui.github.io/tags/%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/"/>
     
@@ -854,9 +847,9 @@ rsa中应用：c = m ^ e % n ；m ^ e ≡ c mod n&lt;/li&gt;
     <category term="语法笔记" scheme="https://luoyinhui.github.io/categories/%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="markdown" scheme="https://luoyinhui.github.io/tags/markdown/"/>
-    
     <category term="github" scheme="https://luoyinhui.github.io/tags/github/"/>
+    
+    <category term="markdown" scheme="https://luoyinhui.github.io/tags/markdown/"/>
     
     <category term="vscode" scheme="https://luoyinhui.github.io/tags/vscode/"/>
     
