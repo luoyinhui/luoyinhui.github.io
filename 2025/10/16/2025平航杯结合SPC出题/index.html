@@ -1,0 +1,737 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2025平航杯结合SPC出题 | 落殷回的博客</title><meta name="author" content="luoyinhui"><meta name="copyright" content="luoyinhui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="¶致谢 ¶题目背景 爱⽽不得，进而由爱生恨。作为有黑客背景的他，激发出了强烈的占有欲，虽然不能在真实物理世界成 为她的伴侣，但在虚拟世界⾥，他执着的要成为她的主宰，于是，我们的故事开始了……。手机，电 脑，服务器，⽊⻢，AI，Iot设备……无⼀幸免的都成为他的作案⼯具或⽬标，但最终在诸位明察秋毫的取证达人面前，都无处遁形，作恶者终将被绳之以法。追悔莫及的他最后终于明⽩，其实真正的爱，不是占有，而是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025平航杯结合SPC出题">
+<meta property="og:url" content="https://luoyinhui.github.io/2025/10/16/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98/index.html">
+<meta property="og:site_name" content="落殷回的博客">
+<meta property="og:description" content="¶致谢 ¶题目背景 爱⽽不得，进而由爱生恨。作为有黑客背景的他，激发出了强烈的占有欲，虽然不能在真实物理世界成 为她的伴侣，但在虚拟世界⾥，他执着的要成为她的主宰，于是，我们的故事开始了……。手机，电 脑，服务器，⽊⻢，AI，Iot设备……无⼀幸免的都成为他的作案⼯具或⽬标，但最终在诸位明察秋毫的取证达人面前，都无处遁形，作恶者终将被绳之以法。追悔莫及的他最后终于明⽩，其实真正的爱，不是占有，而是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luoyinhui.github.io/img/wenzhang.png">
+<meta property="article:published_time" content="2025-10-15T23:39:02.000Z">
+<meta property="article:modified_time" content="2025-11-09T09:06:22.648Z">
+<meta property="article:author" content="luoyinhui">
+<meta property="article:tag" content="学生，记录，Python，C，ctf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://luoyinhui.github.io/img/wenzhang.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2025平航杯结合SPC出题",
+  "url": "https://luoyinhui.github.io/2025/10/16/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98/",
+  "image": "https://luoyinhui.github.io/img/wenzhang.png",
+  "datePublished": "2025-10-15T23:39:02.000Z",
+  "dateModified": "2025-11-09T09:06:22.648Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "luoyinhui",
+      "url": "https://luoyinhui.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/zhandian.png"><link rel="canonical" href="https://luoyinhui.github.io/2025/10/16/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98/index.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.0"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=7.0.1"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"DLCXYNBEA7","apiKey":"55cb2783d393395612712be2263ebaf1","indexName":"index","hitsPerPage":10,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: luoyinhui","link":"链接: ","source":"来源: 落殷回的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.12.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2025平航杯结合SPC出题',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style>
+  .aplayer .aplayer-notice{display:none!important}
+</style>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="落殷回的博客" type="application/atom+xml">
+<link rel="alternate" href="/rss.xml" title="落殷回的博客" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/wenzhang.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">落殷回的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">2025平航杯结合SPC出题</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div id="local-search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 本地搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">2025平航杯结合SPC出题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-15T23:39:02.000Z" title="发表于 2025-10-16 07:39:02">2025-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-09T09:06:22.648Z" title="更新于 2025-11-09 17:06:22">2025-11-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">5.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>24分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="致谢"><a class="header-anchor" href="#致谢">¶</a>致谢</h2>
+<h3 id="题目背景"><a class="header-anchor" href="#题目背景">¶</a>题目背景</h3>
+<p>爱⽽不得，进而由爱生恨。作为有黑客背景的他，激发出了强烈的占有欲，虽然不能在真实物理世界成 为她的伴侣，但在虚拟世界⾥，他执着的要成为她的主宰，于是，我们的故事开始了……。手机，电 脑，服务器，⽊⻢，AI，Iot设备……无⼀幸免的都成为他的作案⼯具或⽬标，但最终在诸位明察秋毫的取证达人面前，都无处遁形，作恶者终将被绳之以法。追悔莫及的他最后终于明⽩，其实真正的爱，不是占有，而是放手！！！</p>
+<p>2025年4⽉，杭州滨江警⽅接到辖区内市⺠刘晓倩(简称：倩倩)报案称：其个⼈电⼦设备疑似遭 ⼈监控。经初步调查，警⽅发现倩倩的手机存在可疑后台活动，手机可能存在被木马控制情况； 对倩倩计算机进⾏流量监控，捕获可疑流量包。遂启动电子数据取证程序。</p>
+<p>警⽅通过对倩倩手机和恶意流量包的分析，锁定⼀名化名“起早王”的本地男子。经搜查其住所， 警⽅查扣⼀台个人电脑和服务器。技术分析显示，该服务器中存有与倩倩设备内同源的特制远控木马，可实时窃取手机摄像头、手机通信记录等相关敏感文件。进⼀步对服务器溯源，发现“起 早王”曾渗透其任职的科技公司购物网站，获得公司服务器权限，非法窃取商业数据并使用公司 的服务器搭建Trojan服务并作为跳板机实施远控。</p>
+<p>请你结合以上案例并根据相关检材，完成下面的勘验工作。<br>
+密码：早起王的爱恋日记❤</p>
+<h3 id="计算机取证"><a class="header-anchor" href="#计算机取证">¶</a>计算机取证</h3>
+<h4 id="7-分析起早王的计算机检材，SillyTavern中账户起早王的创建时间是什么时候-格式：2020-1-1-01-01-01"><a class="header-anchor" href="#7-分析起早王的计算机检材，SillyTavern中账户起早王的创建时间是什么时候-格式：2020-1-1-01-01-01">¶</a>7. 分析起早王的计算机检材，SillyTavern中账户起早王的创建时间是什么时候(格式：2020/1/1 01:01:01)</h4>
+<ul>
+<li>有毛病为啥SillyTavern搜索后找到文件夹，开启方式不在此文件下层，在上层的bat文件。。。</li>
+<li>初步推测是因为SillyTavern账密在日记里，所以我搜到的是日记的日志文件？？？</li>
+<li>SillyTavern账户密码在日记里，进入得到磁盘解密密码</li>
+</ul>
+<h4 id="很多思路都是找日志"><a class="header-anchor" href="#很多思路都是找日志">¶</a>很多思路都是找日志</h4>
+<h4 id="9-分析起早王的计算机检材，SillyTavern中起早王与ai女友聊天所调用的语言模型-带文件后缀-格式：xxxxx-xxxxxxx-xxxx"><a class="header-anchor" href="#9-分析起早王的计算机检材，SillyTavern中起早王与ai女友聊天所调用的语言模型-带文件后缀-格式：xxxxx-xxxxxxx-xxxx">¶</a>9. 分析起早王的计算机检材，SillyTavern中起早王与ai女友聊天所调用的语言模型(带文件后缀)(格式：xxxxx-xxxxxxx.xxxx)</h4>
+<ul>
+<li>sq思路
+<ul>
+<li>日志里边，一般先点data，然后再找</li>
+<li>或者everything小倩</li>
+</ul>
+</li>
+<li>Tifa-DeepsexV2-7b-Cot-0222-Q8</li>
+</ul>
+<h4 id="12-分析起早王的计算机检材，最早被换脸的图片所使用的换脸模型是什么-带文件后缀-格式：xxxxxxxxxxx-xxxx"><a class="header-anchor" href="#12-分析起早王的计算机检材，最早被换脸的图片所使用的换脸模型是什么-带文件后缀-格式：xxxxxxxxxxx-xxxx">¶</a>12. 分析起早王的计算机检材，最早被换脸的图片所使用的换脸模型是什么(带文件后缀)(格式：xxxxxxxxxxx.xxxx)</h4>
+<ul>
+<li>不知道为什么是model搜索后选这个？？？</li>
+<li>文件夹搜索，everything好像搜索不到加密磁盘</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">&quot;face_detector_model&quot;: &quot;yoloface&quot;,</span><br><span class="line">&quot;face_landmarker_model&quot;: &quot;2dfan4&quot;,</span><br><span class="line">&quot;face_occluder_model&quot;: &quot;xseg_1&quot;,</span><br><span class="line">&quot;face_parser_model&quot;: &quot;bisenet_resnet_34&quot;,</span><br><span class="line">&quot;age_modifier_model&quot;: &quot;styleganex_age&quot;,</span><br><span class="line">&quot;deep_swapper_model&quot;: &quot;iperov/elon_musk_224&quot;,</span><br><span class="line">&quot;expression_restorer_model&quot;: &quot;live_portrait&quot;,</span><br><span class="line">&quot;face_editor_model&quot;: &quot;live_portrait&quot;,</span><br><span class="line">&quot;face_enhancer_model&quot;: &quot;gfpgan_1.4&quot;,</span><br><span class="line">&quot;face_swapper_model&quot;: &quot;inswapper_128_fp16&quot;, # 选了这个</span><br><span class="line">&quot;frame_colorizer_model&quot;: &quot;ddcolor&quot;,</span><br><span class="line">&quot;frame_enhancer_model&quot;: &quot;span_kendata_x4&quot;,</span><br><span class="line">&quot;lip_syncer_model&quot;: &quot;wav2lip_gan_96&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>直接搜.json能看到对应的配置文件，而且只有前三个是有时间的，查看最早的配置文件【来自xc学长未尝试】</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-24.png" alt="alt text"></p>
+<h4 id="13-分析起早王的计算机检材，neo4j中数据存放的数据库的名称是什么-格式：abd-ef"><a class="header-anchor" href="#13-分析起早王的计算机检材，neo4j中数据存放的数据库的名称是什么-格式：abd-ef">¶</a>13. 分析起早王的计算机检材，neo4j中数据存放的数据库的名称是什么(格式：abd.ef)</h4>
+<ul>
+<li>data/databases</li>
+<li>找到graph.db</li>
+</ul>
+<h4 id="14-分析起早王的计算机检材，neo4j数据库中总共存放了多少个节点-格式：1"><a class="header-anchor" href="#14-分析起早王的计算机检材，neo4j数据库中总共存放了多少个节点-格式：1">¶</a>14. 分析起早王的计算机检材，neo4j数据库中总共存放了多少个节点(格式：1)</h4>
+<ul>
+<li>neo4j.bat console</li>
+<li><a target="_blank" rel="noopener" href="http://localhost:7474/">http://localhost:7474/</a></li>
+<li>我的学习笔记里面找思维导图，有账密<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%B9%B3%E8%88%AA%E6%9D%AF_p-5.png" alt="alt text"></li>
+<li>17088个</li>
+</ul>
+<h4 id="15-分析起早王的计算机检材，neo4j数据库内白杰的⼿机号码是什么-格式：12345678901"><a class="header-anchor" href="#15-分析起早王的计算机检材，neo4j数据库内白杰的⼿机号码是什么-格式：12345678901">¶</a>15. 分析起早王的计算机检材，neo4j数据库内白杰的⼿机号码是什么(格式：12345678901)</h4>
+<ul>
+<li>成功方案3个
+<ul>
+<li>去除limit25后导出csv文件直接ctrl+F搜索</li>
+<li>sq版本，一开始莫名其妙搜不到，后面手打成功了。。。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (u:person &#123;name: &#x27;⽩杰&#x27;&#125;)</span><br><span class="line">RETURN u.mobile;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>xc版本</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (n &#123;name:&#x27;白杰&#x27;&#125;)</span><br><span class="line">RETURN n;</span><br></pre></td></tr></table></figure>
+<h4 id="16-分析起早王的计算机检材，分析neo4j数据库内数据，统计在2025年4月7日至13日期间使用非授权设备登录且登录地点超出其注册时登记的两个以上城市的⽤户数量-格式：1-【待学习】"><a class="header-anchor" href="#16-分析起早王的计算机检材，分析neo4j数据库内数据，统计在2025年4月7日至13日期间使用非授权设备登录且登录地点超出其注册时登记的两个以上城市的⽤户数量-格式：1-【待学习】">¶</a>16. 分析起早王的计算机检材，分析neo4j数据库内数据，统计在2025年4月7日至13日期间使用非授权设备登录且登录地点超出其注册时登记的两个以上城市的⽤户数量(格式：1)【待学习】</h4>
+<ul>
+<li>查了半天全是赛后复现。。放弃吧</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (u:User)-[:HAS_LOGIN]-&gt;(l:Login)-[:FROM_IP]-&gt;(ip:IP)</span><br><span class="line">MATCH (l)-[:USING_DEVICE]-&gt;(d:Device)</span><br><span class="line">WHERE</span><br><span class="line">l.time &lt; datetime(&#x27;2025-04-14&#x27;)</span><br><span class="line">AND ip.city &lt;&gt; u.reg_city</span><br><span class="line">AND NOT (u)-[:TRUSTS]-&gt;(d)</span><br><span class="line">WITH</span><br><span class="line">u,</span><br><span class="line">collect(DISTINCT ip.city) AS 异常登录城市列表,</span><br><span class="line">collect(DISTINCT d.device_id) AS 未授权设备列表,</span><br><span class="line">count(l) AS 异常登录次数</span><br><span class="line">WHERE size(异常登录城市列表) &gt; 2</span><br><span class="line">RETURN</span><br><span class="line">u.user_id AS 用户ID,</span><br><span class="line">u.real_name AS 姓名,</span><br><span class="line">异常登录城市列表,</span><br><span class="line">未授权设备列表, 异常登录次数</span><br><span class="line">ORDER BY 异常登录次数 DESC;</span><br></pre></td></tr></table></figure>
+<h4 id="18-分析起早王的计算机检材，起早王的虚拟货币钱包是什么-格式：0x11111111"><a class="header-anchor" href="#18-分析起早王的计算机检材，起早王的虚拟货币钱包是什么-格式：0x11111111">¶</a>18. 分析起早王的计算机检材，起早王的虚拟货币钱包是什么(格式：0x11111111)</h4>
+<ul>
+<li>浏览器历史记录-最近关闭-metamask</li>
+<li>重置密码是卡死的，但不需要重置上面也有地址：0xd8786a1345cA969C792d9328f8594981066482e9</li>
+</ul>
+<h4 id="注意SHA256格式：字母大小写"><a class="header-anchor" href="#注意SHA256格式：字母大小写">¶</a>注意SHA256格式：字母大小写</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">uppercase_to_lowercase</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="keyword">return</span> text.lower()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">original_string = <span class="built_in">input</span>(<span class="string">&quot;输入：&quot;</span>)</span><br><span class="line">result = uppercase_to_lowercase(original_string)</span><br><span class="line"><span class="built_in">print</span>(result)  </span><br></pre></td></tr></table></figure>
+<h4 id="19-分析起早王的计算机检材，起早王请高手为倩倩发行了虚拟货币，请问倩倩币的最大供应量是多少-格式：100qianqian"><a class="header-anchor" href="#19-分析起早王的计算机检材，起早王请高手为倩倩发行了虚拟货币，请问倩倩币的最大供应量是多少-格式：100qianqian">¶</a>19. 分析起早王的计算机检材，起早王请高手为倩倩发行了虚拟货币，请问倩倩币的最大供应量是多少(格式：100qianqian)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-1.png" alt="alt text"></p>
+<h3 id="AI题目（注意：该题目要python-3-10环境，建议3-10-6）"><a class="header-anchor" href="#AI题目（注意：该题目要python-3-10环境，建议3-10-6）">¶</a>AI题目（注意：该题目要python 3.10环境，建议3.10.6）</h3>
+<h4 id="22-25-分析crack文件，获得flag1-格式：flag1-123456"><a class="header-anchor" href="#22-25-分析crack文件，获得flag1-格式：flag1-123456">¶</a>22-25.分析crack文件，获得flag1(格式：flag1{123456})</h4>
+<ul>
+<li>使用github开源软件解密，<a target="_blank" rel="noopener" href="https://github.com/Lil-House/Pyarmor-Static-Unpack-1shot/releases">下载位置</a>，<a href="/2025/10/21/PyArmor-Unpacker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">使用方法</a></li>
+<li>flag1{you_are_so_smart} ; flag2{prompt_is_easy} ; flag3{no_question_can_kill_you} ; flag4{You_have_mastered_the_AI}</li>
+</ul>
+<h3 id="手机部分"><a class="header-anchor" href="#手机部分">¶</a>手机部分</h3>
+<h4 id="26-该检材的备份提取时间（UTC）-格式：2020-1-1-01-01-01"><a class="header-anchor" href="#26-该检材的备份提取时间（UTC）-格式：2020-1-1-01-01-01">¶</a>26. 该检材的备份提取时间（UTC）(格式：2020/1/1 01:01:01)</h4>
+<ul>
+<li>2025-04-15 18:11:18.838 +0800</li>
+<li>减8</li>
+</ul>
+<h4 id="27-分析倩倩的手机检材-手机内Puzzle-Game拼图程序拼图APK中的Flag1是什么"><a class="header-anchor" href="#27-分析倩倩的手机检材-手机内Puzzle-Game拼图程序拼图APK中的Flag1是什么">¶</a>27. 分析倩倩的手机检材,手机内Puzzle_Game拼图程序拼图APK中的Flag1是什么</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%B9%B3%E8%88%AA%E6%9D%AF_p-1.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%B9%B3%E8%88%AA%E6%9D%AF_p-2.png" alt="alt text"></p>
+<ul>
+<li>在Java中，Byte.MAX_VALUE 是 127，Byte.MIN_VALUE = -128</li>
+<li>密码：两种方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.Padding <span class="keyword">import</span> unpad</span><br><span class="line"></span><br><span class="line">MAGIC_NUMBERS = [<span class="number">113</span>, <span class="number">99</span>, <span class="number">92</span>, <span class="number">106</span>, <span class="number">89</span>, <span class="number">98</span>, <span class="number">54</span>, <span class="number">113</span>, <span class="number">104</span>, <span class="number">89</span>, <span class="number">117</span>, <span class="number">100</span>, <span class="number">113</span>, <span class="number">127</span>, <span class="number">124</span>, <span class="number">89</span>]</span><br><span class="line">key_bytes = <span class="built_in">bytearray</span>(<span class="built_in">len</span>(MAGIC_NUMBERS))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(MAGIC_NUMBERS)):</span><br><span class="line">    key_bytes[i] = MAGIC_NUMBERS[i] ^ <span class="number">6</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bytes</span>(key_bytes))</span><br><span class="line"><span class="comment"># &gt;&gt;&gt; b&#x27;weZl_d0wn_sbwyz_&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%B9%B3%E8%88%AA%E6%9D%AF_p-3.png" alt="alt text"></p>
+<ul>
+<li>密文其实是在下面的 hexStringToByteArray 方法中（理解不了一点伪C代码。。可能这位置靠猜？</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%B9%B3%E8%88%AA%E6%9D%AF_p-4.png" alt="alt text"></p>
+<ul>
+<li>判断AES使用的是ECB模式
+<ul>
+<li>如果代码中没有指定模式，通常是ECB</li>
+<li>如果是CBC模式，通常会有IV参数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">byte[] decrypted = decryptAESBlock(cipherBytes, expandedKey, iv);</span><br></pre></td></tr></table></figure>
+<h4 id="29-分析倩倩的手机检材-木马app是怎么被安装的（网址）-格式：http-127-0-0-1-1234"><a class="header-anchor" href="#29-分析倩倩的手机检材-木马app是怎么被安装的（网址）-格式：http-127-0-0-1-1234">¶</a>29. 分析倩倩的手机检材,木马app是怎么被安装的（网址）(格式：<a target="_blank" rel="noopener" href="http://127.0.0.1:1234/">http://127.0.0.1:1234/</a>)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-5.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-6.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-7.png" alt="alt text"></p>
+<ul>
+<li>还有种猜测，靠时间推</li>
+</ul>
+<h4 id="30-分析倩倩的手机检材-检材内的木马app的hash是什么-格式：大写md5"><a class="header-anchor" href="#30-分析倩倩的手机检材-检材内的木马app的hash是什么-格式：大写md5">¶</a>30. 分析倩倩的手机检材,检材内的木马app的hash是什么(格式：大写md5)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-4.png" alt="alt text"></p>
+<h4 id="31-分析倩倩的手机检材-检材内的木马app的应用名称是什么【格式：Baidu】"><a class="header-anchor" href="#31-分析倩倩的手机检材-检材内的木马app的应用名称是什么【格式：Baidu】">¶</a>31. 分析倩倩的手机检材,检材内的木马app的应用名称是什么【格式：Baidu】</h4>
+<ul>
+<li>Google Service Framework</li>
+<li>纯猜啊。。</li>
+</ul>
+<h4 id="32-分析倩倩的手机检材-检材内的木马app的使用什么加固-格式：腾讯乐固"><a class="header-anchor" href="#32-分析倩倩的手机检材-检材内的木马app的使用什么加固-格式：腾讯乐固">¶</a>32. 分析倩倩的手机检材,检材内的木马app的使用什么加固(格式：腾讯乐固)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-8.png" alt="alt text"></p>
+<h5 id="33-分析倩倩的手机检材-检材内的木马软件所关联到的ip和端口是什么-格式：127-0-0-1-1111"><a class="header-anchor" href="#33-分析倩倩的手机检材-检材内的木马软件所关联到的ip和端口是什么-格式：127-0-0-1-1111">¶</a>33. 分析倩倩的手机检材,检材内的木马软件所关联到的ip和端口是什么(格式：127.0.0.1:1111)</h5>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-10.png" alt="alt text"></p>
+<ul>
+<li>但看后面日志文件能看到：</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[root@localhost AndroRAT]# python3 androRAT.py --shell -i 0.0.0.0 -p 8000</span><br><span class="line">...</span><br><span class="line">Got connection from (&#x27;92.67.33.56&#x27;, 60844)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>但是：</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-11.png" alt="alt text"></p>
+<ul>
+<li>不理解</li>
+<li>自动分析牛啊</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-25.png" alt="alt text"></p>
+<ul>
+<li>但分析报告简直一坨。。</li>
+<li>没辙了放弃。。</li>
+<li>honglian技术员帮忙用backdex搞，注意此软件用32的找，脱壳后查看</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-57.png" alt="alt text"></p>
+<ul>
+<li>成功了，泪流满面感激涕零٩(๑´3｀๑)۶</li>
+</ul>
+<h4 id="34-该木马app控制手机摄像头拍了几张照片【格式：1】"><a class="header-anchor" href="#34-该木马app控制手机摄像头拍了几张照片【格式：1】">¶</a>34. 该木马app控制手机摄像头拍了几张照片【格式：1】</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-9.png" alt="alt text"></p>
+<h4 id="35-木马APP被使用的摄像头为-格式：Camera"><a class="header-anchor" href="#35-木马APP被使用的摄像头为-格式：Camera">¶</a>35. 木马APP被使用的摄像头为(格式：Camera)</h4>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">Interpreter:/&gt; camList</span><br><span class="line">0 --  Back Camera</span><br><span class="line">1 --  Front Camera</span><br><span class="line"></span><br><span class="line">Interpreter:/&gt; takepic 1</span><br><span class="line">[INFO] Taking Image</span><br><span class="line">[ERROR] Unable to connect to the Camera</span><br><span class="line"></span><br><span class="line">Interpreter:/&gt; takepic 1</span><br><span class="line">[INFO] Taking Image</span><br><span class="line">[ERROR] Unable to connect to the Camera</span><br><span class="line"></span><br><span class="line">Interpreter:/&gt; takepic 1</span><br><span class="line">[INFO] Taking Image</span><br><span class="line">[ERROR] Unable to connect to the Camera</span><br><span class="line"></span><br><span class="line">Interpreter:/&gt; takepic 1</span><br><span class="line">[INFO] Taking Image</span><br><span class="line">[SUCCESS] Succesfully Saved in /root/AndroRAT/Dumps/Image_20250410-140555.jpg</span><br><span class="line"></span><br><span class="line">Interpreter:/&gt; takepic 1</span><br><span class="line">[INFO] Taking Image</span><br><span class="line">[SUCCESS] Succesfully Saved in /root/AndroRAT/Dumps/Image_20250410-140605.jpg</span><br><span class="line"></span><br><span class="line">Interpreter:/&gt; takepic 1</span><br><span class="line">[INFO] Taking Image</span><br><span class="line">[SUCCESS] Succesfully Saved in /root/AndroRAT/Dumps/Image_20250410-140622.jpg</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Front Camera</li>
+</ul>
+<h4 id="36-分析倩倩的手机检材-木马APK通过调用什么api实现自身持久化-格式：JobStore"><a class="header-anchor" href="#36-分析倩倩的手机检材-木马APK通过调用什么api实现自身持久化-格式：JobStore">¶</a>36. 分析倩倩的手机检材,木马APK通过调用什么api实现自身持久化(格式：JobStore)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-58.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-59.png" alt="alt text"></p>
+<h4 id="37-分析倩倩的手机检材-根据倩倩的身份证号请问倩倩来自哪里（格式：北京市西城区）"><a class="header-anchor" href="#37-分析倩倩的手机检材-根据倩倩的身份证号请问倩倩来自哪里（格式：北京市西城区）">¶</a>37. 分析倩倩的手机检材,根据倩倩的身份证号请问倩倩来自哪里（格式：北京市西城区）</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-12.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-13.png" alt="alt text"></p>
+<ul>
+<li>找了下<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44196825/article/details/128757754">离线工具</a>,不知道为什么github打不开~~</li>
+<li>已下载，E:\app-down\ID归属地查询工具\身份证归属地查询软件</li>
+</ul>
+<h4 id="38-此手机检材的IMEI号是多少-格式：1234567890-【待】"><a class="header-anchor" href="#38-此手机检材的IMEI号是多少-格式：1234567890-【待】">¶</a>38. 此手机检材的IMEI号是多少(格式：1234567890)【待】</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-56.png" alt="alt text"></p>
+<ul>
+<li>一个是imei一个是sp_imei答案是前一个，不知道为什么。。</li>
+</ul>
+<h3 id="exe逆向部分"><a class="header-anchor" href="#exe逆向部分">¶</a>exe逆向部分</h3>
+<h4 id="39-分析GIFT-exe，该程序的md5是什么-格式：大写md5"><a class="header-anchor" href="#39-分析GIFT-exe，该程序的md5是什么-格式：大写md5">¶</a>39. 分析GIFT.exe，该程序的md5是什么(格式：大写md5)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-14.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-15.png" alt="alt text"></p>
+<h4 id="40-GIFT-exe的使用的编程语言是什么-格式：C"><a class="header-anchor" href="#40-GIFT-exe的使用的编程语言是什么-格式：C">¶</a>40. GIFT.exe的使用的编程语言是什么(格式：C)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-16.png" alt="alt text"></p>
+<ul>
+<li>Python</li>
+</ul>
+<h4 id="41-解开得到的LOVE2-exe的编译时间-格式：2025-1-1-01-01-01"><a class="header-anchor" href="#41-解开得到的LOVE2-exe的编译时间-格式：2025-1-1-01-01-01">¶</a>41. 解开得到的LOVE2.exe的编译时间(格式：2025/1/1 01:01:01)</h4>
+<ul>
+<li>运行用虚拟机！！！这是病毒！！！</li>
+<li>手机里面得到身份证，得到生日</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-17.png" alt="alt text"></p>
+<h4 id="42-分析GIFT-exe，该病毒所关联到的ip和端口-格式：127-0-0-1-1111-【待】"><a class="header-anchor" href="#42-分析GIFT-exe，该病毒所关联到的ip和端口-格式：127-0-0-1-1111-【待】">¶</a>42. 分析GIFT.exe，该病毒所关联到的ip和端口(格式：127.0.0.1:1111)【待】</h4>
+<ul>
+<li>环境前俩没会话信息，最后一个？？？莫名其妙<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-26.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-18.png" alt="alt text"></li>
+<li>人家wp</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-19.png" alt="alt text"></p>
+<h4 id="43-分析GIFT-exe，该病毒修改的壁纸md5-格式：大写md5"><a class="header-anchor" href="#43-分析GIFT-exe，该病毒修改的壁纸md5-格式：大写md5">¶</a>43. 分析GIFT.exe，该病毒修改的壁纸md5(格式：大写md5)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-20.png" alt="alt text"></p>
+<ul>
+<li><code>certutil -hashfile temp_wallpaper.png md5</code></li>
+<li>支持MD2、MD4、MD5、SHA1、SHA256、SHA384和SHA512等。如果不指定HashAlgorithm，则默认使用MD5算法。</li>
+<li>733FC4483C0E7DB1C034BE5246DF5EC0</li>
+</ul>
+<h4 id="44-分析GIFT-exe，为对哪些后缀的文件进行加密：-A-doc-B-xlsx-C-jpg-D-png-E-ppt"><a class="header-anchor" href="#44-分析GIFT-exe，为对哪些后缀的文件进行加密：-A-doc-B-xlsx-C-jpg-D-png-E-ppt">¶</a>44. 分析GIFT.exe，为对哪些后缀的文件进行加密： A.doc B.xlsx C.jpg D.png E.ppt</h4>
+<ul>
+<li>直接一个个新建试</li>
+<li>或者ida<strong>在地址页面</strong>搜doc</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-27.png" alt="alt text"></p>
+<h4 id="45-分析GIFT-exe，病毒加密后的文件类型是什么-格式：DOCX文档"><a class="header-anchor" href="#45-分析GIFT-exe，病毒加密后的文件类型是什么-格式：DOCX文档">¶</a>45. 分析GIFT.exe，病毒加密后的文件类型是什么(格式：DOCX文档)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-21.png" alt="alt text"></p>
+<h4 id="46-分析GIFT-exe，壁纸似乎被隐形水印加密过了？请找到其中的Flag3-格式：flag3-xxxxxxxx"><a class="header-anchor" href="#46-分析GIFT-exe，壁纸似乎被隐形水印加密过了？请找到其中的Flag3-格式：flag3-xxxxxxxx">¶</a>46. 分析GIFT.exe，壁纸似乎被隐形水印加密过了？请找到其中的Flag3(格式：flag3{xxxxxxxx})</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-22.png" alt="alt text"></p>
+<ul>
+<li>flag3{20241224_Our_First_Meet}</li>
+</ul>
+<h4 id="47-分析GIFT-exe，病毒加密文件所使用的方法是什么-格式：Base64"><a class="header-anchor" href="#47-分析GIFT-exe，病毒加密文件所使用的方法是什么-格式：Base64">¶</a>47. 分析GIFT.exe，病毒加密文件所使用的方法是什么(格式：Base64)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-23.png" alt="alt text"></p>
+<ul>
+<li>RSA</li>
+</ul>
+<h4 id="48-分析GIFT-exe，请解密test-love得到flag4-格式：flag4-xxxxxxxx"><a class="header-anchor" href="#48-分析GIFT-exe，请解密test-love得到flag4-格式：flag4-xxxxxxxx">¶</a>48. 分析GIFT.exe，请解密test.love得到flag4(格式：flag4{xxxxxxxx})</h4>
+<ul>
+<li>随波逐流可以看</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-28.png" alt="alt text"></p>
+<ul>
+<li>直接文本编辑器也可以看</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-----BEGIN RSA PRIVATE KEY-----</span><br><span class="line">MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAjMqVpy4zP9cO5m/y</span><br><span class="line">w0wmvdLzpUc4FNnUgpKJ26YimfDtA1cTZanNlxbmM25OTPsg2SaRUZdq7M3oGUel</span><br><span class="line">gmRdFwIDAQABAkBYVtCZympLt0PZIQsAsWppltBbtxkgNCGcIBgx4sc5MT03erss</span><br><span class="line">eyh2TqtQyO4aPYiOUUOWYw9hL4G6GFosXc+JAiEAvegkAhLXptnMlwCuwScK233w</span><br><span class="line">cbBcxKWWPgZckdHkGPsCIQC9ynkuhrI4j2nc2eItr1NoU3Y1sfv0I601iNK1YXMJ</span><br><span class="line">lQIgTYlomkgjMIagl865izdroW5sK578YXXSQATM6uStot0CIQCih1DNaiYXT6FN</span><br><span class="line">sv0BOIKJ9edmRjxIr4C2NqyTDZfRHQIgUUhesxSUmNdc5QzckCAozLdPAlcAy7q+</span><br><span class="line">k5ag7Oxp0r0=</span><br><span class="line">-----END RSA PRIVATE KEY-----</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我真的人傻了找不到test.love</li>
+<li>没辙了存下脚本。。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> cryptography.hazmat.primitives <span class="keyword">import</span> serialization</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.primitives.asymmetric <span class="keyword">import</span> padding</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.backends <span class="keyword">import</span> default_backend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取私钥</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;private.pem&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> key_file:</span><br><span class="line">    private_key = serialization.load_pem_private_key(</span><br><span class="line">        key_file.read(),</span><br><span class="line">        password=<span class="literal">None</span>,  <span class="comment"># 有密码就加上</span></span><br><span class="line">        backend=default_backend()</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印密钥位数和块大小</span></span><br><span class="line">key_size_bits = private_key.key_size</span><br><span class="line">key_size_bytes = key_size_bits // <span class="number">8</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;私钥大小: <span class="subst">&#123;key_size_bits&#125;</span> 位 (<span class="subst">&#123;key_size_bytes&#125;</span> 字节)&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取加密文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;test.love&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    encrypted_data = f.read()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分块解密（每块长度等于密钥长度）</span></span><br><span class="line">decrypted_data = <span class="string">b&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(encrypted_data), key_size_bytes):</span><br><span class="line">    block = encrypted_data[i:i + key_size_bytes]</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(block) != key_size_bytes:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">f&quot;第 <span class="subst">&#123;i//key_size_bytes + <span class="number">1</span>&#125;</span> 块大小不等于密钥长度，可能文件损坏&quot;</span>)</span><br><span class="line"></span><br><span class="line">    decrypted_block = private_key.decrypt(</span><br><span class="line">        block,</span><br><span class="line">        padding.PKCS1v15()</span><br><span class="line">    )</span><br><span class="line">    decrypted_data += decrypted_block</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印结果</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;解密内容：&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(decrypted_data.decode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line"><span class="keyword">except</span> UnicodeDecodeError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;解密完成，但内容不是有效的 UTF-8，可以保存为二进制文件&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 也可以写入文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;decrypted_output.bin&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(decrypted_data)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;已保存为 decrypted_output.bin&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="服务器部分"><a class="header-anchor" href="#服务器部分">¶</a>服务器部分</h3>
+<h4 id="4-分析起早王的服务器检材，Trojan服务器混淆流量所使用的域名是什么【格式：xxx-xxx】"><a class="header-anchor" href="#4-分析起早王的服务器检材，Trojan服务器混淆流量所使用的域名是什么【格式：xxx-xxx】">¶</a>4. 分析起早王的服务器检材，Trojan服务器混淆流量所使用的域名是什么【格式：<a target="_blank" rel="noopener" href="http://xxx.xxx">xxx.xxx</a>】</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-29.png" alt="alt text"></p>
+<h4 id="5-分析起早王的服务器检材，Trojan服务运行的模式为："><a class="header-anchor" href="#5-分析起早王的服务器检材，Trojan服务运行的模式为：">¶</a>5. 分析起早王的服务器检材，Trojan服务运行的模式为：</h4>
+<p>A、foward<br>
+B、nat<br>
+C、server<br>
+D、client</p>
+<ul>
+<li>一般配置文件里的run_type就是运行模式，但是这边明显是被人修改过了</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-30.png" alt="alt text"></p>
+<ul>
+<li>B</li>
+</ul>
+<h4 id="准备环节"><a class="header-anchor" href="#准备环节">¶</a>准备环节</h4>
+<ul>
+<li>连宝塔</li>
+<li>连数据库，发现没有内容</li>
+<li><strong>这边需要导入数据库备份，而备份在电脑虚拟机中</strong></li>
+<li>火眼搜</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-31.png" alt="alt text"></p>
+<ul>
+<li>导入navicat</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-36.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-37.png" alt="alt text"></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-39.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-40.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-41.png" alt="alt text"></p>
+<ul>
+<li>成功</li>
+</ul>
+<h4 id="7-分析网站后台登录密码的加密逻辑-密码-sbwyz1-加密后存在数据库中的值"><a class="header-anchor" href="#7-分析网站后台登录密码的加密逻辑-密码-sbwyz1-加密后存在数据库中的值">¶</a>7. 分析网站后台登录密码的加密逻辑, 密码 sbwyz1 加密后存在数据库中的值</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-32.png" alt="alt text"></p>
+<ul>
+<li>在这个地方我们可以看到加密函数为encrypt</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-33.png" alt="alt text"></p>
+<ul>
+<li>把AUTH_CODE的值和密码给拼接在了一起算md5（这里不是字符串。。为啥好奇怪记下来）</li>
+<li>找AUTH_CODE</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-34.png" alt="alt text"></p>
+<ul>
+<li>TPSHOP</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-35.png" alt="alt text"></p>
+<ul>
+<li>f8537858eb0eabada34e7021d19974ea</li>
+</ul>
+<h4 id="8-网站后台显示的服务器GD版本是多少-格式：1-1-1-abc"><a class="header-anchor" href="#8-网站后台显示的服务器GD版本是多少-格式：1-1-1-abc">¶</a>8. 网站后台显示的服务器GD版本是多少(格式：1.1.1 abc)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-42.png" alt="alt text"></p>
+<h4 id="9-网站后台中2016-04-01-00-00-00到2025-04-01-00-00-00订单列表有多少条记录-格式：1"><a class="header-anchor" href="#9-网站后台中2016-04-01-00-00-00到2025-04-01-00-00-00订单列表有多少条记录-格式：1">¶</a>9. 网站后台中2016-04-01 00:00:00到2025-04-01 00:00:00订单列表有多少条记录(格式：1)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-43.png" alt="alt text"></p>
+<ul>
+<li>1292</li>
+</ul>
+<h4 id="10-在网站购物满多少免运费-格式：1"><a class="header-anchor" href="#10-在网站购物满多少免运费-格式：1">¶</a>10. 在网站购物满多少免运费(格式：1)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-44.png" alt="alt text"></p>
+<h4 id="11-分析网站日志，成功在网站后台上传木马的攻击者IP是多少-格式：1-1-1-1"><a class="header-anchor" href="#11-分析网站日志，成功在网站后台上传木马的攻击者IP是多少-格式：1-1-1-1">¶</a>11. 分析网站日志，成功在网站后台上传木马的攻击者IP是多少(格式：1.1.1.1)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-45.png" alt="alt text"></p>
+<h4 id="13-攻击者使用工具对内网进行扫描后，rdp扫描结果中的账号密码是什么-格式：abc-def"><a class="header-anchor" href="#13-攻击者使用工具对内网进行扫描后，rdp扫描结果中的账号密码是什么-格式：abc-def">¶</a>13. 攻击者使用工具对内网进行扫描后，rdp扫描结果中的账号密码是什么(格式：abc:def)</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-46.png" alt="alt text"></p>
+<ul>
+<li><strong>宝塔面板管理进入phpMyAdmin账密是对应数据库账密</strong></li>
+</ul>
+<h4 id="14-对于每个用户，计算其注册时间（用户表中的注册时间戳）到首次下单时间（订单表中最早时间戳）的间隔，找出间隔最短的用户id。（格式：1）"><a class="header-anchor" href="#14-对于每个用户，计算其注册时间（用户表中的注册时间戳）到首次下单时间（订单表中最早时间戳）的间隔，找出间隔最短的用户id。（格式：1）">¶</a>14. 对于每个用户，计算其注册时间（用户表中的注册时间戳）到首次下单时间（订单表中最早时间戳）的间隔，找出间隔最短的用户id。（格式：1）</h4>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> u.user_id, <span class="built_in">MIN</span>(o.create_time) <span class="operator">-</span> u.reg_time  <span class="keyword">as</span> time_diff </span><br><span class="line"><span class="keyword">FROM</span> tp_users u </span><br><span class="line"><span class="keyword">JOIN</span> tp_delivery_doc o <span class="keyword">ON</span> u.user_id <span class="operator">=</span> o.user_id </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> u.user_id, u.email, u.reg_time </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> time_diff <span class="keyword">ASC</span> </span><br><span class="line">LIMIT <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>180</li>
+</ul>
+<h4 id="15-统计每月订单数量，找出订单最多的月份（XXXX年XX月）"><a class="header-anchor" href="#15-统计每月订单数量，找出订单最多的月份（XXXX年XX月）">¶</a>15. 统计每月订单数量，找出订单最多的月份（XXXX年XX月）</h4>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="built_in">EXTRACT</span>(<span class="keyword">YEAR</span> <span class="keyword">FROM</span> FROM_UNIXTIME(o.create_time)) <span class="keyword">as</span> <span class="keyword">year</span>,</span><br><span class="line">    <span class="built_in">EXTRACT</span>(<span class="keyword">MONTH</span> <span class="keyword">FROM</span> FROM_UNIXTIME(o.create_time)) <span class="keyword">as</span> <span class="keyword">month</span>,</span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">as</span> order_count </span><br><span class="line"><span class="keyword">FROM</span> tp_delivery_doc o</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">year</span>, <span class="keyword">month</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> order_count <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="16-找出连续三天内下单的用户并统计总共有多少个（格式：1）"><a class="header-anchor" href="#16-找出连续三天内下单的用户并统计总共有多少个（格式：1）">¶</a>16. 找出连续三天内下单的用户并统计总共有多少个（格式：1）</h4>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    t1.user_id,</span><br><span class="line">    <span class="built_in">MIN</span>(FROM_UNIXTIME(t1.add_time)) <span class="keyword">AS</span> earliest_order_date</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    tp_order t1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">FROM</span> tp_order t2</span><br><span class="line">    <span class="keyword">WHERE</span> t2.user_id <span class="operator">=</span> t1.user_id</span><br><span class="line">    <span class="keyword">AND</span> FROM_UNIXTIME(t1.add_time) <span class="operator">&gt;</span> FROM_UNIXTIME(t2.add_time)</span><br><span class="line">    <span class="keyword">AND</span> DATEDIFF(FROM_UNIXTIME(t1.add_time), FROM_UNIXTIME(t2.add_time)) <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> </span><br><span class="line">    t1.user_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> </span><br><span class="line">t1.user_id;</span><br></pre></td></tr></table></figure>
+<h3 id="流量分析取证"><a class="header-anchor" href="#流量分析取证">¶</a>流量分析取证</h3>
+<h4 id="1-请问侦查人员是用哪个接口进行抓到蓝牙数据包的（格式：DVI1-2-1）"><a class="header-anchor" href="#1-请问侦查人员是用哪个接口进行抓到蓝牙数据包的（格式：DVI1-2-1）">¶</a>1. 请问侦查人员是用哪个接口进行抓到蓝牙数据包的（格式：DVI1-2.1）</h4>
+<ul>
+<li>“USB很明显是usb的流量哇，所以问侦查人员我们就在BLE（也就是蓝牙嘛，Bluetooth）看看”——sq</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-47.png" alt="alt text"></p>
+<h4 id="2-起早王有一个用于伪装成倩倩耳机的蓝牙设备，该设备的原始设备名称为什么（格式：XXX-xxx-具体大小写按照原始内容）"><a class="header-anchor" href="#2-起早王有一个用于伪装成倩倩耳机的蓝牙设备，该设备的原始设备名称为什么（格式：XXX-xxx-具体大小写按照原始内容）">¶</a>2. 起早王有一个用于伪装成倩倩耳机的蓝牙设备，该设备的原始设备名称为什么（格式：XXX_xxx 具体大小写按照原始内容）</h4>
+<ul>
+<li>tshark导出为json文件，方便搜索分析</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">tshark -r E:\平航杯工作位置\BLE.pcapng -T json &gt; BLE.json  </span><br><span class="line"># 把tshark.exe路径加入环境变量<span class="built_in">PATH</span></span><br></pre></td></tr></table></figure>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-48.png" alt="alt text"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">extract_device_names</span>(<span class="params">file_path</span>):</span><br><span class="line">    <span class="comment"># 设备名称的集合（自动去重）</span></span><br><span class="line">    device_names = <span class="built_in">set</span>()</span><br><span class="line">    <span class="comment"># 正则表达式模式，用于匹配设备名称</span></span><br><span class="line">    pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;&quot;btcommon\.eir_ad\.entry\.device_name&quot;:\s*&quot;([^&quot;]+)&quot;&#x27;</span>)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file_path, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">            <span class="comment"># 在每一行中查找所有匹配项</span></span><br><span class="line">            matches = pattern.findall(line)</span><br><span class="line">            <span class="keyword">for</span> <span class="keyword">match</span> <span class="keyword">in</span> matches:</span><br><span class="line">                <span class="comment"># 将找到的设备名称添加到集合中（自动处理重复）</span></span><br><span class="line">                device_names.add(<span class="keyword">match</span>)</span><br><span class="line">            <span class="comment"># 输出结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;提取的设备名称列表：&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> <span class="built_in">sorted</span>(device_names):  <span class="comment"># 按字母顺序排序输出</span></span><br><span class="line">        <span class="built_in">print</span>(name)</span><br><span class="line"><span class="comment"># 文件路径</span></span><br><span class="line">file_path = <span class="string">&quot;BLE.json&quot;</span></span><br><span class="line">extract_device_names(file_path)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不少乱码，里边正常的就
+<ul>
+<li>Cracked</li>
+<li>Flipper 123all</li>
+<li>QQ_WF_SP8OON</li>
+</ul>
+</li>
+<li>搜到Flipper 123all可以拿来伪装蓝牙设备</li>
+</ul>
+<h4 id="3-起早王有一个用于伪装成倩倩耳机的蓝牙设备，该设备修改成耳机前后的大写MAC地址分别为多少（格式：32位小写md5-原MAC地址-修改后的MAC地址-，例如md5-11-22-33-44-55-66-77-88-99-AA-BB-CC-a29ca3983de0bdd739c97d1ce072a392-）"><a class="header-anchor" href="#3-起早王有一个用于伪装成倩倩耳机的蓝牙设备，该设备修改成耳机前后的大写MAC地址分别为多少（格式：32位小写md5-原MAC地址-修改后的MAC地址-，例如md5-11-22-33-44-55-66-77-88-99-AA-BB-CC-a29ca3983de0bdd739c97d1ce072a392-）">¶</a>3. 起早王有一个用于伪装成倩倩耳机的蓝牙设备，该设备修改成耳机前后的大写MAC地址分别为多少（格式：32位小写md5(原MAC地址_修改后的MAC地址) ，例如md5(11:22:33:44:55:66_77:88:99:AA:BB:CC)=a29ca3983de0bdd739c97d1ce072a392 ）</h4>
+<ul>
+<li>根据题干，QQ是倩倩的，Flipper是起早王的</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-51.png" alt="alt text"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-52.png" alt="alt text"></p>
+<ul>
+<li>915c25495da483dfbf42c44bf5210c40</li>
+</ul>
+<h4 id="4-流量包中首次捕获到该伪装设备修改自身名称的UTC-0时间为？（格式：2024-03-07-01-02-03-123）"><a class="header-anchor" href="#4-流量包中首次捕获到该伪装设备修改自身名称的UTC-0时间为？（格式：2024-03-07-01-02-03-123）">¶</a>4. 流量包中首次捕获到该伪装设备修改自身名称的UTC+0时间为？（格式：2024/03/07 01:02:03.123）</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-53.png" alt="alt text"></p>
+<ul>
+<li>注意是UTC+0所以-8小时2025/04/09 02:31:26.710</li>
+</ul>
+<h4 id="5-起早王中途还不断尝试使用自己的手机向倩倩电脑进行广播发包，请你找出起早王手机蓝牙的制造商数据（格式：0x0102030405060708）"><a class="header-anchor" href="#5-起早王中途还不断尝试使用自己的手机向倩倩电脑进行广播发包，请你找出起早王手机蓝牙的制造商数据（格式：0x0102030405060708）">¶</a>5. 起早王中途还不断尝试使用自己的手机向倩倩电脑进行广播发包，请你找出起早王手机蓝牙的制造商数据（格式：0x0102030405060708）</h4>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-54.png" alt="alt text"></p>
+<h4 id="6-起早王的真名是什么（格式：Cai-Xu-Kun-每个首字母均需大写-）"><a class="header-anchor" href="#6-起早王的真名是什么（格式：Cai-Xu-Kun-每个首字母均需大写-）">¶</a>6. 起早王的真名是什么（格式：Cai_Xu_Kun 每个首字母均需大写 ）</h4>
+<ul>
+<li>neta直接跑</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98_image-55.png" alt="alt text"></p>
+<ul>
+<li>或者手动：</li>
+<li>看另一个附件了，一样导出</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">tshark -r E:\平航杯工作位置\USBPcap.pcapng -T json &gt; USBPcap.json</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后脚本</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment"># 定义正常按键映射表</span></span><br><span class="line">normalKeys = &#123;<span class="string">&quot;04&quot;</span>: <span class="string">&quot;a&quot;</span>, <span class="string">&quot;05&quot;</span>: <span class="string">&quot;b&quot;</span>, <span class="string">&quot;06&quot;</span>: <span class="string">&quot;c&quot;</span>, <span class="string">&quot;07&quot;</span>: <span class="string">&quot;d&quot;</span>, <span class="string">&quot;08&quot;</span>: <span class="string">&quot;e&quot;</span>, <span class="string">&quot;09&quot;</span>: <span class="string">&quot;f&quot;</span>, <span class="string">&quot;0a&quot;</span>: <span class="string">&quot;g&quot;</span>, <span class="string">&quot;0b&quot;</span>: <span class="string">&quot;h&quot;</span>, <span class="string">&quot;0c&quot;</span>: <span class="string">&quot;i&quot;</span>,<span class="string">&quot;0d&quot;</span>: <span class="string">&quot;j&quot;</span>, <span class="string">&quot;0e&quot;</span>: <span class="string">&quot;k&quot;</span>, <span class="string">&quot;0f&quot;</span>: <span class="string">&quot;l&quot;</span>, <span class="string">&quot;10&quot;</span>: <span class="string">&quot;m&quot;</span>, <span class="string">&quot;11&quot;</span>: <span class="string">&quot;n&quot;</span>, <span class="string">&quot;12&quot;</span>: <span class="string">&quot;o&quot;</span>, <span class="string">&quot;13&quot;</span>: <span class="string">&quot;p&quot;</span>, <span class="string">&quot;14&quot;</span>: <span class="string">&quot;q&quot;</span>, <span class="string">&quot;15&quot;</span>: <span class="string">&quot;r&quot;</span>,<span class="string">&quot;16&quot;</span>: <span class="string">&quot;s&quot;</span>, <span class="string">&quot;17&quot;</span>: <span class="string">&quot;t&quot;</span>, <span class="string">&quot;18&quot;</span>: <span class="string">&quot;u&quot;</span>, <span class="string">&quot;19&quot;</span>: <span class="string">&quot;v&quot;</span>, <span class="string">&quot;1a&quot;</span>: <span class="string">&quot;w&quot;</span>, <span class="string">&quot;1b&quot;</span>: <span class="string">&quot;x&quot;</span>, <span class="string">&quot;1c&quot;</span>: <span class="string">&quot;y&quot;</span>, <span class="string">&quot;1d&quot;</span>: <span class="string">&quot;z&quot;</span>, <span class="string">&quot;1e&quot;</span>: <span class="string">&quot;1&quot;</span>,<span class="string">&quot;1f&quot;</span>: <span class="string">&quot;2&quot;</span>, <span class="string">&quot;20&quot;</span>: <span class="string">&quot;3&quot;</span>, <span class="string">&quot;21&quot;</span>: <span class="string">&quot;4&quot;</span>, <span class="string">&quot;22&quot;</span>: <span class="string">&quot;5&quot;</span>, <span class="string">&quot;23&quot;</span>: <span class="string">&quot;6&quot;</span>, <span class="string">&quot;24&quot;</span>: <span class="string">&quot;7&quot;</span>, <span class="string">&quot;25&quot;</span>: <span class="string">&quot;8&quot;</span>, <span class="string">&quot;26&quot;</span>: <span class="string">&quot;9&quot;</span>, <span class="string">&quot;27&quot;</span>: <span class="string">&quot;0&quot;</span>,<span class="string">&quot;28&quot;</span>: <span class="string">&quot;&lt;RET&gt;&quot;</span>, <span class="string">&quot;29&quot;</span>: <span class="string">&quot;&lt;ESC&gt;&quot;</span>, <span class="string">&quot;2a&quot;</span>: <span class="string">&quot;&lt;DEL&gt;&quot;</span>, <span class="string">&quot;2b&quot;</span>: <span class="string">&quot;\t&quot;</span>, <span class="string">&quot;2c&quot;</span>: <span class="string">&quot;&lt;SPACE&gt;&quot;</span>, <span class="string">&quot;2d&quot;</span>: <span class="string">&quot;-&quot;</span>, <span class="string">&quot;2e&quot;</span>: <span class="string">&quot;=&quot;</span>, <span class="string">&quot;2f&quot;</span>: <span class="string">&quot;[&quot;</span>,<span class="string">&quot;30&quot;</span>: <span class="string">&quot;]&quot;</span>, <span class="string">&quot;31&quot;</span>: <span class="string">&quot;\\&quot;</span>, <span class="string">&quot;32&quot;</span>: <span class="string">&quot;&lt;NON&gt;&quot;</span>, <span class="string">&quot;33&quot;</span>: <span class="string">&quot;;&quot;</span>, <span class="string">&quot;34&quot;</span>: <span class="string">&quot;&#x27;&quot;</span>, <span class="string">&quot;35&quot;</span>: <span class="string">&quot;`&quot;</span>, <span class="string">&quot;36&quot;</span>: <span class="string">&quot;,&quot;</span>, <span class="string">&quot;37&quot;</span>: <span class="string">&quot;.&quot;</span>, <span class="string">&quot;38&quot;</span>: <span class="string">&quot;/&quot;</span>,<span class="string">&quot;39&quot;</span>: <span class="string">&quot;&lt;CAP&gt;&quot;</span>, <span class="string">&quot;3a&quot;</span>: <span class="string">&quot;&lt;F1&gt;&quot;</span>, <span class="string">&quot;3b&quot;</span>: <span class="string">&quot;&lt;F2&gt;&quot;</span>, <span class="string">&quot;3c&quot;</span>: <span class="string">&quot;&lt;F3&gt;&quot;</span>, <span class="string">&quot;3d&quot;</span>: <span class="string">&quot;&lt;F4&gt;&quot;</span>, <span class="string">&quot;3e&quot;</span>: <span class="string">&quot;&lt;F5&gt;&quot;</span>, <span class="string">&quot;3f&quot;</span>: <span class="string">&quot;&lt;F6&gt;&quot;</span>,<span class="string">&quot;40&quot;</span>: <span class="string">&quot;&lt;F7&gt;&quot;</span>, <span class="string">&quot;41&quot;</span>: <span class="string">&quot;&lt;F8&gt;&quot;</span>, <span class="string">&quot;42&quot;</span>: <span class="string">&quot;&lt;F9&gt;&quot;</span>, <span class="string">&quot;43&quot;</span>: <span class="string">&quot;&lt;F10&gt;&quot;</span>, <span class="string">&quot;44&quot;</span>: <span class="string">&quot;&lt;F11&gt;&quot;</span>, <span class="string">&quot;45&quot;</span>: <span class="string">&quot;&lt;F12&gt;&quot;</span>&#125;</span><br><span class="line"><span class="comment"># 定义Shift键按下时的按键映射表</span></span><br><span class="line">shiftKeys = &#123;<span class="string">&quot;04&quot;</span>: <span class="string">&quot;A&quot;</span>, <span class="string">&quot;05&quot;</span>: <span class="string">&quot;B&quot;</span>, <span class="string">&quot;06&quot;</span>: <span class="string">&quot;C&quot;</span>, <span class="string">&quot;07&quot;</span>: <span class="string">&quot;D&quot;</span>, <span class="string">&quot;08&quot;</span>: <span class="string">&quot;E&quot;</span>, <span class="string">&quot;09&quot;</span>: <span class="string">&quot;F&quot;</span>, <span class="string">&quot;0a&quot;</span>: <span class="string">&quot;G&quot;</span>, <span class="string">&quot;0b&quot;</span>: <span class="string">&quot;H&quot;</span>, <span class="string">&quot;0c&quot;</span>: <span class="string">&quot;I&quot;</span>,<span class="string">&quot;0d&quot;</span>: <span class="string">&quot;J&quot;</span>, <span class="string">&quot;0e&quot;</span>: <span class="string">&quot;K&quot;</span>, <span class="string">&quot;0f&quot;</span>: <span class="string">&quot;L&quot;</span>, <span class="string">&quot;10&quot;</span>: <span class="string">&quot;M&quot;</span>, <span class="string">&quot;11&quot;</span>: <span class="string">&quot;N&quot;</span>, <span class="string">&quot;12&quot;</span>: <span class="string">&quot;O&quot;</span>, <span class="string">&quot;13&quot;</span>: <span class="string">&quot;P&quot;</span>, <span class="string">&quot;14&quot;</span>: <span class="string">&quot;Q&quot;</span>, <span class="string">&quot;15&quot;</span>: <span class="string">&quot;R&quot;</span>,<span class="string">&quot;16&quot;</span>: <span class="string">&quot;S&quot;</span>, <span class="string">&quot;17&quot;</span>: <span class="string">&quot;T&quot;</span>, <span class="string">&quot;18&quot;</span>: <span class="string">&quot;U&quot;</span>, <span class="string">&quot;19&quot;</span>: <span class="string">&quot;V&quot;</span>, <span class="string">&quot;1a&quot;</span>: <span class="string">&quot;W&quot;</span>, <span class="string">&quot;1b&quot;</span>: <span class="string">&quot;X&quot;</span>, <span class="string">&quot;1c&quot;</span>: <span class="string">&quot;Y&quot;</span>, <span class="string">&quot;1d&quot;</span>: <span class="string">&quot;Z&quot;</span>, <span class="string">&quot;1e&quot;</span>: <span class="string">&quot;!&quot;</span>,<span class="string">&quot;1f&quot;</span>: <span class="string">&quot;@&quot;</span>, <span class="string">&quot;20&quot;</span>: <span class="string">&quot;#&quot;</span>, <span class="string">&quot;21&quot;</span>: <span class="string">&quot;$&quot;</span>, <span class="string">&quot;22&quot;</span>: <span class="string">&quot;%&quot;</span>, <span class="string">&quot;23&quot;</span>: <span class="string">&quot;^&quot;</span>, <span class="string">&quot;24&quot;</span>: <span class="string">&quot;&amp;&quot;</span>, <span class="string">&quot;25&quot;</span>: <span class="string">&quot;*&quot;</span>, <span class="string">&quot;26&quot;</span>: <span class="string">&quot;(&quot;</span>, <span class="string">&quot;27&quot;</span>: <span class="string">&quot;)&quot;</span>,<span class="string">&quot;28&quot;</span>: <span class="string">&quot;&lt;RET&gt;&quot;</span>, <span class="string">&quot;29&quot;</span>: <span class="string">&quot;&lt;ESC&gt;&quot;</span>, <span class="string">&quot;2a&quot;</span>: <span class="string">&quot;&lt;DEL&gt;&quot;</span>, <span class="string">&quot;2b&quot;</span>: <span class="string">&quot;\t&quot;</span>, <span class="string">&quot;2c&quot;</span>: <span class="string">&quot;&lt;SPACE&gt;&quot;</span>, <span class="string">&quot;2d&quot;</span>: <span class="string">&quot;_&quot;</span>, <span class="string">&quot;2e&quot;</span>: <span class="string">&quot;+&quot;</span>, <span class="string">&quot;2f&quot;</span>: <span class="string">&quot;&#123;&quot;</span>,<span class="string">&quot;30&quot;</span>: <span class="string">&quot;&#125;&quot;</span>, <span class="string">&quot;31&quot;</span>: <span class="string">&quot;|&quot;</span>, <span class="string">&quot;32&quot;</span>: <span class="string">&quot;~&quot;</span>, <span class="string">&quot;33&quot;</span>: <span class="string">&quot;:&quot;</span>, <span class="string">&quot;34&quot;</span>: <span class="string">&quot;\&quot;&quot;</span>, <span class="string">&quot;35&quot;</span>: <span class="string">&quot;~&quot;</span>, <span class="string">&quot;36&quot;</span>: <span class="string">&quot;&lt;&quot;</span>, <span class="string">&quot;37&quot;</span>: <span class="string">&quot;&gt;&quot;</span>, <span class="string">&quot;38&quot;</span>: <span class="string">&quot;?&quot;</span>,<span class="string">&quot;39&quot;</span>: <span class="string">&quot;&lt;CAP&gt;&quot;</span>, <span class="string">&quot;3a&quot;</span>: <span class="string">&quot;&lt;F1&gt;&quot;</span>, <span class="string">&quot;3b&quot;</span>: <span class="string">&quot;&lt;F2&gt;&quot;</span>, <span class="string">&quot;3c&quot;</span>: <span class="string">&quot;&lt;F3&gt;&quot;</span>, <span class="string">&quot;3d&quot;</span>: <span class="string">&quot;&lt;F4&gt;&quot;</span>, <span class="string">&quot;3e&quot;</span>: <span class="string">&quot;&lt;F5&gt;&quot;</span>, <span class="string">&quot;3f&quot;</span>: <span class="string">&quot;&lt;F6&gt;&quot;</span>,<span class="string">&quot;40&quot;</span>: <span class="string">&quot;&lt;F7&gt;&quot;</span>, <span class="string">&quot;41&quot;</span>: <span class="string">&quot;&lt;F8&gt;&quot;</span>, <span class="string">&quot;42&quot;</span>: <span class="string">&quot;&lt;F9&gt;&quot;</span>, <span class="string">&quot;43&quot;</span>: <span class="string">&quot;&lt;F10&gt;&quot;</span>, <span class="string">&quot;44&quot;</span>: <span class="string">&quot;&lt;F11&gt;&quot;</span>, <span class="string">&quot;45&quot;</span>: <span class="string">&quot;&lt;F12&gt;&quot;</span>&#125;</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">extract_usbhid_data</span>(<span class="params">json_file</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(json_file, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        data = json.load(file)</span><br><span class="line">    </span><br><span class="line">    result_string = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> packet <span class="keyword">in</span> data:</span><br><span class="line">        layers = packet[<span class="string">&#x27;_source&#x27;</span>][<span class="string">&#x27;layers&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;usbhid.data&#x27;</span> <span class="keyword">in</span> layers:</span><br><span class="line">            usbhid_data = layers[<span class="string">&#x27;usbhid.data&#x27;</span>].split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 提取第二个字节（用于判断是否使用shiftKeys）</span></span><br><span class="line">            second_byte = usbhid_data[<span class="number">1</span>]</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 根据第二个字节选择合适的映射表</span></span><br><span class="line">            key_map = shiftKeys <span class="keyword">if</span> second_byte != <span class="string">&quot;00&quot;</span> <span class="keyword">else</span> normalKeys</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 遍历所有可能的按键数据（从第三个字节开始）</span></span><br><span class="line">            <span class="keyword">for</span> byte_index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">len</span>(usbhid_data)):</span><br><span class="line">                key_code = usbhid_data[byte_index]</span><br><span class="line">                <span class="keyword">if</span> key_code == <span class="string">&quot;00&quot;</span>:</span><br><span class="line">                    <span class="keyword">continue</span>  <span class="comment"># 忽略空值</span></span><br><span class="line">                </span><br><span class="line">                key_char = key_map.get(key_code, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                result_string += key_char</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result_string</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    extracted_string = extract_usbhid_data(<span class="string">&#x27;USBPcap.json&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Extracted String:&quot;</span>, extracted_string)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>跑出来：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">m]&lt;F6&gt;[2m[m33[]3333mmmbao&lt;SPACE&gt;bao,zui&lt;SPACE&gt;jin&lt;SPACE&gt;you&lt;SPACE&gt;ge&lt;SPACE&gt;nan&lt;SPACE&gt;sheng&lt;SPACE&gt;xiang&lt;SPACE&gt;zhui&lt;SPACE&gt;wo,ta&lt;SPACE&gt;jiaaoo&lt;SPACE&gt;wwaang&lt;SPACE&gt;qi&lt;SPACE&gt;zhao&lt;DEL&gt;&lt;DEL&gt;&lt;DEL&gt;&lt;DEL&gt;qi&lt;SPACE&gt;zao&lt;SPACE&gt;wang&lt;SPACE&gt;ta&lt;SPACE&gt;shuo&lt;SPACE&gt;ta&lt;SPACE&gt;ai&lt;SPACE&gt;wo,dan&lt;SPACE&gt;shi&lt;SPACE&gt;cong&lt;SPACE&gt;bu&lt;SPACE&gt;baanng&lt;SPACE&gt;wo&lt;SPACE&gt;na&lt;SPACE&gt;kuai&lt;SPACE&gt;di,hao&lt;SPACE&gt;fan&lt;SPACE&gt;aRcmd&lt;RET&gt;L]bdfgghiiklnnoomljji]i&lt;F7&gt;h]i]i3j]k3lmlmkmhigmgfmemedmbcaaabbb[22[&lt;F6&gt;[&lt;F6&gt;[2222[2[2[&lt;F6&gt;[2llllllllm2m[][3&lt;F6&gt;[mm2mmmmmm]abcedeemdme]eefeggif3fcbba]3mmaccmcmf3f]h]g3f]e3d3c]c3b]b]]3mmmmm[[&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;[l2llabeeegffdca&lt;SPACE&gt;whoami&lt;RET&gt;net&lt;SPACE&gt;user&lt;RET&gt;net&lt;SPACE&gt;user&lt;SPACE&gt;qianqianwoaini$&lt;SPACE&gt;abcdefghijk&lt;CAP&gt;i&lt;CAP&gt;mn&lt;SPACE&gt;/add&lt;RET&gt;net&lt;SPACE&gt;localgroup&lt;SPACE&gt;administrators&lt;SPACE&gt;qianqianwoaini$&lt;SPACE&gt;/add&lt;RET&gt;net&lt;SPACE&gt;user&lt;SPACE&gt;qianqianwoaini$&lt;SPACE&gt;/del[ll22&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;[[[22lmll222l2llllllllcgikllmmlljjhhhfecb&lt;F7&gt;&lt;F7&gt;]]&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;[22[2[[[[&lt;F6&gt;[&lt;F6&gt;&lt;F6&gt;&lt;F6&gt;[&lt;F6&gt;[[2[22lmlm&lt;RET&gt;net&lt;SPACE&gt;localgroup&lt;SPACE&gt;administrators&lt;SPACE&gt;qianqianwoaini$&lt;SPACE&gt;/add&lt;RET&gt;rundll32&lt;SPACE&gt;url.dll,&lt;CAP&gt;f&lt;CAP&gt;ile&lt;CAP&gt;p&lt;CAP&gt;rotocol&lt;CAP&gt;h&lt;CAP&gt;andler&lt;SPACE&gt;https://fakeupdate.net/win10ue/bsod.htmlgmjmk3gecmcmaa3mmmamm&lt;RET&gt;ceghkm&lt;F7&gt;m&lt;F7&gt;n&lt;F7&gt;n&lt;F7&gt;l&lt;F7&gt;l]j&lt;F7&gt;h]fdb&lt;F7&gt;&lt;F7&gt;lllllllll</span><br></pre></td></tr></table></figure>
+<ul>
+<li>整理有：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bao bao,zui jin you ge nan sheng xiang zhui wo,ta jiaaoo wwaang qi zhao&lt;DEL&gt;&lt;DEL&gt;&lt;DEL&gt;&lt;DEL&gt;qi zao wang ta shuo ta ai wo,dan shi cong bu baanng wo na kuai di,hao fan a</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Wang_Qi_Zhao</li>
+</ul>
+<h4 id="7-起早王对倩倩的电脑执行了几条-cmd-里的命令"><a class="header-anchor" href="#7-起早王对倩倩的电脑执行了几条-cmd-里的命令">¶</a>7. 起早王对倩倩的电脑执行了几条 cmd 里的命令</h4>
+<ul>
+<li>7</li>
+<li>上题整理：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">whoami</span><br><span class="line">net user</span><br><span class="line">net user qianqianwoaini$ abcdefghijkImn /add</span><br><span class="line">net localgroup administrators qianqianwoaini$ /add</span><br><span class="line">net user qianqianwoaini$ /del</span><br><span class="line">net localgroup administrators qianqianwoaini$ /add</span><br><span class="line">rundll32 url.dll,FileProtocolHandler https://fakeupdate.net/win10ue/bsod.html</span><br></pre></td></tr></table></figure>
+<h4 id="8-倩倩电脑中影子账户的账户名和密码"><a class="header-anchor" href="#8-倩倩电脑中影子账户的账户名和密码">¶</a>8. 倩倩电脑中影子账户的账户名和密码</h4>
+<ul>
+<li>账户名: qianqianwoaini$ 密码: abcdefghijkImn</li>
+<li>net user qianqianwoaini$ abcdefghijkImn /add</li>
+</ul>
+<h4 id="9-起早王对倩倩的电脑执行的最后一条命令¶"><a class="header-anchor" href="#9-起早王对倩倩的电脑执行的最后一条命令¶">¶</a>9. 起早王对倩倩的电脑执行的最后一条命令¶</h4>
+<ul>
+<li>rundll32 url.dll,FileProtocolHandler <a target="_blank" rel="noopener" href="https://fakeupdate.net/win10ue/bsod.html">https://fakeupdate.net/win10ue/bsod.html</a></li>
+<li>开了个假蓝屏的网页</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io">luoyinhui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io/2025/10/16/2025%E5%B9%B3%E8%88%AA%E6%9D%AF%E7%BB%93%E5%90%88SPC%E5%87%BA%E9%A2%98/">https://luoyinhui.github.io/2025/10/16/2025平航杯结合SPC出题/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://luoyinhui.github.io" target="_blank">落殷回的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/wenzhang.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/weixin.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/weixin.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhifubao.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zhifubao.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/10/18/bilibili%E9%80%9F%E6%88%90crypto%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="bilibili速成crypto视频学习笔记"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/fenlei.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">bilibili速成crypto视频学习笔记</div></div><div class="info-2"><div class="info-item-1">¶工具：  cyberchef魔法棒 轩禹RSA  ¶密码： ¶维吉尼亚密码计算密钥–&gt;维吉尼亚密钥只能由字母组成 def find_vigenere_key(plaintext, ciphertext):    &quot;&quot;&quot;    根据维吉尼亚密码的明文和密文推导密钥    参数:        plaintext (str): 明文，可以包含字母、数字和其他字符        ciphertext (str): 密文，可以包含字母、数字和其他字符    返回:        str: 推导得到的密钥，大小写与明文保持一致    &quot;&quot;&quot;    # 确保输入的明文和密文长度相同    if len(plaintext) != len(ciphertext):        raise ValueError(&quot;明文和密文的长度必须相同&quot;)    key = []    # 遍历每个字符对，计算对应的密钥字符    for p, c in zip(plaintext, ciphertext):      ...</div></div></div></a><a class="pagination-related" href="/2025/10/15/ctfshow-pwn%E5%90%88%E9%9B%86wp/" title="ctfshow-pwn合集wp"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">ctfshow-pwn合集wp</div></div><div class="info-2"><div class="info-item-1">¶致谢  感谢sq学长、My6n、Ambb1、Claire_cat的笔记 感谢sq学长的帮助  ¶pwn入门 ¶Test_your_nc ¶pwn0【待】   通过打开容器后获得命令，在finalshell通过手动输入信息成功ssh连上 注意：虚拟机开启NAT模式才能连上，更改模式后重启才生效  pwd指令查看当前目录 ls发现当前目录下没东西 cd /回到上一级目录 ls发现当前目录下有文件ctfshow_flag cat ctfshow_flag得到 flag  ¶pwn1  chmod 777 pwn给附件加权限 checksec pwn查看附件信息，64 位  wp要ida看但其实试运行一遍还有题目都提示nc链接，容器给的命令直接复制黏贴就好了   ¶pwn2  加权限-查信息-运行-nc连接-shell输入代码 system(bin/sh)就是给shell？？  ¶pwn4   反编译程序理解-shell获得  ¶前置基础 ¶pwn5  题目：  运行此文件，将得到的字符串以ctfshow{xxxxx}提交。 如：运行文件后 输出的内容为 Hello_World 提交的...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="author-info-name">luoyinhui</div><div class="author-info-description">记录踩坑与瞎折腾，由Hexo+Github搭建</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luoyinhui"><i class="fab fa-github"></i><span>Follow Me</span></a><a class="card-info-btn" href="/subscribe"><i class="fas fa-rss"></i><span>订阅RSS</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！音乐播放器功能暂时edge浏览器不可运行，PPT轮播图施工ing，敬请谅解。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%B4%E8%B0%A2"><span class="toc-text">致谢</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-text">题目背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%96%E8%AF%81"><span class="toc-text">计算机取证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8CSillyTavern%E4%B8%AD%E8%B4%A6%E6%88%B7%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99-%E6%A0%BC%E5%BC%8F%EF%BC%9A2020-1-1-01-01-01"><span class="toc-text">7. 分析起早王的计算机检材，SillyTavern中账户起早王的创建时间是什么时候(格式：2020&#x2F;1&#x2F;1 01:01:01)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%88%E5%A4%9A%E6%80%9D%E8%B7%AF%E9%83%BD%E6%98%AF%E6%89%BE%E6%97%A5%E5%BF%97"><span class="toc-text">很多思路都是找日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8CSillyTavern%E4%B8%AD%E8%B5%B7%E6%97%A9%E7%8E%8B%E4%B8%8Eai%E5%A5%B3%E5%8F%8B%E8%81%8A%E5%A4%A9%E6%89%80%E8%B0%83%E7%94%A8%E7%9A%84%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B-%E5%B8%A6%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80-%E6%A0%BC%E5%BC%8F%EF%BC%9Axxxxx-xxxxxxx-xxxx"><span class="toc-text">9. 分析起早王的计算机检材，SillyTavern中起早王与ai女友聊天所调用的语言模型(带文件后缀)(格式：xxxxx-xxxxxxx.xxxx)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8C%E6%9C%80%E6%97%A9%E8%A2%AB%E6%8D%A2%E8%84%B8%E7%9A%84%E5%9B%BE%E7%89%87%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8D%A2%E8%84%B8%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88-%E5%B8%A6%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80-%E6%A0%BC%E5%BC%8F%EF%BC%9Axxxxxxxxxxx-xxxx"><span class="toc-text">12. 分析起早王的计算机检材，最早被换脸的图片所使用的换脸模型是什么(带文件后缀)(格式：xxxxxxxxxxx.xxxx)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8Cneo4j%E4%B8%AD%E6%95%B0%E6%8D%AE%E5%AD%98%E6%94%BE%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%90%8D%E7%A7%B0%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9Aabd-ef"><span class="toc-text">13. 分析起早王的计算机检材，neo4j中数据存放的数据库的名称是什么(格式：abd.ef)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8Cneo4j%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E6%80%BB%E5%85%B1%E5%AD%98%E6%94%BE%E4%BA%86%E5%A4%9A%E5%B0%91%E4%B8%AA%E8%8A%82%E7%82%B9-%E6%A0%BC%E5%BC%8F%EF%BC%9A1"><span class="toc-text">14. 分析起早王的计算机检材，neo4j数据库中总共存放了多少个节点(格式：1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8Cneo4j%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%85%E7%99%BD%E6%9D%B0%E7%9A%84%E2%BC%BF%E6%9C%BA%E5%8F%B7%E7%A0%81%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9A12345678901"><span class="toc-text">15. 分析起早王的计算机检材，neo4j数据库内白杰的⼿机号码是什么(格式：12345678901)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8C%E5%88%86%E6%9E%90neo4j%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%85%E6%95%B0%E6%8D%AE%EF%BC%8C%E7%BB%9F%E8%AE%A1%E5%9C%A82025%E5%B9%B44%E6%9C%887%E6%97%A5%E8%87%B313%E6%97%A5%E6%9C%9F%E9%97%B4%E4%BD%BF%E7%94%A8%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BE%E5%A4%87%E7%99%BB%E5%BD%95%E4%B8%94%E7%99%BB%E5%BD%95%E5%9C%B0%E7%82%B9%E8%B6%85%E5%87%BA%E5%85%B6%E6%B3%A8%E5%86%8C%E6%97%B6%E7%99%BB%E8%AE%B0%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%BB%A5%E4%B8%8A%E5%9F%8E%E5%B8%82%E7%9A%84%E2%BD%A4%E6%88%B7%E6%95%B0%E9%87%8F-%E6%A0%BC%E5%BC%8F%EF%BC%9A1-%E3%80%90%E5%BE%85%E5%AD%A6%E4%B9%A0%E3%80%91"><span class="toc-text">16. 分析起早王的计算机检材，分析neo4j数据库内数据，统计在2025年4月7日至13日期间使用非授权设备登录且登录地点超出其注册时登记的两个以上城市的⽤户数量(格式：1)【待学习】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#18-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8C%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81%E9%92%B1%E5%8C%85%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9A0x11111111"><span class="toc-text">18. 分析起早王的计算机检材，起早王的虚拟货币钱包是什么(格式：0x11111111)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8FSHA256%E6%A0%BC%E5%BC%8F%EF%BC%9A%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-text">注意SHA256格式：字母大小写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#19-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A3%80%E6%9D%90%EF%BC%8C%E8%B5%B7%E6%97%A9%E7%8E%8B%E8%AF%B7%E9%AB%98%E6%89%8B%E4%B8%BA%E5%80%A9%E5%80%A9%E5%8F%91%E8%A1%8C%E4%BA%86%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81%EF%BC%8C%E8%AF%B7%E9%97%AE%E5%80%A9%E5%80%A9%E5%B8%81%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BE%9B%E5%BA%94%E9%87%8F%E6%98%AF%E5%A4%9A%E5%B0%91-%E6%A0%BC%E5%BC%8F%EF%BC%9A100qianqian"><span class="toc-text">19. 分析起早王的计算机检材，起早王请高手为倩倩发行了虚拟货币，请问倩倩币的最大供应量是多少(格式：100qianqian)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI%E9%A2%98%E7%9B%AE%EF%BC%88%E6%B3%A8%E6%84%8F%EF%BC%9A%E8%AF%A5%E9%A2%98%E7%9B%AE%E8%A6%81python-3-10%E7%8E%AF%E5%A2%83%EF%BC%8C%E5%BB%BA%E8%AE%AE3-10-6%EF%BC%89"><span class="toc-text">AI题目（注意：该题目要python 3.10环境，建议3.10.6）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#22-25-%E5%88%86%E6%9E%90crack%E6%96%87%E4%BB%B6%EF%BC%8C%E8%8E%B7%E5%BE%97flag1-%E6%A0%BC%E5%BC%8F%EF%BC%9Aflag1-123456"><span class="toc-text">22-25.分析crack文件，获得flag1(格式：flag1{123456})</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E6%9C%BA%E9%83%A8%E5%88%86"><span class="toc-text">手机部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#26-%E8%AF%A5%E6%A3%80%E6%9D%90%E7%9A%84%E5%A4%87%E4%BB%BD%E6%8F%90%E5%8F%96%E6%97%B6%E9%97%B4%EF%BC%88UTC%EF%BC%89-%E6%A0%BC%E5%BC%8F%EF%BC%9A2020-1-1-01-01-01"><span class="toc-text">26. 该检材的备份提取时间（UTC）(格式：2020&#x2F;1&#x2F;1 01:01:01)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#27-%E5%88%86%E6%9E%90%E5%80%A9%E5%80%A9%E7%9A%84%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90-%E6%89%8B%E6%9C%BA%E5%86%85Puzzle-Game%E6%8B%BC%E5%9B%BE%E7%A8%8B%E5%BA%8F%E6%8B%BC%E5%9B%BEAPK%E4%B8%AD%E7%9A%84Flag1%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">27. 分析倩倩的手机检材,手机内Puzzle_Game拼图程序拼图APK中的Flag1是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#29-%E5%88%86%E6%9E%90%E5%80%A9%E5%80%A9%E7%9A%84%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90-%E6%9C%A8%E9%A9%ACapp%E6%98%AF%E6%80%8E%E4%B9%88%E8%A2%AB%E5%AE%89%E8%A3%85%E7%9A%84%EF%BC%88%E7%BD%91%E5%9D%80%EF%BC%89-%E6%A0%BC%E5%BC%8F%EF%BC%9Ahttp-127-0-0-1-1234"><span class="toc-text">29. 分析倩倩的手机检材,木马app是怎么被安装的（网址）(格式：http:&#x2F;&#x2F;127.0.0.1:1234&#x2F;)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#30-%E5%88%86%E6%9E%90%E5%80%A9%E5%80%A9%E7%9A%84%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90-%E6%A3%80%E6%9D%90%E5%86%85%E7%9A%84%E6%9C%A8%E9%A9%ACapp%E7%9A%84hash%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9A%E5%A4%A7%E5%86%99md5"><span class="toc-text">30. 分析倩倩的手机检材,检材内的木马app的hash是什么(格式：大写md5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#31-%E5%88%86%E6%9E%90%E5%80%A9%E5%80%A9%E7%9A%84%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90-%E6%A3%80%E6%9D%90%E5%86%85%E7%9A%84%E6%9C%A8%E9%A9%ACapp%E7%9A%84%E5%BA%94%E7%94%A8%E5%90%8D%E7%A7%B0%E6%98%AF%E4%BB%80%E4%B9%88%E3%80%90%E6%A0%BC%E5%BC%8F%EF%BC%9ABaidu%E3%80%91"><span class="toc-text">31. 分析倩倩的手机检材,检材内的木马app的应用名称是什么【格式：Baidu】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32-%E5%88%86%E6%9E%90%E5%80%A9%E5%80%A9%E7%9A%84%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90-%E6%A3%80%E6%9D%90%E5%86%85%E7%9A%84%E6%9C%A8%E9%A9%ACapp%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%80%E4%B9%88%E5%8A%A0%E5%9B%BA-%E6%A0%BC%E5%BC%8F%EF%BC%9A%E8%85%BE%E8%AE%AF%E4%B9%90%E5%9B%BA"><span class="toc-text">32. 分析倩倩的手机检材,检材内的木马app的使用什么加固(格式：腾讯乐固)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#33-%E5%88%86%E6%9E%90%E5%80%A9%E5%80%A9%E7%9A%84%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90-%E6%A3%80%E6%9D%90%E5%86%85%E7%9A%84%E6%9C%A8%E9%A9%AC%E8%BD%AF%E4%BB%B6%E6%89%80%E5%85%B3%E8%81%94%E5%88%B0%E7%9A%84ip%E5%92%8C%E7%AB%AF%E5%8F%A3%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9A127-0-0-1-1111"><span class="toc-text">33. 分析倩倩的手机检材,检材内的木马软件所关联到的ip和端口是什么(格式：127.0.0.1:1111)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#34-%E8%AF%A5%E6%9C%A8%E9%A9%ACapp%E6%8E%A7%E5%88%B6%E6%89%8B%E6%9C%BA%E6%91%84%E5%83%8F%E5%A4%B4%E6%8B%8D%E4%BA%86%E5%87%A0%E5%BC%A0%E7%85%A7%E7%89%87%E3%80%90%E6%A0%BC%E5%BC%8F%EF%BC%9A1%E3%80%91"><span class="toc-text">34. 该木马app控制手机摄像头拍了几张照片【格式：1】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#35-%E6%9C%A8%E9%A9%ACAPP%E8%A2%AB%E4%BD%BF%E7%94%A8%E7%9A%84%E6%91%84%E5%83%8F%E5%A4%B4%E4%B8%BA-%E6%A0%BC%E5%BC%8F%EF%BC%9ACamera"><span class="toc-text">35. 木马APP被使用的摄像头为(格式：Camera)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#36-%E5%88%86%E6%9E%90%E5%80%A9%E5%80%A9%E7%9A%84%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90-%E6%9C%A8%E9%A9%ACAPK%E9%80%9A%E8%BF%87%E8%B0%83%E7%94%A8%E4%BB%80%E4%B9%88api%E5%AE%9E%E7%8E%B0%E8%87%AA%E8%BA%AB%E6%8C%81%E4%B9%85%E5%8C%96-%E6%A0%BC%E5%BC%8F%EF%BC%9AJobStore"><span class="toc-text">36. 分析倩倩的手机检材,木马APK通过调用什么api实现自身持久化(格式：JobStore)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#37-%E5%88%86%E6%9E%90%E5%80%A9%E5%80%A9%E7%9A%84%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90-%E6%A0%B9%E6%8D%AE%E5%80%A9%E5%80%A9%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AF%81%E5%8F%B7%E8%AF%B7%E9%97%AE%E5%80%A9%E5%80%A9%E6%9D%A5%E8%87%AA%E5%93%AA%E9%87%8C%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9A%E5%8C%97%E4%BA%AC%E5%B8%82%E8%A5%BF%E5%9F%8E%E5%8C%BA%EF%BC%89"><span class="toc-text">37. 分析倩倩的手机检材,根据倩倩的身份证号请问倩倩来自哪里（格式：北京市西城区）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#38-%E6%AD%A4%E6%89%8B%E6%9C%BA%E6%A3%80%E6%9D%90%E7%9A%84IMEI%E5%8F%B7%E6%98%AF%E5%A4%9A%E5%B0%91-%E6%A0%BC%E5%BC%8F%EF%BC%9A1234567890-%E3%80%90%E5%BE%85%E3%80%91"><span class="toc-text">38. 此手机检材的IMEI号是多少(格式：1234567890)【待】</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exe%E9%80%86%E5%90%91%E9%83%A8%E5%88%86"><span class="toc-text">exe逆向部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#39-%E5%88%86%E6%9E%90GIFT-exe%EF%BC%8C%E8%AF%A5%E7%A8%8B%E5%BA%8F%E7%9A%84md5%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9A%E5%A4%A7%E5%86%99md5"><span class="toc-text">39. 分析GIFT.exe，该程序的md5是什么(格式：大写md5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#40-GIFT-exe%E7%9A%84%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9AC"><span class="toc-text">40. GIFT.exe的使用的编程语言是什么(格式：C)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#41-%E8%A7%A3%E5%BC%80%E5%BE%97%E5%88%B0%E7%9A%84LOVE2-exe%E7%9A%84%E7%BC%96%E8%AF%91%E6%97%B6%E9%97%B4-%E6%A0%BC%E5%BC%8F%EF%BC%9A2025-1-1-01-01-01"><span class="toc-text">41. 解开得到的LOVE2.exe的编译时间(格式：2025&#x2F;1&#x2F;1 01:01:01)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#42-%E5%88%86%E6%9E%90GIFT-exe%EF%BC%8C%E8%AF%A5%E7%97%85%E6%AF%92%E6%89%80%E5%85%B3%E8%81%94%E5%88%B0%E7%9A%84ip%E5%92%8C%E7%AB%AF%E5%8F%A3-%E6%A0%BC%E5%BC%8F%EF%BC%9A127-0-0-1-1111-%E3%80%90%E5%BE%85%E3%80%91"><span class="toc-text">42. 分析GIFT.exe，该病毒所关联到的ip和端口(格式：127.0.0.1:1111)【待】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#43-%E5%88%86%E6%9E%90GIFT-exe%EF%BC%8C%E8%AF%A5%E7%97%85%E6%AF%92%E4%BF%AE%E6%94%B9%E7%9A%84%E5%A3%81%E7%BA%B8md5-%E6%A0%BC%E5%BC%8F%EF%BC%9A%E5%A4%A7%E5%86%99md5"><span class="toc-text">43. 分析GIFT.exe，该病毒修改的壁纸md5(格式：大写md5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#44-%E5%88%86%E6%9E%90GIFT-exe%EF%BC%8C%E4%B8%BA%E5%AF%B9%E5%93%AA%E4%BA%9B%E5%90%8E%E7%BC%80%E7%9A%84%E6%96%87%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%8A%A0%E5%AF%86%EF%BC%9A-A-doc-B-xlsx-C-jpg-D-png-E-ppt"><span class="toc-text">44. 分析GIFT.exe，为对哪些后缀的文件进行加密： A.doc B.xlsx C.jpg D.png E.ppt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#45-%E5%88%86%E6%9E%90GIFT-exe%EF%BC%8C%E7%97%85%E6%AF%92%E5%8A%A0%E5%AF%86%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9ADOCX%E6%96%87%E6%A1%A3"><span class="toc-text">45. 分析GIFT.exe，病毒加密后的文件类型是什么(格式：DOCX文档)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#46-%E5%88%86%E6%9E%90GIFT-exe%EF%BC%8C%E5%A3%81%E7%BA%B8%E4%BC%BC%E4%B9%8E%E8%A2%AB%E9%9A%90%E5%BD%A2%E6%B0%B4%E5%8D%B0%E5%8A%A0%E5%AF%86%E8%BF%87%E4%BA%86%EF%BC%9F%E8%AF%B7%E6%89%BE%E5%88%B0%E5%85%B6%E4%B8%AD%E7%9A%84Flag3-%E6%A0%BC%E5%BC%8F%EF%BC%9Aflag3-xxxxxxxx"><span class="toc-text">46. 分析GIFT.exe，壁纸似乎被隐形水印加密过了？请找到其中的Flag3(格式：flag3{xxxxxxxx})</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#47-%E5%88%86%E6%9E%90GIFT-exe%EF%BC%8C%E7%97%85%E6%AF%92%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9ABase64"><span class="toc-text">47. 分析GIFT.exe，病毒加密文件所使用的方法是什么(格式：Base64)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#48-%E5%88%86%E6%9E%90GIFT-exe%EF%BC%8C%E8%AF%B7%E8%A7%A3%E5%AF%86test-love%E5%BE%97%E5%88%B0flag4-%E6%A0%BC%E5%BC%8F%EF%BC%9Aflag4-xxxxxxxx"><span class="toc-text">48. 分析GIFT.exe，请解密test.love得到flag4(格式：flag4{xxxxxxxx})</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E5%88%86"><span class="toc-text">服务器部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A3%80%E6%9D%90%EF%BC%8CTrojan%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B7%B7%E6%B7%86%E6%B5%81%E9%87%8F%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%9F%9F%E5%90%8D%E6%98%AF%E4%BB%80%E4%B9%88%E3%80%90%E6%A0%BC%E5%BC%8F%EF%BC%9Axxx-xxx%E3%80%91"><span class="toc-text">4. 分析起早王的服务器检材，Trojan服务器混淆流量所使用的域名是什么【格式：xxx.xxx】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%88%86%E6%9E%90%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A3%80%E6%9D%90%EF%BC%8CTrojan%E6%9C%8D%E5%8A%A1%E8%BF%90%E8%A1%8C%E7%9A%84%E6%A8%A1%E5%BC%8F%E4%B8%BA%EF%BC%9A"><span class="toc-text">5. 分析起早王的服务器检材，Trojan服务运行的模式为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E7%8E%AF%E8%8A%82"><span class="toc-text">准备环节</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%88%86%E6%9E%90%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E7%99%BB%E5%BD%95%E5%AF%86%E7%A0%81%E7%9A%84%E5%8A%A0%E5%AF%86%E9%80%BB%E8%BE%91-%E5%AF%86%E7%A0%81-sbwyz1-%E5%8A%A0%E5%AF%86%E5%90%8E%E5%AD%98%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="toc-text">7. 分析网站后台登录密码的加密逻辑, 密码 sbwyz1 加密后存在数据库中的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E6%98%BE%E7%A4%BA%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8GD%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91-%E6%A0%BC%E5%BC%8F%EF%BC%9A1-1-1-abc"><span class="toc-text">8. 网站后台显示的服务器GD版本是多少(格式：1.1.1 abc)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E4%B8%AD2016-04-01-00-00-00%E5%88%B02025-04-01-00-00-00%E8%AE%A2%E5%8D%95%E5%88%97%E8%A1%A8%E6%9C%89%E5%A4%9A%E5%B0%91%E6%9D%A1%E8%AE%B0%E5%BD%95-%E6%A0%BC%E5%BC%8F%EF%BC%9A1"><span class="toc-text">9. 网站后台中2016-04-01 00:00:00到2025-04-01 00:00:00订单列表有多少条记录(格式：1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%9C%A8%E7%BD%91%E7%AB%99%E8%B4%AD%E7%89%A9%E6%BB%A1%E5%A4%9A%E5%B0%91%E5%85%8D%E8%BF%90%E8%B4%B9-%E6%A0%BC%E5%BC%8F%EF%BC%9A1"><span class="toc-text">10. 在网站购物满多少免运费(格式：1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-%E5%88%86%E6%9E%90%E7%BD%91%E7%AB%99%E6%97%A5%E5%BF%97%EF%BC%8C%E6%88%90%E5%8A%9F%E5%9C%A8%E7%BD%91%E7%AB%99%E5%90%8E%E5%8F%B0%E4%B8%8A%E4%BC%A0%E6%9C%A8%E9%A9%AC%E7%9A%84%E6%94%BB%E5%87%BB%E8%80%85IP%E6%98%AF%E5%A4%9A%E5%B0%91-%E6%A0%BC%E5%BC%8F%EF%BC%9A1-1-1-1"><span class="toc-text">11. 分析网站日志，成功在网站后台上传木马的攻击者IP是多少(格式：1.1.1.1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-%E6%94%BB%E5%87%BB%E8%80%85%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%85%B7%E5%AF%B9%E5%86%85%E7%BD%91%E8%BF%9B%E8%A1%8C%E6%89%AB%E6%8F%8F%E5%90%8E%EF%BC%8Crdp%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E6%98%AF%E4%BB%80%E4%B9%88-%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc-def"><span class="toc-text">13. 攻击者使用工具对内网进行扫描后，rdp扫描结果中的账号密码是什么(格式：abc:def)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%AA%E7%94%A8%E6%88%B7%EF%BC%8C%E8%AE%A1%E7%AE%97%E5%85%B6%E6%B3%A8%E5%86%8C%E6%97%B6%E9%97%B4%EF%BC%88%E7%94%A8%E6%88%B7%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%B3%A8%E5%86%8C%E6%97%B6%E9%97%B4%E6%88%B3%EF%BC%89%E5%88%B0%E9%A6%96%E6%AC%A1%E4%B8%8B%E5%8D%95%E6%97%B6%E9%97%B4%EF%BC%88%E8%AE%A2%E5%8D%95%E8%A1%A8%E4%B8%AD%E6%9C%80%E6%97%A9%E6%97%B6%E9%97%B4%E6%88%B3%EF%BC%89%E7%9A%84%E9%97%B4%E9%9A%94%EF%BC%8C%E6%89%BE%E5%87%BA%E9%97%B4%E9%9A%94%E6%9C%80%E7%9F%AD%E7%9A%84%E7%94%A8%E6%88%B7id%E3%80%82%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9A1%EF%BC%89"><span class="toc-text">14. 对于每个用户，计算其注册时间（用户表中的注册时间戳）到首次下单时间（订单表中最早时间戳）的间隔，找出间隔最短的用户id。（格式：1）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-%E7%BB%9F%E8%AE%A1%E6%AF%8F%E6%9C%88%E8%AE%A2%E5%8D%95%E6%95%B0%E9%87%8F%EF%BC%8C%E6%89%BE%E5%87%BA%E8%AE%A2%E5%8D%95%E6%9C%80%E5%A4%9A%E7%9A%84%E6%9C%88%E4%BB%BD%EF%BC%88XXXX%E5%B9%B4XX%E6%9C%88%EF%BC%89"><span class="toc-text">15. 统计每月订单数量，找出订单最多的月份（XXXX年XX月）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-%E6%89%BE%E5%87%BA%E8%BF%9E%E7%BB%AD%E4%B8%89%E5%A4%A9%E5%86%85%E4%B8%8B%E5%8D%95%E7%9A%84%E7%94%A8%E6%88%B7%E5%B9%B6%E7%BB%9F%E8%AE%A1%E6%80%BB%E5%85%B1%E6%9C%89%E5%A4%9A%E5%B0%91%E4%B8%AA%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9A1%EF%BC%89"><span class="toc-text">16. 找出连续三天内下单的用户并统计总共有多少个（格式：1）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90%E5%8F%96%E8%AF%81"><span class="toc-text">流量分析取证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%AF%B7%E9%97%AE%E4%BE%A6%E6%9F%A5%E4%BA%BA%E5%91%98%E6%98%AF%E7%94%A8%E5%93%AA%E4%B8%AA%E6%8E%A5%E5%8F%A3%E8%BF%9B%E8%A1%8C%E6%8A%93%E5%88%B0%E8%93%9D%E7%89%99%E6%95%B0%E6%8D%AE%E5%8C%85%E7%9A%84%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9ADVI1-2-1%EF%BC%89"><span class="toc-text">1. 请问侦查人员是用哪个接口进行抓到蓝牙数据包的（格式：DVI1-2.1）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%B5%B7%E6%97%A9%E7%8E%8B%E6%9C%89%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E4%BC%AA%E8%A3%85%E6%88%90%E5%80%A9%E5%80%A9%E8%80%B3%E6%9C%BA%E7%9A%84%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%EF%BC%8C%E8%AF%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E5%8E%9F%E5%A7%8B%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9AXXX-xxx-%E5%85%B7%E4%BD%93%E5%A4%A7%E5%B0%8F%E5%86%99%E6%8C%89%E7%85%A7%E5%8E%9F%E5%A7%8B%E5%86%85%E5%AE%B9%EF%BC%89"><span class="toc-text">2. 起早王有一个用于伪装成倩倩耳机的蓝牙设备，该设备的原始设备名称为什么（格式：XXX_xxx 具体大小写按照原始内容）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%B5%B7%E6%97%A9%E7%8E%8B%E6%9C%89%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E4%BC%AA%E8%A3%85%E6%88%90%E5%80%A9%E5%80%A9%E8%80%B3%E6%9C%BA%E7%9A%84%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%EF%BC%8C%E8%AF%A5%E8%AE%BE%E5%A4%87%E4%BF%AE%E6%94%B9%E6%88%90%E8%80%B3%E6%9C%BA%E5%89%8D%E5%90%8E%E7%9A%84%E5%A4%A7%E5%86%99MAC%E5%9C%B0%E5%9D%80%E5%88%86%E5%88%AB%E4%B8%BA%E5%A4%9A%E5%B0%91%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9A32%E4%BD%8D%E5%B0%8F%E5%86%99md5-%E5%8E%9FMAC%E5%9C%B0%E5%9D%80-%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84MAC%E5%9C%B0%E5%9D%80-%EF%BC%8C%E4%BE%8B%E5%A6%82md5-11-22-33-44-55-66-77-88-99-AA-BB-CC-a29ca3983de0bdd739c97d1ce072a392-%EF%BC%89"><span class="toc-text">3. 起早王有一个用于伪装成倩倩耳机的蓝牙设备，该设备修改成耳机前后的大写MAC地址分别为多少（格式：32位小写md5(原MAC地址_修改后的MAC地址) ，例如md5(11:22:33:44:55:66_77:88:99:AA:BB:CC)&#x3D;a29ca3983de0bdd739c97d1ce072a392 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%B5%81%E9%87%8F%E5%8C%85%E4%B8%AD%E9%A6%96%E6%AC%A1%E6%8D%95%E8%8E%B7%E5%88%B0%E8%AF%A5%E4%BC%AA%E8%A3%85%E8%AE%BE%E5%A4%87%E4%BF%AE%E6%94%B9%E8%87%AA%E8%BA%AB%E5%90%8D%E7%A7%B0%E7%9A%84UTC-0%E6%97%B6%E9%97%B4%E4%B8%BA%EF%BC%9F%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9A2024-03-07-01-02-03-123%EF%BC%89"><span class="toc-text">4. 流量包中首次捕获到该伪装设备修改自身名称的UTC+0时间为？（格式：2024&#x2F;03&#x2F;07 01:02:03.123）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E8%B5%B7%E6%97%A9%E7%8E%8B%E4%B8%AD%E9%80%94%E8%BF%98%E4%B8%8D%E6%96%AD%E5%B0%9D%E8%AF%95%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E6%89%8B%E6%9C%BA%E5%90%91%E5%80%A9%E5%80%A9%E7%94%B5%E8%84%91%E8%BF%9B%E8%A1%8C%E5%B9%BF%E6%92%AD%E5%8F%91%E5%8C%85%EF%BC%8C%E8%AF%B7%E4%BD%A0%E6%89%BE%E5%87%BA%E8%B5%B7%E6%97%A9%E7%8E%8B%E6%89%8B%E6%9C%BA%E8%93%9D%E7%89%99%E7%9A%84%E5%88%B6%E9%80%A0%E5%95%86%E6%95%B0%E6%8D%AE%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9A0x0102030405060708%EF%BC%89"><span class="toc-text">5. 起早王中途还不断尝试使用自己的手机向倩倩电脑进行广播发包，请你找出起早王手机蓝牙的制造商数据（格式：0x0102030405060708）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%B5%B7%E6%97%A9%E7%8E%8B%E7%9A%84%E7%9C%9F%E5%90%8D%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%9ACai-Xu-Kun-%E6%AF%8F%E4%B8%AA%E9%A6%96%E5%AD%97%E6%AF%8D%E5%9D%87%E9%9C%80%E5%A4%A7%E5%86%99-%EF%BC%89"><span class="toc-text">6. 起早王的真名是什么（格式：Cai_Xu_Kun 每个首字母均需大写 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E8%B5%B7%E6%97%A9%E7%8E%8B%E5%AF%B9%E5%80%A9%E5%80%A9%E7%9A%84%E7%94%B5%E8%84%91%E6%89%A7%E8%A1%8C%E4%BA%86%E5%87%A0%E6%9D%A1-cmd-%E9%87%8C%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-text">7. 起早王对倩倩的电脑执行了几条 cmd 里的命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%80%A9%E5%80%A9%E7%94%B5%E8%84%91%E4%B8%AD%E5%BD%B1%E5%AD%90%E8%B4%A6%E6%88%B7%E7%9A%84%E8%B4%A6%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81"><span class="toc-text">8. 倩倩电脑中影子账户的账户名和密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E8%B5%B7%E6%97%A9%E7%8E%8B%E5%AF%B9%E5%80%A9%E5%80%A9%E7%9A%84%E7%94%B5%E8%84%91%E6%89%A7%E8%A1%8C%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%C2%B6"><span class="toc-text">9. 起早王对倩倩的电脑执行的最后一条命令¶</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/12/06/%E9%9B%A8%E8%93%9D%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C%E5%AD%98%E6%A1%A3/" title="雨蓝的服务器操作存档"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wenzhang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="雨蓝的服务器操作存档"/></a><div class="content"><a class="title" href="/2025/12/06/%E9%9B%A8%E8%93%9D%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C%E5%AD%98%E6%A1%A3/" title="雨蓝的服务器操作存档">雨蓝的服务器操作存档</a><time datetime="2025-12-06T15:33:45.000Z" title="发表于 2025-12-06 23:33:45">2025-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/05/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%96%87%E7%AB%A0%E7%AC%94%E8%AE%B0/" title="【笔记】网络文章笔记"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】网络文章笔记"/></a><div class="content"><a class="title" href="/2025/12/05/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%BD%91%E7%BB%9C%E6%96%87%E7%AB%A0%E7%AC%94%E8%AE%B0/" title="【笔记】网络文章笔记">【笔记】网络文章笔记</a><time datetime="2025-12-05T12:44:49.000Z" title="发表于 2025-12-05 20:44:49">2025-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/02/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="【转载】文件包含"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【转载】文件包含"/></a><div class="content"><a class="title" href="/2025/12/02/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="【转载】文件包含">【转载】文件包含</a><time datetime="2025-12-02T13:37:49.000Z" title="发表于 2025-12-02 21:37:49">2025-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/01/2025-ISCTF/" title="2025-ISCTF"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/fenlei.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="2025-ISCTF"/></a><div class="content"><a class="title" href="/2025/12/01/2025-ISCTF/" title="2025-ISCTF">2025-ISCTF</a><time datetime="2025-12-01T02:04:07.000Z" title="发表于 2025-12-01 10:04:07">2025-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/30/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91git%E6%B3%84%E9%9C%B2/" title="【转载】git泄露"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wenzhang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【转载】git泄露"/></a><div class="content"><a class="title" href="/2025/11/30/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91git%E6%B3%84%E9%9C%B2/" title="【转载】git泄露">【转载】git泄露</a><time datetime="2025-11-30T13:40:01.000Z" title="发表于 2025-11-30 21:40:01">2025-11-30</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By luoyinhui</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.0"></script><script src="/js/main.js?v=5.5.0"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('/pluginsSrc/twikoo/dist/twikoo.all.min.js?v=1.6.44').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js?v=1.1.6"></script><script id="click-heart" src="/pluginsSrc/butterfly-extsrc/dist/click-heart.min.js?v=1.1.6" async="async" mobile="false"></script><link rel="stylesheet" href="/pluginsSrc/aplayer/dist/APlayer.min.css?v=1.10.1" media="print" onload="this.media='all'"><script src="/pluginsSrc/aplayer/dist/APlayer.min.js?v=1.10.1"></script><script src="/pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js?v=1.1.6"></script><div class="aplayer no-destroy" id="global-aplayer"></div><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script>(function(){
+  if (window.__globalAPlayer__) return;
+  function init(){
+    var el=document.getElementById('global-aplayer');
+    if (!el || !window.APlayer) { setTimeout(init, 100); return; }
+    window.__globalAPlayer__ = new APlayer({
+      container: el,
+      fixed: true,
+      autoplay: false,
+      preload: 'none',
+      storageName: 'aplayer-setting-global',
+      lrcType: 0,
+      audio: [{
+        name: '簇拥烈日的花 - 迟里乌布',
+        artist: 'Unknown',
+        url: '/audio/flower.flac',
+        cover: '/img/music-cover.png',
+        type: 'auto'
+      }]
+    });
+    try { window.__globalAPlayer__.audio && (window.__globalAPlayer__.audio.playbackRate = 1) } catch(e){}
+  }
+  init();
+})()</script><script src="/pluginsSrc/pjax/pjax.min.js?v=0.2.8"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div><hr><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><span class="algolia-poweredBy-text">Search powered by Algolia</span></div></div></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"></div><hr><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.0"></script><script src="/pluginsSrc/algoliasearch/dist/lite/builds/browser.umd.js?v=5.37.0"></script><script src="/js/search/algolia.js?v=5.5.0"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = '/links/,/link/'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
