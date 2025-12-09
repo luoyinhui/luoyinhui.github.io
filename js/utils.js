@@ -120,7 +120,7 @@
 
     scrollToDest: (pos, time = 500) => {
       const currentPos = window.scrollY
-      const isNavFixed = document.getElementById('page-header').classList.contains('fixed')
+      const isNavFixed = document.getElementById('page-header').classList.contains('nav-fixed')
       if (currentPos > pos || isNavFixed) pos = pos - 70
 
       if ('scrollBehavior' in document.documentElement.style) {
@@ -170,14 +170,7 @@
     isHidden: ele => ele.offsetHeight === 0 && ele.offsetWidth === 0,
 
     getEleTop: ele => {
-      let actualTop = ele.offsetTop
-      let current = ele.offsetParent
-
-      while (current !== null) {
-        actualTop += current.offsetTop
-        current = current.offsetParent
-      }
-
+      let actualTop = ele.getBoundingClientRect().top + window.scrollY
       return actualTop
     },
 
