@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hexo-butterfly-updates-heatmap插件介绍 | 落殷回的博客</title><meta name="author" content="luoyinhui"><meta name="copyright" content="luoyinhui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="参考语雀热力图制作的hexo热力图插件，粗糙打造。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo-butterfly-updates-heatmap插件介绍">
+<meta property="og:url" content="https://luoyinhui.github.io/2025/12/30/hexo-butterfly-updates-heatmap%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="落殷回的博客">
+<meta property="og:description" content="参考语雀热力图制作的hexo热力图插件，粗糙打造。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luoyinhui.github.io/img/fenlei.png">
+<meta property="article:published_time" content="2025-12-30T11:27:57.000Z">
+<meta property="article:modified_time" content="2025-12-30T11:32:49.996Z">
+<meta property="article:author" content="luoyinhui">
+<meta property="article:tag" content="butterfly">
+<meta property="article:tag" content="fluid">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://luoyinhui.github.io/img/fenlei.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "hexo-butterfly-updates-heatmap插件介绍",
+  "url": "https://luoyinhui.github.io/2025/12/30/hexo-butterfly-updates-heatmap%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D/",
+  "image": "https://luoyinhui.github.io/img/fenlei.png",
+  "datePublished": "2025-12-30T11:27:57.000Z",
+  "dateModified": "2025-12-30T11:32:49.996Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "luoyinhui",
+      "url": "https://luoyinhui.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/zhandian.png"><link rel="canonical" href="https://luoyinhui.github.io/2025/12/30/hexo-butterfly-updates-heatmap%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D/index.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.0"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=7.0.1"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"DLCXYNBEA7","apiKey":"55cb2783d393395612712be2263ebaf1","indexName":"index","hitsPerPage":10,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":1000,"languages":{"author":"作者: luoyinhui","link":"链接: ","source":"来源: 落殷回的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.12.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo-butterfly-updates-heatmap插件介绍',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style>
+  .aplayer .aplayer-notice{display:none!important}
+</style>
+<!-- hexo injector head_end start --><style>/* CSS for Hexo Butterfly Updates Heatmap */
+.updates-heatmap {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: var(--card-bg, #fff);
+  border-radius: 8px;
+  box-shadow: var(--card-box-shadow, 0 3px 8px 6px rgba(7, 17, 27, 0.05));
+  width: 100%;
+  overflow: hidden;
+  color: var(--font-color, #333);
+}
+
+[data-theme='dark'] .updates-heatmap {
+  background: var(--card-bg, #1d1d1f);
+  color: var(--font-color, #F7F7FA);
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.heatmap-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  outline: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.heatmap-title:focus {
+  border-bottom: 1px dashed #999;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--font-color, #888);
+  gap: 4px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-label {
+  color: var(--font-color, #888);
+  margin: 0 4px;
+}
+
+.heatmap-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heatmap-months {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.heatmap-month-label {
+  font-size: 12px;
+  color: var(--font-color, #888);
+  grid-column: span 1;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.heatmap-day {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background-color: #ebedf0;
+}
+
+[data-theme='dark'] .heatmap-day {
+  background-color: #2d333b;
+}
+
+.legend-color.level-0 { background-color: #ebedf0; }
+[data-theme='dark'] .legend-color.level-0 { background-color: #2d333b; }
+
+/* Green Theme */
+.theme-green .level-1 { background-color: #9be9a8; }
+.theme-green .level-2 { background-color: #40c463; }
+.theme-green .level-3 { background-color: #30a14e; }
+.theme-green .level-4 { background-color: #216e39; }
+
+/* Blue Theme */
+.theme-blue .level-1 { background-color: #a8d1ff; }
+.theme-blue .level-2 { background-color: #63a7ff; }
+.theme-blue .level-3 { background-color: #3079e0; }
+.theme-blue .level-4 { background-color: #1a56ad; }
+
+/* Pink Theme */
+.theme-pink .level-1 { background-color: #ffc9c9; }
+.theme-pink .level-2 { background-color: #ff8585; }
+.theme-pink .level-3 { background-color: #e04545; }
+.theme-pink .level-4 { background-color: #ad1a1a; }
+
+/* Red Theme */
+.theme-red .level-1 { background-color: #ffdce0; }
+.theme-red .level-2 { background-color: #ff9b9b; }
+.theme-red .level-3 { background-color: #ff4b4b; }
+.theme-red .level-4 { background-color: #c91a1a; }
+
+/* Orange Theme */
+.theme-orange .level-1 { background-color: #ffe8cc; }
+.theme-orange .level-2 { background-color: #ffb366; }
+.theme-orange .level-3 { background-color: #ff8c1a; }
+.theme-orange .level-4 { background-color: #cc6600; }
+
+/* Purple Theme */
+.theme-purple .level-1 { background-color: #e6ccff; }
+.theme-purple .level-2 { background-color: #b366ff; }
+.theme-purple .level-3 { background-color: #8c1aff; }
+.theme-purple .level-4 { background-color: #6600cc; }
+
+.updates-show-more-btn {
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 0;
+  background: var(--card-bg, #fff);
+  color: #49b1f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px 0;
+  width: 100%;
+  transition: all 0.3s;
+  user-select: none;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  font-size: 1.1em;
+}
+
+[data-theme='dark'] .updates-show-more-btn {
+  background: var(--card-bg, #1d1d1f);
+  color: #49b1f5;
+  border: 1px solid #3d3d3d;
+}
+
+.updates-show-more-btn:hover {
+  background: #f0f0f0;
+  color: #FF7242;
+}
+
+[data-theme='dark'] .updates-show-more-btn:hover {
+  background: #3d3d3d;
+}
+
+.year-label {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: var(--font-color, #999);
+}
+</style><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="落殷回的博客" type="application/atom+xml">
+<link rel="alternate" href="/rss.xml" title="落殷回的博客" type="application/rss+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/updates/"><i class="fa-fw fas fa-history"></i><span> 更新</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/fenlei.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">落殷回的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">hexo-butterfly-updates-heatmap插件介绍</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div id="local-search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 本地搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/updates/"><i class="fa-fw fas fa-history"></i><span> 更新</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">hexo-butterfly-updates-heatmap插件介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-30T11:27:57.000Z" title="发表于 2025-12-30 19:27:57">2025-12-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-12-30T11:32:49.996Z" title="更新于 2025-12-30 19:32:49">2025-12-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">864</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;作者已经&quot;,&quot;messageNext&quot;:&quot;天没有更新了！！可能内容过时哦，如果您发现错误并希望告诉作者，请评论区留言或者向yluo3383@gmail.com发送邮件。&quot;,&quot;postUpdate&quot;:&quot;2025-12-30 19:32:49&quot;}" hidden></div><ul>
+<li>github地址：<a target="_blank" rel="noopener" href="https://github.com/luoyinhui/hexo-butterfly-updates-heatmap">https://github.com/luoyinhui/hexo-butterfly-updates-heatmap</a></li>
+</ul>
+<p>这是一个专为 <a target="_blank" rel="noopener" href="https://github.com/jenrey/hexo-theme-butterfly">Hexo Butterfly</a> 主题设计，但也兼容 <strong>Hexo Fluid</strong> 及其他 Hexo 主题的热力图插件。它参考 <strong>语雀 (Yuque)</strong> 的热力图风格展示您的文章更新频率（优先使用 <code>updated</code> 更新时间，无更新时间则回退使用 <code>date</code> 创建时间），并支持查看历史年份的存档。</p>
+<ul>
+<li><a href="https://luoyinhui.github.io/updates/">点击跳转本博客实践展示</a></li>
+</ul>
+<h2 id="功能特点"><a class="header-anchor" href="#功能特点">¶</a>功能特点</h2>
+<ul>
+<li><strong>更新活跃度热力图</strong>：直观展示每日的博客更新动态。</li>
+<li><strong>优先识别更新时间</strong>：逻辑优先读取文章的 <code>updated</code> 字段，非常适合经常维护和更新旧文的博主。</li>
+<li><strong>历史归档支持</strong>：点击“显示更多”按钮即可展开查看过往年份的热力图数据。</li>
+<li><strong>多主题色支持</strong>：内置 6 种颜色主题（绿色、蓝色、粉色、红色、橙色、紫色）。</li>
+<li><strong>暗黑模式适配</strong>：完美适配 Butterfly 主题的夜间模式，并为其他主题提供基于 CSS 媒体查询的自动暗黑模式支持。</li>
+<li><strong>灵活部署</strong>：既可以在 Markdown 中作为标签插件使用，也可以在 Pug/EJS 模板中作为 Helper 函数调用。</li>
+<li><strong>广泛兼容</strong>：原生支持 Butterfly CSS 变量，同时也内置了回退样式以适配 Fluid 等其他主题。</li>
+</ul>
+<h2 id="安装方法"><a class="header-anchor" href="#安装方法">¶</a>安装方法</h2>
+<ol>
+<li>下载本仓库代码。</li>
+<li>将 <code>hexo-butterfly-updates-heatmap</code> 文件夹放入您的 Hexo 博客根目录的 <code>node_modules</code> 文件夹中，或者放在根目录下并通过本地路径安装：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install ./hexo-butterfly-updates-heatmap</span><br></pre></td></tr></table></figure>
+<h2 id="配置说明"><a class="header-anchor" href="#配置说明">¶</a>配置说明</h2>
+<p>在您的 <code>_config.butterfly.yml</code>（或者站点 <code>_config.yml</code>）中添加以下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">updates_settings:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">&#x27;创作指数&#x27;</span>       <span class="comment"># 热力图左上角显示的标题</span></span><br><span class="line">  <span class="attr">color_scheme:</span> <span class="string">&#x27;green&#x27;</span>   <span class="comment"># 主题色可选: green, blue, red, orange, purple</span></span><br><span class="line">  <span class="attr">limit_months:</span> <span class="number">3</span>         <span class="comment"># (可选) 用于配合您自己的时间轴逻辑，本插件主要使用前两项</span></span><br><span class="line">  <span class="attr">empty_history_msg:</span> <span class="string">&#x27;博客还没有满1岁呢～～&#x27;</span> <span class="comment"># 当没有跨年历史数据时显示的提示语</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用方法"><a class="header-anchor" href="#使用方法">¶</a>使用方法</h2>
+<h3 id="方法-1：在-Markdown-文章-页面中使用（通用）"><a class="header-anchor" href="#方法-1：在-Markdown-文章-页面中使用（通用）">¶</a>方法 1：在 Markdown 文章/页面中使用（通用）</h3>
+<p>您可以在任何 Markdown 文件（例如 <code>source/about/index.md</code>）中直接插入标签：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% butterfly<span class="emphasis">_heatmap %&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法-2：在-Pug-EJS-模板中使用"><a class="header-anchor" href="#方法-2：在-Pug-EJS-模板中使用">¶</a>方法 2：在 Pug/EJS 模板中使用</h3>
+<p>如果您在自定义主题布局：</p>
+<p><strong>Butterfly 主题 (Pug):</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">!= butterfly_heatmap()</span><br></pre></td></tr></table></figure>
+<p><strong>Fluid 主题 (EJS):</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- butterfly_heatmap() %&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="用户指南"><a class="header-anchor" href="#用户指南">¶</a>用户指南</h2>
+<h3 id="Butterfly-主题用户（原生支持）"><a class="header-anchor" href="#Butterfly-主题用户（原生支持）">¶</a>Butterfly 主题用户（原生支持）</h3>
+<p>本插件专为 <a target="_blank" rel="noopener" href="https://github.com/jenrey/hexo-theme-butterfly">Hexo Butterfly</a> 主题原生设计。</p>
+<ol>
+<li><strong>安装</strong>：参考上文安装步骤。</li>
+<li><strong>配置</strong>：将 <code>updates_settings</code> 配置块添加到您的 <code>_config.butterfly.yml</code>（或站点 <code>_config.yml</code>）中。</li>
+<li><strong>使用</strong>：
+<ul>
+<li><strong>Markdown</strong>：在任意页面或文章中添加 <code>&#123;% butterfly_heatmap %&#125;</code>。</li>
+<li><strong>Pug 布局</strong>：在自定义布局文件（如 <code>updates.pug</code>）中使用 <code>!= butterfly_heatmap()</code>。</li>
+<li><strong>样式</strong>：自动继承 Butterfly 的 CSS 变量（背景、字体、阴影）和夜间模式设置，无需额外配置。</li>
+</ul>
+</li>
+</ol>
+<h3 id="Fluid-主题用户（及其他主题）"><a class="header-anchor" href="#Fluid-主题用户（及其他主题）">¶</a>Fluid 主题用户（及其他主题）</h3>
+<p>本插件开箱即支持 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Hexo Fluid</a> 及其他主题。</p>
+<ol>
+<li><strong>安装</strong>：参考上文安装步骤。</li>
+<li><strong>配置</strong>：将 <code>updates_settings</code> 配置块添加到您的 <code>_config.fluid.yml</code>（或站点 <code>_config.yml</code>）中。</li>
+<li><strong>使用</strong>：
+<ul>
+<li><strong>方案 A (简单)</strong>：新建一个页面（如 <code>source/updates/index.md</code>），并在正文中写入 <code>&#123;% butterfly_heatmap %&#125;</code>。</li>
+<li><strong>方案 B (自定义布局)</strong>：在自定义布局文件中使用 <code>&lt;%- butterfly_heatmap() %&gt;</code> 进行注入。</li>
+</ul>
+</li>
+<li><strong>样式</strong>：插件包含回退样式，对于不使用 Butterfly CSS 变量的主题（如 Fluid），它会自动使用标准的 CSS 样式并适配日间/夜间模式。</li>
+</ol>
+<h2 id="开源协议"><a class="header-anchor" href="#开源协议">¶</a>开源协议</h2>
+<p>MIT</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io">luoyinhui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io/2025/12/30/hexo-butterfly-updates-heatmap%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D/">https://luoyinhui.github.io/2025/12/30/hexo-butterfly-updates-heatmap插件介绍/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://luoyinhui.github.io" target="_blank">落殷回的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a><a class="post-meta__tags" href="/tags/butterfly/">butterfly</a><a class="post-meta__tags" href="/tags/fluid/">fluid</a></div><div class="post-share"><div class="social-share" data-image="/img/fenlei.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/weixin.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/weixin.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhifubao.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zhifubao.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/12/31/%E9%9D%92%E5%B0%91%E5%B9%B4%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/" title="青少年靶场练习"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wenzhang.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">青少年靶场练习</div></div><div class="info-2"><div class="info-item-1"> 全程学习：https://mp.weixin.qq.com/s/a6USGZOf3teZhrvHDjxEog  ¶特洛伊挖矿木马事件排查 你是一名初级安全工程师，运维团队报告，公司的一台核心开发服务器（Ubuntu 22.04 LTS）出现CPU使用率异常飙高告警及安全设备检出外联挖矿事件。现在，你需要登录该服务器，排查并处置这一安全事件，并最终找出问题的根源。账号：root，密码：P@ssw0rd ¶任务1 任务名称：提交挖矿文件的绝对路径 任务分数：2.00 任务类型：静态Flag 提交挖矿文件的绝对路径，最终以flag{/xxx/xxx}格式提交  既然题目说了是CPU使用率异常飙高，那我们就降序看看进程的CPU占用情况  top# 先用top，发现没有了，可能是被感染了，那试试看ps auxps aux --sort=-%cpu | head  ai | 片段             | 含义                                                                                          ...</div></div></div></a><a class="pagination-related" href="/2025/12/27/solar/" title="solar"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">solar</div></div><div class="info-2"><div class="info-item-1">附件1解压密码： 4GVcdmtaYMD2UmZmjwQfG8n4 附件2解压密码： HHsolar88*90 机器 1：Windows server 2019(双网卡)，账号密码： administrator/Solarsec521 机器 2：Ubuntu(单网卡)，账号密码：root/Solarsec521 附件一 ¶任务1 任务名称：排查漏洞 任务分数：80.00 任务类型：静态Flag 根据开放服务排查审计日志，提交攻击者利用漏洞传入webshell的url，提交示例：flag{/flag/abc/kk=abc}  C:\inetpub\logs\LogFiles\W3SVC*\u_ex*.log    ai：日志量很大，但只看“最早出现、成功返回200、带参数、指向 UEditor 控制器”的那一条即可  2025-12-24 03:22:35 192.168.70.12 POST /plugins/Ueditor/net/controller.ashx action=catchimage 80 - 192.168.70.1 Mozilla/5.0+(Windows+N...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="author-info-name">luoyinhui</div><div class="author-info-description">记录踩坑与瞎折腾，由Hexo+Github搭建</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luoyinhui"><i class="fab fa-github"></i><span>Follow Me</span></a><a class="card-info-btn" href="/subscribe"><i class="fas fa-rss"></i><span>订阅RSS</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！PPT轮播图施工ing，敬请谅解。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-text">功能特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="toc-text">安装方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="toc-text">配置说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9A%E5%9C%A8-Markdown-%E6%96%87%E7%AB%A0-%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%EF%BC%88%E9%80%9A%E7%94%A8%EF%BC%89"><span class="toc-text">方法 1：在 Markdown 文章&#x2F;页面中使用（通用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-2%EF%BC%9A%E5%9C%A8-Pug-EJS-%E6%A8%A1%E6%9D%BF%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="toc-text">方法 2：在 Pug&#x2F;EJS 模板中使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97"><span class="toc-text">用户指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Butterfly-%E4%B8%BB%E9%A2%98%E7%94%A8%E6%88%B7%EF%BC%88%E5%8E%9F%E7%94%9F%E6%94%AF%E6%8C%81%EF%BC%89"><span class="toc-text">Butterfly 主题用户（原生支持）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluid-%E4%B8%BB%E9%A2%98%E7%94%A8%E6%88%B7%EF%BC%88%E5%8F%8A%E5%85%B6%E4%BB%96%E4%B8%BB%E9%A2%98%EF%BC%89"><span class="toc-text">Fluid 主题用户（及其他主题）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE"><span class="toc-text">开源协议</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/12/31/%E9%9D%92%E5%B0%91%E5%B9%B4%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/" title="青少年靶场练习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wenzhang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="青少年靶场练习"/></a><div class="content"><a class="title" href="/2025/12/31/%E9%9D%92%E5%B0%91%E5%B9%B4%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/" title="青少年靶场练习">青少年靶场练习</a><time datetime="2025-12-30T23:34:35.000Z" title="发表于 2025-12-31 07:34:35">2025-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/30/hexo-butterfly-updates-heatmap%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D/" title="hexo-butterfly-updates-heatmap插件介绍"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/fenlei.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="hexo-butterfly-updates-heatmap插件介绍"/></a><div class="content"><a class="title" href="/2025/12/30/hexo-butterfly-updates-heatmap%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D/" title="hexo-butterfly-updates-heatmap插件介绍">hexo-butterfly-updates-heatmap插件介绍</a><time datetime="2025-12-30T11:27:57.000Z" title="发表于 2025-12-30 19:27:57">2025-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/27/solar/" title="solar"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="solar"/></a><div class="content"><a class="title" href="/2025/12/27/solar/" title="solar">solar</a><time datetime="2025-12-27T02:14:32.000Z" title="发表于 2025-12-27 10:14:32">2025-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/18/2025-SPC-%E7%AC%AC%E4%B8%89%E5%B1%8A%E5%AE%9E%E6%88%98%E5%BA%94%E7%94%A8%E5%A4%A7%E8%B5%9B%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81wp/" title="2025-SPC-第三届实战应用大赛电子取证wp"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/biaoqian.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="2025-SPC-第三届实战应用大赛电子取证wp"/></a><div class="content"><a class="title" href="/2025/12/18/2025-SPC-%E7%AC%AC%E4%B8%89%E5%B1%8A%E5%AE%9E%E6%88%98%E5%BA%94%E7%94%A8%E5%A4%A7%E8%B5%9B%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81wp/" title="2025-SPC-第三届实战应用大赛电子取证wp">2025-SPC-第三届实战应用大赛电子取证wp</a><time datetime="2025-12-18T02:57:30.000Z" title="发表于 2025-12-18 10:57:30">2025-12-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/17/2025%E7%8D%AC%E8%B1%B8%E6%9D%AF/" title="2025獬豸杯"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wenzhang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="2025獬豸杯"/></a><div class="content"><a class="title" href="/2025/12/17/2025%E7%8D%AC%E8%B1%B8%E6%9D%AF/" title="2025獬豸杯">2025獬豸杯</a><time datetime="2025-12-16T23:15:35.000Z" title="发表于 2025-12-17 07:15:35">2025-12-17</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By luoyinhui</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.0"></script><script src="/js/main.js?v=5.5.0"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js?v=1.1.0"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('/pluginsSrc/twikoo/dist/twikoo.all.min.js?v=1.6.44').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js?v=1.1.6"></script><script id="click-heart" src="/pluginsSrc/butterfly-extsrc/dist/click-heart.min.js?v=1.1.6" async="async" mobile="false"></script><link rel="stylesheet" href="/pluginsSrc/aplayer/dist/APlayer.min.css?v=1.10.1" media="print" onload="this.media='all'"><script src="/pluginsSrc/aplayer/dist/APlayer.min.js?v=1.10.1"></script><script src="/pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js?v=1.1.6"></script><div class="aplayer no-destroy" id="global-aplayer"></div><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script>(function(){
+  if (window.__globalAPlayer__) return;
+  function init(){
+    var el=document.getElementById('global-aplayer');
+    if (!el || !window.APlayer) { setTimeout(init, 100); return; }
+    window.__globalAPlayer__ = new APlayer({
+      container: el,
+      fixed: true,
+      autoplay: false,
+      preload: 'none',
+      storageName: 'aplayer-setting-global',
+      lrcType: 0,
+      audio: [{
+        name: '簇拥烈日的花 - 迟里乌布',
+        artist: 'Unknown',
+        url: '/audio/flower.flac',
+        cover: '/img/music-cover.png',
+        type: 'auto'
+      }]
+    });
+    try { window.__globalAPlayer__.audio && (window.__globalAPlayer__.audio.playbackRate = 1) } catch(e){}
+  }
+  init();
+})()</script><script src="/pluginsSrc/pjax/pjax.min.js?v=0.2.8"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div><hr><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><span class="algolia-poweredBy-text">Search powered by Algolia</span></div></div></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"></div><hr><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.0"></script><script src="/pluginsSrc/algoliasearch/dist/lite/builds/browser.umd.js?v=5.37.0"></script><script src="/js/search/algolia.js?v=5.5.0"></script></div><!-- hexo injector body_end start --><script>window.toggleHistory = function(btn) {
+  var history = document.getElementById('updates-history');
+  if (history.style.display === 'none') {
+    history.style.display = 'block';
+    btn.innerText = '收起';
+  } else {
+    history.style.display = 'none';
+    btn.innerText = '显示更多';
+  }
+}
+</script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = '/links/,/link/'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
