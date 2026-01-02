@@ -248,7 +248,7 @@ window.addEventListener('load', () => {
   const statsItem = document.getElementById('local-search-stats')
   const $loadingStatus = document.getElementById('loading-status')
   const isXml = !path.endsWith('json')
-  const ownerName = 'local'
+  const ownerName = 'both'
 
   // Pagination variables (only initialize if pagination is enabled)
   let currentPage = 0
@@ -479,71 +479,7 @@ window.addEventListener('load', () => {
     $loadingStatus.hidden = true
   }
 
-  let loadFlag = false
-  const $searchMask = document.getElementById('search-mask')
-  const $searchDialog = document.querySelector('#local-search .search-dialog')
-  let isOpening = false
-
-  // fix safari
-  const fixSafariHeight = () => {
-    if (window.innerWidth < 768) {
-      $searchDialog.style.setProperty('--search-height', window.innerHeight + 'px')
-    }
-  }
-
-  const openSearch = () => {
-    // Guard against immediate close due to accidental mask click
-    isOpening = true
-    // 标记遮罩归属，避免被其他搜索模块的遮罩点击监听误关掉
-    if ($searchMask) $searchMask.dataset.searchOwner = ownerName
-    btf.overflowPaddingR.add()
-    btf.animateIn($searchMask, 'to_show 0.5s')
-    btf.animateIn($searchDialog, 'searchDialogScale 0.5s')
-    setTimeout(() => { input.focus() }, 300)
-    if (!loadFlag) {
-      !localSearch.isfetched && localSearch.fetchData()
-      input.addEventListener('input', inputEventFunction)
-      loadFlag = true
-    }
-    // shortcut: ESC
-    document.addEventListener('keydown', function f (event) {
-      if (event.code === 'Escape') {
-        closeSearch()
-        document.removeEventListener('keydown', f)
-      }
-    })
-
-    fixSafariHeight()
-    window.addEventListener('resize', fixSafariHeight)
-
-    // release opening guard after animation starts
-    setTimeout(() => { isOpening = false }, 300)
-  }
-
-  const closeSearch = () => {
-    if (isOpening) return
-    // 仅关闭本弹窗；遮罩只在归属为当前模块时才隐藏
-    btf.animateOut($searchDialog, 'searchDialogClose .5s')
-    if ($searchMask && $searchMask.dataset.searchOwner === ownerName) {
-      btf.overflowPaddingR.remove()
-      btf.animateOut($searchMask, 'to_hide 0.5s')
-      delete $searchMask.dataset.searchOwner
-    }
-    window.removeEventListener('resize', fixSafariHeight)
-  }
-
-  const searchClickFn = () => {
-    const btn = document.querySelector('#local-search-button > .search') || document.querySelector('#search-button > .search')
-    if (btn) btf.addEventListenerPjax(btn, 'click', e => { e.stopPropagation(); openSearch() })
-  }
-
   const searchFnOnce = () => {
-    document.querySelector('#local-search .search-close-button').addEventListener('click', closeSearch)
-    $searchMask.addEventListener('click', () => {
-      // 只有当前模块拥有遮罩时才响应点击关闭
-      if ($searchMask.dataset.searchOwner !== ownerName) return
-      if (!isOpening) closeSearch()
-    })
     if (GLOBAL_CONFIG.localSearch.preload) {
       localSearch.fetchData()
     }
@@ -566,6 +502,14 @@ window.addEventListener('load', () => {
 
     // Initial state
     toggleResultsVisibility(false)
+
+    // 监听本地搜索输入框（即使不控制弹窗，也要能响应输入）
+    // 弹窗打开逻辑由 algolia.js 接管，这里只需确保数据加载
+    // 但我们需要在第一次输入时确保数据已加载
+    input.addEventListener('focus', () => {
+      if (!localSearch.isfetched) localSearch.fetchData()
+    })
+    input.addEventListener('input', inputEventFunction)
   }
 
   window.addEventListener('search:loaded', () => {
@@ -574,13 +518,10 @@ window.addEventListener('load', () => {
     $loadDataItem.remove()
   })
 
-  searchClickFn()
   searchFnOnce()
 
   // pjax
   window.addEventListener('pjax:complete', () => {
-    !btf.isHidden($searchMask) && closeSearch()
     localSearch.highlightSearchWords(document.getElementById('article-container'))
-    searchClickFn()
   })
 })

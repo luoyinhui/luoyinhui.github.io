@@ -7970,18 +7970,149 @@ blockquote.pullquote.right {
   -ms-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
 }
-@media screen and (max-width: 768px) {
-  #algolia-search .search-dialog .ais-Hits-list {
-    min-height: calc(var(--search-height) - 245px);
-  }
+#algolia-search .search-switch {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-bottom: 15px;
 }
-#algolia-search .search-dialog #algolia-info .algolia-poweredBy,
-#algolia-search .search-dialog #algolia-info .ais-PoweredBy {
-  display: none !important;
+#algolia-search .search-switch .search-switch-item {
+  cursor: pointer;
+  padding: 5px 15px;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
 }
-#algolia-search .search-dialog #algolia-info .algolia-poweredBy-text {
-  float: right;
-  padding-top: 2px;
+#algolia-search .search-switch .search-switch-item.active {
+  border-bottom: 2px solid #49b1f5;
+  color: #49b1f5;
+}
+#algolia-search .search-dialog .search-nav {
+  margin-bottom: 10px;
+}
+#algolia-search .search-dialog .ais-SearchBox {
+  margin-bottom: 15px;
+}
+#algolia-search .search-dialog .ais-SearchBox .ais-SearchBox-form {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+#algolia-search .search-dialog .ais-SearchBox .ais-SearchBox-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: 2px solid #eee;
+  border-radius: 20px;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#algolia-search .search-dialog .ais-SearchBox .ais-SearchBox-input:focus {
+  border-color: #49b1f5;
+}
+#algolia-search .search-dialog .ais-Hits {
+  margin-top: 15px;
+}
+#algolia-search .search-dialog .ais-Hits .ais-Hits-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#algolia-search .search-dialog .ais-Hits .ais-Hits-item {
+  margin-bottom: 10px;
+}
+#algolia-search .search-dialog .ais-Hits .ais-Hits-item a {
+  display: block;
+  color: #1f2d3d;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#algolia-search .search-dialog .ais-Hits .ais-Hits-item a:hover {
+  color: #49b1f5;
+}
+#algolia-search .search-dialog .ais-Hits .ais-Hits-item a .algolia-hits-item-title {
+  font-weight: bold;
+}
+#algolia-search .search-dialog .ais-Hits .ais-Hits-item a .algolia-hit-item-content {
+  font-size: 0.9em;
+  color: #858585;
+  margin-top: 5px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+#algolia-search .search-dialog .ais-Pagination {
+  margin-top: 15px;
+  text-align: center;
+}
+#algolia-search .search-dialog .ais-Pagination .ais-Pagination-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-box;
+  display: inline-flex;
+  gap: 5px;
+}
+#algolia-search .search-dialog .ais-Pagination .ais-Pagination-item .ais-Pagination-link {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #eee;
+  color: #1f2d3d;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#algolia-search .search-dialog .ais-Pagination .ais-Pagination-item .ais-Pagination-link:hover {
+  background: #49b1f5;
+  color: #fff;
+}
+#algolia-search .search-dialog .ais-Pagination .ais-Pagination-item.ais-Pagination-item--selected .ais-Pagination-link {
+  background: #49b1f5;
+  color: #fff;
+}
+#algolia-search .search-dialog #algolia-info {
+  margin-top: 15px;
+  text-align: right;
+  font-size: 0.8em;
+  color: #858585;
 }
 @media screen and (max-width: 768px) {
   #local-search .search-dialog .search-result-list {

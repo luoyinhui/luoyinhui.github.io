@@ -1,15 +1,18 @@
 window.addEventListener('load', () => {
   const { algolia } = GLOBAL_CONFIG
-  const { appId, apiKey, indexName, hitsPerPage = 5, languages } = algolia
-
-  if (!appId || !apiKey || !indexName) {
-    return console.error('Algolia setting is invalid!')
-  }
+  const { appId, apiKey, indexName, hitsPerPage = 5, languages } = algolia || {}
 
   const $searchMask = document.getElementById('search-mask')
   const $searchDialog = document.querySelector('#algolia-search .search-dialog')
-  const ownerName = 'algolia'
+  const ownerName = 'both'
   let isOpening = false
+
+  // fix safari
+  const fixSafariHeight = () => {
+    if (window.innerWidth < 768) {
+      $searchDialog.style.setProperty('--search-height', window.innerHeight + 'px')
+    }
+  }
 
   const animateElements = show => {
     const action = show ? 'animateIn' : 'animateOut'
@@ -17,12 +20,6 @@ window.addEventListener('load', () => {
     const dialogAnimation = show ? 'searchDialogScale 0.5s' : 'searchDialogClose .5s'
     btf[action]($searchMask, maskAnimation)
     btf[action]($searchDialog, dialogAnimation)
-  }
-
-  const fixSafariHeight = () => {
-    if (window.innerWidth < 768) {
-      $searchDialog.style.setProperty('--search-height', `${window.innerHeight}px`)
-    }
   }
 
   const openSearch = () => {
@@ -78,6 +75,29 @@ window.addEventListener('load', () => {
       if (!isOpening) closeSearch()
     })
     document.querySelector('#algolia-search .search-close-button').addEventListener('click', closeSearch)
+
+    // 切换搜索模式
+    const switchItems = document.querySelectorAll('.search-switch-item')
+    const localPanel = document.getElementById('local-search-panel')
+    const algoliaPanel = document.getElementById('algolia-search-panel')
+
+    switchItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const type = item.dataset.type
+        switchItems.forEach(i => i.classList.remove('active'))
+        item.classList.add('active')
+
+        if (type === 'local') {
+          localPanel.style.display = 'block'
+          algoliaPanel.style.display = 'none'
+          setTimeout(() => document.querySelector('.local-search-input input').focus(), 100)
+        } else {
+          localPanel.style.display = 'none'
+          algoliaPanel.style.display = 'block'
+          setTimeout(() => document.querySelector('.ais-SearchBox-input').focus(), 100)
+        }
+      })
+    })
   }
 
   const cutContent = content => {
@@ -238,16 +258,14 @@ window.addEventListener('load', () => {
   // Initialize Algolia client
   let searchClient
 
-  if (window['algoliasearch/lite'] && typeof window['algoliasearch/lite'].liteClient === 'function') {
+  if (!appId || !apiKey || !indexName) {
+    console.warn('Algolia setting is invalid!')
+  } else if (window['algoliasearch/lite'] && typeof window['algoliasearch/lite'].liteClient === 'function') {
     searchClient = window['algoliasearch/lite'].liteClient(appId, apiKey)
   } else if (typeof window.algoliasearch === 'function') {
     searchClient = window.algoliasearch(appId, apiKey)
   } else {
-    return console.error('Algolia search client not found!')
-  }
-
-  if (!searchClient) {
-    return console.error('Failed to initialize Algolia search client')
+    console.error('Algolia search client not found!')
   }
 
   // Search state
