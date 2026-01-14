@@ -105,7 +105,6 @@
 
 .recent-post-item,
 .card-widget,
-#post,
 #page,
 #archive,
 #category,
@@ -115,15 +114,45 @@
   -webkit-backdrop-filter: blur(10px); /* Safari support */
 }
 
+/* Specific rule for Article Page (#post) using its own opacity variable */
+#post {
+  background: rgba(255, 255, 255, var(--post-glass-opacity-light, 0.9)) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 
+   Apply Post Opacity to Page-Type Cards (like Message Board)
+   The user requested: "留言板页面下正文卡片的透明度修改为和文章正文卡片透明度同样位置单独配置"
+   In Butterfly, message boards and custom pages usually use the ID #page or class .page
+   We will override #page to use the --post-glass-opacity variables instead of the general --glass-opacity.
+*/
+#page {
+  background: rgba(255, 255, 255, var(--post-glass-opacity-light, 0.9)) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 /* Dark mode support for Frosted Glass */
 [data-theme='dark'] .recent-post-item,
 [data-theme='dark'] .card-widget,
-[data-theme='dark'] #post,
-[data-theme='dark'] #page,
 [data-theme='dark'] #archive,
 [data-theme='dark'] #category,
 [data-theme='dark'] #tag {
   background: rgba(0, 0, 0, var(--glass-opacity-dark, 0.7)) !important; /* Semi-transparent black */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme='dark'] #post {
+  background: rgba(0, 0, 0, var(--post-glass-opacity-dark, 0.7)) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Apply Post Opacity to Page (Dark Mode) */
+[data-theme='dark'] #page {
+  background: rgba(0, 0, 0, var(--post-glass-opacity-dark, 0.7)) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
