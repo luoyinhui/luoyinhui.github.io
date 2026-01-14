@@ -1,0 +1,220 @@
+/* Custom CSS for Background and Covers */
+
+/* Fixed Background Image Effect */
+#web_bg {
+  /* Ensure the background image covers the whole screen and is fixed */
+  background-attachment: fixed !important;
+  background-position: top center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 
+   Refined Background Strategy:
+   1. Home (.full_page) & Archives/Tags (.not-home-page):
+      - Use "Transparent + Fixed Body" strategy. 
+      - We hide the header's own background (make it transparent) so it reveals the global #web_bg.
+      - This ensures perfect alignment and no "scroll lag".
+      - Assumption: These pages use the same image as #web_bg (configured in _config.yml).
+   
+   2. Posts (.post-bg):
+      - Use "Scroll" strategy (Default).
+      - We show the specific post cover image.
+      - We use 'scroll' attachment so the image is sized to the header, not the viewport.
+      - This prevents the "zoom" effect and the "1s jump" (transition from scroll to fixed).
+*/
+
+/* Global alignment fix (applies to all) */
+#page-header {
+  background-position: top center !important;
+}
+
+/* Home and Archive/Category/Tag Pages -> Transparent to show fixed #web_bg */
+#page-header.full_page,
+#page-header.not-home-page {
+  background: transparent !important;
+}
+
+/* Post Pages -> Normal Scroll behavior to show custom covers correctly */
+#page-header.post-bg {
+  background-attachment: scroll !important;
+  /* Ensure we don't force transparency here */
+  background-color: transparent; /* Fallback */
+}
+
+/* 
+   Force post covers (thumbnails) to retain the top part of the image.
+   Butterfly uses .post_cover and img.post_bg usually.
+*/
+.recent-post-item .post_cover img.post_bg {
+  object-position: top center !important;
+}
+
+/* 
+   If there are other cover images, ensure they also follow this rule.
+   e.g. adjacent posts cover
+*/
+.relatedPosts > .relatedPosts-list > div .cover {
+    object-position: top center !important;
+}
+
+/* ==========================================================================
+   New Modifications
+   ========================================================================== */
+
+/* 1. Transparent Footer */
+#footer {
+  background: transparent !important;
+}
+#footer::before {
+  background: transparent !important;
+}
+
+/* 2. Custom Scrollbar (Orange Theme) */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF7242; /* Orange */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF7242 transparent;
+}
+
+/* 3. Frosted Glass Effect (Glassmorphism) for Cards */
+/* 
+   Targeting:
+   - Homepage posts (.recent-post-item)
+   - Sidebar cards (.card-widget)
+   - Article page container (#post)
+   - Page container (#page)
+   - Archive/Category/Tag containers (.article-sort-item doesn't have bg usually, but the container might)
+*/
+
+.recent-post-item,
+.card-widget,
+#post,
+#page,
+#archive,
+#category,
+#tag {
+  background: rgba(255, 255, 255, var(--glass-opacity-light, 0.9)) !important; /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
+
+/* Dark mode support for Frosted Glass */
+[data-theme='dark'] .recent-post-item,
+[data-theme='dark'] .card-widget,
+[data-theme='dark'] #post,
+[data-theme='dark'] #page,
+[data-theme='dark'] #archive,
+[data-theme='dark'] #category,
+[data-theme='dark'] #tag {
+  background: rgba(0, 0, 0, var(--glass-opacity-dark, 0.7)) !important; /* Semi-transparent black */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 
+   Special handling for friend link page card (#page):
+   The user wants the outer card (the #page container) to match the inner flink cards style.
+   But if #page already has the glass style above, we are good.
+   However, user said "友链的页面卡片内的卡片要鼠标不移动到上方时背景和页面卡片一致的毛玻璃效果，鼠标移动后变白".
+   
+   It seems the user refers to the inner .flink-list-item cards.
+*/
+
+/* Targeting the flink list items (Inner Cards) */
+.flink-list-item {
+  transition: all 0.3s ease !important;
+  /* 
+     Match the outer card style (Glass effect) by default.
+     Inheriting or repeating the glass variables.
+  */
+  /* Default background should be transparent or matching the card background */
+  background: transparent !important; 
+  /* Remove backdrop-filter here if it's already on the parent, or keep if needed */
+  /* backdrop-filter: blur(5px); */ 
+  border-radius: 8px; /* Consistent radius */
+  /* Remove shadow by default */
+  box-shadow: none !important; 
+}
+
+/* Hover Effect: Scale up, NO SHADOW, and TURN WHITE */
+.flink-list-item:hover {
+  transform: scale(1.02) !important; /* Very slight zoom */
+  box-shadow: none !important; 
+  z-index: 1; /* Bring to front */
+  
+  /* Turn White on Hover */
+  background: #FFFFFF !important; 
+}
+
+/* Dark mode hover */
+[data-theme='dark'] .flink-list-item:hover {
+    background: #333333 !important; 
+}
+
+
+/* Text color behavior matching reference */
+
+/* 1. Name/Title: Default font color, Hover turns to Theme Orange */
+.flink-item-name {
+  color: var(--font-color) !important;
+  font-weight: bold;
+}
+.flink-list-item:hover .flink-item-name {
+  color: #FF7242 !important; /* Theme Orange */
+}
+
+/* 2. Description: Default grey/text color, Hover STAYS THE SAME (Does not change color) */
+.flink-item-desc {
+  color: var(--text-color) !important; /* or grey */
+}
+.flink-list-item:hover .flink-item-desc {
+  color: var(--text-color) !important; /* Force stay same */
+}
+
+
+/* Dark Mode Adjustments */
+[data-theme='dark'] .flink-item-name {
+    color: var(--font-color) !important;
+}
+[data-theme='dark'] .flink-list-item:hover .flink-item-name {
+    color: #FF7242 !important;
+}
+[data-theme='dark'] .flink-item-desc {
+    color: #aaaaaa !important; /* Light grey for dark mode desc */
+}
+[data-theme='dark'] .flink-list-item:hover .flink-item-desc {
+    color: #aaaaaa !important; /* Stay light grey */
+}
+
+/* Ensure links inside don't mess up layout */
+.flink-list-item a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Avatar Zoom on hover (No Rotation) */
+.flink-list-item:hover img {
+  transform: scale(1.1) !important;
+  transition: transform 0.3s ease-in-out;
+}
+
