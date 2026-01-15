@@ -1,0 +1,1564 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【备赛】警铮杯准备 | 落殷回的博客</title><meta name="author" content="luoyinhui"><meta name="copyright" content="luoyinhui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="¶比赛范围 以下是本次比赛的考核范围(仅供参考)：  Linux:选择题   [x] 文字教程(从Linux简介到Linux vi&#x2F;vim命令):https:&#x2F;&#x2F;www.runoob.com&#x2F;linux&#x2F;linux-file-content-manage.html [x] 视频教程(P1-P26):https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1n84y1i7td   Mysq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【备赛】警铮杯准备">
+<meta property="og:url" content="https://luoyinhui.github.io/posts/ab0e309f/index.html">
+<meta property="og:site_name" content="落殷回的博客">
+<meta property="og:description" content="¶比赛范围 以下是本次比赛的考核范围(仅供参考)：  Linux:选择题   [x] 文字教程(从Linux简介到Linux vi&#x2F;vim命令):https:&#x2F;&#x2F;www.runoob.com&#x2F;linux&#x2F;linux-file-content-manage.html [x] 视频教程(P1-P26):https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1n84y1i7td   Mysq">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luoyinhui.github.io/img/shouye.png">
+<meta property="article:published_time" content="2025-11-18T08:22:19.000Z">
+<meta property="article:modified_time" content="2026-01-15T09:45:33.067Z">
+<meta property="article:author" content="luoyinhui">
+<meta property="article:tag" content="学生，记录，Python，C，ctf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://luoyinhui.github.io/img/shouye.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【备赛】警铮杯准备",
+  "url": "https://luoyinhui.github.io/posts/ab0e309f/",
+  "image": "https://luoyinhui.github.io/img/shouye.png",
+  "datePublished": "2025-11-18T08:22:19.000Z",
+  "dateModified": "2026-01-15T09:45:33.067Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "luoyinhui",
+      "url": "https://luoyinhui.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/zhandian.png"><link rel="canonical" href="https://luoyinhui.github.io/posts/ab0e309f/index.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.0"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=7.0.1"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"DLCXYNBEA7","apiKey":"55cb2783d393395612712be2263ebaf1","indexName":"index","hitsPerPage":10,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":1000,"languages":{"author":"作者: luoyinhui","link":"链接: ","source":"来源: 落殷回的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.12.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【备赛】警铮杯准备',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style>
+  .aplayer .aplayer-notice{display:none!important}
+</style>
+<link rel="stylesheet" href="/css/custom.css"><style>:root { --glass-opacity-light: 0.5; --glass-opacity-dark: 0.2; --post-glass-opacity-light: 0.8; --post-glass-opacity-dark: 0.2; }</style><!-- hexo injector head_end start --><style>/* CSS for Hexo Butterfly Updates Heatmap */
+.updates-heatmap {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: var(--card-bg, #fff);
+  border-radius: 8px;
+  box-shadow: var(--card-box-shadow, 0 3px 8px 6px rgba(7, 17, 27, 0.05));
+  width: 100%;
+  overflow: hidden;
+  color: var(--font-color, #333);
+}
+
+[data-theme='dark'] .updates-heatmap {
+  background: var(--card-bg, #1d1d1f);
+  color: var(--font-color, #F7F7FA);
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.heatmap-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  outline: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.heatmap-title:focus {
+  border-bottom: 1px dashed #999;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--font-color, #888);
+  gap: 4px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-label {
+  color: var(--font-color, #888);
+  margin: 0 4px;
+}
+
+.heatmap-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heatmap-months {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.heatmap-month-label {
+  font-size: 12px;
+  color: var(--font-color, #888);
+  grid-column: span 1;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.heatmap-day {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background-color: #ebedf0;
+}
+
+[data-theme='dark'] .heatmap-day {
+  background-color: #2d333b;
+}
+
+.legend-color.level-0 { background-color: #ebedf0; }
+[data-theme='dark'] .legend-color.level-0 { background-color: #2d333b; }
+
+/* Green Theme */
+.theme-green .level-1 { background-color: #9be9a8; }
+.theme-green .level-2 { background-color: #40c463; }
+.theme-green .level-3 { background-color: #30a14e; }
+.theme-green .level-4 { background-color: #216e39; }
+
+/* Blue Theme */
+.theme-blue .level-1 { background-color: #a8d1ff; }
+.theme-blue .level-2 { background-color: #63a7ff; }
+.theme-blue .level-3 { background-color: #3079e0; }
+.theme-blue .level-4 { background-color: #1a56ad; }
+
+/* Pink Theme */
+.theme-pink .level-1 { background-color: #ffc9c9; }
+.theme-pink .level-2 { background-color: #ff8585; }
+.theme-pink .level-3 { background-color: #e04545; }
+.theme-pink .level-4 { background-color: #ad1a1a; }
+
+/* Red Theme */
+.theme-red .level-1 { background-color: #ffdce0; }
+.theme-red .level-2 { background-color: #ff9b9b; }
+.theme-red .level-3 { background-color: #ff4b4b; }
+.theme-red .level-4 { background-color: #c91a1a; }
+
+/* Orange Theme */
+.theme-orange .level-1 { background-color: #ffe8cc; }
+.theme-orange .level-2 { background-color: #ffb366; }
+.theme-orange .level-3 { background-color: #ff8c1a; }
+.theme-orange .level-4 { background-color: #cc6600; }
+
+/* Purple Theme */
+.theme-purple .level-1 { background-color: #e6ccff; }
+.theme-purple .level-2 { background-color: #b366ff; }
+.theme-purple .level-3 { background-color: #8c1aff; }
+.theme-purple .level-4 { background-color: #6600cc; }
+
+.updates-show-more-btn {
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 0;
+  background: var(--card-bg, #fff);
+  color: #49b1f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px 0;
+  width: 100%;
+  transition: all 0.3s;
+  user-select: none;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  font-size: 1.1em;
+}
+
+[data-theme='dark'] .updates-show-more-btn {
+  background: var(--card-bg, #1d1d1f);
+  color: #49b1f5;
+  border: 1px solid #3d3d3d;
+}
+
+.updates-show-more-btn:hover {
+  background: #f0f0f0;
+  color: #FF7242;
+}
+
+[data-theme='dark'] .updates-show-more-btn:hover {
+  background: #3d3d3d;
+}
+
+.year-label {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: var(--font-color, #999);
+}
+</style><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="落殷回的博客" type="application/atom+xml">
+<link rel="alternate" href="/rss.xml" title="落殷回的博客" type="application/rss+xml">
+</head><body><div id="web_bg" style="background-image: url(/img/shouye.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">73</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/updates/"><i class="fa-fw fas fa-history"></i><span> 更新</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/shouye.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">落殷回的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">【备赛】警铮杯准备</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/updates/"><i class="fa-fw fas fa-history"></i><span> 更新</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">【备赛】警铮杯准备</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-18T08:22:19.000Z" title="发表于 2025-11-18 16:22:19">2025-11-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-15T09:45:33.067Z" title="更新于 2026-01-15 17:45:33">2026-01-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%87%E8%B5%9B/">备赛</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">10.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>36分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;作者已经&quot;,&quot;messageNext&quot;:&quot;天没有更新了！！可能内容过时哦，如果您发现错误并希望告诉作者，请评论区留言或者向yluo3383@gmail.com发送邮件。&quot;,&quot;postUpdate&quot;:&quot;2026-01-15 17:45:33&quot;}" hidden></div><h2 id="比赛范围"><a class="header-anchor" href="#比赛范围">¶</a>比赛范围</h2>
+<p>以下是本次比赛的考核范围(仅供参考)：</p>
+<ol>
+<li>Linux:选择题</li>
+</ol>
+<ul>
+<li>[x] 文字教程(从Linux简介到Linux vi/vim命令):<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-file-content-manage.html">https://www.runoob.com/linux/linux-file-content-manage.html</a></li>
+<li>[x] 视频教程(P1-P26):<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1n84y1i7td">https://www.bilibili.com/video/BV1n84y1i7td</a></li>
+</ul>
+<ol start="2">
+<li>Mysql:客观题+实操题</li>
+</ol>
+<ul>
+<li>[x] 文字教程(从Mysql安装到Mysql delete语句):<a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-administration.html">https://www.runoob.com/mysql/mysql-administration.html</a></li>
+<li>[x] 视频教程( (P1-P26)):<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iF411z7Pu">https://www.bilibili.com/video/BV1iF411z7Pu</a></li>
+</ul>
+<ol start="3">
+<li>Python:客观题+实操题</li>
+</ol>
+<ul>
+<li>[x] 文字教程(第一章-第六章匿名函数):<br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42399800/article/details/143822422">https://blog.csdn.net/weixin_42399800/article/details/143822422</a></li>
+<li>[ ] 视频教程(第一阶段-第一章-01-初识Python——第一阶段-第九章-07-安装第三方包，第二阶段-第一章-01-初识对象——第二阶段-第一章-03-类和对象):<br>
+<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qW4y1a7fU">https://www.bilibili.com/video/BV1qW4y1a7fU</a></li>
+</ul>
+<ol start="4">
+<li>数字警务技术应用：<br>
+电子数据取证(理论题+实操题):电⼦数据取证基础知识、windows取证、⼿机取证、服务器取证、数据分析<br>
+网络安全与攻防(实操题):图片隐写，图片修复，stegsolve应用，压缩包密码爆破，压缩包伪加密，<strong>流量分析</strong>，osint社工，脚本编写，base家族编码，凯撒密码，栅栏密码，rsa，异或，exe程序逆向分析，exe程序脱壳<br>
+警务大数据(实操题):</li>
+</ol>
+<ul>
+<li>[ ] <strong>excel应用</strong>（数据清洗，数据分析）<br>
+网站开发(客观题):前后端语言用法，网站开发体系内容，二进制转换，全栈开发，网站开发与web服务器</li>
+</ul>
+<h2 id="学习笔记"><a class="header-anchor" href="#学习笔记">¶</a>学习笔记</h2>
+<h3 id="Linux视频-文字教程"><a class="header-anchor" href="#Linux视频-文字教程">¶</a>Linux视频+文字教程</h3>
+<ul>
+<li>硬件、软件（操作系统）</li>
+<li>Linux系统的组成
+<ul>
+<li>Linux系统内核：提供系统最核心的功能，如：调度CPU、调度内存、调度文件系统、调度网络通讯、调度IO等。</li>
+<li>系统级应用程序：可以理解为出厂自带程序，可供用户快速上手操作系统，如：文件管理器、任务管理器、图片查看、音乐播放等。</li>
+</ul>
+</li>
+<li>Linux系统发行版
+<ul>
+<li>内核无法被用户直接使用，需要配合应用程序才能被用户使用。</li>
+<li>在内核之上，封装系统级应用程序，组合在一起就称之为Linux发行版。</li>
+</ul>
+</li>
+</ul>
+<h4 id="kali-ssh连接finalshell"><a class="header-anchor" href="#kali-ssh连接finalshell">¶</a>kali ssh连接finalshell</h4>
+<ul>
+<li>kali默认是禁用ssh 我们需要修改配置文件设置开机自启动。
+<ul>
+<li>输入：sudo -i （进入root管理员用户）</li>
+<li>输入：vim /etc/ssh/sshd_config 回车 （编辑配置文件）</li>
+<li>输入：：set nu 回车（显示行数）</li>
+<li>输入：按i键进入编辑模式找到第34行，将#去掉 后面变成yes（允许root用户登录）</li>
+<li>找到第57行，将#去掉 后面变成yes（允许密码登录）</li>
+<li>按Esc键退出编辑 输入：wq 保存文件</li>
+<li>输入：systemctl start ssh （开启ssh服务）</li>
+<li>设置开机自启：update-rc.d ssh enable</li>
+<li>输入 systemctl status ssh</li>
+</ul>
+</li>
+<li><strong>注意：正常命令行输入命令是sshd而不是ssh这里是特殊情况！！！</strong></li>
+</ul>
+<h4 id="命令"><a class="header-anchor" href="#命令">¶</a>命令</h4>
+<h5 id="用户相关"><a class="header-anchor" href="#用户相关">¶</a>用户相关</h5>
+<ul>
+<li>添加：<code>useradd 选项 用户名</code></li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E8%AD%A6%E9%93%AE%E6%9D%AF%E5%87%86%E5%A4%87_image.png" alt="alt text"></p>
+<ul>
+<li>删除：<code>userdel 选项 用户名</code>
+<ul>
+<li><code>-r</code>：把用户的主目录一起删除。</li>
+</ul>
+</li>
+<li>修改：<code>usermod 选项 用户名</code></li>
+<li>切换root
+<ul>
+<li>可以通过<code>su - root</code>，并输入密码</li>
+<li>通过输入exit命令，退回上一个账户，无需密码</li>
+</ul>
+</li>
+<li>查看：<code>id 用户名</code></li>
+<li>查看：<code>getent</code>
+<ul>
+<li><code>getent passwd</code>
+<ul>
+<li>用户名：密码（x）：用户ID：组ID：描述信息（无用）：HOME目录：执行终端（默认bash）</li>
+</ul>
+</li>
+<li><code>getent group</code>
+<ul>
+<li>包含3份信息，组名称：组认证（显示为×）：组ID</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>sudo</code>
+<ul>
+<li>为普通用户配置sudo认证</li>
+<li>root输入visudo打开/etc/sudoers</li>
+<li>最后添加<code>iteima ALL=(ALL)    NOPASSD: ALL</code></li>
+<li>但是失败了</li>
+</ul>
+</li>
+<li><code>passwd</code>
+<ul>
+<li><code>-l</code> 锁定口令，即禁用账号。</li>
+<li><code>-u</code> 口令解锁。</li>
+<li><code>-d</code> 使账号无口令。</li>
+<li><code>-f</code> 强迫用户下次登录时修改口令。</li>
+</ul>
+</li>
+<li><code>groupadd 选项 用户组</code>
+<ul>
+<li><code>-g</code> GID 指定新用户组的组标识号（GID）</li>
+<li><code>-o</code> 一般与-g选项同时使用，表示新用户组的GID可以与系统已有用户组的GID相同。</li>
+</ul>
+</li>
+<li><code>groupdel 用户组</code></li>
+<li><code>groupmod 选项 用户组</code>
+<ul>
+<li><code>-g</code> GID 为用户组指定新的组标识号。</li>
+<li><code>-o</code> 与-g选项同时使用，用户组的新GID可以与系统已有用户组的GID相同。</li>
+<li><code>-n</code> 新用户组，将用户组的名字改为新名字<br>
+实例1：</li>
+</ul>
+</li>
+<li>切换用户组<code>newgrp root</code></li>
+</ul>
+<h5 id="ls"><a class="header-anchor" href="#ls">¶</a>ls</h5>
+<ul>
+<li>ls [-a -l -h] [way]</li>
+<li>直接输入ls命令，表示列出当前工作自录下的内容</li>
+<li>当前工作自录是:
+<ul>
+<li>Linux系统的命令行终端，在启动的时候，默认会加载当前登录用户的HOME目录作为当前工作目录，所以ls命令列出的是HOME目录的内容</li>
+<li>HOME自录：每个Linux操作用户在Linux系统的个人账户自录，路径在：/home/用户名</li>
+</ul>
+</li>
+<li><code>-a</code>选项：all的意思，即列出全部文件（包含隐藏的文件/文件夹）
+<ul>
+<li>以.开头的，表示是Linux系统的隐藏文件/文件夹（只要以.开头，就能自动隐藏）</li>
+</ul>
+</li>
+<li><code>-l</code>选项：竖向排列显示</li>
+<li><code>-h</code>选项，需要和<code>-l</code>  选项搭配使用，以更加人性化的方式显示文件的大小单位</li>
+<li><code>-la</code>,<code>-al</code>,<code>-l -a</code>都可以</li>
+</ul>
+<h5 id="cd：change-directory"><a class="header-anchor" href="#cd：change-directory">¶</a>cd：change directory</h5>
+<ul>
+<li>cd不带参数回用户根目录</li>
+</ul>
+<h5 id="pwd：print-working-directory"><a class="header-anchor" href="#pwd：print-working-directory">¶</a>pwd：print working directory</h5>
+<ul>
+<li><code>-p</code> ：显示出确实的路径，而非使用链接 (link) 路径。</li>
+</ul>
+<h5 id="特殊路径符："><a class="header-anchor" href="#特殊路径符：">¶</a>特殊路径符：</h5>
+<ul>
+<li><code>.</code> 表示当前目录，比如<code>cd./Desktop</code>表示切换到当前目录下的Desktop目录内，和<code>cd Desktop</code>效果一致</li>
+<li><code>..</code>表示上一级目录，比如：<code>cd..</code>即可切换到上一级目录，<code>cd ../..</code>切换到上二级的目录</li>
+<li><code>~</code>表示HOME目录，比如：<code>cd ~</code>即可切换到HOME目录或<code>cd~/Desktop</code>，切换到HOME内的Desktop目录</li>
+</ul>
+<h5 id="mkdir：Make-Directory【蓝色深色-d】"><a class="header-anchor" href="#mkdir：Make-Directory【蓝色深色-d】">¶</a>mkdir：Make Directory【蓝色深色/d】</h5>
+<ul>
+<li>通过mkdir命令可以创建新的目录（文件夹）</li>
+<li><code>-m</code> ：配置文件的权限喔！直接配置，不需要看默认权限 (umask) 的脸色～</li>
+<li><code>-p</code>可选，表示自动创建不存在的父目录，适用于创建连续多层级的目录</li>
+<li>注意：创建文件夹需要修改权限，操作在HOME目录内默认有权限</li>
+</ul>
+<h5 id="rmdir-删除空的目录"><a class="header-anchor" href="#rmdir-删除空的目录">¶</a>rmdir (删除空的目录)</h5>
+<ul>
+<li><code>rmdir [-p] 目录名称</code></li>
+<li><code>-p</code> ：从该目录起，一次删除多级空目录</li>
+</ul>
+<h5 id="touch创建文件【浅色-】"><a class="header-anchor" href="#touch创建文件【浅色-】">¶</a>touch创建文件【浅色/- 】</h5>
+<p>可以通过touch命令创建文件语法：touchLinux路径<br>
+·touch命令无选项，参数必填，表示要创建的文件路径，相对、绝对、特殊路径符均可以使用</p>
+<h5 id="查看文件内容"><a class="header-anchor" href="#查看文件内容">¶</a>查看文件内容</h5>
+<h6 id="cat-tac命令"><a class="header-anchor" href="#cat-tac命令">¶</a>cat/tac命令</h6>
+<ul>
+<li>可以通过cat命令查看文件的内容。
+<ul>
+<li>-b ：列出行号，仅针对非空白行做行号显示，空白行不标行号！</li>
+<li>-n ：列印出行号，连同空白行也会有行号，与 -b 的选项不同；</li>
+<li>-v ：列出一些看不出来的特殊字符</li>
+</ul>
+</li>
+<li><code>tac</code>从最后一行开始显示，可以看出tac是cat的倒着写！</li>
+</ul>
+<h6 id="nl"><a class="header-anchor" href="#nl">¶</a>nl</h6>
+<ul>
+<li><code>nl -bnw 文件</code></li>
+<li><code>-b</code> ：指定行号指定的方式，主要有两种：
+<ul>
+<li><code>-b a</code> ：表示不论是否为空行，也同样列出行号(类似 cat -n)；</li>
+<li><code>-b t</code> ：如果有空行，空的那一行不要列出行号(<strong>默认值</strong>)；</li>
+</ul>
+</li>
+</ul>
+<h6 id="more命令"><a class="header-anchor" href="#more命令">¶</a>more命令</h6>
+<ul>
+<li>more支持翻页</li>
+<li>在查看的过程中，通过空格翻页，通过q退出查看</li>
+<li><code>/字串</code>：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li>
+<li><code>:f </code>：立刻显示出档名以及目前显示的行数；</li>
+<li>b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。</li>
+</ul>
+<h6 id="less"><a class="header-anchor" href="#less">¶</a>less</h6>
+<ul>
+<li>/字串     ：向下搜寻『字串』的功能；</li>
+<li>?字串     ：向上搜寻『字串』的功能；</li>
+</ul>
+<h5 id="cp命令：copy"><a class="header-anchor" href="#cp命令：copy">¶</a>cp命令：copy</h5>
+<ul>
+<li>cp命令可以用于复制文件\文件夹，cp命令来自英文单词：</li>
+<li><code>cp [-r] 参数1 参数2</code>
+<ul>
+<li><code>-r</code>选项，可选，用于复制文件夹使用，表示递归</li>
+<li><code>-i</code>：若目标档(destination)已经存在时，在覆盖时会先询问动作的进行</li>
+<li><code>-p</code>：连同文件的属性一起复制过去，而非使用默认属性(备份常用)；</li>
+<li>参数1，Linux路径，表示被复制的文件或文件夹</li>
+<li>参数2，Linux路径，表示要复制去的地方</li>
+</ul>
+</li>
+</ul>
+<h5 id="rm：remove"><a class="header-anchor" href="#rm：remove">¶</a>rm：remove</h5>
+<ul>
+<li>rm命令可用于删除文件、文件夹</li>
+<li><code>rm [-r-f] 参数1 参数2 参数N</code>
+<ul>
+<li><code>-r</code>选项用于删除文件夹</li>
+<li><code>-i</code> ：互动模式，在删除前会询问使用者是否动作</li>
+<li><code>-f</code>表示force，强制删除（不会弹出提示确认信息）
+<ul>
+<li>普通用户副除内容不会弹出提示，只有root管理员用户副除内容会有提示所以一般营通用户用不到-f选项</li>
+</ul>
+</li>
+<li>参数1、参数2、、参数N表示要除的文件或文件夹路径，按照空格隔开</li>
+</ul>
+</li>
+</ul>
+<h5 id="mv：move"><a class="header-anchor" href="#mv：move">¶</a>mv：move</h5>
+<ul>
+<li>mv命令可以用于移动文件\文件夹</li>
+<li>mv 参数1 参数2
+<ul>
+<li>参数1，Linux路径，表示被移动的文件或文件夹</li>
+<li>参数2，Linux路径，表示要移动去的地方，如果目标不存在，则进行改名，确保目标存在</li>
+</ul>
+</li>
+<li>rm命令支持通配符，用来做模糊匹配</li>
+</ul>
+<h5 id="which-命令名"><a class="header-anchor" href="#which-命令名">¶</a>which 命令名</h5>
+<ul>
+<li>输出命令文件位置</li>
+</ul>
+<h5 id="find-起始路径-name-“文件名”（可用通配符-）"><a class="header-anchor" href="#find-起始路径-name-“文件名”（可用通配符-）">¶</a>find 起始路径 -name “文件名”（可用通配符*）</h5>
+<ul>
+<li>按文件大小查找文件语法：<code>find 起始路径 -size +|-n[kMG]</code>
+<ul>
+<li><code>+</code>、<code>-</code>表示大于和小于</li>
+<li><code>n</code>表示大小数字</li>
+<li>kMG表示大小单位，k（小写字母）表示kb，M表示MB，G表示GB</li>
+</ul>
+</li>
+</ul>
+<h5 id="grep"><a class="header-anchor" href="#grep">¶</a>grep</h5>
+<ul>
+<li>从文件中通过关键字过滤文件</li>
+<li>grep [-n] 关键字 文件路径
+<ul>
+<li>-n，可选，表示在结果中显示匹配的行的行号。</li>
+</ul>
+</li>
+</ul>
+<h5 id="wc命令"><a class="header-anchor" href="#wc命令">¶</a>wc命令</h5>
+<ul>
+<li>统计文件的行数、单词数量等</li>
+<li><code>wc [-c -m -l -w] </code>文件路径
+<ul>
+<li>直接使用就显示：行数，单词数，字节数，文件名</li>
+<li><code>-c</code>，统计bytes数量</li>
+<li><code>-m</code>，统计字符数量</li>
+<li><code>-l</code>，统计行数</li>
+<li><code>-w</code>，统计单词数量</li>
+</ul>
+</li>
+</ul>
+<h5 id="管道符"><a class="header-anchor" href="#管道符">¶</a>管道符 <code>|</code></h5>
+<h5 id="echo"><a class="header-anchor" href="#echo">¶</a>echo</h5>
+<ul>
+<li>带有空格或\等特殊符号，建议使用双引号包围</li>
+</ul>
+<h5 id="反引号"><a class="header-anchor" href="#反引号">¶</a>反引号 <code>``</code></h5>
+<ul>
+<li>包围内容作为命令执行</li>
+</ul>
+<h5 id="重定向符"><a class="header-anchor" href="#重定向符">¶</a>重定向符</h5>
+<ul>
+<li>&gt;，将左侧命令的结果，<strong>覆盖</strong>写入到符号右侧指定的文件中</li>
+<li>&gt;&gt;，将左侧命令的结果，<strong>追加</strong>写入到符号右侧指定的文件中</li>
+</ul>
+<h5 id="head-tail命令"><a class="header-anchor" href="#head-tail命令">¶</a>head/tail命令</h5>
+<ul>
+<li><code>head -n 20 文件路径</code>
+<ul>
+<li>默认显示前10行</li>
+</ul>
+</li>
+<li><code>tail [-f-num] Linux路径</code>
+<ul>
+<li>-f，表示持续跟踪，ctrl+C强行终止</li>
+<li>-num，表示，查看尾部多少行，不填默认10行【-5，-10的意思不是-num字面意思】</li>
+</ul>
+</li>
+</ul>
+<h5 id="vi-vim：更多快捷键未看扔本地www了"><a class="header-anchor" href="#vi-vim：更多快捷键未看扔本地www了">¶</a>vi vim：更多快捷键未看扔本地www了</h5>
+<ul>
+<li>命令/输入i/底线命令模式</li>
+<li>使用：<code>vim 文件路径</code></li>
+<li>底线命令模式：<code>:wq</code></li>
+</ul>
+<!-- 让表格居中显示的风格 -->
+<style>
+.center 
+{
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<div class="center">
+<!-- 表格输入位置 -->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">i</th>
+<th style="text-align:center">切换到输入模式，在光标当前位置开始输入文本。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">删除当前光标所在处的字符。</td>
+</tr>
+<tr>
+<td style="text-align:center">:</td>
+<td style="text-align:center">切换到底线命令模式，以在最底一行输入命令。</td>
+</tr>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">进入插入模式，在光标下一个位置开始输入文本。</td>
+</tr>
+<tr>
+<td style="text-align:center">o</td>
+<td style="text-align:center">在当前行的下方插入一个新行，并进入插入模式。</td>
+</tr>
+<tr>
+<td style="text-align:center">O</td>
+<td style="text-align:center">在当前行的上方插入一个新行，并进入插入模式。</td>
+</tr>
+<tr>
+<td style="text-align:center">dd</td>
+<td style="text-align:center">剪切当前行。</td>
+</tr>
+<tr>
+<td style="text-align:center">yy</td>
+<td style="text-align:center">复制当前行。</td>
+</tr>
+<tr>
+<td style="text-align:center">p（小写）</td>
+<td style="text-align:center">粘贴剪贴板内容到光标下方。</td>
+</tr>
+<tr>
+<td style="text-align:center">P（大写）</td>
+<td style="text-align:center">粘贴剪贴板内容到光标上方。</td>
+</tr>
+<tr>
+<td style="text-align:center">u</td>
+<td style="text-align:center">撤销上一次操作。</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl + r</td>
+<td style="text-align:center">重做上一次撤销的操作。</td>
+</tr>
+<tr>
+<td style="text-align:center">:w</td>
+<td style="text-align:center">保存文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">:q</td>
+<td style="text-align:center">退出 Vim 编辑器。</td>
+</tr>
+<tr>
+<td style="text-align:center">:q!</td>
+<td style="text-align:center">强制退出Vim 编辑器，不保存修改。</td>
+</tr>
+<tr>
+<td style="text-align:center">:set nu</td>
+<td style="text-align:center">显示行号</td>
+</tr>
+<tr>
+<td style="text-align:center">:set paste</td>
+<td style="text-align:center">设置粘贴模式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="与用户账号有关的系统文件"><a class="header-anchor" href="#与用户账号有关的系统文件">¶</a>与用户账号有关的系统文件</h4>
+<ul>
+<li>/etc/passwd文件是用户管理工作涉及的最重要的一个文件。<br>
+一行记录对应着一个用户，每行记录又被冒号(:)分隔为7个字段，其格式和具体含义如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</span><br></pre></td></tr></table></figure>
+<ul>
+<li>许多Linux 系统（如SVR4）都使用了shadow技术，把真正的加密后的用户口令字存放到/etc/shadow文件中，而在/etc/passwd文件的口令字段中只存放一个特殊的字符，例如“x”或者“*”。</li>
+<li>通常用户标识号的取值范围是0～65 535。0是超级用户root的标识号，1～99由系统保留，作为管理账号，普通用户的标识号从100开始。在Linux系统中，这个界限是500。</li>
+<li>“组标识号”字段记录的是用户所属的用户组，它对应着/etc/group文件中的一条记录。</li>
+<li>Shell是用户与Linux系统之间的接口。Linux的Shell有许多种，每种都有不同的特点。常用的有sh(Bourne Shell), csh(C Shell), ksh(Korn Shell), tcsh(TENEX/TOPS-20 type C Shell), bash(Bourne Again Shell)等。系统管理员可以根据系统情况和用户习惯为用户指定某个Shell。如果不指定Shell，那么系统使用sh为默认的登录Shell，即这个字段的值为/bin/sh。</li>
+</ul>
+<h4 id="finalshell小技巧"><a class="header-anchor" href="#finalshell小技巧">¶</a>finalshell小技巧</h4>
+<ul>
+<li>ctrl+L清屏幕</li>
+</ul>
+<h4 id="与比赛关系不大"><a class="header-anchor" href="#与比赛关系不大">¶</a>与比赛关系不大</h4>
+<h5 id="Linux-磁盘管理"><a class="header-anchor" href="#Linux-磁盘管理">¶</a>Linux 磁盘管理</h5>
+<ul>
+<li>放桌面www文件夹里了</li>
+<li>网页地址：<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-filesystem.html">https://www.runoob.com/linux/linux-filesystem.html</a></li>
+</ul>
+<h5 id="拥有帐户文件"><a class="header-anchor" href="#拥有帐户文件">¶</a>拥有帐户文件</h5>
+<p>1、除了上面列出的伪用户外，还有许多标准的伪用户，例如：audit, cron, mail, usenet等，它们也都各自为相关的进程和文件所需要。</p>
+<ul>
+<li>由于/etc/passwd文件是所有用户都可读的，如果用户的密码太简单或规律比较明显的话，一台普通的计算机就能够很容易地将它破解，因此对安全性要求较高的Linux系统都把加密后的口令字分离出来，单独存放在一个文件中，这个文件是/etc/shadow文件。 有超级用户才拥有该文件读权限，这就保证了用户密码的安全性。<br>
+2、/etc/shadow中的记录行与/etc/passwd中的一一对应，它由pwconv命令根据/etc/passwd中的数据自动产生</li>
+<li>它的文件格式与/etc/passwd类似，由若干个字段组成，字段之间用&quot;:&quot;隔开。这些字段是：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&quot;登录名&quot;是与/etc/passwd文件中的登录名相一致的用户账号</li>
+<li>&quot;口令&quot;字段存放的是加密后的用户口令字，长度为13个字符。如果为空，则对应用户没有口令，登录时不需要口令；如果含有不属于集合 { ./0-9A-Za-z }中的字符，则对应的用户不能登录。</li>
+<li>&quot;最后一次修改时间&quot;表示的是从某个时刻起，到用户最后一次修改口令时的天数。时间起点对不同的系统可能不一样。例如在SCO Linux 中，这个时间起点是1970年1月1日。</li>
+<li>&quot;最小时间间隔&quot;指的是两次修改口令之间所需的最小天数。</li>
+<li>&quot;最大时间间隔&quot;指的是口令保持有效的最大天数。</li>
+<li>&quot;警告时间&quot;字段表示的是从系统开始警告用户到用户密码正式失效之间的天数。</li>
+<li>&quot;不活动时间&quot;表示的是用户没有登录活动但账号仍能保持有效的最大天数。</li>
+<li>&quot;失效时间&quot;字段给出的是一个绝对的天数，如果使用了这个字段，那么就给出相应账号的生存期。期满后，该账号就不再是一个合法的账号，也就不能再用来登录了。<br>
+下面是/etc/shadow的一个例子：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">＃ cat /etc/shadow</span><br><span class="line"></span><br><span class="line">root:Dnakfw28zf38w:8764:0:168:7:::</span><br><span class="line">daemon:*::0:0::::</span><br><span class="line">bin:*::0:0::::</span><br><span class="line">sys:*::0:0::::</span><br><span class="line">adm:*::0:0::::</span><br><span class="line">uucp:*::0:0::::</span><br><span class="line">nuucp:*::0:0::::</span><br><span class="line">auth:*::0:0::::</span><br><span class="line">cron:*::0:0::::</span><br><span class="line">listen:*::0:0::::</span><br><span class="line">lp:*::0:0::::</span><br><span class="line">sam:EkdiSECLWPdSa:9740:0:0::::</span><br></pre></td></tr></table></figure>
+<p>3、用户组的所有信息都存放在/etc/group文件中。</p>
+<ul>
+<li>将用户分组是Linux 系统中对用户进行管理及控制访问权限的一种手段。</li>
+<li>每个用户都属于某个用户组；一个组中可以有多个用户，一个用户也可以属于不同的组。</li>
+<li>当一个用户同时是多个组中的成员时，在/etc/passwd文件中记录的是用户所属的主组，也就是登录时所属的默认组，而其他组称为附加组。</li>
+<li>用户要访问属于附加组的文件时，必须首先使用newgrp命令使自己成为所要访问的组中的成员。</li>
+<li>用户组的所有信息都存放在/etc/group文件中。此文件的格式也类似于/etc/passwd文件，由冒号(:)隔开若干个字段，这些字段有：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">组名:口令:组标识号:组内用户列表</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&quot;组名&quot;是用户组的名称，由字母或数字构成。与/etc/passwd中的登录名一样，组名不应重复。</li>
+<li>&quot;口令&quot;字段存放的是用户组加密后的口令字。一般Linux 系统的用户组都没有口令，即这个字段一般为空，或者是*。</li>
+<li>&quot;组标识号&quot;与用户标识号类似，也是一个整数，被系统内部用来标识组。</li>
+<li>&quot;组内用户列表&quot;是属于这个组的所有用户的列表，不同用户之间用逗号(,)分隔。这个用户组可能是用户的主组，也可能是附加组。<br>
+/etc/group文件的一个例子如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root::0:root</span><br><span class="line">bin::2:root,bin</span><br><span class="line">sys::3:root,uucp</span><br><span class="line">adm::4:root,adm</span><br><span class="line">daemon::5:root,daemon</span><br><span class="line">lp::7:root,lp</span><br><span class="line">users::20:root,sam</span><br></pre></td></tr></table></figure>
+<p>四、添加批量用户</p>
+<ul>
+<li>添加和删除用户对每位Linux系统管理员都是轻而易举的事，比较棘手的是如果要添加几十个、上百个甚至上千个用户时，我们不太可能还使用useradd一个一个地添加，必然要找一种简便的创建大量用户的方法。Linux系统提供了创建大量用户的工具，可以让您立即创建大量用户，方法如下：<br>
+（1）先编辑一个文本用户文件。</li>
+<li>每一列按照/etc/passwd密码文件的格式书写，要注意每个用户的用户名、UID、宿主目录都不可以相同，其中密码栏可以留做空白或输入x号。一个范例文件user.txt内容如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user001::600:100:user:/home/user001:/bin/bash</span><br><span class="line">user002::601:100:user:/home/user002:/bin/bash</span><br><span class="line">user003::602:100:user:/home/user003:/bin/bash</span><br><span class="line">user004::603:100:user:/home/user004:/bin/bash</span><br><span class="line">user005::604:100:user:/home/user005:/bin/bash</span><br><span class="line">user006::605:100:user:/home/user006:/bin/bash</span><br></pre></td></tr></table></figure>
+<p>（2）以root身份执行命令 /usr/sbin/newusers，从刚创建的用户文件user.txt中导入数据，创建用户：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># newusers &lt; user.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后可以执行命令 vipw 或 vi /etc/passwd 检查 /etc/passwd 文件是否已经出现这些用户的数据，并且用户的宿主目录是否已经创建。<br>
+（3）执行命令/usr/sbin/pwunconv。</li>
+<li>将 /etc/shadow 产生的 shadow 密码解码，然后回写到 /etc/passwd 中，并将/etc/shadow的shadow密码栏删掉。这是为了方便下一步的密码转换工作，即先取消 shadow password 功能。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># pwunconv</span><br></pre></td></tr></table></figure>
+<p>（4）编辑每个用户的密码对照文件。</p>
+<ul>
+<li>格式为：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">用户名:密码</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实例文件 passwd.txt 内容如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user001:123456</span><br><span class="line">user002:123456</span><br><span class="line">user003:123456</span><br><span class="line">user004:123456</span><br><span class="line">user005:123456</span><br><span class="line">user006:123456</span><br></pre></td></tr></table></figure>
+<p>（5）以 root 身份执行命令 /usr/sbin/chpasswd。<br>
+创建用户密码，chpasswd 会将经过 /usr/bin/passwd 命令编码过的密码写入 /etc/passwd 的密码栏。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># chpasswd &lt; passwd.txt</span><br></pre></td></tr></table></figure>
+<p>（6）确定密码经编码写入/etc/passwd的密码栏后。<br>
+执行命令 /usr/sbin/pwconv 将密码编码为 shadow password，并将结果写入 /etc/shadow。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># pwconv</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这样就完成了大量用户的创建了，之后您可以到/home下检查这些用户宿主目录的权限设置是否都正确，并登录验证用户密码是否正确。</li>
+</ul>
+<h3 id="MySQL"><a class="header-anchor" href="#MySQL">¶</a>MySQL</h3>
+<h4 id="安装——小皮面板"><a class="header-anchor" href="#安装——小皮面板">¶</a>安装——小皮面板</h4>
+<ul>
+<li><code>mysql -u root -p</code>登录，密码默认为root</li>
+</ul>
+<h4 id="MySQL视频教程"><a class="header-anchor" href="#MySQL视频教程">¶</a>MySQL视频教程</h4>
+<ul>
+<li>计算机语言概述<br>
+计算机语言（programminglanguage）可以简单的理解为一种计算机和人都能识别的语言。
+<ul>
+<li>机器语言、汇编语言、高级语言</li>
+</ul>
+</li>
+<li>SQL的概述
+<ul>
+<li>SQL全称：StructuredQuery,Language，是结构化查询语言，用于访问和处理数据库的标准的计算机语言。</li>
+<li>非过程化语言，与其他语言可以结合</li>
+<li>对大小写不敏感，以;结尾</li>
+</ul>
+</li>
+<li>注释方式
+<ul>
+<li><code>-- </code></li>
+<li><code>#</code></li>
+<li><code>/**/</code></li>
+</ul>
+</li>
+<li>数据库分类
+<ul>
+<li>关系型数据库（RDBMS）
+<ul>
+<li>Oracle数据库（老大，最挣钱的数据库）</li>
+<li>MySQL数据库（最流行中型数据库）</li>
+<li>SQLserver数据库（Windows上最好的数据库）</li>
+<li>PostgreSQL（功能最强大的开源数据库）</li>
+<li>SQLite（最流行的嵌入式数据库）</li>
+</ul>
+</li>
+<li>非关系型数据库(NoSQL)
+<ul>
+<li>Redis（最好的缓存数据库）</li>
+<li>MongoDB（最好的文档型数据库）</li>
+<li>Elasticsearch（最好的搜索服务）</li>
+<li>Cassandra（最好的列式数据库）</li>
+<li>HBase（优秀的分布式、列式数据库）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>alpha是测试版本</li>
+<li>数据类型
+<ul>
+<li>暂时跳过，本地保存www文件夹：MySQL 数据类型 _ 菜鸟教程.html</li>
+</ul>
+</li>
+<li>DDL数据定义语言
+<ul>
+<li>查看show databases;</li>
+<li>创建create [if not exists] database;
+<ul>
+<li>CREATE DATABASE [IF NOT EXISTS] database_name<br>
+[CHARACTER SET charset_name]<br>
+[COLLATE collation_name];</li>
+</ul>
+</li>
+<li>切换use database;</li>
+<li>删除drop database [if exists] database;</li>
+<li>修改编码alter database mydb1 character set uft8;</li>
+<li>插入
+<ul>
+<li>INSERT INTO users (username, email, birthdate, is_active)<br>
+VALUES (‘test’, ‘test@runoob.com’, ‘1990-01-01’, true);</li>
+</ul>
+</li>
+<li>创建表</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">use mydb1;</span><br><span class="line"><span class="keyword">create table</span> [if <span class="keyword">not</span> <span class="keyword">exists</span>] mydb1(</span><br><span class="line">  <span class="comment">-- 字段名 类型[(宽度)] [约束条件] [comment &#x27;字段说明&#x27;]，</span></span><br><span class="line">  sid <span class="type">int</span>,</span><br><span class="line">  name <span class="type">varchar</span>(<span class="number">20</span>),</span><br><span class="line">  gendeer <span class="type">varchar</span>(<span class="number">10</span>),</span><br><span class="line">  birth <span class="type">date</span>,</span><br><span class="line">  address <span class="type">varchar</span>(<span class="number">20</span>),</span><br><span class="line">  score <span class="keyword">double</span> <span class="comment">--注意最后一个这里没有逗号！！！</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E8%AD%A6%E9%93%AE%E6%9D%AF%E5%87%86%E5%A4%87_image-6.png" alt="alt text"></p>
+<h4 id="MySQL文字教程"><a class="header-anchor" href="#MySQL文字教程">¶</a>MySQL文字教程</h4>
+<ul>
+<li>优先级：
+<ul>
+<li>关联条件 &gt; where</li>
+</ul>
+</li>
+<li>指定主机和端口连接（适用于远程连接）: <code>mysql -h 主机名或IP地址 -P 端口号 -u 用户名 -p</code></li>
+<li>选择数据库：<code>USE database_name;</code></li>
+<li>where
+<ul>
+<li>AND OR LIKE模糊匹配 IN NOT BETWEEN /IS NULL/IS NOT NULL</li>
+<li>LIKE子句中使用百分号%字符来表示任意字符</li>
+<li>MySQL 的 WHERE 子句的字符串比较是不区分大小写的。 你可以使用 BINARY 关键字来设定 WHERE 子句的字符串比较是区分大小写的</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="type">BINARY</span> <span class="keyword">condition</span>; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>UNION
+<ul>
+<li>使用 UNION ALL 不去除重复行</li>
+</ul>
+</li>
+<li>ORDER BY(排序) 语句可以按照一个或多个列的值进行升序（ASC默认）或降序（DESC）排序<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> department_id <span class="keyword">ASC</span>, hire_date <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>按第三列（salary）降序 DESC 排序，然后按第一列（first_name）升序 ASC 排序。</li>
+<li>从 MySQL 8.0.16 版本开始，可以使用 NULLS FIRST 或 NULLS LAST 处理 NULL 值</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> price <span class="keyword">DESC</span> <span class="keyword">NULLS LAST</span>;</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> price <span class="keyword">DESC</span> <span class="keyword">NULLS FIRST</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>QROUP BY</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customer_id, <span class="built_in">SUM</span>(order_amount) <span class="keyword">AS</span> total_amount</span><br><span class="line"><span class="keyword">FROM</span> orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> customer_id;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>select coalesce(a,b,c)</code><br>
+参数说明：如果 a==null，则选择 b；如果 b==null,则选择 c；如果 a!=null,则选择 a；如果 a b c 都为 null ，则返回为 null（没意义）。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">coalesce</span>(name, <span class="string">&#x27;总数&#x27;</span>), </span><br><span class="line"><span class="built_in">SUM</span>(signin) <span class="keyword">as</span> signin_count </span><br><span class="line"><span class="keyword">FROM</span>  employee_tbl </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> name </span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">ROLLUP</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>连接
+<ul>
+<li>INNER JOIN：返回两个表中满足连接条件的匹配行</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> table2 <span class="keyword">ON</span> table1.column_name <span class="operator">=</span> table2.column_name;</span><br><span class="line"><span class="comment">--使用表别名</span></span><br><span class="line"><span class="keyword">SELECT</span> o.order_id, c.customer_name</span><br><span class="line"><span class="keyword">FROM</span> orders <span class="keyword">AS</span> o</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> customers <span class="keyword">AS</span> c <span class="keyword">ON</span> o.customer_id <span class="operator">=</span> c.customer_id;</span><br><span class="line"><span class="comment">--  多表 INNER JOIN</span></span><br><span class="line"><span class="keyword">SELECT</span> orders.order_id, customers.customer_name, products.product_name</span><br><span class="line"><span class="keyword">FROM</span> orders</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> customers <span class="keyword">ON</span> orders.customer_id <span class="operator">=</span> customers.customer_id</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> order_items <span class="keyword">ON</span> orders.order_id <span class="operator">=</span> order_items.order_id</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> products <span class="keyword">ON</span> order_items.product_id <span class="operator">=</span> products.product_id;</span><br><span class="line"><span class="comment">-- 使用 WHERE 子句进行过滤</span></span><br><span class="line"><span class="keyword">SELECT</span> orders.order_id, customers.customer_name</span><br><span class="line"><span class="keyword">FROM</span> orders</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> customers <span class="keyword">ON</span> orders.customer_id <span class="operator">=</span> customers.customer_id</span><br><span class="line"><span class="keyword">WHERE</span> orders.order_date <span class="operator">&gt;=</span> <span class="string">&#x27;2023-01-01&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>LEFT JOIN：<strong>返回左表的所有行</strong>，并包括右表中匹配的行，如果右表中没有匹配的行，将返回NULL值</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customers.customer_id, customers.customer_name, orders.order_id</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders <span class="keyword">ON</span> customers.customer_id <span class="operator">=</span> orders.customer_id;</span><br><span class="line"><span class="comment">-- 使用表别名</span></span><br><span class="line"><span class="keyword">SELECT</span> c.customer_id, c.customer_name, o.order_id</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">AS</span> c</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders <span class="keyword">AS</span> o <span class="keyword">ON</span> c.customer_id <span class="operator">=</span> o.customer_id;</span><br><span class="line"><span class="comment">-- 多表 LEFT JOIN：</span></span><br><span class="line"><span class="keyword">SELECT</span> customers.customer_id, customers.customer_name, orders.order_id, products.product_name</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders <span class="keyword">ON</span> customers.customer_id <span class="operator">=</span> orders.customer_id</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> order_items <span class="keyword">ON</span> orders.order_id <span class="operator">=</span> order_items.order_id</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> products <span class="keyword">ON</span> order_items.product_id <span class="operator">=</span> products.product_id;</span><br><span class="line"><span class="comment">-- 使用 WHERE 子句进行过滤：</span></span><br><span class="line"><span class="keyword">SELECT</span> customers.customer_id, customers.customer_name, orders.order_id</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders <span class="keyword">ON</span> customers.customer_id <span class="operator">=</span> orders.customer_id</span><br><span class="line"><span class="keyword">WHERE</span> orders.order_date <span class="operator">&gt;=</span> <span class="string">&#x27;2023-01-01&#x27;</span> <span class="keyword">OR</span> orders.order_id <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>RIGHT JOIN</li>
+</ul>
+</li>
+<li>不小心看多了。。。看到连接了</li>
+</ul>
+<h3 id="python文字教程"><a class="header-anchor" href="#python文字教程">¶</a>python文字教程</h3>
+<h4 id="注释"><a class="header-anchor" href="#注释">¶</a>注释</h4>
+<ul>
+<li>快捷键：ctrl+/</li>
+<li>如果需要撤销注释，选择注释行，按 ctrl+/ 将撤销注释。</li>
+</ul>
+<h4 id="数据类型"><a class="header-anchor" href="#数据类型">¶</a>数据类型</h4>
+<h5 id="列表list-：可变，有序，可重复"><a class="header-anchor" href="#列表list-：可变，有序，可重复">¶</a>列表list[]：可变，有序，可重复</h5>
+<ul>
+<li>.append()/.remove()/[number]</li>
+</ul>
+<h5 id="元组tuple-：不可变，有序，可重复"><a class="header-anchor" href="#元组tuple-：不可变，有序，可重复">¶</a>元组tuple()：不可变，有序，可重复</h5>
+<h5 id="集合set：无序，不可重复"><a class="header-anchor" href="#集合set：无序，不可重复">¶</a>集合set：无序，不可重复</h5>
+<h5 id="字典"><a class="header-anchor" href="#字典">¶</a>字典{}</h5>
+<ul>
+<li>键必须为不可变数据类型；即字符串、整数、浮点数等，不能为列表</li>
+<li>添加或更新键值对的方法：字典名[“键”] = “值”</li>
+<li>判断键是否存在字典里面：“键” in 字典名</li>
+<li>删除键与对应的值：del 字典名[“键”]，如果键不存在，指令会报错。</li>
+<li>返回字典的键、值、键值对的方法：.keys()/.values()/.items()</li>
+</ul>
+<h4 id="格式化字符串"><a class="header-anchor" href="#格式化字符串">¶</a>格式化字符串</h4>
+<ul>
+<li>
+<p>format</p>
+<ul>
+<li><code>&quot;{0}{1}&quot;.format(one,two)</code>输出<code>onetwo</code></li>
+<li><code>&quot;{one}{two}&quot;.format(one=one1,two=two1)</code>输出<code>one1twoo1</code></li>
+</ul>
+</li>
+<li>
+<p>f：引用已定义的字符串变量。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name=<span class="string">&quot;老林&quot;</span> year =<span class="string">&quot;虎&quot;</span></span><br><span class="line">message_content = <span class="string">f&#x27;&#x27;&#x27;  </span></span><br><span class="line"><span class="string">律回春渐，新元肇启。</span></span><br><span class="line"><span class="string">新岁甫至，福气东来。</span></span><br><span class="line"><span class="string">金<span class="subst">&#123;year&#125;</span>贺岁，欢乐祥瑞。</span></span><br><span class="line"><span class="string">金<span class="subst">&#123;year&#125;</span>敲门，五福临门。</span></span><br><span class="line"><span class="string">给<span class="subst">&#123;name&#125;</span>及家人拜年啦！</span></span><br><span class="line"><span class="string">新春快乐，<span class="subst">&#123;year&#125;</span>年大吉！</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>冒号+点+数字+f 来指定浮点数在格式化是保留几位小数</li>
+<li>例子：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="number">1</span></span><br><span class="line">gpa = <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;<span class="number">0</span>&#125;</span>你好，你的当前绩点为：<span class="subst">&#123;<span class="number">1</span>:<span class="number">.2</span>f&#125;</span>&quot;</span>.<span class="built_in">format</span>(name,gpa))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>%：‘%s,%s’ % (name,name1)</p>
+<ul>
+<li>%d整数，%f浮点数</li>
+<li>%5d：表示将整数的宽度控制在5位，如数字11，被设置为5d，就会变成：[空格][空格][空格]11，用三个空格补足宽度。</li>
+<li>小数点和小数部分也算入宽度计算</li>
+</ul>
+</li>
+</ul>
+<h4 id="类"><a class="header-anchor" href="#类">¶</a>类</h4>
+<ul>
+<li>定义</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">类名</span>: <span class="comment"># 类的构造函数，主要作用是定义实例对象的属性，__init__是固定项</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, cat_name, cat_age, cat_color</span>): <span class="comment"># self为固定项，代表类自己</span></span><br><span class="line">    <span class="variable language_">self</span>.name = cat_name <span class="variable language_">self</span>.age = cat_age</span><br><span class="line">    <span class="variable language_">self</span>.color = cat_color</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在子类A名称后的括号中写上父类B的名称，此时父类的方法就会继承到子类中</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>(<span class="title class_ inherited__">B</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果子类程序中有__init__方法，则创建子类实例时优先调用子类的构造函数，导致实例只有子类的__init__中的属性参数，而父类的__init__属性参数不会被调用。</li>
+</ul>
+<h4 id="Python文件操作"><a class="header-anchor" href="#Python文件操作">¶</a>Python文件操作</h4>
+<h5 id="open"><a class="header-anchor" href="#open">¶</a>open</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;./data.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="comment"># 默认r还有w模式</span></span><br></pre></td></tr></table></figure>
+<h5 id="read"><a class="header-anchor" href="#read">¶</a>read()</h5>
+<ul>
+<li>运行read()方法会一次性读取文件里面的所有内容，并以字符串的形式返回。一般操作的文件以文本为主。其他类似word文件内有字体颜色、字号区分的文件，很可能读取有误。</li>
+<li>运行read()方法后，再次调用时返回的结果为空，因为程序会记录文件读取到哪个位置，第一次运行read()时已经读到结尾，第二次运行时后面已经没有内容。</li>
+<li>文件太大时不建议使用read()方法，因为读出来的内容会占用很大的内存。如果不需要一次性读取整个文件，可以在read()传一个数字，表示读多少个字节，下次调用read时会从上次结束位置继续往下读。</li>
+</ul>
+<h5 id="readline"><a class="header-anchor" href="#readline">¶</a>readline()</h5>
+<ul>
+<li>只读取文件一行内容，下次调用时继续读取下一行，根据换行符来判断什么时候结束本行。并且换行符会被当成读到的内容的一部分。读取到结尾后，继续读取将会返回空字符串，表示后面已经无内容。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;./data.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">line = f.readline() <span class="keyword">while</span> line !=</span><br><span class="line"><span class="built_in">print</span>(line)</span><br><span class="line">line = f.readline()</span><br><span class="line"><span class="comment"># 读第一行</span></span><br><span class="line"><span class="comment">#判断当前行是否为空，不为空则打印当前行</span></span><br></pre></td></tr></table></figure>
+<h5 id="readlines"><a class="header-anchor" href="#readlines">¶</a>readlines()</h5>
+<ul>
+<li>读取文件内容，并将每行作为列表元素返回。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;./data.txt&quot;</span>，<span class="string">&quot;r&quot;</span>,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"><span class="comment"># readlines会读全部文件内容，并把每行作为列表元素返回 print(f.readlines())</span></span><br><span class="line"><span class="comment"># 一般和for循环结合使用。先调用readlines方法把每行读取出来，再逐行循环列表所有内容</span></span><br></pre></td></tr></table></figure>
+<h5 id="close-关闭文件"><a class="header-anchor" href="#close-关闭文件">¶</a>close()关闭文件</h5>
+<ul>
+<li>调用close方法后将会释放系统资源，每次调用文件完成后都应该关闭文件。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;./data.txt&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(f.read())</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./data.txt&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">  <span class="built_in">print</span>(f.read())  <span class="comment">#对文件的操作</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如上方式可以不用调用close方法关闭文件，文件操作完成后会自动关闭文件。注意对文件操作的代码需要缩进，<strong>缩进的代码块执行完毕后会自动关闭文件</strong></li>
+</ul>
+<h5 id="open-v2"><a class="header-anchor" href="#open-v2">¶</a>open</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./data.txt&quot;</span>,<span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br></pre></td></tr></table></figure>
+<ul>
+<li>open的第二个参数传入w，即为写文件模式，写文件模式找不到文件，不会像读文件模式那样报错，而是自动创建传入文件名的那个文件。第三个参数为encoding编码格式。</li>
+<li>注：使用w模式打开文件进行写入时，如果文件已存在，将会把原有文件内容<strong>全部清空</strong>。</li>
+<li>增加文件内容，则open()的第二个参数需要传入附加模式“a”参数</li>
+<li>无论是&quot;w&quot;模式，还是&quot;a&quot;模式，都不能读取文件原本的内容，如果在这两个模式下调用read()方法，程序会报错不支持读操作(UnsupporttedOperation)。</li>
+<li>r+，同时支持读写文件
+<ul>
+<li>open()方法的第二个参数传入”r+”参数，就可以<strong>同时支持读写文件</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="Python异常处理"><a class="header-anchor" href="#Python异常处理">¶</a>Python异常处理</h4>
+<ul>
+<li>需要注意的是，try/except语句在捕捉错误时，依次从上往下运行，如果第一个except已经捕捉到错误，之后的except将不会执行，与if/elif语句类似，只有第一个符合条件的分支会运行。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">finally</span>:</span><br></pre></td></tr></table></figure>
+<ul>
+<li>else:  表示没有出现任何错误时执行的语句。</li>
+<li>finally:     无论是否发生错误，都会执行的语句。</li>
+</ul>
+<h4 id="Python测试"><a class="header-anchor" href="#Python测试">¶</a>Python测试</h4>
+<ul>
+<li>assert 断言
+<ul>
+<li>assert后面可以跟上任何布尔表达式，在assert后面跟上我们认为为True的表达式，如果assert后面的表达式最终求出来为True，则正常结束，继续运行后面的代码。如果求出来的结果为False，则会产生“AssertionError”断言错误。</li>
+</ul>
+</li>
+</ul>
+<h4 id="unittest"><a class="header-anchor" href="#unittest">¶</a>unittest</h4>
+<ul>
+<li>自带库，需要import导入</li>
+<li>测试方法命名必须以 test_ 开头。因为 unittest 库只把 test_ 开头的方法当作测试用例</li>
+<li>没看懂测试这一块，后面再看</li>
+</ul>
+<h4 id="高阶函数（函数名作为变量）-匿名函数lambda变量：输出内容"><a class="header-anchor" href="#高阶函数（函数名作为变量）-匿名函数lambda变量：输出内容">¶</a>高阶函数（函数名作为变量）/匿名函数lambda变量：输出内容</h4>
+<h3 id="python视频教程"><a class="header-anchor" href="#python视频教程">¶</a>python视频教程</h3>
+<ul>
+<li>太慢了，不看了</li>
+</ul>
+<h4 id="零碎"><a class="header-anchor" href="#零碎">¶</a>零碎</h4>
+<ul>
+<li>pass 在Python中是一个空语句，什么都不做，占位语句</li>
+<li>range的第三个参数为步长，不指明的时候默认为1</li>
+<li>函数运行完成后，没有写返回值，默认返回值为 None。</li>
+<li>from后面添加模块名，import后面添加函数名或变量名，需要引入多个的时候用逗号进行分隔，此方法在使用时不需要再带上模块名。</li>
+</ul>
+<h3 id="excel"><a class="header-anchor" href="#excel">¶</a>excel</h3>
+<ul>
+<li>分列</li>
+</ul>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E8%AD%A6%E9%93%AE%E6%9D%AF%E5%87%86%E5%A4%87_image-7.png" alt="alt text"></p>
+<h4 id="函数"><a class="header-anchor" href="#函数">¶</a>函数</h4>
+<ul>
+<li>SUM(A1:A3)
+<ul>
+<li>SUM(A1,A2,A3)</li>
+</ul>
+</li>
+<li>单条件求和sumif
+<ul>
+<li>=SUMilF(range，criteria，sum_range)</li>
+<li>Range为条件区域，用于条件判断的单元格区域。</li>
+<li>Criteria是求和条件，由数字、逻辑表达式等组成的判定条件。</li>
+<li>Sum_range为实际求和区域，需要求和的单元格、区域或引用。</li>
+<li>eg：=SUMIF（A15:A25,“橡皮擦’，B15:B25）</li>
+</ul>
+</li>
+<li>多条件求和sumifs</li>
+</ul>
+<h2 id="题目"><a class="header-anchor" href="#题目">¶</a>题目</h2>
+<h4 id="misc-base换表"><a class="header-anchor" href="#misc-base换表">¶</a>misc-base换表</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="comment"># 待解密字符串</span></span><br><span class="line">data = <span class="string">&quot;x2dtJEOmyjacxDemx2eczT5cVS9fVUGvWTuZWjuexjRqy24rV29q&quot;</span></span><br><span class="line"><span class="comment"># 换表字符集（示例）</span></span><br><span class="line">custom_table = <span class="string">&quot;ZYXABCDEFGHIJKLMNOPQRSTUVWzyxabcdefghijklmnopqrstuvw0123456789+/&quot;</span></span><br><span class="line">standard_table = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;</span></span><br><span class="line"><span class="comment"># 替换回标准Base64并解码</span></span><br><span class="line">translated = data.translate(<span class="built_in">str</span>.maketrans(custom_table, standard_table))</span><br><span class="line">decoded = base64.b64decode(translated)</span><br><span class="line"><span class="built_in">print</span>(decoded.decode(errors=<span class="string">&quot;ignore&quot;</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="模拟赛"><a class="header-anchor" href="#模拟赛">¶</a>模拟赛</h2>
+<h3 id="1-1"><a class="header-anchor" href="#1-1">¶</a>1.1</h3>
+<h4 id="1-1-2-多选题"><a class="header-anchor" href="#1-1-2-多选题">¶</a>1.1.2 多选题</h4>
+<ol>
+<li>
+<p><strong>以下哪个语句可以删除字典中的一个键值对？</strong><br>
+A. <code>del dict['key']</code><br>
+B. <code>dict.remove('key')</code><br>
+C. <code>dict.pop('key')</code><br>
+D. <code>dict.clear()</code></p>
+<p><strong>答案：ACD</strong><br>
+**解析：**python的字典没有remove方法</p>
+</li>
+<li>
+<p><strong>以下关于 Python 异常处理的说法，正确的是？（ ）</strong><br>
+A. 可以使用<code>try - except</code>块来捕获和处理异常<br>
+B. 可以有多个<code>except</code>块来捕获不同类型的异常<br>
+C. 还可以使用<code>finally</code>块，无论是否发生异常，<code>finally</code>块中的代码都会执行<br>
+D. 异常处理可以提高程序的健壮性，避免程序因为异常而崩溃</p>
+<p><strong>答案：ABCD</strong><br>
+**解析：**在 Python 中，<code>try - except</code>是基本的异常处理结构，<code>try</code>块中放置可能会出现异常的代码，<code>except</code>块用于捕获和处理异常。可以有多个<code>except</code>块，每个<code>except</code>块针对不同类型的异常进行处理。<code>finally</code>块是可选的，不管<code>try</code>块中是否发生异常，<code>finally</code>块中的代码都会执行，通常用于清理资源等操作。通过合理的异常处理，可以让程序在遇到异常情况时能够进行适当的处理，而不是直接崩溃，从而提高程序的健壮性。</p>
+</li>
+</ol>
+<h4 id="1-1-3-判断题"><a class="header-anchor" href="#1-1-3-判断题">¶</a>1.1.3 判断题</h4>
+<ol>
+<li><strong><code>for</code>循环中的<code>else</code>子句，当<code>for</code>循环正常执行完（没有被<code>break</code>中断）后会执行，若<code>for</code>循环因为<code>break</code>跳出则<code>else</code>子句不会执行。</strong><br>
+<strong>答案：错误</strong><br>
+**解析：**建议写个代码运行试试。</li>
+</ol>
+<h4 id="1-1-4-实操题"><a class="header-anchor" href="#1-1-4-实操题">¶</a>1.1.4 实操题</h4>
+<h5 id="1-1-4-2-文件操作与数据分析"><a class="header-anchor" href="#1-1-4-2-文件操作与数据分析">¶</a>1.1.4.2 文件操作与数据分析</h5>
+<p><strong>题目描述</strong>：<br>
+假设你有一个名为<code>data.txt</code>的文本文件，其中包含了多行数据，每行数据都是一个由逗号分隔的数值列表。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1,2,3,4,5</span><br><span class="line">6,7,8,9,10</span><br><span class="line">11,12,13,14,15</span><br></pre></td></tr></table></figure>
+<p>编写一个Python程序，完成以下任务：</p>
+<ol>
+<li>读取文件<code>data.txt</code>中的所有数据。</li>
+<li>将每行数据转换为一个整数列表。</li>
+<li>计算所有数值的总和和平均值。</li>
+<li>找出最大值和最小值。</li>
+<li>将结果输出到控制台。</li>
+</ol>
+<p><strong>实现过程</strong>：</p>
+<ol>
+<li>使用文件操作函数来读取文件内容。</li>
+<li>使用字符串的<code>split</code>方法来分割每行数据。</li>
+<li>使用列表和循环来处理数据。</li>
+<li>使用内置的数学函数来计算总和、平均值、最大值和最小值。</li>
+</ol>
+<p><strong>代码框架</strong>：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">filename = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line">max_value = <span class="built_in">float</span>(<span class="string">&#x27;-inf&#x27;</span>)</span><br><span class="line">min_value = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">        numbers = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, line.???))</span><br><span class="line">        total += <span class="built_in">sum</span>(numbers)</span><br><span class="line">        count += ???(numbers)</span><br><span class="line">        <span class="keyword">for</span> number <span class="keyword">in</span> numbers:</span><br><span class="line">            <span class="keyword">if</span> ???:</span><br><span class="line">                max_value = number</span><br><span class="line">            <span class="keyword">if</span> ???:</span><br><span class="line">                min_value = number</span><br><span class="line"> </span><br><span class="line">average = total / count <span class="keyword">if</span> count &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line"><span class="comment"># if count &gt; 0:</span></span><br><span class="line"><span class="comment">#    average = total / count</span></span><br><span class="line"><span class="comment">#else:</span></span><br><span class="line"><span class="comment">#    average = 0</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;总和: <span class="subst">&#123;total&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;平均值: <span class="subst">&#123;average&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;最大值: <span class="subst">&#123;max_value&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;最小值: <span class="subst">&#123;min_value&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>答案</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">filename = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line">max_value = <span class="built_in">float</span>(<span class="string">&#x27;-inf&#x27;</span>)</span><br><span class="line">min_value = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">        numbers = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, line.strip().split(<span class="string">&#x27;,&#x27;</span>)))</span><br><span class="line">        total += <span class="built_in">sum</span>(numbers)</span><br><span class="line">        count += <span class="built_in">len</span>(numbers)</span><br><span class="line">        <span class="keyword">for</span> number <span class="keyword">in</span> numbers:</span><br><span class="line">            <span class="keyword">if</span> number &gt; max_value:</span><br><span class="line">                max_value = number</span><br><span class="line">            <span class="keyword">if</span> number &lt; min_value:</span><br><span class="line">                min_value = number</span><br><span class="line"> </span><br><span class="line">average = total / count <span class="keyword">if</span> count &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;总和: <span class="subst">&#123;total&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;平均值: <span class="subst">&#123;average&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;最大值: <span class="subst">&#123;max_value&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;最小值: <span class="subst">&#123;min_value&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-Mysql"><a class="header-anchor" href="#1-2-Mysql">¶</a>1.2 Mysql</h3>
+<ol>
+<li>
+<p>在MySQL中，如何删除表中的记录？(A)<br>
+A. <code>DELETE FROM table_name WHERE condition;</code></p>
+</li>
+<li>
+<p>下列哪个命令用于删除数据库？(B)<br>
+B. <code>DROP DATABASE database_name;</code></p>
+</li>
+<li>
+<p>在MySQL中，如果你想要创建一个列，该列可以存储任意长度的文本数据，并且不允许为空，你应该使用哪种数据类型和约束？(B)<br>
+B. <code>TEXT NOT NULL</code></p>
+</li>
+<li>
+<p>在MySQL中，如何创建一个包含自增主键的表？(A)<br>
+A. <code>CREATE TABLE table_name (id INT AUTO_INCREMENT, name VARCHAR(100), PRIMARY KEY (id));</code></p>
+</li>
+</ol>
+<h3 id="1-3-Linux"><a class="header-anchor" href="#1-3-Linux">¶</a>1.3 Linux</h3>
+<h4 id="1-3-1-单选题"><a class="header-anchor" href="#1-3-1-单选题">¶</a>1.3.1 单选题</h4>
+<ol>
+<li>
+<p><strong>Linux中，用于实时查找文件的命令是？</strong><br>
+A. <code>find</code><br>
+B. <code>grep</code><br>
+C. <code>locate</code><br>
+D. <code>which</code></p>
+<p><strong>答案: A</strong><br>
+<strong>解析</strong>: <code>find</code> 命令用于在指定目录中查找文件。虽然 <code>locate</code> 也可以查找文件，但它是基于预先构建的数据库，而 <code>find</code> 是实时搜索。</p>
+</li>
+<li>
+<p><strong>在 Linux 中，要将一个文件的拥有者改为<code>user1</code>，应该使用以下哪个命令？</strong></p>
+<p>A. <code>chown user1 file.txt</code></p>
+<p><strong>答案：A</strong></p>
+<p><strong>解析：</strong><code>chmod</code>命令是用于改变文件或目录的权限，<code>usermod</code>主要用于修改用户账户的属性，<code>groupmod</code>用于修改用户组的属性。而<code>chown</code>命令是用于改变文件的所有者，<code>chown user1 file.txt</code>会将<code>file.txt</code>的所有者改为<code>user1</code>。</p>
+</li>
+<li>
+<p><strong>在 Linux 中，以下哪个命令用于创建新用户？</strong></p>
+<p>A. <code>useradd</code></p>
+<p><strong>答案：A</strong></p>
+</li>
+<li>
+<p><strong>在 Linux 系统中，要将命令的输出追加到一个文件中，应该使用以下哪个符号？</strong><br>
+B. <code>&gt;&gt;</code></p>
+<p><strong>答案：B</strong></p>
+<p><strong>解析：</strong><code>&gt;</code>符号是将命令的输出重定向到一个文件，如果文件存在则覆盖其内容。<code>&gt;&gt;</code>符号是将命令的输出追加到一个文件的末尾。<code>&lt;</code>是用于输入重定向，<code>&lt;&lt;</code>用于这里文档（将一段文本作为输入传递给命令），所以答案是 B。</p>
+</li>
+<li>
+<p><strong>以下关于 Linux 文件系统的说法，错误的是？</strong></p>
+<p>D. 一个分区只能挂载一个文件系统，一个文件系统也只能挂载在一个分区上</p>
+<p><strong>答案：D</strong></p>
+<p>**解析：**Linux 文件系统是树形结构，从根目录<code>/</code>开始构建层次。不同的 Linux 发行版可以使用如 ext4、XFS 等不同的文件系统类型。挂载点必须是一个已经存在的目录，这样才能将文件系统挂载到该目录下。但是一个分区通常挂载一个文件系统，但一个文件系统可以挂载在多个分区上，例如通过软连接等方式，所以 D 选项错误。</p>
+</li>
+</ol>
+<h3 id="2-3-网络安全与攻防"><a class="header-anchor" href="#2-3-网络安全与攻防">¶</a>2.3 网络安全与攻防</h3>
+<h4 id="2-3-1-misc部分"><a class="header-anchor" href="#2-3-1-misc部分">¶</a>2.3.1 misc部分</h4>
+<ol>
+<li>
+<p><strong>校徽:</strong> 这校徽的颜色对吗?分辨一下!!!<br>
+<strong>答案：flag{just_a_cqpc_logo}</strong><br>
+<strong>解析：</strong><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182202009.png" alt="image-20241118220252950"></p>
+</li>
+<li>
+<p><strong>Tom</strong>: tom把flag藏哪儿了?   ==3分==<br>
+<strong>答案：flag{8565-hs12-a968s-6dhj54-g5jk5}</strong><br>
+<strong>解析：</strong></p>
+<ol>
+<li>
+<p><strong>flag1</strong></p>
+<p>binwalk检测有两段zlib信息，无第二文件头尾信息<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182203152.png" alt="image-20241118220330122"></p>
+<p>找png数据块IDATX<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182203033.png" alt="image-20241118220339006">找到第二段有明显sRGB标识，确定公用文件头尾，删除表层图片数据部分，得flag1<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182203744.png" alt="image-20241118220350709"><br>
+<strong>还要改宽高！！！！</strong></p>
+</li>
+<li>
+<p><strong>flag2</strong><br>
+文件尾明显base64数据，解密得到第二段flag<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182204482.png" alt="image-20241118220406455"></p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>编码</strong>:这是什么编码,你能看出来吗?好像不止一种!!!   ==3分==<br>
+<strong>答案：flag{ff4a8f9259716a539b4c674ba3674031}</strong><br>
+**解析：**rot13爆破+base64;然后转换端序<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182204807.png" alt="image-20241118220430751"><br>
+端序转换</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">swap_groups</span>(<span class="params">b, w</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">b&#x27;&#x27;</span>.join(b[i:i+w][::-<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(b), w))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show</span>(<span class="params">b, w</span>):</span><br><span class="line">    out = swap_groups(b, w)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;[<span class="subst">&#123;w&#125;</span>] hex:&#x27;</span>, out.<span class="built_in">hex</span>())</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;[<span class="subst">&#123;w&#125;</span>] text:&#x27;</span>, out.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;[<span class="subst">&#123;w&#125;</span>] text:&#x27;</span>, <span class="string">&#x27;(invalid utf-8)&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        s = <span class="built_in">input</span>(<span class="string">&#x27;文本(回车退出): &#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> s == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        raw = s.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>):</span><br><span class="line">            show(raw, w)</span><br><span class="line">        sel = <span class="built_in">input</span>(<span class="string">&#x27;选择字节分组(1-4或正整数，默认1): &#x27;</span>).strip()</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            w = <span class="built_in">int</span>(sel) <span class="keyword">if</span> sel <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> w &lt;= <span class="number">0</span>:</span><br><span class="line">                w = <span class="number">1</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            w = <span class="number">1</span></span><br><span class="line">        out = swap_groups(raw, w)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;选定分组:&#x27;</span>, w)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;hex:&#x27;</span>, out.<span class="built_in">hex</span>())</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;text:&#x27;</span>, out.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;text:&#x27;</span>, <span class="string">&#x27;(invalid utf-8)&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>
+<p><strong>流量1</strong>:简单流量,签个到吧…<br>
+<strong>答案：flag{do_you_know_NaiLong}</strong></p>
+</li>
+<li>
+<p><strong>流量2</strong>: 是谁连接了shell,他干了什么!!!<br>
+<strong>答案：flag{I_am_nailong}</strong></p>
+<p><strong>解析：</strong><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182205515.png" alt=""><br>
+复现不出来，选最后一个From item后ctrl+shift+o 查看分组字节流，base解码可以得到</p>
+</li>
+<li>
+<p><strong>流量3</strong>:好像下载了什么东西???   ==3分==<br>
+<strong>答案：flag{I_have_learnt_wareshark!!!}</strong><br>
+<strong>解析：</strong></p>
+<ol>
+<li>打开流量包,发现下载了一个flag.zip, 把它分离出来;得到flag.zip<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182206128.png" alt="image-20241118220630036"></li>
+<li><strong>第二步：</strong><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182206820.png" alt="image-20241118220641777"></li>
+<li><strong>第三步：</strong><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182207664.png" alt="image-20241118220723625"></li>
+</ol>
+</li>
+<li>
+<p><strong>四步立定</strong>:青龙;白虎;朱雀;玄武  ==3分==<br>
+<strong>答案：flag{wlcome_to_ahgaxy}</strong><br>
+<strong>解析：</strong></p>
+<ol>
+<li><strong>第一步</strong>:base64转为zip文件,得到base64.zip<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182207932.png" alt="image-20241118220753857"></li>
+</ol>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">base64_to_file</span>(<span class="params">base64_string,output_file_path</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line"><span class="comment">#将Base64字符串解码为二进制数据</span></span><br><span class="line"></span><br><span class="line">        file_data = base64.b64decode(base64_string)</span><br><span class="line"><span class="comment">#将二进制数据写入文件</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(output_file_path, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> output_file:</span><br><span class="line">            output_file.write(file_data)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;文件成功保存为<span class="subst">&#123;output_file_path&#125;</span>&quot;</span>) </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;发生错误：<span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;发生错误：<span class="subst">&#123;e&#125;</span>&#x27;</span>) </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment">#Base64编码的字符串</span></span><br><span class="line">    base64_string=<span class="built_in">input</span>(<span class="string">&quot;请输入base64编码字符：&quot;</span>)</span><br><span class="line">    <span class="comment">#输出文件</span></span><br><span class="line">    output_file_path=<span class="built_in">input</span>(<span class="string">&quot;请输入文件名：&quot;</span>)</span><br><span class="line">    base64_to_file(base64_string, output_file_path)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>第二步</strong>:<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182208021.png" alt="image-20241118220814971"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E8%AD%A6%E9%93%AE%E6%9D%AF%E5%87%86%E5%A4%87_image-9.png" alt="alt text"></li>
+</ol>
+<ul>
+<li>010拼起来，看不懂wp在干什么</li>
+</ul>
+<ol start="3">
+<li><strong>第三步</strong><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182208675.png" alt="image-20241118220833614"></li>
+<li>第四步：<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182208643.png" alt="image-20241118220842600"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E8%AD%A6%E9%93%AE%E6%9D%AF%E5%87%86%E5%A4%87_image-10.png" alt="alt text"></li>
+</ol>
+<h4 id="2-3-2-crypto部分"><a class="header-anchor" href="#2-3-2-crypto部分">¶</a>2.3.2 crypto部分</h4>
+<ol>
+<li><strong>异或2</strong>:你真的懂异或吗?<br>
+<strong>答案：flag{too_young_too_simple}</strong><br>
+<strong>解析：</strong></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">&#x27;oehnr&#125;ffVpf|gnV&#125;ffVz`dyelt&#x27;</span></span><br><span class="line">key = <span class="built_in">ord</span>(<span class="string">&#x27;o&#x27;</span>)^<span class="built_in">ord</span>(<span class="string">&#x27;f&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(key)</span><br><span class="line">b = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    b += <span class="built_in">chr</span>(<span class="built_in">ord</span>(i)^key)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></table></figure>
+<ol start="14">
+<li>
+<p><strong>异或3</strong>:你真真真真真真的懂异或吗?  ==3分==<br>
+<strong>答案：flag{just_so_so}</strong><br>
+<strong>解析：</strong></p>
+<ol>
+<li>
+<p><strong>第一步</strong>：确定key为递增的<br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182210346.png" alt="image-20241118221001297"></p>
+</li>
+<li>
+<p><strong>第二步</strong></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">secret = <span class="string">&#x27;gnbc~lr&#123;&#125;UxcR&#125;`m&#x27;</span></span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line">key=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> secret:</span><br><span class="line">	flag += <span class="built_in">chr</span>(<span class="built_in">ord</span>(i)^key)</span><br><span class="line">	key+=<span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="2-3-3-reverse"><a class="header-anchor" href="#2-3-3-reverse">¶</a>2.3.3 reverse</h4>
+<ol start="15">
+<li><strong>ez_reverse</strong>:flag是什么呢?猜猜看吧!!!<br>
+<strong>答案：flag{reverse_is_so_easy!!!}</strong><br>
+<strong>解析：</strong><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://yuanshen-1325599464.cos.ap-chongqing.myqcloud.com/Typora/202411182210636.png" alt="image-20241118221027475"><br>
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E8%AD%A6%E9%93%AE%E6%9D%AF%E5%87%86%E5%A4%87_image-8.png" alt="alt text"></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io">luoyinhui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io/posts/ab0e309f/">https://luoyinhui.github.io/posts/ab0e309f/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://luoyinhui.github.io" target="_blank">落殷回的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/shouye.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/weixin.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/weixin.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhifubao.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zhifubao.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/acd25df2/" title="【比赛】2025美亚个人复盘"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">【比赛】2025美亚个人复盘</div></div><div class="info-2"><div class="info-item-1">¶致谢  感谢sq学长的wp  ¶资料  VC密码： 个人赛：FEYn0MJLYy9zTQRFHlXGRkVqXv3IkE8h 团体赛：ZgxQaeiAUe3nrnZ9zEnI3nAxuPIrIPl9  ¶学习西电  （怎么这么厉害我嘞个豆）（存档下） 来源：https://forensics.xidian.edu.cn/wiki/MeiyaCup2025Individual/    在检材中的 /var 目录中存储着 Info.plist Manifest.plist Manifest.db Status.plist 和文件扩展名添加了 _DEC 的 4 个文件:  文件名包含 _DEC 的是提取工具生成的解密后的文件, 因此使用这些解密后的文件覆盖原始加密的文件, 并使用 Plist Editor 将 Manifest.plist 中将备份是否加密的标志改为 false 即可得到未加密的检材文件.  之后即可将该目录作为文件集合挂载在火眼取证中进行分析了. 或者, 也可以不对文件进行覆盖, 而是只删除 Manifest.db 并对 Menifest.plist 中的加密标志进...</div></div></div></a><a class="pagination-related" href="/posts/10a26762/" title="【日记】25-11-17凌晨"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【日记】25-11-17凌晨</div></div><div class="info-2"><div class="info-item-1">我只能知道我每一个决定都是深思熟虑之后，自己所决定的，那么，我愿意为它承担所有的后果，继续吧，就这样暂时幸福的走下去。</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="author-info-name">luoyinhui</div><div class="author-info-description">记录踩坑与瞎折腾，由Hexo+Github搭建</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">73</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luoyinhui"><i class="fab fa-github"></i><span>Follow Me</span></a><a class="card-info-btn" href="/subscribe"><i class="fas fa-rss"></i><span>订阅RSS</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%B5%9B%E8%8C%83%E5%9B%B4"><span class="toc-text">比赛范围</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E8%A7%86%E9%A2%91-%E6%96%87%E5%AD%97%E6%95%99%E7%A8%8B"><span class="toc-text">Linux视频+文字教程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#kali-ssh%E8%BF%9E%E6%8E%A5finalshell"><span class="toc-text">kali ssh连接finalshell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3"><span class="toc-text">用户相关</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cd%EF%BC%9Achange-directory"><span class="toc-text">cd：change directory</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pwd%EF%BC%9Aprint-working-directory"><span class="toc-text">pwd：print working directory</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E8%B7%AF%E5%BE%84%E7%AC%A6%EF%BC%9A"><span class="toc-text">特殊路径符：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mkdir%EF%BC%9AMake-Directory%E3%80%90%E8%93%9D%E8%89%B2%E6%B7%B1%E8%89%B2-d%E3%80%91"><span class="toc-text">mkdir：Make Directory【蓝色深色&#x2F;d】</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rmdir-%E5%88%A0%E9%99%A4%E7%A9%BA%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="toc-text">rmdir (删除空的目录)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#touch%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E3%80%90%E6%B5%85%E8%89%B2-%E3%80%91"><span class="toc-text">touch创建文件【浅色&#x2F;- 】</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-text">查看文件内容</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#cat-tac%E5%91%BD%E4%BB%A4"><span class="toc-text">cat&#x2F;tac命令</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#nl"><span class="toc-text">nl</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#more%E5%91%BD%E4%BB%A4"><span class="toc-text">more命令</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#less"><span class="toc-text">less</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cp%E5%91%BD%E4%BB%A4%EF%BC%9Acopy"><span class="toc-text">cp命令：copy</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rm%EF%BC%9Aremove"><span class="toc-text">rm：remove</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mv%EF%BC%9Amove"><span class="toc-text">mv：move</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#which-%E5%91%BD%E4%BB%A4%E5%90%8D"><span class="toc-text">which 命令名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#find-%E8%B5%B7%E5%A7%8B%E8%B7%AF%E5%BE%84-name-%E2%80%9C%E6%96%87%E4%BB%B6%E5%90%8D%E2%80%9D%EF%BC%88%E5%8F%AF%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6-%EF%BC%89"><span class="toc-text">find 起始路径 -name “文件名”（可用通配符*）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#grep"><span class="toc-text">grep</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#wc%E5%91%BD%E4%BB%A4"><span class="toc-text">wc命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6"><span class="toc-text">管道符 |</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#echo"><span class="toc-text">echo</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%BC%95%E5%8F%B7"><span class="toc-text">反引号 &#96;&#96;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6"><span class="toc-text">重定向符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#head-tail%E5%91%BD%E4%BB%A4"><span class="toc-text">head&#x2F;tail命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vi-vim%EF%BC%9A%E6%9B%B4%E5%A4%9A%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%9C%AA%E7%9C%8B%E6%89%94%E6%9C%AC%E5%9C%B0www%E4%BA%86"><span class="toc-text">vi vim：更多快捷键未看扔本地www了</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7%E6%9C%89%E5%85%B3%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6"><span class="toc-text">与用户账号有关的系统文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#finalshell%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-text">finalshell小技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E6%AF%94%E8%B5%9B%E5%85%B3%E7%B3%BB%E4%B8%8D%E5%A4%A7"><span class="toc-text">与比赛关系不大</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Linux-%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"><span class="toc-text">Linux 磁盘管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8B%A5%E6%9C%89%E5%B8%90%E6%88%B7%E6%96%87%E4%BB%B6"><span class="toc-text">拥有帐户文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E2%80%94%E2%80%94%E5%B0%8F%E7%9A%AE%E9%9D%A2%E6%9D%BF"><span class="toc-text">安装——小皮面板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B"><span class="toc-text">MySQL视频教程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL%E6%96%87%E5%AD%97%E6%95%99%E7%A8%8B"><span class="toc-text">MySQL文字教程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E6%96%87%E5%AD%97%E6%95%99%E7%A8%8B"><span class="toc-text">python文字教程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8list-%EF%BC%9A%E5%8F%AF%E5%8F%98%EF%BC%8C%E6%9C%89%E5%BA%8F%EF%BC%8C%E5%8F%AF%E9%87%8D%E5%A4%8D"><span class="toc-text">列表list[]：可变，有序，可重复</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%83%E7%BB%84tuple-%EF%BC%9A%E4%B8%8D%E5%8F%AF%E5%8F%98%EF%BC%8C%E6%9C%89%E5%BA%8F%EF%BC%8C%E5%8F%AF%E9%87%8D%E5%A4%8D"><span class="toc-text">元组tuple()：不可变，有序，可重复</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9B%86%E5%90%88set%EF%BC%9A%E6%97%A0%E5%BA%8F%EF%BC%8C%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D"><span class="toc-text">集合set：无序，不可重复</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E5%85%B8"><span class="toc-text">字典{}</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">格式化字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-text">类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">Python文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#open"><span class="toc-text">open</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#read"><span class="toc-text">read()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#readline"><span class="toc-text">readline()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#readlines"><span class="toc-text">readlines()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#close-%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6"><span class="toc-text">close()关闭文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#open-v2"><span class="toc-text">open</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-text">Python异常处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python%E6%B5%8B%E8%AF%95"><span class="toc-text">Python测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unittest"><span class="toc-text">unittest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%EF%BC%88%E5%87%BD%E6%95%B0%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F%EF%BC%89-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0lambda%E5%8F%98%E9%87%8F%EF%BC%9A%E8%BE%93%E5%87%BA%E5%86%85%E5%AE%B9"><span class="toc-text">高阶函数（函数名作为变量）&#x2F;匿名函数lambda变量：输出内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B"><span class="toc-text">python视频教程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B6%E7%A2%8E"><span class="toc-text">零碎</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#excel"><span class="toc-text">excel</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-text">函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#misc-base%E6%8D%A2%E8%A1%A8"><span class="toc-text">misc-base换表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E8%B5%9B"><span class="toc-text">模拟赛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1"><span class="toc-text">1.1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-%E5%A4%9A%E9%80%89%E9%A2%98"><span class="toc-text">1.1.2 多选题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-%E5%88%A4%E6%96%AD%E9%A2%98"><span class="toc-text">1.1.3 判断题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-%E5%AE%9E%E6%93%8D%E9%A2%98"><span class="toc-text">1.1.4 实操题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-4-2-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="toc-text">1.1.4.2 文件操作与数据分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Mysql"><span class="toc-text">1.2 Mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Linux"><span class="toc-text">1.3 Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-%E5%8D%95%E9%80%89%E9%A2%98"><span class="toc-text">1.3.1 单选题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%94%BB%E9%98%B2"><span class="toc-text">2.3 网络安全与攻防</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-misc%E9%83%A8%E5%88%86"><span class="toc-text">2.3.1 misc部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-crypto%E9%83%A8%E5%88%86"><span class="toc-text">2.3.2 crypto部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-3-reverse"><span class="toc-text">2.3.3 reverse</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/f630573e/" title="【笔记】pwn"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】pwn"/></a><div class="content"><a class="title" href="/posts/f630573e/" title="【笔记】pwn">【笔记】pwn</a><time datetime="2026-01-13T12:30:54.000Z" title="发表于 2026-01-13 20:30:54">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/90f90e31/" title="【比赛】2026-furryCTF"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E3%80%90%E6%AF%94%E8%B5%9B%E3%80%912026-furryCTF_image.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【比赛】2026-furryCTF"/></a><div class="content"><a class="title" href="/posts/90f90e31/" title="【比赛】2026-furryCTF">【比赛】2026-furryCTF</a><time datetime="2026-01-13T03:26:32.000Z" title="发表于 2026-01-13 11:26:32">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1e92d18/" title="【软件】cyberchef"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【软件】cyberchef"/></a><div class="content"><a class="title" href="/posts/c1e92d18/" title="【软件】cyberchef">【软件】cyberchef</a><time datetime="2026-01-12T23:52:57.000Z" title="发表于 2026-01-13 07:52:57">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/da83febb/" title="【笔记】安卓逆向-Java"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】安卓逆向-Java"/></a><div class="content"><a class="title" href="/posts/da83febb/" title="【笔记】安卓逆向-Java">【笔记】安卓逆向-Java</a><time datetime="2026-01-08T23:29:45.000Z" title="发表于 2026-01-09 07:29:45">2026-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d24e3614/" title="【笔记】流量学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】流量学习"/></a><div class="content"><a class="title" href="/posts/d24e3614/" title="【笔记】流量学习">【笔记】流量学习</a><time datetime="2026-01-07T04:33:24.000Z" title="发表于 2026-01-07 12:33:24">2026-01-07</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By luoyinhui</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.0"></script><script src="/js/main.js?v=5.5.0"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js?v=1.1.0"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('/pluginsSrc/twikoo/dist/twikoo.all.min.js?v=1.6.44').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script id="click-heart" src="/pluginsSrc/butterfly-extsrc/dist/click-heart.min.js?v=1.1.6" async="async" mobile="false"></script><link rel="stylesheet" href="/pluginsSrc/aplayer/dist/APlayer.min.css?v=1.10.1" media="print" onload="this.media='all'"><script src="/pluginsSrc/aplayer/dist/APlayer.min.js?v=1.10.1"></script><script src="/pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js?v=1.1.6"></script><div class="aplayer no-destroy" id="global-aplayer"></div><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script>(function(){
+  if (window.__globalAPlayer__) return;
+  function init(){
+    var el=document.getElementById('global-aplayer');
+    if (!el || !window.APlayer) { setTimeout(init, 100); return; }
+    window.__globalAPlayer__ = new APlayer({
+      container: el,
+      fixed: true,
+      autoplay: false,
+      preload: 'none',
+      storageName: 'aplayer-setting-global',
+      lrcType: 0,
+      audio: [{
+        name: '簇拥烈日的花 - 迟里乌布',
+        artist: 'Unknown',
+        url: '/audio/flower.flac',
+        cover: '/img/music-cover.png',
+        type: 'auto'
+      }]
+    });
+    try { window.__globalAPlayer__.audio && (window.__globalAPlayer__.audio.playbackRate = 1) } catch(e){}
+  }
+  init();
+})()</script><script src="/pluginsSrc/pjax/pjax.min.js?v=0.2.8"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-switch"><span class="search-switch-item active" data-type="local">本地搜索</span><span class="search-switch-item" data-type="algolia">Algolia</span></div><div id="local-search-panel"><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"></div><hr><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="algolia-search-panel" style="display:none"><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><span class="algolia-poweredBy-text">Search powered by Algolia</span></div></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.0"></script><script src="/pluginsSrc/algoliasearch/dist/lite/builds/browser.umd.js?v=5.37.0"></script><script src="/js/search/algolia.js?v=5.5.0"></script></div><!-- hexo injector body_end start --><script>window.toggleHistory = function(btn) {
+  var history = document.getElementById('updates-history');
+  if (history.style.display === 'none') {
+    history.style.display = 'block';
+    btn.innerText = '收起';
+  } else {
+    history.style.display = 'none';
+    btn.innerText = '显示更多';
+  }
+}
+</script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/35b57171/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="../assets/preview.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-12-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/35b57171/&quot;);" href="javascript:void(0);" alt="">【项目】hexo-butterfly-updates-heatmap插件介绍</a><div class="blog-slider__text">参考语雀热力图制作的hexo热力图插件~~（嘶后面发现和github热力图也很像）</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/35b57171/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/ef1d4e7/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-10-01</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/ef1d4e7/&quot;);" href="javascript:void(0);" alt="">【笔记】markdown-github+vscode使用文档</a><div class="blog-slider__text">markdown语法在基于github+vscode背景下的使用与探索笔记</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/ef1d4e7/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/989aec00/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-12-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/989aec00/&quot;);" href="javascript:void(0);" alt="">【刷题】青少年靶场练习</a><div class="blog-slider__text">初步接触应急响应题目，跟随强帝步伐嘻嘻~~</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/989aec00/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/c3315bb0/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-08-16</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/c3315bb0/&quot;);" href="javascript:void(0);" alt="">【笔记】十六进制文件头尾特征</a><div class="blog-slider__text">重要的misc知识点！！！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/c3315bb0/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/f2309c58/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-11-28</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/f2309c58/&quot;);" href="javascript:void(0);" alt="">任务清单</a><div class="blog-slider__text">什么？！我还有那么多活没干呀，快干！！！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/f2309c58/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/eb9d2e41/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2026-01-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/eb9d2e41/&quot;);" href="javascript:void(0);" alt="">阶段小结</a><div class="blog-slider__text">乱七八糟没有逻辑的反思，要是不小心折磨了你的眼睛非常抱歉ㅍ_ㅍ</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/eb9d2e41/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = '/links/,/link/'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
