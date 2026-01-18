@@ -1,5 +1,14 @@
 /* Custom CSS for Background and Covers */
 
+:root {
+  --anzhiyu-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, .20);
+  --anzhiyu-shadow-red: 0 8px 12px -3px rgba(233, 30, 99, .20);
+  --anzhiyu-shadow-green: 0 8px 12px -3px rgba(42, 184, 89, .20);
+  --anzhiyu-shadow-yellow: 0 8px 12px -3px rgba(255, 178, 0, .20);
+  --anzhiyu-shadow-orange: 0 8px 12px -3px rgba(255, 114, 66, .20);
+  --anzhiyu-shadow-violet: 0 8px 12px -3px rgba(128, 0, 128, .20);
+}
+
 /* Fixed Background Image Effect */
 #web_bg {
   /* Ensure the background image covers the whole screen and is fixed */
@@ -197,7 +206,6 @@
     background: #333333 !important; 
 }
 
-
 /* Text color behavior matching reference */
 
 /* 1. Name/Title: Default font color, Hover turns to Theme Orange */
@@ -245,5 +253,37 @@
 .flink-list-item:hover img {
   transform: scale(1.1) !important;
   transition: transform 0.3s ease-in-out;
+}
+
+/* ==========================================================================
+   Black Box (Heimu) / Spoiler Effect
+   Usage: <span class="heimu" title="You know too much">Secret Text</span>
+   ========================================================================== */
+.heimu, .spoiler {
+  background-color: #252525;
+  color: #252525;
+  text-shadow: none;
+  transition: color 0.3s;
+  padding: 0 5px;
+  border-radius: 2px;
+}
+
+.heimu:hover, .spoiler:hover,
+.heimu:active, .spoiler:active {
+  color: #fff;
+}
+
+/* Dark mode adaptation */
+[data-theme='dark'] .heimu, 
+[data-theme='dark'] .spoiler {
+  background-color: #000;
+  color: #000;
+}
+
+[data-theme='dark'] .heimu:hover, 
+[data-theme='dark'] .spoiler:hover,
+[data-theme='dark'] .heimu:active, 
+[data-theme='dark'] .spoiler:active {
+  color: #ccc;
 }
 
