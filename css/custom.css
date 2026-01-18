@@ -167,6 +167,31 @@
 }
 
 /* 
+   Special handling for swiper container:
+   Adjust the container to match the swiper item style exactly (280px height, 12px radius).
+   Instead of removing the background, we let it be the "card" background but ensure it fits perfectly.
+*/
+.recent-post-item.swiper-outer {
+  height: 280px !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  max-width: 100%; /* Ensure it does not exceed parent width */
+  box-sizing: border-box; /* Include border/padding in width */
+  width: 100%; /* Fill available space but respect max-width */
+}
+
+/* Ensure the swiper container inside fills the parent */
+.recent-post-item.swiper-outer #swiper_container {
+  height: 100% !important;
+  margin: 0 !important;
+  border-radius: 12px !important; /* Ensure inner container matches */
+  width: 100% !important; /* Ensure inner container fills width */
+  max-width: 100% !important;
+}
+
+
+/* 
    Special handling for friend link page card (#page):
    The user wants the outer card (the #page container) to match the inner flink cards style.
    But if #page already has the glass style above, we are good.
@@ -286,4 +311,32 @@
 [data-theme='dark'] .spoiler:active {
   color: #ccc;
 }
+
+/* ==========================================================================
+   Global Article Title Hover Color
+   User Request: Change hover color of article titles to Orange (#FF7242) globally
+   ========================================================================== */
+.article-title:hover {
+  color: #D4481C !important;
+}
+
+.post-title:hover {
+  color: #D4481C !important;
+}
+
+/* For recent posts titles in homepage */
+#recent-posts > .recent-post-item > .recent-post-info > .article-title:hover {
+  color: #D4481C !important;
+}
+
+/* For archive/category/tag list titles */
+.article-sort-item-title:hover {
+  color: #D4481C !important;
+}
+
+/* For adjacent post navigation (next/prev post) */
+.relatedPosts > .relatedPosts-list > div .content .title:hover {
+  color: #D4481C !important;
+}
+
 
