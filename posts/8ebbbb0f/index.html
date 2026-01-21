@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【笔记】linux命令 | 落殷回的博客</title><meta name="author" content="luoyinhui"><meta name="copyright" content="luoyinhui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="取证注意事项  优先只读访问：对磁盘镜像或分区使用只读挂载（示例见“磁盘与镜像”） 保持时间一致：设置统一时区和本地化避免输出差异，例如 TZ&#x3D;UTC LC_ALL&#x3D;C 先校验后操作：所有采集文件和镜像务必做哈希校验保存（见“哈希与完整性”）   ¶常用命令：【kali】进入退出root命令 设置root密码： sudo passwd root 进入root： su root 退出root： su">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【笔记】linux命令 | 落殷回的博客</title><meta name="author" content="luoyinhui"><meta name="copyright" content="luoyinhui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="取证注意事项  优先只读访问：对磁盘镜像或分区使用只读挂载（示例见“磁盘与镜像”） 保持时间一致：设置统一时区和本地化避免输出差异，例如 TZ&#x3D;UTC LC_ALL&#x3D;C 先校验后操作：所有采集文件和镜像务必做哈希校验保存（见“哈希与完整性”）    常用命令：【kali】进入退出root命令 设置root密码： sudo passwd root 进入root： su root 退出root： su">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】linux命令">
 <meta property="og:url" content="https://luoyinhui.github.io/posts/8ebbbb0f/index.html">
 <meta property="og:site_name" content="落殷回的博客">
-<meta property="og:description" content="取证注意事项  优先只读访问：对磁盘镜像或分区使用只读挂载（示例见“磁盘与镜像”） 保持时间一致：设置统一时区和本地化避免输出差异，例如 TZ&#x3D;UTC LC_ALL&#x3D;C 先校验后操作：所有采集文件和镜像务必做哈希校验保存（见“哈希与完整性”）   ¶常用命令：【kali】进入退出root命令 设置root密码： sudo passwd root 进入root： su root 退出root： su">
+<meta property="og:description" content="取证注意事项  优先只读访问：对磁盘镜像或分区使用只读挂载（示例见“磁盘与镜像”） 保持时间一致：设置统一时区和本地化避免输出差异，例如 TZ&#x3D;UTC LC_ALL&#x3D;C 先校验后操作：所有采集文件和镜像务必做哈希校验保存（见“哈希与完整性”）    常用命令：【kali】进入退出root命令 设置root密码： sudo passwd root 进入root： su root 退出root： su">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://luoyinhui.github.io/img/shouye.png">
 <meta property="article:published_time" content="2025-10-23T09:08:09.000Z">
@@ -350,15 +350,15 @@
 <li>保持时间一致：设置统一时区和本地化避免输出差异，例如 <code>TZ=UTC LC_ALL=C</code></li>
 <li>先校验后操作：所有采集文件和镜像务必做哈希校验保存（见“哈希与完整性”）</li>
 </ul>
-<hr>
-<h2 id="常用命令：【kali】进入退出root命令"><a class="header-anchor" href="#常用命令：【kali】进入退出root命令">¶</a>常用命令：【kali】进入退出root命令</h2>
+<hr />
+<h2 id="常用命令kali进入退出root命令"><a class="markdownIt-Anchor" href="#常用命令kali进入退出root命令"></a> 常用命令：【kali】进入退出root命令</h2>
 <p>设置root密码：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
 <p>进入root：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
 <p>退出root：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su 用户名</span><br></pre></td></tr></table></figure>
-<h2 id="文件与元数据"><a class="header-anchor" href="#文件与元数据">¶</a>文件与元数据</h2>
+<h2 id="文件与元数据"><a class="markdownIt-Anchor" href="#文件与元数据"></a> 文件与元数据</h2>
 <ul>
 <li>
 <p><code>pwd</code></p>
@@ -392,7 +392,7 @@
 <p><code>find</code></p>
 <ul>
 <li>作用：全盘检索、时间线筛选、权限异常扫描（如 SUID）</li>
-<li>示例：<code>find / -xdev -type f -newermt '2025-10-20'</code><br>
+<li>示例：<code>find / -xdev -type f -newermt '2025-10-20'</code><br />
 <code>find / -xdev -perm -4000 -type f -ls</code></li>
 </ul>
 </li>
@@ -404,8 +404,8 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="内容提取与十六进制"><a class="header-anchor" href="#内容提取与十六进制">¶</a>内容提取与十六进制</h2>
+<hr />
+<h2 id="内容提取与十六进制"><a class="markdownIt-Anchor" href="#内容提取与十六进制"></a> 内容提取与十六进制</h2>
 <ul>
 <li>
 <p><code>strings</code></p>
@@ -418,7 +418,7 @@
 <p><code>xxd</code> / <code>hexdump</code></p>
 <ul>
 <li>作用：十六进制查看、偏移定位、签名验证</li>
-<li>示例：<code>xxd -g 1 -l 512 disk.img</code><br>
+<li>示例：<code>xxd -g 1 -l 512 disk.img</code><br />
 <code>hexdump -C suspicious.dat | head</code></li>
 </ul>
 </li>
@@ -426,7 +426,7 @@
 <p><code>cat</code> / <code>less</code> / <code>head</code> / <code>tail</code></p>
 <ul>
 <li>作用：查看文本与日志，<code>tail -f</code>用于实时监控</li>
-<li>示例：<code>less /var/log/auth.log</code><br>
+<li>示例：<code>less /var/log/auth.log</code><br />
 <code>tail -n 200 /var/log/syslog</code></li>
 </ul>
 </li>
@@ -445,8 +445,8 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="日志与账户活动"><a class="header-anchor" href="#日志与账户活动">¶</a>日志与账户活动</h2>
+<hr />
+<h2 id="日志与账户活动"><a class="markdownIt-Anchor" href="#日志与账户活动"></a> 日志与账户活动</h2>
 <ul>
 <li>
 <p><code>journalctl</code></p>
@@ -459,9 +459,9 @@
 <p>常见日志路径</p>
 <ul>
 <li>作用：定位系统与安全日志（发行版有差异）</li>
-<li>示例：<code>/var/log/auth.log</code><br>
-<code>/var/log/secure</code><br>
-<code>/var/log/syslog</code><br>
+<li>示例：<code>/var/log/auth.log</code><br />
+<code>/var/log/secure</code><br />
+<code>/var/log/syslog</code><br />
 <code>/var/log/messages</code></li>
 </ul>
 </li>
@@ -469,8 +469,8 @@
 <p><code>last</code> / <code>lastlog</code> / <code>who</code> / <code>w</code></p>
 <ul>
 <li>作用：登录历史、当前在线用户、会话活动</li>
-<li>示例：<code>last -F | head</code><br>
-<code>lastlog</code><br>
+<li>示例：<code>last -F | head</code><br />
+<code>lastlog</code><br />
 <code>w</code></li>
 </ul>
 </li>
@@ -482,8 +482,8 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="进程与网络"><a class="header-anchor" href="#进程与网络">¶</a>进程与网络</h2>
+<hr />
+<h2 id="进程与网络"><a class="markdownIt-Anchor" href="#进程与网络"></a> 进程与网络</h2>
 <ul>
 <li>
 <p><code>ps</code> / <code>top</code> / <code>htop</code></p>
@@ -496,7 +496,7 @@
 <p><code>lsof</code></p>
 <ul>
 <li>作用：列出进程打开的文件/端口，确认数据外泄或持久化文件句柄</li>
-<li>示例：<code>lsof -i -P -n</code><br>
+<li>示例：<code>lsof -i -P -n</code><br />
 <code>lsof +L1</code>（查找已删除但仍被占用的文件）</li>
 </ul>
 </li>
@@ -504,7 +504,7 @@
 <p><code>ss</code> / <code>netstat</code></p>
 <ul>
 <li>作用：网络连接与监听端口，识别可疑外联</li>
-<li>示例：<code>ss -tulpen</code><br>
+<li>示例：<code>ss -tulpen</code><br />
 <code>netstat -ano</code>（旧系统）</li>
 </ul>
 </li>
@@ -512,7 +512,7 @@
 <p><code>ip</code> / <code>ifconfig</code></p>
 <ul>
 <li>作用：网卡与地址信息，检查异常路由或配置</li>
-<li>示例：<code>ip addr</code><br>
+<li>示例：<code>ip addr</code><br />
 <code>ip route</code></li>
 </ul>
 </li>
@@ -520,13 +520,13 @@
 <p><code>iptables</code> / <code>nft</code></p>
 <ul>
 <li>作用：防火墙规则检查，识别临时后门转发</li>
-<li>示例：<code>iptables -L -n -v</code><br>
+<li>示例：<code>iptables -L -n -v</code><br />
 <code>nft list ruleset</code></li>
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="磁盘与镜像（保全证据）"><a class="header-anchor" href="#磁盘与镜像（保全证据）">¶</a>磁盘与镜像（保全证据）</h2>
+<hr />
+<h2 id="磁盘与镜像保全证据"><a class="markdownIt-Anchor" href="#磁盘与镜像保全证据"></a> 磁盘与镜像（保全证据）</h2>
 <ul>
 <li>
 <p><code>dd</code></p>
@@ -553,20 +553,20 @@
 <p>分区与块设备</p>
 <ul>
 <li>作用：识别设备与分区布局</li>
-<li>示例：<code>lsblk -f</code><br>
-<code>blkid</code><br>
+<li>示例：<code>lsblk -f</code><br />
+<code>blkid</code><br />
 <code>fdisk -l</code></li>
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="哈希与完整性"><a class="header-anchor" href="#哈希与完整性">¶</a>哈希与完整性</h2>
+<hr />
+<h2 id="哈希与完整性"><a class="markdownIt-Anchor" href="#哈希与完整性"></a> 哈希与完整性</h2>
 <ul>
 <li>
 <p><code>md5sum</code> / <code>sha1sum</code> / <code>sha256sum</code></p>
 <ul>
 <li>作用：生成与核对哈希，保证采集与分析文件的完整性</li>
-<li>示例：<code>sha256sum /evidence/disk.img &gt; /evidence/disk.img.sha256</code><br>
+<li>示例：<code>sha256sum /evidence/disk.img &gt; /evidence/disk.img.sha256</code><br />
 <code>sha256sum -c /evidence/disk.img.sha256</code></li>
 </ul>
 </li>
@@ -578,8 +578,8 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="权限与持久化"><a class="header-anchor" href="#权限与持久化">¶</a>权限与持久化</h2>
+<hr />
+<h2 id="权限与持久化"><a class="markdownIt-Anchor" href="#权限与持久化"></a> 权限与持久化</h2>
 <ul>
 <li>
 <p><code>chmod</code> / <code>chown</code> / <code>chgrp</code></p>
@@ -592,7 +592,7 @@
 <p>SUID/SGID 检查</p>
 <ul>
 <li>作用：查找可能被滥用的提权二进制</li>
-<li>示例：<code>find / -xdev -perm -4000 -type f -ls</code><br>
+<li>示例：<code>find / -xdev -perm -4000 -type f -ls</code><br />
 <code>find / -xdev -perm -2000 -type f -ls</code></li>
 </ul>
 </li>
@@ -600,8 +600,8 @@
 <p>Cron 与 systemd 持久化</p>
 <ul>
 <li>作用：发现后门任务或自启动服务</li>
-<li>示例：<code>ls -al /etc/cron.* /var/spool/cron</code><br>
-<code>ls -al /etc/systemd/system</code><br>
+<li>示例：<code>ls -al /etc/cron.* /var/spool/cron</code><br />
+<code>ls -al /etc/systemd/system</code><br />
 <code>systemctl list-timers</code></li>
 </ul>
 </li>
@@ -609,19 +609,19 @@
 <p>SSH 授权与密钥</p>
 <ul>
 <li>作用：确认未授权公钥或配置变更</li>
-<li>示例：<code>cat /root/.ssh/authorized_keys</code><br>
+<li>示例：<code>cat /root/.ssh/authorized_keys</code><br />
 <code>grep -R 'PermitRootLogin' /etc/ssh/sshd_config</code></li>
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="系统信息与环境"><a class="header-anchor" href="#系统信息与环境">¶</a>系统信息与环境</h2>
+<hr />
+<h2 id="系统信息与环境"><a class="markdownIt-Anchor" href="#系统信息与环境"></a> 系统信息与环境</h2>
 <ul>
 <li>
 <p><code>uname</code> / <code>hostnamectl</code></p>
 <ul>
 <li>作用：系统内核、主机名、平台指纹</li>
-<li>示例：<code>uname -a</code><br>
+<li>示例：<code>uname -a</code><br />
 <code>hostnamectl</code></li>
 </ul>
 </li>
@@ -636,8 +636,8 @@
 <p><code>which</code> / <code>whereis</code> / <code>locate</code></p>
 <ul>
 <li>作用：定位可执行文件与资源路径，发现替换或影子副本</li>
-<li>示例：<code>which ssh</code><br>
-<code>whereis python</code><br>
+<li>示例：<code>which ssh</code><br />
+<code>whereis python</code><br />
 <code>updatedb &amp;&amp; locate suspicious</code></li>
 </ul>
 </li>
@@ -645,13 +645,13 @@
 <p><code>df</code> / <code>du</code></p>
 <ul>
 <li>作用：磁盘使用与异常增长定位</li>
-<li>示例：<code>df -h</code><br>
+<li>示例：<code>df -h</code><br />
 <code>du -h -d1 /var | sort -hr | head</code></li>
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="压缩与归档"><a class="header-anchor" href="#压缩与归档">¶</a>压缩与归档</h2>
+<hr />
+<h2 id="压缩与归档"><a class="markdownIt-Anchor" href="#压缩与归档"></a> 压缩与归档</h2>
 <ul>
 <li>
 <p><code>tar</code> / <code>gzip</code> / <code>bzip2</code> / <code>xz</code></p>
@@ -668,8 +668,8 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="文本处理（现场快速分析）"><a class="header-anchor" href="#文本处理（现场快速分析）">¶</a>文本处理（现场快速分析）</h2>
+<hr />
+<h2 id="文本处理现场快速分析"><a class="markdownIt-Anchor" href="#文本处理现场快速分析"></a> 文本处理（现场快速分析）</h2>
 <ul>
 <li>
 <p><code>awk</code></p>
@@ -686,8 +686,8 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="证据传输与记录"><a class="header-anchor" href="#证据传输与记录">¶</a>证据传输与记录</h2>
+<hr />
+<h2 id="证据传输与记录"><a class="markdownIt-Anchor" href="#证据传输与记录"></a> 证据传输与记录</h2>
 <ul>
 <li>
 <p><code>scp</code> / <code>rsync</code></p>
@@ -704,8 +704,8 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="快速清单（可直接复制执行的实用片段）"><a class="header-anchor" href="#快速清单（可直接复制执行的实用片段）">¶</a>快速清单（可直接复制执行的实用片段）</h2>
+<hr />
+<h2 id="快速清单可直接复制执行的实用片段"><a class="markdownIt-Anchor" href="#快速清单可直接复制执行的实用片段"></a> 快速清单（可直接复制执行的实用片段）</h2>
 <ul>
 <li>只读查看系统关键信息</li>
 </ul>
@@ -730,12 +730,12 @@
 <li>镜像保全与校验</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dd if=/dev/sda of=/evidence/disk.img bs=4M conv=noerror,sync status=progress</span><br><span class="line">sha256sum /evidence/disk.img &gt; /evidence/disk.img.sha256</span><br><span class="line">mount -o ro,loop,noexec,nodev,nosuid /evidence/disk.img /mnt/evidence</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Linux-忘记密码解决方法"><a class="header-anchor" href="#Linux-忘记密码解决方法">¶</a>Linux 忘记密码解决方法</h2>
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/linux%E5%91%BD%E4%BB%A4_image.png" alt="alt text"></p>
-<h2 id="Linux-文件与目录管理"><a class="header-anchor" href="#Linux-文件与目录管理">¶</a>Linux 文件与目录管理</h2>
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/linux%E5%91%BD%E4%BB%A4_image.png" alt="alt text"></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io">luoyinhui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io/posts/8ebbbb0f/">https://luoyinhui.github.io/posts/8ebbbb0f/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://luoyinhui.github.io" target="_blank">落殷回的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/shouye.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/weixin.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/weixin.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhifubao.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zhifubao.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/87548743/" title="【笔记】解决GitHub开启2FA双重身份验证"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">【笔记】解决GitHub开启2FA双重身份验证</div></div><div class="info-2"><div class="info-item-1"> 参考 最后解决方案  </div></div></div></a><a class="pagination-related" href="/posts/25898feb/" title="【比赛】SPC新生赛即美亚杯选拔赛"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【比赛】SPC新生赛即美亚杯选拔赛</div></div><div class="info-2"><div class="info-item-1">¶致谢  感谢cty学姐和dh学长的帮助！！感谢xc和sq学长的wp！！ 拿到了蛮好的成绩嘿嘿嘿开心，但也要认真复盘ヽ( ω ゞ )   题目来源：某省刑侦个⼈  ¶手机取证 ¶6.【填空题】分析嫌疑人的手机，应用“备忘录记事”中记录了多少年龄小于30岁的人员信息？（答案格式：123） 正确答案： 4 分值：1分  火眼 耗时任务 其他应用 这题没用 火眼-文件-直接找包名sql文件  注意有两页哦   X-ways 方法同火眼  注意文件打开按钮按下面那个      编码调整   ¶8.【单选题】分析嫌疑人的手机，嫌疑人使用文档扫描软件扫描的文件内容是什么？（ ） A. 提成分红记录 B. 诈骗业绩指标 C. 伪装身份话术 D. 人员名单 【正确答案】C. 伪装身份话术 分值：1分  火眼-文件-直接找包名文件夹内-temp图片 X-way同  ¶9.【填空题】分析嫌疑人的手机，嫌疑人使用的名称为“薄荷记账”的记账软件共记录了多少笔交易？（答案格式：123） 正确答案： 13 分值：1分  X-ways  递归操作：一般在操作栏左侧选中你需要的文件右键，就把树状结构拍成一个平面...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="author-info-name">luoyinhui</div><div class="author-info-description">记录踩坑与瞎折腾，由Hexo+Github搭建</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">73</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luoyinhui"><i class="fab fa-github"></i><span>Follow Me</span></a><a class="card-info-btn" href="/subscribe"><i class="fas fa-rss"></i><span>订阅RSS</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%9A%E3%80%90kali%E3%80%91%E8%BF%9B%E5%85%A5%E9%80%80%E5%87%BAroot%E5%91%BD%E4%BB%A4"><span class="toc-text">常用命令：【kali】进入退出root命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8E%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text">文件与元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E6%8F%90%E5%8F%96%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6"><span class="toc-text">内容提取与十六进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E4%B8%8E%E8%B4%A6%E6%88%B7%E6%B4%BB%E5%8A%A8"><span class="toc-text">日志与账户活动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BD%91%E7%BB%9C"><span class="toc-text">进程与网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E4%B8%8E%E9%95%9C%E5%83%8F%EF%BC%88%E4%BF%9D%E5%85%A8%E8%AF%81%E6%8D%AE%EF%BC%89"><span class="toc-text">磁盘与镜像（保全证据）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E4%B8%8E%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="toc-text">哈希与完整性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E4%B8%8E%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-text">权限与持久化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E4%B8%8E%E7%8E%AF%E5%A2%83"><span class="toc-text">系统信息与环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%BD%92%E6%A1%A3"><span class="toc-text">压缩与归档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%EF%BC%88%E7%8E%B0%E5%9C%BA%E5%BF%AB%E9%80%9F%E5%88%86%E6%9E%90%EF%BC%89"><span class="toc-text">文本处理（现场快速分析）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%81%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%8E%E8%AE%B0%E5%BD%95"><span class="toc-text">证据传输与记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%B8%85%E5%8D%95%EF%BC%88%E5%8F%AF%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AE%9E%E7%94%A8%E7%89%87%E6%AE%B5%EF%BC%89"><span class="toc-text">快速清单（可直接复制执行的实用片段）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">Linux 忘记密码解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86"><span class="toc-text">Linux 文件与目录管理</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/f630573e/" title="【笔记】pwn"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】pwn"/></a><div class="content"><a class="title" href="/posts/f630573e/" title="【笔记】pwn">【笔记】pwn</a><time datetime="2026-01-13T12:30:54.000Z" title="发表于 2026-01-13 20:30:54">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/90f90e31/" title="【比赛】2026-furryCTF"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E3%80%90%E6%AF%94%E8%B5%9B%E3%80%912026-furryCTF_image.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【比赛】2026-furryCTF"/></a><div class="content"><a class="title" href="/posts/90f90e31/" title="【比赛】2026-furryCTF">【比赛】2026-furryCTF</a><time datetime="2026-01-13T03:26:32.000Z" title="发表于 2026-01-13 11:26:32">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1e92d18/" title="【软件】cyberchef"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【软件】cyberchef"/></a><div class="content"><a class="title" href="/posts/c1e92d18/" title="【软件】cyberchef">【软件】cyberchef</a><time datetime="2026-01-12T23:52:57.000Z" title="发表于 2026-01-13 07:52:57">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/da83febb/" title="【笔记】安卓逆向-Java"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】安卓逆向-Java"/></a><div class="content"><a class="title" href="/posts/da83febb/" title="【笔记】安卓逆向-Java">【笔记】安卓逆向-Java</a><time datetime="2026-01-08T23:29:45.000Z" title="发表于 2026-01-09 07:29:45">2026-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d24e3614/" title="【笔记】流量学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】流量学习"/></a><div class="content"><a class="title" href="/posts/d24e3614/" title="【笔记】流量学习">【笔记】流量学习</a><time datetime="2026-01-07T04:33:24.000Z" title="发表于 2026-01-07 12:33:24">2026-01-07</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By luoyinhui</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.0"></script><script src="/js/main.js?v=5.5.0"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js?v=1.1.0"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
+<hr />
+<h2 id="linux-忘记密码解决方法"><a class="markdownIt-Anchor" href="#linux-忘记密码解决方法"></a> Linux 忘记密码解决方法</h2>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/linux%E5%91%BD%E4%BB%A4_image.png" alt="alt text" /></p>
+<h2 id="linux-文件与目录管理"><a class="markdownIt-Anchor" href="#linux-文件与目录管理"></a> Linux 文件与目录管理</h2>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/linux%E5%91%BD%E4%BB%A4_image.png" alt="alt text" /></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io">luoyinhui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io/posts/8ebbbb0f/">https://luoyinhui.github.io/posts/8ebbbb0f/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://luoyinhui.github.io" target="_blank">落殷回的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/shouye.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/weixin.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/weixin.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhifubao.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zhifubao.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/87548743/" title="【笔记】解决GitHub开启2FA双重身份验证"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">【笔记】解决GitHub开启2FA双重身份验证</div></div><div class="info-2"><div class="info-item-1"> 参考 最后解决方案  </div></div></div></a><a class="pagination-related" href="/posts/25898feb/" title="【比赛】SPC新生赛即美亚杯选拔赛"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【比赛】SPC新生赛即美亚杯选拔赛</div></div><div class="info-2"><div class="info-item-1"> 致谢  感谢cty学姐和dh学长的帮助！！感谢xc和sq学长的wp！！ 拿到了蛮好的成绩嘿嘿嘿开心，但也要认真复盘ヽ( ω ゞ )   题目来源：某省刑侦个⼈   手机取证  6.【填空题】分析嫌疑人的手机，应用“备忘录记事”中记录了多少年龄小于30岁的人员信息？（答案格式：123） 正确答案： 4 分值：1分  火眼 耗时任务 其他应用 这题没用 火眼-文件-直接找包名sql文件  注意有两页哦   X-ways 方法同火眼  注意文件打开按钮按下面那个      编码调整    8.【单选题】分析嫌疑人的手机，嫌疑人使用文档扫描软件扫描的文件内容是什么？（ ） A. 提成分红记录 B. 诈骗业绩指标 C. 伪装身份话术 D. 人员名单 【正确答案】C. 伪装身份话术 分值：1分  火眼-文件-直接找包名文件夹内-temp图片 X-way同   9.【填空题】分析嫌疑人的手机，嫌疑人使用的名称为“薄荷记账”的记账软件共记录了多少笔交易？（答案格式：123） 正确答案： 13 分值：1分  X-ways  递归操作：一般在操作栏左侧选中你需要的文件右键，就把树状结构拍成一个平面...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="author-info-name">luoyinhui</div><div class="author-info-description">记录踩坑与瞎折腾，由Hexo+Github搭建</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">73</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luoyinhui"><i class="fab fa-github"></i><span>Follow Me</span></a><a class="card-info-btn" href="/subscribe"><i class="fas fa-rss"></i><span>订阅RSS</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4kali%E8%BF%9B%E5%85%A5%E9%80%80%E5%87%BAroot%E5%91%BD%E4%BB%A4"><span class="toc-text"> 常用命令：【kali】进入退出root命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8E%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text"> 文件与元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E6%8F%90%E5%8F%96%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6"><span class="toc-text"> 内容提取与十六进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E4%B8%8E%E8%B4%A6%E6%88%B7%E6%B4%BB%E5%8A%A8"><span class="toc-text"> 日志与账户活动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BD%91%E7%BB%9C"><span class="toc-text"> 进程与网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BF%9D%E5%85%A8%E8%AF%81%E6%8D%AE"><span class="toc-text"> 磁盘与镜像（保全证据）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E4%B8%8E%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="toc-text"> 哈希与完整性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E4%B8%8E%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-text"> 权限与持久化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E4%B8%8E%E7%8E%AF%E5%A2%83"><span class="toc-text"> 系统信息与环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%BD%92%E6%A1%A3"><span class="toc-text"> 压缩与归档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E7%8E%B0%E5%9C%BA%E5%BF%AB%E9%80%9F%E5%88%86%E6%9E%90"><span class="toc-text"> 文本处理（现场快速分析）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%81%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%8E%E8%AE%B0%E5%BD%95"><span class="toc-text"> 证据传输与记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%B8%85%E5%8D%95%E5%8F%AF%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AE%9E%E7%94%A8%E7%89%87%E6%AE%B5"><span class="toc-text"> 快速清单（可直接复制执行的实用片段）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux-%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text"> Linux 忘记密码解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86"><span class="toc-text"> Linux 文件与目录管理</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/f630573e/" title="【笔记】pwn"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】pwn"/></a><div class="content"><a class="title" href="/posts/f630573e/" title="【笔记】pwn">【笔记】pwn</a><time datetime="2026-01-13T12:30:54.000Z" title="发表于 2026-01-13 20:30:54">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/90f90e31/" title="【比赛】2026-furryCTF"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E3%80%90%E6%AF%94%E8%B5%9B%E3%80%912026-furryCTF_image.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【比赛】2026-furryCTF"/></a><div class="content"><a class="title" href="/posts/90f90e31/" title="【比赛】2026-furryCTF">【比赛】2026-furryCTF</a><time datetime="2026-01-13T03:26:32.000Z" title="发表于 2026-01-13 11:26:32">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1e92d18/" title="【软件】cyberchef"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【软件】cyberchef"/></a><div class="content"><a class="title" href="/posts/c1e92d18/" title="【软件】cyberchef">【软件】cyberchef</a><time datetime="2026-01-12T23:52:57.000Z" title="发表于 2026-01-13 07:52:57">2026-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/da83febb/" title="【笔记】安卓逆向-Java"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】安卓逆向-Java"/></a><div class="content"><a class="title" href="/posts/da83febb/" title="【笔记】安卓逆向-Java">【笔记】安卓逆向-Java</a><time datetime="2026-01-08T23:29:45.000Z" title="发表于 2026-01-09 07:29:45">2026-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d24e3614/" title="【笔记】流量学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】流量学习"/></a><div class="content"><a class="title" href="/posts/d24e3614/" title="【笔记】流量学习">【笔记】流量学习</a><time datetime="2026-01-07T04:33:24.000Z" title="发表于 2026-01-07 12:33:24">2026-01-07</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By luoyinhui</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.0"></script><script src="/js/main.js?v=5.5.0"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js?v=1.1.0"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
   const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
   const option = null
 
