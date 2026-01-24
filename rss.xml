@@ -9,8 +9,31 @@
     <atom:link href="https://luoyinhui.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录踩坑与瞎折腾，由Hexo+Github搭建</description>
-    <pubDate>Thu, 22 Jan 2026 15:14:06 GMT</pubDate>
+    <pubDate>Sat, 24 Jan 2026 10:19:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>【比赛】2026-LilacCTF</title>
+      <link>https://luoyinhui.github.io/posts/7909bf57/</link>
+      <guid>https://luoyinhui.github.io/posts/7909bf57/</guid>
+      <pubDate>Sat, 24 Jan 2026 08:09:29 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;misc&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#misc&quot;&gt;&lt;/a&gt; misc&lt;/h1&gt;
+&lt;h2 id=&quot;welcme&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#welcme&quot;&gt;&lt;/a&gt; welc</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="misc"><a class="markdownIt-Anchor" href="#misc"></a> misc</h1><h2 id="welcme"><a class="markdownIt-Anchor" href="#welcme"></a> welcme</h2><p><img src="/img/%E3%80%90%E6%AF%94%E8%B5%9B%E3%80%912026-LilacCTF_image.png" alt="alt text" /></p><h2 id=""><a class="markdownIt-Anchor" href="#"></a> </h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@A1gorithm:~# nc 1.95.71.133 9999</span><br><span class="line">Welcome to GitHub Issue Server</span><br><span class="line">HashCash PoW Challenge: Find a string X <span class="built_in">where</span> SHA256(<span class="string">&#x27;ZqNF4bhwWc&#x27;</span> + X) has 6 leading zeros <span class="keyword">in</span> hex</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      
+      
+      <comments>https://luoyinhui.github.io/posts/7909bf57/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>【比赛】2024-fic</title>
