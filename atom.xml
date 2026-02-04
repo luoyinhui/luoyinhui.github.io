@@ -6,7 +6,7 @@
   <link href="https://luoyinhui.github.io/atom.xml" rel="self"/>
   
   <link href="https://luoyinhui.github.io/"/>
-  <updated>2026-02-04T09:28:22.501Z</updated>
+  <updated>2026-02-04T15:27:27.157Z</updated>
   <id>https://luoyinhui.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://luoyinhui.github.io/posts/515cbad1/"/>
     <id>https://luoyinhui.github.io/posts/515cbad1/</id>
     <published>2026-02-04T09:04:21.000Z</published>
-    <updated>2026-02-04T09:28:22.501Z</updated>
+    <updated>2026-02-04T15:27:27.157Z</updated>
     
     <content type="html"><![CDATA[<h1 id="基础环境搭建"><a class="markdownIt-Anchor" href="#基础环境搭建"></a> 基础环境搭建</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br><span class="line"><span class="built_in">uname</span> -a</span><br><span class="line"><span class="built_in">uname</span> -r</span><br><span class="line">docker --version</span><br><span class="line">lsb_release -a</span><br><span class="line">systemctl list-units --<span class="built_in">type</span>=service</span><br></pre></td></tr></table></figure><p><img src="/img/A1CTF%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA_image-1.png" alt="alt text" /></p>]]></content>
     
@@ -1623,9 +1623,9 @@ administrator/Solarsec521&lt;</summary>
     
     <category term="ctf" scheme="https://luoyinhui.github.io/tags/ctf/"/>
     
-    <category term="转载" scheme="https://luoyinhui.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
     <category term="笔记" scheme="https://luoyinhui.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="转载" scheme="https://luoyinhui.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
