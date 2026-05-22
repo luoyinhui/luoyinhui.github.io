@@ -129,7 +129,7 @@ div#swiper_container {
 }
 
 .blog-slider__title:hover {
-  color: #FF7242; /* Orange hover */
+  color: var(--article-title-hover-swiper, var(--article-title-hover-default));
 }
 
 /* Description Text */

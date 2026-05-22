@@ -7,6 +7,7 @@
   --anzhiyu-shadow-yellow: 0 8px 12px -3px rgba(255, 178, 0, .20);
   --anzhiyu-shadow-orange: 0 8px 12px -3px rgba(255, 114, 66, .20);
   --anzhiyu-shadow-violet: 0 8px 12px -3px rgba(128, 0, 128, .20);
+  --article-title-hover-default: #FF7242;
 }
 
 /* Fixed Background Image Effect */
@@ -87,8 +88,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF7242; /* Orange */
+  background: #49B1F5; /* Follow Me default blue */
   border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF7242; /* Follow Me hover orange */
+}
+
+::-webkit-scrollbar-button {
+  background: #49B1F5;
 }
 
 ::-webkit-scrollbar-track {
@@ -99,7 +108,7 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #FF7242 transparent;
+  scrollbar-color: #49B1F5 transparent;
 }
 
 /* 3. Frosted Glass Effect (Glassmorphism) for Cards */
@@ -313,30 +322,76 @@
 }
 
 /* ==========================================================================
-   Global Article Title Hover Color
-   User Request: Change hover color of article titles to Orange (#FF7242) globally
+   Gray Box (Huimu) Effect
+   Usage: <huimu>Secret Text</huimu>
+   ========================================================================== */
+huimu {
+  display: inline;
+  color: transparent;
+  background-color: #a1a1a1;
+  text-shadow: none;
+  transition: color 0.28s ease, background-color 0.28s ease;
+  padding: 0 0.35em;
+  border-radius: 2px;
+}
+
+huimu:hover,
+huimu:focus,
+huimu:active {
+  color: var(--font-color);
+  background-color: transparent;
+  outline: none;
+}
+
+[data-theme='dark'] huimu {
+  background-color: #6f6f6f;
+  color: transparent;
+}
+
+[data-theme='dark'] huimu:hover,
+[data-theme='dark'] huimu:focus,
+[data-theme='dark'] huimu:active {
+  color: var(--font-color);
+  background-color: transparent;
+}
+
+/* ==========================================================================
+   Article Title Hover Colors
+   Default: use the homepage swiper hover color.
+   Custom modules can override via their own CSS variable, otherwise they
+   fall back to --article-title-hover-default.
    ========================================================================== */
 .article-title:hover {
-  color: #D4481C !important;
+  color: var(--article-title-hover-homepage, var(--article-title-hover-default)) !important;
 }
 
 .post-title:hover {
-  color: #D4481C !important;
+  color: var(--article-title-hover-post, var(--article-title-hover-default)) !important;
 }
 
 /* For recent posts titles in homepage */
 #recent-posts > .recent-post-item > .recent-post-info > .article-title:hover {
-  color: #D4481C !important;
+  color: var(--article-title-hover-homepage, var(--article-title-hover-default)) !important;
 }
 
 /* For archive/category/tag list titles */
 .article-sort-item-title:hover {
-  color: #D4481C !important;
+  color: var(--article-title-hover-archive, var(--article-title-hover-default)) !important;
 }
 
-/* For adjacent post navigation (next/prev post) */
-.relatedPosts > .relatedPosts-list > div .content .title:hover {
-  color: #D4481C !important;
+/* For recent posts / series titles in sidebar */
+.card-widget.card-recent-post .aside-list .aside-list-item .content > .title:hover,
+.card-widget.card-post-series .aside-list .aside-list-item .content > .title:hover {
+  color: var(--article-title-hover-aside, var(--article-title-hover-default)) !important;
 }
 
+/* For local / algolia search result titles */
+.search-dialog .search-result-list a:hover,
+.search-dialog .ais-Hits-item a:hover {
+  color: var(--article-title-hover-search, var(--article-title-hover-default)) !important;
+}
 
+/* For related posts and previous/next post titles */
+.pagination-related:hover .info-item-2 {
+  color: var(--article-title-hover-related, var(--article-title-hover-default)) !important;
+}
