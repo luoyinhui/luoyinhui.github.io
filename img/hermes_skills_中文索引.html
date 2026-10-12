@@ -1,0 +1,1772 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>落殷回的博客 | 落殷回的博客</title><meta name="author" content="luoyinhui"><meta name="copyright" content="luoyinhui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本地 Hermes Skills 中文索引 本文档基于本机 Hermes 安装目录扫描生成，按实际存在的 SKILL.md 文件列出可用 skill。  扫描目录：C:\Users\luoyinhui\AppData\Local\hermes\skills 生成日期：2026-09-02 03:24:17 活跃 skill 数：171 说明：每个条目包含中文概括、从 SKILL.md 提取的用途">
+<meta property="og:type" content="website">
+<meta property="og:title" content="落殷回的博客">
+<meta property="og:url" content="https://luoyinhui.github.io/img/hermes_skills_%E4%B8%AD%E6%96%87%E7%B4%A2%E5%BC%95.html">
+<meta property="og:site_name" content="落殷回的博客">
+<meta property="og:description" content="本地 Hermes Skills 中文索引 本文档基于本机 Hermes 安装目录扫描生成，按实际存在的 SKILL.md 文件列出可用 skill。  扫描目录：C:\Users\luoyinhui\AppData\Local\hermes\skills 生成日期：2026-09-02 03:24:17 活跃 skill 数：171 说明：每个条目包含中文概括、从 SKILL.md 提取的用途">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luoyinhui.github.io/img/touxiang.png">
+<meta property="article:published_time" content="2026-09-01T19:30:23.783Z">
+<meta property="article:modified_time" content="2026-09-01T19:30:23.783Z">
+<meta property="article:author" content="luoyinhui">
+<meta property="article:tag" content="学生，记录，Python，C，ctf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://luoyinhui.github.io/img/touxiang.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/zhandian.png"><link rel="canonical" href="https://luoyinhui.github.io/img/hermes_skills_%E4%B8%AD%E6%96%87%E7%B4%A2%E5%BC%95.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.0"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=7.0.1"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"DLCXYNBEA7","apiKey":"55cb2783d393395612712be2263ebaf1","indexName":"index","hitsPerPage":10,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":1000,"languages":{"author":"作者: luoyinhui","link":"链接: ","source":"来源: 落殷回的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.12.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '落殷回的博客',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style>
+  .aplayer .aplayer-notice{display:none!important}
+</style>
+<link rel="stylesheet" href="/css/custom.css"><style>:root { --glass-opacity-light: 0.5; --glass-opacity-dark: 0.2; --post-glass-opacity-light: 0.8; --post-glass-opacity-dark: 0.2; }</style><!-- hexo injector head_end start --><style>/* CSS for Hexo Butterfly Updates Heatmap */
+.updates-heatmap {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: var(--card-bg, #fff);
+  border-radius: 8px;
+  box-shadow: var(--card-box-shadow, 0 3px 8px 6px rgba(7, 17, 27, 0.05));
+  width: 100%;
+  overflow: hidden;
+  color: var(--font-color, #333);
+}
+
+[data-theme='dark'] .updates-heatmap {
+  background: var(--card-bg, #1d1d1f);
+  color: var(--font-color, #F7F7FA);
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.heatmap-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  outline: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.heatmap-title:focus {
+  border-bottom: 1px dashed #999;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--font-color, #888);
+  gap: 4px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-label {
+  color: var(--font-color, #888);
+  margin: 0 4px;
+}
+
+.heatmap-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heatmap-months {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.heatmap-month-label {
+  font-size: 12px;
+  color: var(--font-color, #888);
+  grid-column: span 1;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.heatmap-day {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background-color: #ebedf0;
+}
+
+[data-theme='dark'] .heatmap-day {
+  background-color: #2d333b;
+}
+
+.legend-color.level-0 { background-color: #ebedf0; }
+[data-theme='dark'] .legend-color.level-0 { background-color: #2d333b; }
+
+/* Green Theme */
+.theme-green .level-1 { background-color: #9be9a8; }
+.theme-green .level-2 { background-color: #40c463; }
+.theme-green .level-3 { background-color: #30a14e; }
+.theme-green .level-4 { background-color: #216e39; }
+
+/* Blue Theme */
+.theme-blue .level-1 { background-color: #a8d1ff; }
+.theme-blue .level-2 { background-color: #63a7ff; }
+.theme-blue .level-3 { background-color: #3079e0; }
+.theme-blue .level-4 { background-color: #1a56ad; }
+
+/* Pink Theme */
+.theme-pink .level-1 { background-color: #ffc9c9; }
+.theme-pink .level-2 { background-color: #ff8585; }
+.theme-pink .level-3 { background-color: #e04545; }
+.theme-pink .level-4 { background-color: #ad1a1a; }
+
+/* Red Theme */
+.theme-red .level-1 { background-color: #ffdce0; }
+.theme-red .level-2 { background-color: #ff9b9b; }
+.theme-red .level-3 { background-color: #ff4b4b; }
+.theme-red .level-4 { background-color: #c91a1a; }
+
+/* Orange Theme */
+.theme-orange .level-1 { background-color: #ffe8cc; }
+.theme-orange .level-2 { background-color: #ffb366; }
+.theme-orange .level-3 { background-color: #ff8c1a; }
+.theme-orange .level-4 { background-color: #cc6600; }
+
+/* Purple Theme */
+.theme-purple .level-1 { background-color: #e6ccff; }
+.theme-purple .level-2 { background-color: #b366ff; }
+.theme-purple .level-3 { background-color: #8c1aff; }
+.theme-purple .level-4 { background-color: #6600cc; }
+
+.updates-show-more-btn {
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 0;
+  background: var(--card-bg, #fff);
+  color: #49b1f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px 0;
+  width: 100%;
+  transition: all 0.3s;
+  user-select: none;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  font-size: 1.1em;
+}
+
+[data-theme='dark'] .updates-show-more-btn {
+  background: var(--card-bg, #1d1d1f);
+  color: #49b1f5;
+  border: 1px solid #3d3d3d;
+}
+
+.updates-show-more-btn:hover {
+  background: #f0f0f0;
+  color: #FF7242;
+}
+
+[data-theme='dark'] .updates-show-more-btn:hover {
+  background: #3d3d3d;
+}
+
+.year-label {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: var(--font-color, #999);
+}
+</style><link rel="stylesheet" href="/css/swiper/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/swiper/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="落殷回的博客" type="application/atom+xml">
+<link rel="alternate" href="/rss.xml" title="落殷回的博客" type="application/rss+xml">
+</head><body><div id="web_bg" style="background-image: url(/img/shouye.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">73</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/updates/"><i class="fa-fw fas fa-history"></i><span> 更新</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-friends"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/img/shouye.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">落殷回的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">落殷回的博客</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/updates/"><i class="fa-fw fas fa-history"></i><span> 更新</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-friends"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title"></h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><h1 id="本地-hermes-skills-中文索引"><a class="markdownIt-Anchor" href="#本地-hermes-skills-中文索引"></a> 本地 Hermes Skills 中文索引</h1>
+<p>本文档基于本机 Hermes 安装目录扫描生成，按实际存在的 <code>SKILL.md</code> 文件列出可用 skill。</p>
+<ul>
+<li>扫描目录：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills</code></li>
+<li>生成日期：<code>2026-09-02 03:24:17</code></li>
+<li>活跃 skill 数：<code>171</code></li>
+<li>说明：每个条目包含中文概括、从 <code>SKILL.md</code> 提取的用途摘录，以及 <code>SKILL.md</code> 绝对路径。部分摘录保留英文原文以避免误译。</li>
+<li>仅含 <a target="_blank" rel="noopener" href="http://DESCRIPTION.md">DESCRIPTION.md</a> 或资源、未检测到活跃 <a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 的顶层目录：<code>diagramming</code>、<code>domain</code>、<code>gifs</code>、<code>inference-sh</code></li>
+</ul>
+<h2 id="顶层分类统计"><a class="markdownIt-Anchor" href="#顶层分类统计"></a> 顶层分类统计</h2>
+<ul>
+<li><code>apple</code>：<code>5</code></li>
+<li><code>autonomous-ai-agents</code>：<code>8</code></li>
+<li><code>autonomous-coding-agent</code>：<code>1</code></li>
+<li><code>creative</code>：<code>20</code></li>
+<li><code>ctf-e01-disk-forensics</code>：<code>1</code></li>
+<li><code>ctf-etcd-static-extraction</code>：<code>1</code></li>
+<li><code>ctf-mysql-ibd-recovery</code>：<code>1</code></li>
+<li><code>ctf-openvpn-forensics</code>：<code>1</code></li>
+<li><code>ctf-skills</code>：<code>36</code></li>
+<li><code>ctf-tor-hidden-service-forensics</code>：<code>1</code></li>
+<li><code>ctf-web-app-forensics</code>：<code>1</code></li>
+<li><code>data-science</code>：<code>1</code></li>
+<li><code>devops</code>：<code>5</code></li>
+<li><code>dogfood</code>：<code>1</code></li>
+<li><code>email</code>：<code>2</code></li>
+<li><code>gaming</code>：<code>2</code></li>
+<li><code>ges-case-analysis</code>：<code>1</code></li>
+<li><code>ges-case-management</code>：<code>1</code></li>
+<li><code>ges-cli-troubleshooting</code>：<code>1</code></li>
+<li><code>github</code>：<code>7</code></li>
+<li><code>hermes-answer-verification</code>：<code>1</code></li>
+<li><code>hermes-desktop-plugins</code>：<code>1</code></li>
+<li><code>hermes-forensic-skill-distiller</code>：<code>1</code></li>
+<li><code>hermes-long-session-state-management</code>：<code>1</code></li>
+<li><code>hermes-writeup-generator</code>：<code>1</code></li>
+<li><code>image-file-recovery</code>：<code>1</code></li>
+<li><code>jpeg-height-restore</code>：<code>1</code></li>
+<li><code>mcp</code>：<code>1</code></li>
+<li><code>media</code>：<code>5</code></li>
+<li><code>mlops</code>：<code>11</code></li>
+<li><code>note-taking</code>：<code>1</code></li>
+<li><code>productivity</code>：<code>19</code></li>
+<li><code>red-teaming</code>：<code>1</code></li>
+<li><code>research</code>：<code>8</code></li>
+<li><code>smart-home</code>：<code>1</code></li>
+<li><code>social-media</code>：<code>1</code></li>
+<li><code>software-development</code>：<code>16</code></li>
+<li><code>starmem-memory-forensics</code>：<code>1</code></li>
+<li><code>windows-static-forensics</code>：<code>1</code></li>
+<li><code>yuanbao</code>：<code>1</code></li>
+</ul>
+<h2 id="详细索引"><a class="markdownIt-Anchor" href="#详细索引"></a> 详细索引</h2>
+<h2 id="apple5"><a class="markdownIt-Anchor" href="#apple5"></a> apple（5）</h2>
+<p>Apple 生态工具类技能。</p>
+<h3 id="appleapple-notes"><a class="markdownIt-Anchor" href="#appleapple-notes"></a> apple\apple-notes</h3>
+<ul>
+<li>中文介绍：用于 Apple 生态中的 Apple Notes 相关任务。</li>
+<li>内容摘录：Manage Apple Notes via memo CLI: create, search, edit.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\apple\apple-notes\SKILL.md</code></li>
+</ul>
+<h3 id="appleapple-reminders"><a class="markdownIt-Anchor" href="#appleapple-reminders"></a> apple\apple-reminders</h3>
+<ul>
+<li>中文介绍：用于 Apple 生态中的 Apple Reminders 相关任务。</li>
+<li>内容摘录：Apple Reminders via remindctl: add, list, complete.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\apple\apple-reminders\SKILL.md</code></li>
+</ul>
+<h3 id="applefindmy"><a class="markdownIt-Anchor" href="#applefindmy"></a> apple\findmy</h3>
+<ul>
+<li>中文介绍：用于 Apple 生态中的 Findmy 相关任务。</li>
+<li>内容摘录：Track Apple devices/AirTags via FindMy.app on macOS.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\apple\findmy\SKILL.md</code></li>
+</ul>
+<h3 id="appleimessage"><a class="markdownIt-Anchor" href="#appleimessage"></a> apple\imessage</h3>
+<ul>
+<li>中文介绍：用于 Apple 生态中的 Imessage 相关任务。</li>
+<li>内容摘录：Send and receive iMessages/SMS via the imsg CLI on macOS.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\apple\imessage\SKILL.md</code></li>
+</ul>
+<h3 id="applemacos-computer-use"><a class="markdownIt-Anchor" href="#applemacos-computer-use"></a> apple\macos-computer-use</h3>
+<ul>
+<li>中文介绍：用于 Apple 生态中的 Macos Computer Use 相关任务。</li>
+<li>内容摘录：Drive the macOS desktop in the background — screenshots, mouse, keyboard, scroll, drag — without stealing the user’s cursor, keyboard focus, or Space. Works with any tool-capable model. Load this skill whenever the computer_use tool is available.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\apple\macos-computer-use\SKILL.md</code></li>
+</ul>
+<h2 id="autonomous-ai-agents8"><a class="markdownIt-Anchor" href="#autonomous-ai-agents8"></a> autonomous-ai-agents（8）</h2>
+<p>自治式 AI agent 与多代理协作技能。</p>
+<h3 id="autonomous-ai-agentsclaude-code"><a class="markdownIt-Anchor" href="#autonomous-ai-agentsclaude-code"></a> autonomous-ai-agents\claude-code</h3>
+<ul>
+<li>中文介绍：用于自治式 AI agent 场景中的 Claude Code 相关任务。</li>
+<li>内容摘录：Delegate coding to Claude Code CLI (features, PRs).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-ai-agents\claude-code\SKILL.md</code></li>
+</ul>
+<h3 id="autonomous-ai-agentscodex"><a class="markdownIt-Anchor" href="#autonomous-ai-agentscodex"></a> autonomous-ai-agents\codex</h3>
+<ul>
+<li>中文介绍：用于自治式 AI agent 场景中的 Codex 相关任务。</li>
+<li>内容摘录：Delegate coding to OpenAI Codex CLI (features, PRs).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-ai-agents\codex\SKILL.md</code></li>
+</ul>
+<h3 id="autonomous-ai-agentscomputer-use"><a class="markdownIt-Anchor" href="#autonomous-ai-agentscomputer-use"></a> autonomous-ai-agents\computer-use</h3>
+<ul>
+<li>中文介绍：用于自治式 AI agent 场景中的 Computer Use 相关任务。</li>
+<li>内容摘录：Drive the desktop in the background without stealing focus.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-ai-agents\computer-use\SKILL.md</code></li>
+</ul>
+<h3 id="autonomous-ai-agentshermes-agent"><a class="markdownIt-Anchor" href="#autonomous-ai-agentshermes-agent"></a> autonomous-ai-agents\hermes-agent</h3>
+<ul>
+<li>中文介绍：用于自治式 AI agent 场景中的 Hermes Agent 相关任务。</li>
+<li>内容摘录：Configure, extend, or contribute to Hermes Agent.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-ai-agents\hermes-agent\SKILL.md</code></li>
+</ul>
+<h3 id="autonomous-ai-agentshermes-config-pitfalls"><a class="markdownIt-Anchor" href="#autonomous-ai-agentshermes-config-pitfalls"></a> autonomous-ai-agents\hermes-config-pitfalls</h3>
+<ul>
+<li>中文介绍：用于自治式 AI agent 场景中的 Hermes Config Pitfalls 相关任务。</li>
+<li>内容摘录：Common pitfalls when editing ~/.hermes/config.yaml programmatically.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-ai-agents\hermes-config-pitfalls\SKILL.md</code></li>
+</ul>
+<h3 id="autonomous-ai-agentskanban-codex-lane"><a class="markdownIt-Anchor" href="#autonomous-ai-agentskanban-codex-lane"></a> autonomous-ai-agents\kanban-codex-lane</h3>
+<ul>
+<li>中文介绍：用于自治式 AI agent 场景中的 Kanban Codex Lane 相关任务。</li>
+<li>内容摘录：Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, reconciliation, testing, and handoff.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-ai-agents\kanban-codex-lane\SKILL.md</code></li>
+</ul>
+<h3 id="autonomous-ai-agentsmerge-reconciler"><a class="markdownIt-Anchor" href="#autonomous-ai-agentsmerge-reconciler"></a> autonomous-ai-agents\merge-reconciler</h3>
+<ul>
+<li>中文介绍：用于自治式 AI agent 场景中的 Merge Reconciler 相关任务。</li>
+<li>内容摘录：Neutral third-party resolution of agent merge conflicts.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-ai-agents\merge-reconciler\SKILL.md</code></li>
+</ul>
+<h3 id="autonomous-ai-agentsopencode"><a class="markdownIt-Anchor" href="#autonomous-ai-agentsopencode"></a> autonomous-ai-agents\opencode</h3>
+<ul>
+<li>中文介绍：用于自治式 AI agent 场景中的 Opencode 相关任务。</li>
+<li>内容摘录：Delegate coding to OpenCode CLI (features, PR review).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-ai-agents\opencode\SKILL.md</code></li>
+</ul>
+<h2 id="autonomous-coding-agent1"><a class="markdownIt-Anchor" href="#autonomous-coding-agent1"></a> autonomous-coding-agent（1）</h2>
+<p>自治编码代理总控技能。</p>
+<h3 id="autonomous-coding-agent"><a class="markdownIt-Anchor" href="#autonomous-coding-agent"></a> autonomous-coding-agent</h3>
+<ul>
+<li>中文介绍：用于处理 Autonomous Coding Agent 相关任务。</li>
+<li>内容摘录：Delegate coding to autonomous AI CLI agents — Claude Code, OpenAI Codex, OpenCode. Covers one-shot tasks, interactive sessions, PR review, parallel work, and cost management.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\autonomous-coding-agent\SKILL.md</code></li>
+</ul>
+<h2 id="creative20"><a class="markdownIt-Anchor" href="#creative20"></a> creative（20）</h2>
+<p>创意生成、视觉设计与艺术表达技能。</p>
+<h3 id="creativearchitecture-diagram"><a class="markdownIt-Anchor" href="#creativearchitecture-diagram"></a> creative\architecture-diagram</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Architecture Diagram 相关任务。</li>
+<li>内容摘录：Dark-themed SVG architecture/cloud/infra diagrams as HTML.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\architecture-diagram\SKILL.md</code></li>
+</ul>
+<h3 id="creativeascii-art"><a class="markdownIt-Anchor" href="#creativeascii-art"></a> creative\ascii-art</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Ascii Art 相关任务。</li>
+<li>内容摘录：ASCII art: pyfiglet, cowsay, boxes, image-to-ascii.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\ascii-art\SKILL.md</code></li>
+</ul>
+<h3 id="creativeascii-video"><a class="markdownIt-Anchor" href="#creativeascii-video"></a> creative\ascii-video</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Ascii Video 相关任务。</li>
+<li>内容摘录：ASCII video: convert video/audio to colored ASCII MP4/GIF.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\ascii-video\SKILL.md</code></li>
+</ul>
+<h3 id="creativebaoyu-article-illustrator"><a class="markdownIt-Anchor" href="#creativebaoyu-article-illustrator"></a> creative\baoyu-article-illustrator</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Baoyu Article Illustrator 相关任务。</li>
+<li>内容摘录：Article illustrations: type × style × palette consistency.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\baoyu-article-illustrator\SKILL.md</code></li>
+</ul>
+<h3 id="creativebaoyu-comic"><a class="markdownIt-Anchor" href="#creativebaoyu-comic"></a> creative\baoyu-comic</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Baoyu Comic 相关任务。</li>
+<li>内容摘录：Knowledge comics (知识漫画): educational, biography, tutorial.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\baoyu-comic\SKILL.md</code></li>
+</ul>
+<h3 id="creativebaoyu-infographic"><a class="markdownIt-Anchor" href="#creativebaoyu-infographic"></a> creative\baoyu-infographic</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Baoyu Infographic 相关任务。</li>
+<li>内容摘录：Infographics: 21 layouts x 21 styles (信息图, 可视化).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\baoyu-infographic\SKILL.md</code></li>
+</ul>
+<h3 id="creativeclaude-design"><a class="markdownIt-Anchor" href="#creativeclaude-design"></a> creative\claude-design</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Claude Design 相关任务。</li>
+<li>内容摘录：Design one-off HTML artifacts (landing, deck, prototype).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\claude-design\SKILL.md</code></li>
+</ul>
+<h3 id="creativecomfyui"><a class="markdownIt-Anchor" href="#creativecomfyui"></a> creative\comfyui</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Comfyui 相关任务。</li>
+<li>内容摘录：Generate images, video, and audio via diffusion workflows.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\comfyui\SKILL.md</code></li>
+</ul>
+<h3 id="creativecreative-ideation"><a class="markdownIt-Anchor" href="#creativecreative-ideation"></a> creative\creative-ideation</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Creative Ideation 相关任务。</li>
+<li>内容摘录：Generate project ideas via creative constraints.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\creative-ideation\SKILL.md</code></li>
+</ul>
+<h3 id="creativedesign-md"><a class="markdownIt-Anchor" href="#creativedesign-md"></a> creative\design-md</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Design Md 相关任务。</li>
+<li>内容摘录：Author/validate/export Google’s <a target="_blank" rel="noopener" href="http://DESIGN.md">DESIGN.md</a> token spec files.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\design-md\SKILL.md</code></li>
+</ul>
+<h3 id="creativeexcalidraw"><a class="markdownIt-Anchor" href="#creativeexcalidraw"></a> creative\excalidraw</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Excalidraw 相关任务。</li>
+<li>内容摘录：Hand-drawn Excalidraw JSON diagrams (arch, flow, seq).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\excalidraw\SKILL.md</code></li>
+</ul>
+<h3 id="creativehumanizer"><a class="markdownIt-Anchor" href="#creativehumanizer"></a> creative\humanizer</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Humanizer 相关任务。</li>
+<li>内容摘录：Humanize text: strip AI-isms and add real voice.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\humanizer\SKILL.md</code></li>
+</ul>
+<h3 id="creativemanim-video"><a class="markdownIt-Anchor" href="#creativemanim-video"></a> creative\manim-video</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Manim Video 相关任务。</li>
+<li>内容摘录：Manim CE animations: 3Blue1Brown math/algo videos.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\manim-video\SKILL.md</code></li>
+</ul>
+<h3 id="creativep5js"><a class="markdownIt-Anchor" href="#creativep5js"></a> creative\p5js</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 P5js 相关任务。</li>
+<li>内容摘录：p5.js sketches: gen art, shaders, interactive, 3D.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\p5js\SKILL.md</code></li>
+</ul>
+<h3 id="creativepixel-art"><a class="markdownIt-Anchor" href="#creativepixel-art"></a> creative\pixel-art</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Pixel Art 相关任务。</li>
+<li>内容摘录：Pixel art w/ era palettes (NES, Game Boy, PICO-8).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\pixel-art\SKILL.md</code></li>
+</ul>
+<h3 id="creativepopular-web-designs"><a class="markdownIt-Anchor" href="#creativepopular-web-designs"></a> creative\popular-web-designs</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Popular Web Designs 相关任务。</li>
+<li>内容摘录：54 real design systems (Stripe, Linear, Vercel) as HTML/CSS.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\popular-web-designs\SKILL.md</code></li>
+</ul>
+<h3 id="creativepretext"><a class="markdownIt-Anchor" href="#creativepretext"></a> creative\pretext</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Pretext 相关任务。</li>
+<li>内容摘录：Build creative browser demos with DOM-free text layout.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\pretext\SKILL.md</code></li>
+</ul>
+<h3 id="creativesketch"><a class="markdownIt-Anchor" href="#creativesketch"></a> creative\sketch</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Sketch 相关任务。</li>
+<li>内容摘录：Throwaway HTML mockups: 2-3 design variants to compare.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\sketch\SKILL.md</code></li>
+</ul>
+<h3 id="creativesongwriting-and-ai-music"><a class="markdownIt-Anchor" href="#creativesongwriting-and-ai-music"></a> creative\songwriting-and-ai-music</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Songwriting And Ai Music 相关任务。</li>
+<li>内容摘录：Songwriting craft and Suno AI music prompts.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\songwriting-and-ai-music\SKILL.md</code></li>
+</ul>
+<h3 id="creativetouchdesigner-mcp"><a class="markdownIt-Anchor" href="#creativetouchdesigner-mcp"></a> creative\touchdesigner-mcp</h3>
+<ul>
+<li>中文介绍：用于创意生产中的 Touchdesigner Mcp 相关任务。</li>
+<li>内容摘录：Control TouchDesigner via twozero MCP.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\creative\touchdesigner-mcp\SKILL.md</code></li>
+</ul>
+<h2 id="ctf-e01-disk-forensics1"><a class="markdownIt-Anchor" href="#ctf-e01-disk-forensics1"></a> ctf-e01-disk-forensics（1）</h2>
+<p>面向 E01 磁盘镜像题目的专项取证技能。</p>
+<h3 id="ctf-e01-disk-forensics"><a class="markdownIt-Anchor" href="#ctf-e01-disk-forensics"></a> ctf-e01-disk-forensics</h3>
+<ul>
+<li>中文介绍：用于处理 Ctf E01 Disk Forensics 相关任务。</li>
+<li>内容摘录：Use when CTF involves E01 disk images — ewfinfo, GoldenEyes.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-e01-disk-forensics\SKILL.md</code></li>
+</ul>
+<h2 id="ctf-etcd-static-extraction1"><a class="markdownIt-Anchor" href="#ctf-etcd-static-extraction1"></a> ctf-etcd-static-extraction（1）</h2>
+<p>面向 etcd 静态提取题目的专项技能。</p>
+<h3 id="ctf-etcd-static-extraction"><a class="markdownIt-Anchor" href="#ctf-etcd-static-extraction"></a> ctf-etcd-static-extraction</h3>
+<ul>
+<li>中文介绍：用于处理 Ctf Etcd Static Extraction 相关任务。</li>
+<li>内容摘录：Extract K8s resources from etcd snapshot when API is down.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-etcd-static-extraction\SKILL.md</code></li>
+</ul>
+<h2 id="ctf-mysql-ibd-recovery1"><a class="markdownIt-Anchor" href="#ctf-mysql-ibd-recovery1"></a> ctf-mysql-ibd-recovery（1）</h2>
+<p>面向 MySQL IBD 恢复题目的专项技能。</p>
+<h3 id="ctf-mysql-ibd-recovery"><a class="markdownIt-Anchor" href="#ctf-mysql-ibd-recovery"></a> ctf-mysql-ibd-recovery</h3>
+<ul>
+<li>中文介绍：用于处理 Ctf Mysql Ibd Recovery 相关任务。</li>
+<li>内容摘录：Recover MySQL InnoDB data from .ibd files without a server.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-mysql-ibd-recovery\SKILL.md</code></li>
+</ul>
+<h2 id="ctf-openvpn-forensics1"><a class="markdownIt-Anchor" href="#ctf-openvpn-forensics1"></a> ctf-openvpn-forensics（1）</h2>
+<p>面向 OpenVPN 痕迹分析的专项取证技能。</p>
+<h3 id="ctf-openvpn-forensics"><a class="markdownIt-Anchor" href="#ctf-openvpn-forensics"></a> ctf-openvpn-forensics</h3>
+<ul>
+<li>中文介绍：用于处理 Ctf Openvpn Forensics 相关任务。</li>
+<li>内容摘录：Extract OpenVPN config, PKI, and admin credentials.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-openvpn-forensics\SKILL.md</code></li>
+</ul>
+<h2 id="ctf-skills36"><a class="markdownIt-Anchor" href="#ctf-skills36"></a> ctf-skills（36）</h2>
+<p>通用 CTF 技能集合，覆盖取证、逆向、密码、流量、Web 等方向。</p>
+<h3 id="ctf-skillscaj-file-forensics"><a class="markdownIt-Anchor" href="#ctf-skillscaj-file-forensics"></a> ctf-skills\caj-file-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Caj File Forensics 相关任务。</li>
+<li>内容摘录：CAJ格式文件（中国知网CNKI）取证分析：元数据提取、文件名GBK解码、发表年份/标题/作者提取。当CTF题目涉及.caj文件、需要提取文献发表年份或从知网下载文件中获取信息时使用。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\caj-file-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-ai-ml"><a class="markdownIt-Anchor" href="#ctf-skillsctf-ai-ml"></a> ctf-skills\ctf-ai-ml</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Ai Ml 相关任务。</li>
+<li>内容摘录：Provides AI and machine learning techniques for CTF challenges. Use when attacking ML models, crafting adversarial examples, performing model extraction, prompt injection, membership inference, training data poisoning, fine-tuning manipulation, neural network analysis, LoRA adapter exploitation, LLM jailbreaking, or solving AI-related puzzles.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-ai-ml\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-android-mobile-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-android-mobile-forensics"></a> ctf-skills\ctf-android-mobile-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Android Mobile Forensics 相关任务。</li>
+<li>内容摘录：Android手机取证：adb backup tar档案分析、应用数据库提取、聊天记录解码、隐写分析、浏览器历史追踪、APK应用分类识别、shared_prefs多源取证、Firebase时间戳分析、APK密码哈希逆向与多进程爆破、嵌入式Linux环境日志分析、<strong>APK壳代码静态分析（DEX解密+smali反编译）</strong>、<strong>APK PIN码破解（smali静态分析+日期范围暴力破解）</strong>、<strong>SQLCipher聊天数据库消息分析（撤回vs删除区分、群聊统计）</strong>、<strong>微信FTS索引库取证（MMKV密码提取、好友验证时间）</strong>、<strong>模拟器data_data/目录结构分析（隐藏应用保险箱）</strong>、<strong>vault_data.jth2 AES-GCM+PBKDF2解密（保险箱JSON数据提取）</strong>、<strong>Huawei HiSuite/HarmonyOS手机备份取证（.info.json元数据分析、AES-256-GCM模块解密、两层加密结构、NAPI SO模块分析、自定义XOR加密破解）</strong>、<strong>高德地图PoiDetailUserBehavior.xml景点搜索取证</strong>、<strong>微信WAL帧数据提取联系人wxid（主库全零占位符场景）</strong>、<strong>HarmonyOS NAPI SO模块xorEncrypt算法逆向（PNG已知明文攻击+ROT+N密码变换）</strong>、<strong>PNG IEND chunk后隐写数据提取</strong>、<strong>HarmonyOS part.0.tar自定义格式解析</strong>、<strong>应用sync_data表统计取证（WAL vs 主库差异）</strong>、<strong>E01镜像挂载取证（ewfmount多分区挂载）</strong>、<strong>SMS数据库user_de分区定位（Android 10+数据隔离）</strong>、<strong>packages.xml时间戳取证（hex ms→CST转换）</strong>、<strong>开机时间dropbox SYSTEM_BOOT文件分析</strong>、<strong>应用shared_prefs/MMKV数据提取（登录ID/服务器IP/设备信息）</strong>、<strong>照片EXIF GPS反地理编码</strong>、<strong>截图vision分析（账单/通知/验证码）</strong>、<strong>身份证PNG文件头修复</strong>、<strong>contacts2.db归属地data6字段统计</strong>、<strong>SQLite只读挂载→复制到/tmp查询</strong>、<strong>AI聊天应用搜索会话取证（DeepSeek Chat chat_session_list表+shared_prefs软件名确认）</strong>、<strong>&quot;与你&quot;APP p2p_messages JSON聊天记录（msg_body字段JSON解析+user_profiles身份确认）</strong>、<strong>Soul社交APP用户签名提取（soul_app.db user表signature+isMainUser）</strong>、<strong>网易邮箱AccountConfig多源身份确认（wmsvr.user+caldav principalURL+sender address）</strong>、<strong>网易邮箱收件箱注册邮件取证（GES解析CSV搜索&quot;欢迎注册&quot;关键字定位APP注册日期）</strong>、<strong>百度地图POI搜索历史poi_his.sdb取证（files/目录BLOB→JSON+Fav_Content精确匹配）</strong>、<strong>Android日历events表刷单投入统计（Events表关键词搜索+金额正则提取+聊天记录交叉验证）</strong>、<strong>米家智能家居device_tca_config.db设备型号提取（device_config_v3_access model+device_action_configs_v3动作关联）</strong>、<strong>JPEG文件strings隐写URL提取（strings grep HTTP URL）</strong>、<strong>QQ音乐标题vs用户昵称区分（audio_url字段上下文判断）</strong>、<strong>全数据grep排除法（grep -rli候选答案验证）</strong>、<strong>ADB backup双storage路径陷阱（data/storage/emulated/0/与/storage/emulated/0/照片集差异）</strong>、<strong>Download目录压缩包证据提取（python3 zipfile解压查看文件列表）</strong>。覆盖设备信息恢复、联系人软删除恢复、Realm/SQLite/OpenIM/protobuf数据库提取、Discord kv-storage解析、OkHttp缓存分析、Flutter SQLCipher解密、steghide隐写分析、浏览器下载记录追踪、<strong>APK壳代码分析（密钥派生算法还原、payload.dat解密）</strong>、<strong>APK PIN码破解（smali硬编码参数提取、PBKDF2日期范围暴力破解）</strong>、<strong>SQLCipher聊天数据库（state_bits撤回标记、extra_val删除标记）</strong>、<strong>微信FTS索引库（FTS5MetaContact联系人、FTS5MetaMessage消息、好友验证通过系统消息）</strong>、<strong>模拟器隐藏应用保险箱（data_data/结构、vault AES-GCM解密）</strong>、<strong>HarmonyOS备份元数据分析（deviceModel/productModel提取、备份工具版本→OS版本推断）</strong>、<strong>HarmonyOS NAPI SO模块取证（ELF重定位表分析、ARM64函数地址定位、xorEncrypt反编译、IDA MCP napi_define_properties count参数验证、NAPI方法数 vs 动态链接器导入数区分）</strong>、<strong>高德地图shared_prefs景点搜索记录</strong>、<strong>微信WAL帧联系人数据提取</strong>、<strong>PNG已知明文攻击推导XOR key</strong>、<strong>PNG IEND后隐写flag提取</strong>、<strong>E01镜像多分区挂载取证</strong>、<strong>SMS数据库user_de分区陷阱</strong>、<strong>packages.xml hex ms时间戳转换</strong>、<strong>开机时间SYSTEM_BOOT文件分析</strong>、<strong>MMKV二进制grep搜索</strong>、<strong>EXIF GPS反地理编码</strong>、<strong>contacts2.db归属地统计</strong>等完整取证链路。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-android-mobile-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-automotive-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-automotive-forensics"></a> ctf-skills\ctf-automotive-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Automotive Forensics 相关任务。</li>
+<li>内容摘录：汽车电子取证：CAN总线注入攻击检测、EDR碰撞事件解析、OBD冻结帧分析、ECU固件逆向、T-BOX配置解密、车载PCAP流量分析、PKE RF日志、蓝牙/浏览器数据库取证、OTA日志分析、后门ELF识别。适用于车载系统 E01 镜像、E/E 架构取证、ADAS/动力总成/车身域控制器调查。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-automotive-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-bigdata-csv-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-bigdata-csv-forensics"></a> ctf-skills\ctf-bigdata-csv-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Bigdata Csv Forensics 相关任务。</li>
+<li>内容摘录：CTF 大数据 CSV/表格取证：百万行级别 CSV 文件的字段统计、分组聚合、时间窗口分析、反事实模拟。覆盖 Counter 频次统计、defaultdict 分组计算、set 去重计数、datetime 时间窗口过滤、变异系数 CV 计算、信用评分反事实模拟等通用模式。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-bigdata-csv-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-crypto"><a class="markdownIt-Anchor" href="#ctf-skillsctf-crypto"></a> ctf-skills\ctf-crypto</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Crypto 相关任务。</li>
+<li>内容摘录：Provides cryptography attack techniques for CTF challenges. Use when attacking encryption, hashing, signatures, ZKP, PRNG, or mathematical crypto problems involving RSA, AES, ECC, lattices, LWE, CVP, number theory, Coppersmith, Pollard, Wiener, padding oracle, GCM, key derivation, or stream/block cipher weaknesses.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-crypto\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-file-entropy-analysis"><a class="markdownIt-Anchor" href="#ctf-skillsctf-file-entropy-analysis"></a> ctf-skills\ctf-file-entropy-analysis</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf File Entropy Analysis 相关任务。</li>
+<li>内容摘录：Use when CTF needs entropy analysis to find disguised data.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-file-entropy-analysis\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-filesystem-parameter-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-filesystem-parameter-forensics"></a> ctf-skills\ctf-filesystem-parameter-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Filesystem Parameter Forensics 相关任务。</li>
+<li>内容摘录：Use when CTF asks for FAT32/NTFS spc, MFT cluster, or BPB.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-filesystem-parameter-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-filesystem-snapshot-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-filesystem-snapshot-forensics"></a> ctf-skills\ctf-filesystem-snapshot-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Filesystem Snapshot Forensics 相关任务。</li>
+<li>内容摘录：Use when CTF asks for filesystem snapshot path (btrfs/LVM).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-filesystem-snapshot-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-forensics"></a> ctf-skills\ctf-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Forensics 相关任务。</li>
+<li>内容摘录：用于 CTF 数字取证与信号分析的通用分诊和基础流程。当检材是磁盘镜像、内存转储、Windows 事件日志、注册表、浏览器数据、删除文件、PDF、图片/音频隐写、未知容器或混合取证包，并且尚未明确属于更具体的 ctf-* 专项时使用。对纯 PCAP、Linux 服务器、Android、汽车、恶意样本或二进制逆向任务，优先路由到对应专项 skill；本 skill 负责证据保护、文件识别、基础提取、交叉验证和参考资料选择。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-go-binary-pak-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-go-binary-pak-forensics"></a> ctf-skills\ctf-go-binary-pak-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Go Binary Pak Forensics 相关任务。</li>
+<li>内容摘录：Go 二进制分析与自定义 PAK 归档取证 — 适用于 Go 编译的二进制文件分析、PAK 自定义打包格式（RC4+gzip、派生密钥）解析、以及解密后的结构化数据分析（余额校验、层级树、身份证性别匹配）。当题目涉及 packer.exe 类工具、PACK magic 头、或 Go 编译的二进制包含自定义归档格式时触发。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-go-binary-pak-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-image-ocr-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-image-ocr-forensics"></a> ctf-skills\ctf-image-ocr-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Image Ocr Forensics 相关任务。</li>
+<li>内容摘录：Use when CTF needs OCR to extract text from image evidence.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-image-ocr-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-k8s-cluster-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-k8s-cluster-forensics"></a> ctf-skills\ctf-k8s-cluster-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf K8s Cluster Forensics 相关任务。</li>
+<li>内容摘录：CTF K8s 集群取证：从集群结构分析到业务数据提取的完整流程。适用于运行在 K8s 上的 Web 应用（如支付系统、管理平台）服务器取证场景。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-k8s-cluster-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-linux-server-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-linux-server-forensics"></a> ctf-skills\ctf-linux-server-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Linux Server Forensics 相关任务。</li>
+<li>内容摘录：Linux 服务器取证通用流程：SSH auth.log 分析、用户登录统计、进程与网络连接取证、日志时间线重建、<strong>PAM模块后门二进制分析（objdump反汇编定位硬编码密码、repz cmpsb后门认证逻辑、.rodata字符串提取）</strong>、<strong>LKM内核模块后门分析（IDA MCP反编译init_module、XOR-1 URL解码、命令注册表、ftrace hook隐藏机制、C2端口区分(TCP 4948 vs UDP 8080干扰项 vs 本地backdoor 1337)、auth.log tcpdump交叉验证、明文TCP通信协议确认、MD5目标格式IP:port、远控木马本体vs下载者区分、持久化程序原始名称(带点号隐藏文件.system_upgrade非service文件名)、用户态ELF syscall分析）</strong>、<strong>用户态C2远控程序分析（IDA MCP反编译静态链接ELF、XOR单字节解码嵌入密钥、SHA1派生AES-128通信密钥+HMAC-SHA1完整性验证、AES加密/解密函数识别(S-Box/InvMixColumns/标准初始哈希值)、通信主循环命令分发、答案格式flag{decoded_key}）</strong>、<strong>Shell权限验证（从pcap流量中提取shell prompt确认root/普通用户权限，双源交叉验证）</strong>、<strong>宝塔面板panel.db vs default.db双数据库陷阱（panel.db为生产加密配置、<a target="_blank" rel="noopener" href="http://PluginLoader.py">PluginLoader.py</a> AES解密MySQL密码）</strong>、<strong>PHP应用密码取证（legacy_decrypt base64→strrev→XOR + bcrypt双重验证）</strong>、<strong>BtWAF site.json防护规则分析</strong>、<strong>PostgreSQL业务数据取证（psql路径定位、外键字段确认、表名下划线后缀）</strong>、<strong>多文件Excel批量取证（openpyxl多sheet遍历统计、批量求和）</strong>。适用于 CTF 服务器取证场景中的系统日志分析、用户行为重建和登录审计。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-linux-server-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-malware"><a class="markdownIt-Anchor" href="#ctf-skillsctf-malware"></a> ctf-skills\ctf-malware</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Malware 相关任务。</li>
+<li>内容摘录：Provides malware analysis and network traffic techniques for CTF challenges. Use when analyzing obfuscated scripts, malicious packages, custom crypto protocols, C2 traffic, PE/.NET binaries, RC4/AES encrypted communications, YARA rules, shellcode analysis, memory forensics for malware (Volatility malfind, process injection detection), anti-analysis techniques (VM/sandbox detection, timing evasion, API hashing, process injection, environment checks), or extracting malware configurations and indicators of compromise.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-malware\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-misc"><a class="markdownIt-Anchor" href="#ctf-skillsctf-misc"></a> ctf-skills\ctf-misc</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Misc 相关任务。</li>
+<li>内容摘录：Provides miscellaneous CTF challenge techniques for problems that do not cleanly fit the main categories. Use for encoding puzzles, pyjails, bash jails, RF/SDR, DNS oddities, unicode tricks, esoteric languages, QR or audio puzzles, constraint solving, game theory, unusual sandbox escapes, and hybrid logic puzzles. Prefer a more specific skill first when the challenge is mainly web, pwn, reverse, forensics, malware, OSINT, or crypto. Treat this as the fallback skill for genuine cross-category or edge-case challenges, not the default starting point.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-misc\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-osint"><a class="markdownIt-Anchor" href="#ctf-skillsctf-osint"></a> ctf-skills\ctf-osint</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Osint 相关任务。</li>
+<li>内容摘录：Provides open source intelligence techniques for CTF challenges. Use when gathering information from public sources, social media, geolocation, DNS records, username enumeration, reverse image search, Google dorking, Wayback Machine, Tor relays, FEC filings, or identifying unknown data like hashes and coordinates.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-osint\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-pcap-traffic-analysis"><a class="markdownIt-Anchor" href="#ctf-skillsctf-pcap-traffic-analysis"></a> ctf-skills\ctf-pcap-traffic-analysis</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Pcap Traffic Analysis 相关任务。</li>
+<li>内容摘录：CTF 流量分析取证：从 pcap 检材中提取 HTTP 凭据、DNS hex 域名、FTP/Telnet 明文、ICMP 隐蔽通道、HTTP 非标准头泄露、TCP SYN scan。使用 tshark + tcpdump + Python 原始 pcap 解析三层交叉验证。扩展覆盖：strings全量搜索pcap二进制（HTTP层fallback）、Telnet暴力破解+网络设备命令执行、FTP被动模式文件提取与AES-ZIP解密、HTTP multipart上传ZIP提取、PhpSpy webshell zip命令密码提取+TCP stream重组大ZIP文件+解压读目标文件内容、Behinder/冰蝎JSP webshell AES加密流量解密、LoverySpark MCP深度分析、weevely3 PHP webshell XOR加密流量解密（从backdoor源码提取<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>e</mi><mi>y</mi><mi mathvariant="normal">/</mi></mrow><annotation encoding="application/x-tex">key/</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">/</span></span></span></span>p→XOR+zlib+base64三层解码）、多通道反连区分、旧连接RST陷阱、PAM后门反连识别、SHA512 hash从流量提取+字典爆破、pcapng section header解析(build版本/OS)、流量包捕获时长计算、phpliteadmin登录点发现与暴力破解、LFI访问phpinfo页面验证、反向shell中提取网站框架(CMS)与数据库凭据(wp-config.php)。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-pcap-traffic-analysis\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-pve-cluster-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-pve-cluster-forensics"></a> ctf-skills\ctf-pve-cluster-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Pve Cluster Forensics 相关任务。</li>
+<li>内容摘录：Proxmox VE 集群取证 CTF 解题流程 — PVE 版本、集群配置、Ceph 存储、VM 管理、网络修复、Laravel 应用取证、MySQL 业务数据分析、自解压脚本逆向、多源交叉验证方法论</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-pve-cluster-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-pwn"><a class="markdownIt-Anchor" href="#ctf-skillsctf-pwn"></a> ctf-skills\ctf-pwn</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Pwn 相关任务。</li>
+<li>内容摘录：Provides binary exploitation techniques for CTF challenges. Use when you already have a vulnerable native target or service and need to turn memory corruption or low-level primitives into code execution or privilege escalation, such as buffer overflows, format strings, heap bugs, ROP, ret2libc, shellcode, kernel exploitation, seccomp bypass, sandbox escape, or Windows/Linux exploit chains. Do not use it when the main blocker is understanding what the binary does; use reverse engineering first. Do not use it for pure web bugs, disk or packet forensics, or standalone crypto/math challenges.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-pwn\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-reverse"><a class="markdownIt-Anchor" href="#ctf-skillsctf-reverse"></a> ctf-skills\ctf-reverse</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Reverse 相关任务。</li>
+<li>内容摘录：Provides reverse engineering techniques for CTF challenges. Use when the main job is to understand how a compiled, obfuscated, packed, or virtualized target works before exploiting or solving it, including binaries, APKs, WASM, firmware, custom VMs, bytecode, game clients, malware-like loaders, MMC console (.msc) embedded PE extraction, and anti-debug or anti-analysis logic. Do not use it when the vulnerability is already understood and the remaining task is exploitation; use pwn instead. Do not use it for pure web workflows, log or disk forensics, or standalone crypto problems unless reversing the implementation is the real blocker.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-reverse\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-server-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-server-forensics"></a> ctf-skills\ctf-server-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Server Forensics 相关任务。</li>
+<li>内容摘录：用于 CTF 服务器基础设施与业务数据取证的总路由。适用于证据镜像挂载、主机与服务拓扑、Docker 容器（含已停止容器取证、环境变量提取配置、容器日志提取默认凭据、AI推理容器llama.cpp API验证）、BT Panel、MySQL/HBase/Redis、数据库备份和离线恢复、ZFS快照回滚后数据恢复、内存镜像中提取SQL查询结果与API响应、自解压脚本逆向、CDN/VPN/Jupyter 等服务，以及订单、用户、金额等业务数据提取与复核。若主要问题是 Web 日志、RCE、WebShell、反弹 Shell、后台登录或 Spring Boot/ThinkPHP/Laravel/GitLab 等应用框架行为，改用 ctf-web-app-forensics；Linux 持久化、PAM/LKM 和系统入侵专项改用 ctf-linux-server-forensics。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-server-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-web"><a class="markdownIt-Anchor" href="#ctf-skillsctf-web"></a> ctf-skills\ctf-web</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Web 相关任务。</li>
+<li>内容摘录：Provides web exploitation techniques for CTF challenges. Use when the target is primarily an HTTP application, API, browser client, template engine, identity flow, or smart-contract frontend/backend surface, including XSS, SQLi, SSTI, SSRF, XXE, JWT, auth bypass, file upload, request smuggling, OAuth/OIDC, SAML, prototype pollution, and similar web bugs. Do not use it for native binary memory corruption, reverse engineering of standalone executables, disk or memory forensics, or pure cryptanalysis unless the web flaw is still the main path to the flag.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-web\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-windows-forensics"><a class="markdownIt-Anchor" href="#ctf-skillsctf-windows-forensics"></a> ctf-skills\ctf-windows-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Windows Forensics 相关任务。</li>
+<li>内容摘录：Windows桌面取证：E01镜像、注册表解析、浏览器History/downloads、Chrome密码DPAPI、BitLocker恢复密钥、VeraCrypt容器、1Password保险库、PNG IHDR修复、PHP混淆解密、RAR爆破、图片拼图、Volatility3内存取证、crash dump、微信密钥提取、SAM哈希、Electron leveldb、OLE/VBA宏三层解密、网易邮箱大师MailMaster取证、.NET PE版本提取、.NET木马反沙箱/反调试计数(dnspy MCP)、BloodHound域渗透分析、社工密码破解</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-windows-forensics\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-writeup"><a class="markdownIt-Anchor" href="#ctf-skillsctf-writeup"></a> ctf-skills\ctf-writeup</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Writeup 相关任务。</li>
+<li>内容摘录：Generates a single standardized submission-style CTF writeup for competition handoff and organizer review. Use after solving a CTF challenge to document the solution steps, tools used, and lessons learned in a structured format.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-writeup\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-zero-width-steganography"><a class="markdownIt-Anchor" href="#ctf-skillsctf-zero-width-steganography"></a> ctf-skills\ctf-zero-width-steganography</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Zero Width Steganography 相关任务。</li>
+<li>内容摘录：Use when text file hides data in zero-width chars. Extracts secrets.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-zero-width-steganography\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsctf-zip-flag-manipulation"><a class="markdownIt-Anchor" href="#ctf-skillsctf-zip-flag-manipulation"></a> ctf-skills\ctf-zip-flag-manipulation</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Ctf Zip Flag Manipulation 相关任务。</li>
+<li>内容摘录：Use when CTF involves ZIP files with tampered flags.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\ctf-zip-flag-manipulation\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillshermes-forensic-argon2-crack"><a class="markdownIt-Anchor" href="#ctf-skillshermes-forensic-argon2-crack"></a> ctf-skills\hermes-forensic-argon2-crack</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Hermes Forensic Argon2 Crack 相关任务。</li>
+<li>内容摘录：爆破 argon2id/argon2i 哈希密码 — hashcat、Python argon2-cffi、hwloc 路径。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\hermes-forensic-argon2-crack\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillskeepass-wechat-wxid-extraction"><a class="markdownIt-Anchor" href="#ctf-skillskeepass-wechat-wxid-extraction"></a> ctf-skills\keepass-wechat-wxid-extraction</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Keepass Wechat Wxid Extraction 相关任务。</li>
+<li>内容摘录：KeePass .kdbx解密与微信wxid提取。当检材中有Database.kdbx或需提取微信登录账号时使用。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\keepass-wechat-wxid-extraction\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsmemory-disk-cross-reference"><a class="markdownIt-Anchor" href="#ctf-skillsmemory-disk-cross-reference"></a> ctf-skills\memory-disk-cross-reference</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Memory Disk Cross Reference 相关任务。</li>
+<li>内容摘录：Memory empty? Check disk app configs for injected commands.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\memory-disk-cross-reference\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsmysql-docker-recovery"><a class="markdownIt-Anchor" href="#ctf-skillsmysql-docker-recovery"></a> ctf-skills\mysql-docker-recovery</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Mysql Docker Recovery 相关任务。</li>
+<li>内容摘录：Recover MySQL instances running in Docker containers: password reset via init-file, shared volume data migration, and large SQL imports.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\mysql-docker-recovery\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsrc4-sbox-verification"><a class="markdownIt-Anchor" href="#ctf-skillsrc4-sbox-verification"></a> ctf-skills\rc4-sbox-verification</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Rc4 Sbox Verification 相关任务。</li>
+<li>内容摘录：Verify RC4 S-box init via output structure signatures.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\rc4-sbox-verification\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillssolve-challenge"><a class="markdownIt-Anchor" href="#ctf-skillssolve-challenge"></a> ctf-skills\solve-challenge</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Solve Challenge 相关任务。</li>
+<li>内容摘录：Solves CTF challenges by performing first-pass triage, identifying the dominant category, and routing execution to the right specialized ctf-* skill. Use when the user gives you a challenge bundle, a remote service, a suspicious file, or only a vague challenge description and you must determine where to start. Do not use it when the category is already clear and a specialized skill can be invoked directly; this is the dispatcher and recon entrypoint, not the deepest reference for category-specific techniques.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\solve-challenge\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsstarmem-malware-analysis"><a class="markdownIt-Anchor" href="#ctf-skillsstarmem-malware-analysis"></a> ctf-skills\starmem-malware-analysis</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Starmem Malware Analysis 相关任务。</li>
+<li>内容摘录：Use when analyzing malware in Windows memory via StarMem.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\starmem-malware-analysis\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillsstarmem-wechat-key-extraction"><a class="markdownIt-Anchor" href="#ctf-skillsstarmem-wechat-key-extraction"></a> ctf-skills\starmem-wechat-key-extraction</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Starmem Wechat Key Extraction 相关任务。</li>
+<li>内容摘录：Use when extracting WeChat SQLCipher keys from memory dumps.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\starmem-wechat-key-extraction\SKILL.md</code></li>
+</ul>
+<h3 id="ctf-skillswindows-ssh-client-forensics"><a class="markdownIt-Anchor" href="#ctf-skillswindows-ssh-client-forensics"></a> ctf-skills\windows-ssh-client-forensics</h3>
+<ul>
+<li>中文介绍：用于 CTF 场景下的 Windows Ssh Client Forensics 相关任务。</li>
+<li>内容摘录：Windows SSH客户端取证：Xshell/Xftp会话文件(.xsh/.xfp)提取SSH连接配置、FinalShell连接JSON与DES密码解密(Java Random PRNG密钥派生)、回收站文件恢复(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi mathvariant="normal">/</mi></mrow><annotation encoding="application/x-tex">I/</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord">/</span></span></span></span>R配对)、境外服务器运营商识别(ip-api.com查询)、PowerShell远程执行编码陷阱、Navicat注册表连接凭据提取与Blowfish/AES密码解密</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-skills\windows-ssh-client-forensics\SKILL.md</code></li>
+</ul>
+<h2 id="ctf-tor-hidden-service-forensics1"><a class="markdownIt-Anchor" href="#ctf-tor-hidden-service-forensics1"></a> ctf-tor-hidden-service-forensics（1）</h2>
+<p>面向 Tor 隐藏服务痕迹分析的专项技能。</p>
+<h3 id="ctf-tor-hidden-service-forensics"><a class="markdownIt-Anchor" href="#ctf-tor-hidden-service-forensics"></a> ctf-tor-hidden-service-forensics</h3>
+<ul>
+<li>中文介绍：用于处理 Ctf Tor Hidden Service Forensics 相关任务。</li>
+<li>内容摘录：Extract Tor hidden service config and .onion domain.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-tor-hidden-service-forensics\SKILL.md</code></li>
+</ul>
+<h2 id="ctf-web-app-forensics1"><a class="markdownIt-Anchor" href="#ctf-web-app-forensics1"></a> ctf-web-app-forensics（1）</h2>
+<p>面向 Web 应用取证题目的专项技能。</p>
+<h3 id="ctf-web-app-forensics"><a class="markdownIt-Anchor" href="#ctf-web-app-forensics"></a> ctf-web-app-forensics</h3>
+<ul>
+<li>中文介绍：用于处理 Ctf Web App Forensics 相关任务。</li>
+<li>内容摘录：用于 CTF Web 应用攻击链与框架取证。适用于 Nginx/Apache/GitLab 日志、RCE、WebShell、SQL 注入写文件、反弹 Shell、后台路径与登录验证，以及 Spring Boot、Shiro、ThinkPHP、Laravel、PHP、GitLab 等应用的路由、配置、代码和接口语义分析。只负责从请求到代码、认证和 SQL 语义的追踪；主机服务拓扑、Docker、MySQL/HBase/Redis 恢复、备份导入和订单金额等业务数据汇总交给 ctf-server-forensics。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ctf-web-app-forensics\SKILL.md</code></li>
+</ul>
+<h2 id="data-science1"><a class="markdownIt-Anchor" href="#data-science1"></a> data-science（1）</h2>
+<p>数据科学与交互式分析技能。</p>
+<h3 id="data-sciencejupyter-live-kernel"><a class="markdownIt-Anchor" href="#data-sciencejupyter-live-kernel"></a> data-science\jupyter-live-kernel</h3>
+<ul>
+<li>中文介绍：用于处理 Jupyter Live Kernel 相关任务。</li>
+<li>内容摘录：Iterative Python via live Jupyter kernel (hamelnb).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\data-science\jupyter-live-kernel\SKILL.md</code></li>
+</ul>
+<h2 id="devops5"><a class="markdownIt-Anchor" href="#devops5"></a> devops（5）</h2>
+<p>DevOps、流程编排与交付审查技能。</p>
+<h3 id="devopsk8s-cert-renewal"><a class="markdownIt-Anchor" href="#devopsk8s-cert-renewal"></a> devops\k8s-cert-renewal</h3>
+<ul>
+<li>中文介绍：用于 DevOps 场景中的 K8s Cert Renewal 相关任务。</li>
+<li>内容摘录：Renew expired Kubernetes certificates and recover a dead cluster. Covers kubeadm cert renewal, manual kubelet client cert generation, and static pod restart sequence.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\devops\k8s-cert-renewal\SKILL.md</code></li>
+</ul>
+<h3 id="devopskanban-orchestrator"><a class="markdownIt-Anchor" href="#devopskanban-orchestrator"></a> devops\kanban-orchestrator</h3>
+<ul>
+<li>中文介绍：用于 DevOps 场景中的 Kanban Orchestrator 相关任务。</li>
+<li>内容摘录：Decomposition playbook + anti-temptation rules for an orchestrator profile routing work through Kanban. The “don’t do the work yourself” rule and the basic lifecycle are auto-injected into every kanban worker’s system prompt; this skill is the deeper playbook when you’re specifically playing the orchestrator role.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\devops\kanban-orchestrator\SKILL.md</code></li>
+</ul>
+<h3 id="devopskanban-worker"><a class="markdownIt-Anchor" href="#devopskanban-worker"></a> devops\kanban-worker</h3>
+<ul>
+<li>中文介绍：用于 DevOps 场景中的 Kanban Worker 相关任务。</li>
+<li>内容摘录：Pitfalls, examples, and edge cases for Hermes Kanban workers. The lifecycle itself is auto-injected into every worker’s system prompt as KANBAN_GUIDANCE (from agent/prompt_builder.py); this skill is what you load when you want deeper detail on specific scenarios.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\devops\kanban-worker\SKILL.md</code></li>
+</ul>
+<h3 id="devopssdlc-review"><a class="markdownIt-Anchor" href="#devopssdlc-review"></a> devops\sdlc-review</h3>
+<ul>
+<li>中文介绍：用于 DevOps 场景中的 Sdlc Review 相关任务。</li>
+<li>内容摘录：Review Kanban handoffs and route verified outcomes.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\devops\sdlc-review\SKILL.md</code></li>
+</ul>
+<h3 id="devopswebhook-subscriptions"><a class="markdownIt-Anchor" href="#devopswebhook-subscriptions"></a> devops\webhook-subscriptions</h3>
+<ul>
+<li>中文介绍：用于 DevOps 场景中的 Webhook Subscriptions 相关任务。</li>
+<li>内容摘录：Webhook subscriptions: event-driven agent runs.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\devops\webhook-subscriptions\SKILL.md</code></li>
+</ul>
+<h2 id="dogfood1"><a class="markdownIt-Anchor" href="#dogfood1"></a> dogfood（1）</h2>
+<p>Web 应用探索式 QA 测试技能。</p>
+<h3 id="dogfood"><a class="markdownIt-Anchor" href="#dogfood"></a> dogfood</h3>
+<ul>
+<li>中文介绍：用于处理 Dogfood 相关任务。</li>
+<li>内容摘录：Exploratory QA of web apps: find bugs, evidence, reports.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\dogfood\SKILL.md</code></li>
+</ul>
+<h2 id="email2"><a class="markdownIt-Anchor" href="#email2"></a> email（2）</h2>
+<p>邮件收件箱处理与邮件工作流技能。</p>
+<h3 id="emailemail-inbox-triage"><a class="markdownIt-Anchor" href="#emailemail-inbox-triage"></a> email\email-inbox-triage</h3>
+<ul>
+<li>中文介绍：用于邮件处理中的 Email Inbox Triage 相关任务。</li>
+<li>内容摘录：Triage an inbox: prioritize threads, draft replies safely.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\email\email-inbox-triage\SKILL.md</code></li>
+</ul>
+<h3 id="emailhimalaya"><a class="markdownIt-Anchor" href="#emailhimalaya"></a> email\himalaya</h3>
+<ul>
+<li>中文介绍：用于邮件处理中的 Himalaya 相关任务。</li>
+<li>内容摘录：Himalaya CLI: IMAP/SMTP email from terminal.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\email\himalaya\SKILL.md</code></li>
+</ul>
+<h2 id="gaming2"><a class="markdownIt-Anchor" href="#gaming2"></a> gaming（2）</h2>
+<p>游戏与游戏服务辅助技能。</p>
+<h3 id="gamingminecraft-modpack-server"><a class="markdownIt-Anchor" href="#gamingminecraft-modpack-server"></a> gaming\minecraft-modpack-server</h3>
+<ul>
+<li>中文介绍：用于处理 Minecraft Modpack Server 相关任务。</li>
+<li>内容摘录：Host modded Minecraft servers (CurseForge, Modrinth).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\gaming\minecraft-modpack-server\SKILL.md</code></li>
+</ul>
+<h3 id="gamingpokemon-player"><a class="markdownIt-Anchor" href="#gamingpokemon-player"></a> gaming\pokemon-player</h3>
+<ul>
+<li>中文介绍：用于处理 Pokemon Player 相关任务。</li>
+<li>内容摘录：Play Pokemon via headless emulator + RAM reads.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\gaming\pokemon-player\SKILL.md</code></li>
+</ul>
+<h2 id="ges-case-analysis1"><a class="markdownIt-Anchor" href="#ges-case-analysis1"></a> ges-case-analysis（1）</h2>
+<p>火眼案件数据分析技能。</p>
+<h3 id="ges-case-analysis"><a class="markdownIt-Anchor" href="#ges-case-analysis"></a> ges-case-analysis</h3>
+<ul>
+<li>中文介绍：用于处理 Ges Case Analysis 相关任务。</li>
+<li>内容摘录：当用户需要分析已经打开并解析完成的火眼案件数据时使用，包括案件记录、检材文件、手机应用数据、聊天/通话/交易记录、数据库文件和语义检索。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ges-case-analysis\SKILL.md</code></li>
+</ul>
+<h2 id="ges-case-management1"><a class="markdownIt-Anchor" href="#ges-case-management1"></a> ges-case-management（1）</h2>
+<p>火眼案件准备与检材导入技能。</p>
+<h3 id="ges-case-management"><a class="markdownIt-Anchor" href="#ges-case-management"></a> ges-case-management</h3>
+<ul>
+<li>中文介绍：用于处理 Ges Case Management 相关任务。</li>
+<li>内容摘录：当用户需要分析手机/电脑/服务器等各种镜像文件时候使用：该skills可以将镜像文件导入火眼软件(一款电子数据取证软件)并自动运行数据解析任务，为ges-case-analysis skills的使用提供初始化。具体而言，该skills提供了按案件编号打开已有案件、列出案件、按完整检材路径判断能否复用、查看检材解析状态、初始化已打开案件、向当前案件导入检材，或在未连接火眼时自动创建案件并导入检材。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ges-case-management\SKILL.md</code></li>
+</ul>
+<h2 id="ges-cli-troubleshooting1"><a class="markdownIt-Anchor" href="#ges-cli-troubleshooting1"></a> ges-cli-troubleshooting（1）</h2>
+<p>GES CLI 排障技能。</p>
+<h3 id="ges-cli-troubleshooting"><a class="markdownIt-Anchor" href="#ges-cli-troubleshooting"></a> ges-cli-troubleshooting</h3>
+<ul>
+<li>中文介绍：用于处理 Ges Cli Troubleshooting 相关任务。</li>
+<li>内容摘录：When ges commands fail. Covers search, copy, grep, WSL.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\ges-cli-troubleshooting\SKILL.md</code></li>
+</ul>
+<h2 id="github7"><a class="markdownIt-Anchor" href="#github7"></a> github（7）</h2>
+<p>GitHub 仓库、PR、Issue 与认证管理技能。</p>
+<h3 id="githubcodebase-inspection"><a class="markdownIt-Anchor" href="#githubcodebase-inspection"></a> github\codebase-inspection</h3>
+<ul>
+<li>中文介绍：用于 GitHub 工作流中的 Codebase Inspection 相关任务。</li>
+<li>内容摘录：Inspect codebases w/ pygount: LOC, languages, ratios.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\github\codebase-inspection\SKILL.md</code></li>
+</ul>
+<h3 id="githubgithub-auth"><a class="markdownIt-Anchor" href="#githubgithub-auth"></a> github\github-auth</h3>
+<ul>
+<li>中文介绍：用于 GitHub 工作流中的 Github Auth 相关任务。</li>
+<li>内容摘录：GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\github\github-auth\SKILL.md</code></li>
+</ul>
+<h3 id="githubgithub-code-review"><a class="markdownIt-Anchor" href="#githubgithub-code-review"></a> github\github-code-review</h3>
+<ul>
+<li>中文介绍：用于 GitHub 工作流中的 Github Code Review 相关任务。</li>
+<li>内容摘录：Review PRs: diffs, inline comments via gh or REST.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\github\github-code-review\SKILL.md</code></li>
+</ul>
+<h3 id="githubgithub-issue-to-pr"><a class="markdownIt-Anchor" href="#githubgithub-issue-to-pr"></a> github\github-issue-to-pr</h3>
+<ul>
+<li>中文介绍：用于 GitHub 工作流中的 Github Issue To Pr 相关任务。</li>
+<li>内容摘录：Carry a GitHub issue to a verified PR with honest CI state.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\github\github-issue-to-pr\SKILL.md</code></li>
+</ul>
+<h3 id="githubgithub-issues"><a class="markdownIt-Anchor" href="#githubgithub-issues"></a> github\github-issues</h3>
+<ul>
+<li>中文介绍：用于 GitHub 工作流中的 Github Issues 相关任务。</li>
+<li>内容摘录：Create, triage, label, assign GitHub issues via gh or REST.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\github\github-issues\SKILL.md</code></li>
+</ul>
+<h3 id="githubgithub-pr-workflow"><a class="markdownIt-Anchor" href="#githubgithub-pr-workflow"></a> github\github-pr-workflow</h3>
+<ul>
+<li>中文介绍：用于 GitHub 工作流中的 Github Pr Workflow 相关任务。</li>
+<li>内容摘录：GitHub PR lifecycle: branch, commit, open, CI, merge.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\github\github-pr-workflow\SKILL.md</code></li>
+</ul>
+<h3 id="githubgithub-repo-management"><a class="markdownIt-Anchor" href="#githubgithub-repo-management"></a> github\github-repo-management</h3>
+<ul>
+<li>中文介绍：用于 GitHub 工作流中的 Github Repo Management 相关任务。</li>
+<li>内容摘录：Clone/create/fork repos; manage remotes, releases.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\github\github-repo-management\SKILL.md</code></li>
+</ul>
+<h2 id="hermes-answer-verification1"><a class="markdownIt-Anchor" href="#hermes-answer-verification1"></a> hermes-answer-verification（1）</h2>
+<p>Hermes 答案核验技能。</p>
+<h3 id="hermes-answer-verification"><a class="markdownIt-Anchor" href="#hermes-answer-verification"></a> hermes-answer-verification</h3>
+<ul>
+<li>中文介绍：用于处理 Hermes Answer Verification 相关任务。</li>
+<li>内容摘录：用于 Hermes 长任务答案验证、状态复核、竞赛极速答案复核和提交前审计。当用户要求“验证答案”“深度验证 QX”“全量验证竞赛答案”“多解法探索”“复核逐题答案/state.md”“检查未验证、猜测、证据不足、验证失败或存在冲突的题目”，或需要维护 <a target="_blank" rel="noopener" href="http://verification.md">verification.md</a> 和逐题提交状态时使用。兼容 hermes-long-session-state-management V5/V6 的五类逐题文件、批量切片、验证队列、记录索引、缓存和追加式模式历史。answers/QX.md 是答案权威源；具体取证调用对应 ctf-* skill。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\hermes-answer-verification\SKILL.md</code></li>
+</ul>
+<h2 id="hermes-desktop-plugins1"><a class="markdownIt-Anchor" href="#hermes-desktop-plugins1"></a> hermes-desktop-plugins（1）</h2>
+<p>Hermes 桌面插件与扩展能力技能。</p>
+<h3 id="hermes-desktop-plugins"><a class="markdownIt-Anchor" href="#hermes-desktop-plugins"></a> hermes-desktop-plugins</h3>
+<ul>
+<li>中文介绍：用于处理 Hermes Desktop Plugins 相关任务。</li>
+<li>内容摘录：Write desktop app plugins that add UI panes and commands.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\hermes-desktop-plugins\SKILL.md</code></li>
+</ul>
+<h2 id="hermes-forensic-skill-distiller1"><a class="markdownIt-Anchor" href="#hermes-forensic-skill-distiller1"></a> hermes-forensic-skill-distiller（1）</h2>
+<p>Hermes 取证技能蒸馏与整理技能。</p>
+<h3 id="hermes-forensic-skill-distiller"><a class="markdownIt-Anchor" href="#hermes-forensic-skill-distiller"></a> hermes-forensic-skill-distiller</h3>
+<ul>
+<li>中文介绍：用于处理 Hermes Forensic Skill Distiller 相关任务。</li>
+<li>内容摘录：用于把已经完成并验证成功的取证、逆向、恶意样本、服务器、Web、移动端或 CTF 调查过程，以及 important/skill-candidates.md 中已验证的经验候选，提炼为可复用的 Hermes Skill。当用户要求“总结取证全过程并固化为技能库”“处理经验候选池”“把新经验补充到旧 Skill”“新建通用取证 Skill”时使用。负责输入资格、候选状态、技能查重、知识所有权、脱敏泛化、安全编辑和运行时验证；未完成、失败、冲突或失效内容不能成为成功流程。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\hermes-forensic-skill-distiller\SKILL.md</code></li>
+</ul>
+<h2 id="hermes-long-session-state-management1"><a class="markdownIt-Anchor" href="#hermes-long-session-state-management1"></a> hermes-long-session-state-management（1）</h2>
+<p>Hermes 长会话状态管理技能。</p>
+<h3 id="hermes-long-session-state-management"><a class="markdownIt-Anchor" href="#hermes-long-session-state-management"></a> hermes-long-session-state-management</h3>
+<ul>
+<li>中文介绍：用于处理 Hermes Long Session State Management 相关任务。</li>
+<li>内容摘录：用于 Hermes Agent 长任务状态管理、自动题目拆分、连续普通答题、快速答题、竞赛极速答题、跨 /new 会话续接、状态文本编码恢复、模式历史、批量状态切片、验证队列、跨检材案件线索归纳、经验候选捕获和旧版状态迁移。当用户只贴入题目，要求“继续”“连续续接任务”“连续普通模式”“切换普通/快速/竞赛模式”“归纳线索”“关联检材”“记住这个技巧”“保存全部状态”，状态 Markdown 被误判为 Binary file，或任务可能发生上下文压缩、iteration budget 耗尽时使用。新任务不创建 <a target="_blank" rel="noopener" href="http://questions.md">questions.md</a>，而把每题原文独立保存为 questions/QX.md；全局、逐题缓存和任务内持久状态记录创建模式、创建时间及不可覆盖的模式切换事件。验证答案改用 hermes-answer-verification，报告改用 hermes-writeup-generator。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\hermes-long-session-state-management\SKILL.md</code></li>
+</ul>
+<h2 id="hermes-writeup-generator1"><a class="markdownIt-Anchor" href="#hermes-writeup-generator1"></a> hermes-writeup-generator（1）</h2>
+<p>Hermes 解题与报告写作生成技能。</p>
+<h3 id="hermes-writeup-generator"><a class="markdownIt-Anchor" href="#hermes-writeup-generator"></a> hermes-writeup-generator</h3>
+<ul>
+<li>中文介绍：用于处理 Hermes Writeup Generator 相关任务。</li>
+<li>内容摘录：用于根据 Hermes 长任务状态文件生成或审计 <a target="_blank" rel="noopener" href="http://writeup.md">writeup.md</a>、解题报告、提交版报告或完整复盘。当用户要求生成、更新或检查 writeup，提交版报告、指定题号报告或整理解题过程时使用。兼容 V5/V6 的 questions、answers、commands、findings、final-answers 五类逐题文件、批量切片、缓存、记录镜像和模式历史，并确定性区分本地模型与在线模型。只整理已有内容，不重新验证答案；通过逐题源文件覆盖检查保证正文写出已有关键证据、具体命令和关键输出。默认作者为 yagami。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\hermes-writeup-generator\SKILL.md</code></li>
+</ul>
+<h2 id="image-file-recovery1"><a class="markdownIt-Anchor" href="#image-file-recovery1"></a> image-file-recovery（1）</h2>
+<p>图像文件恢复专项技能。</p>
+<h3 id="image-file-recovery"><a class="markdownIt-Anchor" href="#image-file-recovery"></a> image-file-recovery</h3>
+<ul>
+<li>中文介绍：用于处理 Image File Recovery 相关任务。</li>
+<li>内容摘录：Use when recovering corrupted JPG/PNG from disk images.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\image-file-recovery\SKILL.md</code></li>
+</ul>
+<h2 id="jpeg-height-restore1"><a class="markdownIt-Anchor" href="#jpeg-height-restore1"></a> jpeg-height-restore（1）</h2>
+<p>JPEG 高度修复专项技能。</p>
+<h3 id="jpeg-height-restore"><a class="markdownIt-Anchor" href="#jpeg-height-restore"></a> jpeg-height-restore</h3>
+<ul>
+<li>中文介绍：用于处理 Jpeg Height Restore 相关任务。</li>
+<li>内容摘录：Use when JPEG SOF height field was modified to hide content.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\jpeg-height-restore\SKILL.md</code></li>
+</ul>
+<h2 id="mcp1"><a class="markdownIt-Anchor" href="#mcp1"></a> mcp（1）</h2>
+<p>MCP 集成与原生工具接入技能。</p>
+<h3 id="mcpnative-mcp"><a class="markdownIt-Anchor" href="#mcpnative-mcp"></a> mcp\native-mcp</h3>
+<ul>
+<li>中文介绍：用于处理 Native Mcp 相关任务。</li>
+<li>内容摘录：MCP client: connect servers, register tools (stdio/HTTP).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mcp\native-mcp\SKILL.md</code></li>
+</ul>
+<h2 id="media5"><a class="markdownIt-Anchor" href="#media5"></a> media（5）</h2>
+<p>媒体搜索、播放与内容处理技能。</p>
+<h3 id="mediagif-search"><a class="markdownIt-Anchor" href="#mediagif-search"></a> media\gif-search</h3>
+<ul>
+<li>中文介绍：用于媒体内容处理中的 Gif Search 相关任务。</li>
+<li>内容摘录：Search/download GIFs from Tenor via curl + jq.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\media\gif-search\SKILL.md</code></li>
+</ul>
+<h3 id="mediaheartmula"><a class="markdownIt-Anchor" href="#mediaheartmula"></a> media\heartmula</h3>
+<ul>
+<li>中文介绍：用于媒体内容处理中的 Heartmula 相关任务。</li>
+<li>内容摘录：HeartMuLa: Suno-like song generation from lyrics + tags.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\media\heartmula\SKILL.md</code></li>
+</ul>
+<h3 id="mediasongsee"><a class="markdownIt-Anchor" href="#mediasongsee"></a> media\songsee</h3>
+<ul>
+<li>中文介绍：用于媒体内容处理中的 Songsee 相关任务。</li>
+<li>内容摘录：Audio spectrograms/features (mel, chroma, MFCC) via CLI.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\media\songsee\SKILL.md</code></li>
+</ul>
+<h3 id="mediaspotify"><a class="markdownIt-Anchor" href="#mediaspotify"></a> media\spotify</h3>
+<ul>
+<li>中文介绍：用于媒体内容处理中的 Spotify 相关任务。</li>
+<li>内容摘录：Spotify: play, search, queue, manage playlists and devices.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\media\spotify\SKILL.md</code></li>
+</ul>
+<h3 id="mediayoutube-content"><a class="markdownIt-Anchor" href="#mediayoutube-content"></a> media\youtube-content</h3>
+<ul>
+<li>中文介绍：用于媒体内容处理中的 Youtube Content 相关任务。</li>
+<li>内容摘录：YouTube transcripts to summaries, threads, blogs.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\media\youtube-content\SKILL.md</code></li>
+</ul>
+<h2 id="mlops11"><a class="markdownIt-Anchor" href="#mlops11"></a> mlops（11）</h2>
+<p>机器学习训练、推理、评测与模型服务技能。</p>
+<h3 id="mlopsevaluationevaluating-llms-harness"><a class="markdownIt-Anchor" href="#mlopsevaluationevaluating-llms-harness"></a> mlops\evaluation\evaluating-llms-harness</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Evaluating Llms Harness 相关任务。</li>
+<li>内容摘录：lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\evaluation\evaluating-llms-harness\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsevaluationlm-evaluation-harness"><a class="markdownIt-Anchor" href="#mlopsevaluationlm-evaluation-harness"></a> mlops\evaluation\lm-evaluation-harness</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Lm Evaluation Harness 相关任务。</li>
+<li>内容摘录：lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\evaluation\lm-evaluation-harness\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsevaluationweights-and-biases"><a class="markdownIt-Anchor" href="#mlopsevaluationweights-and-biases"></a> mlops\evaluation\weights-and-biases</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Weights And Biases 相关任务。</li>
+<li>内容摘录：W&amp;B: log ML experiments, sweeps, model registry, dashboards.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\evaluation\weights-and-biases\SKILL.md</code></li>
+</ul>
+<h3 id="mlopshuggingface-hub"><a class="markdownIt-Anchor" href="#mlopshuggingface-hub"></a> mlops\huggingface-hub</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Huggingface Hub 相关任务。</li>
+<li>内容摘录：HuggingFace hf CLI: search/download/upload models, datasets.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\huggingface-hub\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsinferencellama-cpp"><a class="markdownIt-Anchor" href="#mlopsinferencellama-cpp"></a> mlops\inference\llama-cpp</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 llama.cpp 相关任务。</li>
+<li>内容摘录：llama.cpp local GGUF inference + HF Hub model discovery.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\inference\llama-cpp\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsinferenceobliteratus"><a class="markdownIt-Anchor" href="#mlopsinferenceobliteratus"></a> mlops\inference\obliteratus</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Obliteratus 相关任务。</li>
+<li>内容摘录：OBLITERATUS: abliterate LLM refusals (diff-in-means).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\inference\obliteratus\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsinferenceserving-llms-vllm"><a class="markdownIt-Anchor" href="#mlopsinferenceserving-llms-vllm"></a> mlops\inference\serving-llms-vllm</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Serving Llms Vllm 相关任务。</li>
+<li>内容摘录：vLLM: high-throughput LLM serving, OpenAI API, quantization.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\inference\serving-llms-vllm\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsinferencevllm"><a class="markdownIt-Anchor" href="#mlopsinferencevllm"></a> mlops\inference\vllm</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Vllm 相关任务。</li>
+<li>内容摘录：vLLM: high-throughput LLM serving, OpenAI API, quantization.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\inference\vllm\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsmodelsaudiocraft"><a class="markdownIt-Anchor" href="#mlopsmodelsaudiocraft"></a> mlops\models\audiocraft</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Audiocraft 相关任务。</li>
+<li>内容摘录：AudioCraft: MusicGen text-to-music, AudioGen text-to-sound.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\models\audiocraft\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsmodelssegment-anything"><a class="markdownIt-Anchor" href="#mlopsmodelssegment-anything"></a> mlops\models\segment-anything</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Segment Anything 相关任务。</li>
+<li>内容摘录：SAM: zero-shot image segmentation via points, boxes, masks.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\models\segment-anything\SKILL.md</code></li>
+</ul>
+<h3 id="mlopsresearchdspy"><a class="markdownIt-Anchor" href="#mlopsresearchdspy"></a> mlops\research\dspy</h3>
+<ul>
+<li>中文介绍：用于 MLOps 场景下的 Dspy 相关任务。</li>
+<li>内容摘录：DSPy: declarative LM programs, auto-optimize prompts, RAG.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\mlops\research\dspy\SKILL.md</code></li>
+</ul>
+<h2 id="note-taking1"><a class="markdownIt-Anchor" href="#note-taking1"></a> note-taking（1）</h2>
+<p>笔记整理与知识库协同技能。</p>
+<h3 id="note-takingobsidian"><a class="markdownIt-Anchor" href="#note-takingobsidian"></a> note-taking\obsidian</h3>
+<ul>
+<li>中文介绍：用于笔记与知识管理中的 Obsidian 相关任务。</li>
+<li>内容摘录：Read, search, create, and edit notes in the Obsidian vault.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\note-taking\obsidian\SKILL.md</code></li>
+</ul>
+<h2 id="productivity19"><a class="markdownIt-Anchor" href="#productivity19"></a> productivity（19）</h2>
+<p>办公、文档、表格、会议与计划管理技能。</p>
+<h3 id="productivityairtable"><a class="markdownIt-Anchor" href="#productivityairtable"></a> productivity\airtable</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Airtable 相关任务。</li>
+<li>内容摘录：Airtable REST API via curl. Records CRUD, filters, upserts.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\airtable\SKILL.md</code></li>
+</ul>
+<h3 id="productivitybox"><a class="markdownIt-Anchor" href="#productivitybox"></a> productivity\box</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Box 相关任务。</li>
+<li>内容摘录：Box manages cloud files, sharing, search, and metadata.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\box\SKILL.md</code></li>
+</ul>
+<h3 id="productivitydocument-to-action-items"><a class="markdownIt-Anchor" href="#productivitydocument-to-action-items"></a> productivity\document-to-action-items</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Document To Action Items 相关任务。</li>
+<li>内容摘录：Extract cited obligations, deadlines, tasks from documents.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\document-to-action-items\SKILL.md</code></li>
+</ul>
+<h3 id="productivitydocx"><a class="markdownIt-Anchor" href="#productivitydocx"></a> productivity\docx</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Docx 相关任务。</li>
+<li>内容摘录：Create, read, edit, template, and review Word .docx files.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\docx\SKILL.md</code></li>
+</ul>
+<h3 id="productivitygoogle-workspace"><a class="markdownIt-Anchor" href="#productivitygoogle-workspace"></a> productivity\google-workspace</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Google Workspace 相关任务。</li>
+<li>内容摘录：Gmail, Calendar, Drive, Docs, Sheets via gws CLI or Python.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\google-workspace\SKILL.md</code></li>
+</ul>
+<h3 id="productivitylinear"><a class="markdownIt-Anchor" href="#productivitylinear"></a> productivity\linear</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Linear 相关任务。</li>
+<li>内容摘录：Linear: manage issues, projects, teams via GraphQL + curl.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\linear\SKILL.md</code></li>
+</ul>
+<h3 id="productivitymaps"><a class="markdownIt-Anchor" href="#productivitymaps"></a> productivity\maps</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Maps 相关任务。</li>
+<li>内容摘录：Geocode, POIs, routes, timezones via OpenStreetMap/OSRM.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\maps\SKILL.md</code></li>
+</ul>
+<h3 id="productivitymeeting-action-items"><a class="markdownIt-Anchor" href="#productivitymeeting-action-items"></a> productivity\meeting-action-items</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Meeting Action Items 相关任务。</li>
+<li>内容摘录：Turn meeting notes into cited decisions, owners, tickets.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\meeting-action-items\SKILL.md</code></li>
+</ul>
+<h3 id="productivitynano-pdf"><a class="markdownIt-Anchor" href="#productivitynano-pdf"></a> productivity\nano-pdf</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Nano Pdf 相关任务。</li>
+<li>内容摘录：Edit text in existing PDFs via natural-language prompts.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\nano-pdf\SKILL.md</code></li>
+</ul>
+<h3 id="productivitynotion"><a class="markdownIt-Anchor" href="#productivitynotion"></a> productivity\notion</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Notion 相关任务。</li>
+<li>内容摘录：Notion API + ntn CLI: pages, databases, markdown, Workers.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\notion\SKILL.md</code></li>
+</ul>
+<h3 id="productivityocr-and-documents"><a class="markdownIt-Anchor" href="#productivityocr-and-documents"></a> productivity\ocr-and-documents</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Ocr And Documents 相关任务。</li>
+<li>内容摘录：Extract text from PDFs/scans (pymupdf, marker-pdf).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\ocr-and-documents\SKILL.md</code></li>
+</ul>
+<h3 id="productivitypdf"><a class="markdownIt-Anchor" href="#productivitypdf"></a> productivity\pdf</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Pdf 相关任务。</li>
+<li>内容摘录：Create, read, merge, fill, and secure PDF files.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\pdf\SKILL.md</code></li>
+</ul>
+<h3 id="productivitypetdex"><a class="markdownIt-Anchor" href="#productivitypetdex"></a> productivity\petdex</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Petdex 相关任务。</li>
+<li>内容摘录：Install and select animated petdex mascots for Hermes.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\petdex\SKILL.md</code></li>
+</ul>
+<h3 id="productivitypowerpoint"><a class="markdownIt-Anchor" href="#productivitypowerpoint"></a> productivity\powerpoint</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Powerpoint 相关任务。</li>
+<li>内容摘录：Create, read, edit .pptx decks, slides, notes, templates.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\powerpoint\SKILL.md</code></li>
+</ul>
+<h3 id="productivityproduct-price-monitor"><a class="markdownIt-Anchor" href="#productivityproduct-price-monitor"></a> productivity\product-price-monitor</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Product Price Monitor 相关任务。</li>
+<li>内容摘录：Watch product, flight, or listing prices; alert on target.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\product-price-monitor\SKILL.md</code></li>
+</ul>
+<h3 id="productivitysession-librarian"><a class="markdownIt-Anchor" href="#productivitysession-librarian"></a> productivity\session-librarian</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Session Librarian 相关任务。</li>
+<li>内容摘录：Organize sessions by prompt: find, rename, archive, prune.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\session-librarian\SKILL.md</code></li>
+</ul>
+<h3 id="productivityteams-meeting-pipeline"><a class="markdownIt-Anchor" href="#productivityteams-meeting-pipeline"></a> productivity\teams-meeting-pipeline</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Teams Meeting Pipeline 相关任务。</li>
+<li>内容摘录：Teams meeting summaries, job replay, Graph subscriptions.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\teams-meeting-pipeline\SKILL.md</code></li>
+</ul>
+<h3 id="productivityweekly-review-planning"><a class="markdownIt-Anchor" href="#productivityweekly-review-planning"></a> productivity\weekly-review-planning</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Weekly Review Planning 相关任务。</li>
+<li>内容摘录：Weekly reset: commitments, stalled work, next-week plan.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\weekly-review-planning\SKILL.md</code></li>
+</ul>
+<h3 id="productivityxlsx"><a class="markdownIt-Anchor" href="#productivityxlsx"></a> productivity\xlsx</h3>
+<ul>
+<li>中文介绍：用于效率工具场景下的 Xlsx 相关任务。</li>
+<li>内容摘录：Create, read, edit Excel .xlsx workbooks and CSVs.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\productivity\xlsx\SKILL.md</code></li>
+</ul>
+<h2 id="red-teaming1"><a class="markdownIt-Anchor" href="#red-teaming1"></a> red-teaming（1）</h2>
+<p>红队与对抗性测试技能。</p>
+<h3 id="red-teaminggodmode"><a class="markdownIt-Anchor" href="#red-teaminggodmode"></a> red-teaming\godmode</h3>
+<ul>
+<li>中文介绍：用于处理 Godmode 相关任务。</li>
+<li>内容摘录：Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\red-teaming\godmode\SKILL.md</code></li>
+</ul>
+<h2 id="research8"><a class="markdownIt-Anchor" href="#research8"></a> research（8）</h2>
+<p>研究检索、引用、舆情与资料恢复技能。</p>
+<h3 id="researcharxiv"><a class="markdownIt-Anchor" href="#researcharxiv"></a> research\arxiv</h3>
+<ul>
+<li>中文介绍：用于研究检索与分析中的 Arxiv 相关任务。</li>
+<li>内容摘录：Search arXiv papers by keyword, author, category, or ID.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\research\arxiv\SKILL.md</code></li>
+</ul>
+<h3 id="researchblocked-page-recovery"><a class="markdownIt-Anchor" href="#researchblocked-page-recovery"></a> research\blocked-page-recovery</h3>
+<ul>
+<li>中文介绍：用于研究检索与分析中的 Blocked Page Recovery 相关任务。</li>
+<li>内容摘录：Recover blocked/paywalled/WAF’d pages via fallbacks.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\research\blocked-page-recovery\SKILL.md</code></li>
+</ul>
+<h3 id="researchblogwatcher"><a class="markdownIt-Anchor" href="#researchblogwatcher"></a> research\blogwatcher</h3>
+<ul>
+<li>中文介绍：用于研究检索与分析中的 Blogwatcher 相关任务。</li>
+<li>内容摘录：Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\research\blogwatcher\SKILL.md</code></li>
+</ul>
+<h3 id="researchcompetitor-news-monitor"><a class="markdownIt-Anchor" href="#researchcompetitor-news-monitor"></a> research\competitor-news-monitor</h3>
+<ul>
+<li>中文介绍：用于研究检索与分析中的 Competitor News Monitor 相关任务。</li>
+<li>内容摘录：Watch named companies for material news; cited digests.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\research\competitor-news-monitor\SKILL.md</code></li>
+</ul>
+<h3 id="researchgrounded-citations"><a class="markdownIt-Anchor" href="#researchgrounded-citations"></a> research\grounded-citations</h3>
+<ul>
+<li>中文介绍：用于研究检索与分析中的 Grounded Citations 相关任务。</li>
+<li>内容摘录：Ground answers and documents in cited, verifiable sources.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\research\grounded-citations\SKILL.md</code></li>
+</ul>
+<h3 id="researchllm-wiki"><a class="markdownIt-Anchor" href="#researchllm-wiki"></a> research\llm-wiki</h3>
+<ul>
+<li>中文介绍：用于研究检索与分析中的 Llm Wiki 相关任务。</li>
+<li>内容摘录：Karpathy’s LLM Wiki: build/query interlinked markdown KB.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\research\llm-wiki\SKILL.md</code></li>
+</ul>
+<h3 id="researchpolymarket"><a class="markdownIt-Anchor" href="#researchpolymarket"></a> research\polymarket</h3>
+<ul>
+<li>中文介绍：用于研究检索与分析中的 Polymarket 相关任务。</li>
+<li>内容摘录：Query Polymarket: markets, prices, orderbooks, history.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\research\polymarket\SKILL.md</code></li>
+</ul>
+<h3 id="researchresearch-paper-writing"><a class="markdownIt-Anchor" href="#researchresearch-paper-writing"></a> research\research-paper-writing</h3>
+<ul>
+<li>中文介绍：用于研究检索与分析中的 Research Paper Writing 相关任务。</li>
+<li>内容摘录：Write ML papers for NeurIPS/ICML/ICLR: design→submit.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\research\research-paper-writing\SKILL.md</code></li>
+</ul>
+<h2 id="smart-home1"><a class="markdownIt-Anchor" href="#smart-home1"></a> smart-home（1）</h2>
+<p>智能家居控制技能。</p>
+<h3 id="smart-homeopenhue"><a class="markdownIt-Anchor" href="#smart-homeopenhue"></a> smart-home\openhue</h3>
+<ul>
+<li>中文介绍：用于智能家居场景中的 Openhue 相关任务。</li>
+<li>内容摘录：Control Philips Hue lights, scenes, rooms via OpenHue CLI.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\smart-home\openhue\SKILL.md</code></li>
+</ul>
+<h2 id="social-media1"><a class="markdownIt-Anchor" href="#social-media1"></a> social-media（1）</h2>
+<p>社交媒体链接与内容辅助技能。</p>
+<h3 id="social-mediaxurl"><a class="markdownIt-Anchor" href="#social-mediaxurl"></a> social-media\xurl</h3>
+<ul>
+<li>中文介绍：用于社交媒体场景中的 Xurl 相关任务。</li>
+<li>内容摘录：X/Twitter via xurl CLI: post, search, DM, media, v2 API.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\social-media\xurl\SKILL.md</code></li>
+</ul>
+<h2 id="software-development16"><a class="markdownIt-Anchor" href="#software-development16"></a> software-development（16）</h2>
+<p>软件开发、调试、计划与代码质量技能。</p>
+<h3 id="software-developmentcode-quality-gate"><a class="markdownIt-Anchor" href="#software-developmentcode-quality-gate"></a> software-development\code-quality-gate</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Code Quality Gate 相关任务。</li>
+<li>内容摘录：Code quality verification — pre-commit security gates, parallel cleanup review, and automated fix loops. Two modes: (1) Pre-commit gate with security scan + independent reviewer, (2) After-the-fact 3-agent parallel cleanup.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\code-quality-gate\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentdebugging-hermes-tui-commands"><a class="markdownIt-Anchor" href="#software-developmentdebugging-hermes-tui-commands"></a> software-development\debugging-hermes-tui-commands</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Debugging Hermes Tui Commands 相关任务。</li>
+<li>内容摘录：Debug Hermes TUI slash commands: Python, gateway, Ink UI.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\debugging-hermes-tui-commands\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentdogfood"><a class="markdownIt-Anchor" href="#software-developmentdogfood"></a> software-development\dogfood</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Dogfood 相关任务。</li>
+<li>内容摘录：Exploratory QA of web apps: find bugs, evidence, reports.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\dogfood\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmenthermes-agent-skill-authoring"><a class="markdownIt-Anchor" href="#software-developmenthermes-agent-skill-authoring"></a> software-development\hermes-agent-skill-authoring</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Hermes Agent Skill Authoring 相关任务。</li>
+<li>内容摘录：Author in-repo <a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a>: frontmatter, validator, structure.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\hermes-agent-skill-authoring\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmenthermes-s6-container-supervision"><a class="markdownIt-Anchor" href="#software-developmenthermes-s6-container-supervision"></a> software-development\hermes-s6-container-supervision</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Hermes S6 Container Supervision 相关任务。</li>
+<li>内容摘录：Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image — adding new services, debugging profile gateways, understanding the Architecture B main-program pattern.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\hermes-s6-container-supervision\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentinspecting-hermes-desktop-dom"><a class="markdownIt-Anchor" href="#software-developmentinspecting-hermes-desktop-dom"></a> software-development\inspecting-hermes-desktop-dom</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Inspecting Hermes Desktop Dom 相关任务。</li>
+<li>内容摘录：Read the live Hermes desktop DOM/CSS over CDP.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\inspecting-hermes-desktop-dom\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentnode-inspect-debugger"><a class="markdownIt-Anchor" href="#software-developmentnode-inspect-debugger"></a> software-development\node-inspect-debugger</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Node Inspect Debugger 相关任务。</li>
+<li>内容摘录：Debug Node.js via --inspect + Chrome DevTools Protocol CLI.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\node-inspect-debugger\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentplan"><a class="markdownIt-Anchor" href="#software-developmentplan"></a> software-development\plan</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Plan 相关任务。</li>
+<li>内容摘录：Write a markdown plan to .hermes/plans/; no execution.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\plan\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentpython-debugpy"><a class="markdownIt-Anchor" href="#software-developmentpython-debugpy"></a> software-development\python-debugpy</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Python Debugpy 相关任务。</li>
+<li>内容摘录：Debug Python: pdb REPL + debugpy remote (DAP).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\python-debugpy\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentrequesting-code-review"><a class="markdownIt-Anchor" href="#software-developmentrequesting-code-review"></a> software-development\requesting-code-review</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Requesting Code Review 相关任务。</li>
+<li>内容摘录：Pre-commit review: security scan, quality gates, auto-fix.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\requesting-code-review\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentsimplify-code"><a class="markdownIt-Anchor" href="#software-developmentsimplify-code"></a> software-development\simplify-code</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Simplify Code 相关任务。</li>
+<li>内容摘录：Parallel 4-agent cleanup of recent code changes.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\simplify-code\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentspike"><a class="markdownIt-Anchor" href="#software-developmentspike"></a> software-development\spike</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Spike 相关任务。</li>
+<li>内容摘录：Throwaway experiments to validate an idea before build.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\spike\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentsubagent-driven-development"><a class="markdownIt-Anchor" href="#software-developmentsubagent-driven-development"></a> software-development\subagent-driven-development</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Subagent Driven Development 相关任务。</li>
+<li>内容摘录：Execute plans via delegate_task subagents (2-stage review).</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\subagent-driven-development\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentsystematic-debugging"><a class="markdownIt-Anchor" href="#software-developmentsystematic-debugging"></a> software-development\systematic-debugging</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Systematic Debugging 相关任务。</li>
+<li>内容摘录：4-phase root cause debugging: understand bugs before fixing.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\systematic-debugging\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmenttest-driven-development"><a class="markdownIt-Anchor" href="#software-developmenttest-driven-development"></a> software-development\test-driven-development</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Test Driven Development 相关任务。</li>
+<li>内容摘录：TDD: enforce RED-GREEN-REFACTOR, tests before code.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\test-driven-development\SKILL.md</code></li>
+</ul>
+<h3 id="software-developmentwriting-plans"><a class="markdownIt-Anchor" href="#software-developmentwriting-plans"></a> software-development\writing-plans</h3>
+<ul>
+<li>中文介绍：用于软件开发中的 Writing Plans 相关任务。</li>
+<li>内容摘录：Write implementation plans: bite-sized tasks, paths, code.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\software-development\writing-plans\SKILL.md</code></li>
+</ul>
+<h2 id="starmem-memory-forensics1"><a class="markdownIt-Anchor" href="#starmem-memory-forensics1"></a> starmem-memory-forensics（1）</h2>
+<p>Starmem 内存取证专项技能。</p>
+<h3 id="starmem-memory-forensics"><a class="markdownIt-Anchor" href="#starmem-memory-forensics"></a> starmem-memory-forensics</h3>
+<ul>
+<li>中文介绍：用于处理 Starmem Memory Forensics 相关任务。</li>
+<li>内容摘录：在 WSL Hermes 中调用 Windows StarMem CLI 完成可验证的结构化内存取证。用于分析 Windows x64 RAW/VMEM/crash dump、LiME 或内存型 EWF/E01，执行系统、进程、线程、网络、文件、注册表、凭据、浏览器、剪贴板、终端、GUI/桌面重建、恶意代码和时间线取证，批量收集 SQLite，或导出 JSON、CSV、PCAPNG、Hive、日志、图像及恢复文件。用户提到 StarMem、starmem.exe、Windows 内存镜像、隐藏进程、内存网络连接、内存文件恢复、桌面重建，或希望用 StarMem 替代/交叉验证 Volatility 时使用。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\starmem-memory-forensics\SKILL.md</code></li>
+</ul>
+<h2 id="windows-static-forensics1"><a class="markdownIt-Anchor" href="#windows-static-forensics1"></a> windows-static-forensics（1）</h2>
+<p>Windows 静态取证专项技能。</p>
+<h3 id="windows-static-forensics"><a class="markdownIt-Anchor" href="#windows-static-forensics"></a> windows-static-forensics</h3>
+<ul>
+<li>中文介绍：用于处理 Windows Static Forensics 相关任务。</li>
+<li>内容摘录：Windows静态取证：EVTX日志、SAM密码策略、PE版本资源、宝塔配置、安卓模拟器VM配置。注销/登录/密码/软件版本/安全入口。</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\windows-static-forensics\SKILL.md</code></li>
+</ul>
+<h2 id="yuanbao1"><a class="markdownIt-Anchor" href="#yuanbao1"></a> yuanbao（1）</h2>
+<p>元宝相关平台或工具协作技能。</p>
+<h3 id="yuanbao"><a class="markdownIt-Anchor" href="#yuanbao"></a> yuanbao</h3>
+<ul>
+<li>中文介绍：用于处理 Yuanbao 相关任务。</li>
+<li>内容摘录：Yuanbao (元宝) groups: @mention users, query info/members.</li>
+<li><a target="_blank" rel="noopener" href="http://SKILL.md">SKILL.md</a> 路径：<code>C:\Users\luoyinhui\AppData\Local\hermes\skills\yuanbao\SKILL.md</code></li>
+</ul>
+</div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="avatar"/></div><div class="author-info-name">luoyinhui</div><div class="author-info-description">记录踩坑与瞎折腾，由Hexo+Github搭建</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">73</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/luoyinhui"><i class="fab fa-github"></i><span>Follow Me</span></a><a class="card-info-btn" href="/subscribe"><i class="fas fa-rss"></i><span>订阅RSS</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/8ce259e1/" title="【笔记】obsidian改进笔记"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】obsidian改进笔记"/></a><div class="content"><a class="title" href="/posts/8ce259e1/" title="【笔记】obsidian改进笔记">【笔记】obsidian改进笔记</a><time datetime="2026-08-14T03:42:25.000Z" title="发表于 2026-08-14 11:42:25">2026-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b5d46077/" title="【阶段小结】2026-04-29"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【阶段小结】2026-04-29"/></a><div class="content"><a class="title" href="/posts/b5d46077/" title="【阶段小结】2026-04-29">【阶段小结】2026-04-29</a><time datetime="2026-04-29T14:44:18.000Z" title="发表于 2026-04-29 22:44:18">2026-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7a1946eb/" title="【笔记】关于自动化脚本的学习笔记"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【笔记】关于自动化脚本的学习笔记"/></a><div class="content"><a class="title" href="/posts/7a1946eb/" title="【笔记】关于自动化脚本的学习笔记">【笔记】关于自动化脚本的学习笔记</a><time datetime="2026-04-06T11:09:47.000Z" title="发表于 2026-04-06 19:09:47">2026-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/fcf2f95d/" title="【阶段小结】2026-03-24"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【阶段小结】2026-03-24"/></a><div class="content"><a class="title" href="/posts/fcf2f95d/" title="【阶段小结】2026-03-24">【阶段小结】2026-03-24</a><time datetime="2026-03-24T04:06:04.000Z" title="发表于 2026-03-24 12:06:04">2026-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b65cb9eb/" title="【比赛】2025美亚团体复盘"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/shouye.png" onerror="this.onerror=null;this.src='/img/404.webp'" alt="【比赛】2025美亚团体复盘"/></a><div class="content"><a class="title" href="/posts/b65cb9eb/" title="【比赛】2025美亚团体复盘">【比赛】2025美亚团体复盘</a><time datetime="2026-03-07T13:44:14.000Z" title="发表于 2026-03-07 21:44:14">2026-03-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BB%A3%E7%A0%81%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">代码笔记</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%88%B7%E9%A2%98/"><span class="card-category-list-name">刷题</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%87%E8%B5%9B/"><span class="card-category-list-name">备赛</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%98%E6%A1%A3/"><span class="card-category-list-name">存档</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%80%BB%E7%BB%93%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">总结笔记</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">日记</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%AF%94%E8%B5%9B/"><span class="card-category-list-name">比赛</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">笔记</span><span class="card-category-list-count">23</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%98%B6%E6%AE%B5%E5%B0%8F%E7%BB%93/" style="font-size: 1.23em; color: #999ea6">阶段小结</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" style="font-size: 1.1em; color: #999">电子取证</a> <a href="/tags/y2024/" style="font-size: 1.23em; color: #999ea6">y2024</a> <a href="/tags/pwn/" style="font-size: 1.23em; color: #999ea6">pwn</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.1em; color: #999">项目</a> <a href="/tags/%E5%B9%B3%E8%88%AA/" style="font-size: 1.1em; color: #999">平航</a> <a href="/tags/%E5%AE%8C%E7%BB%93/" style="font-size: 1.37em; color: #99a4b2">完结</a> <a href="/tags/javascript/" style="font-size: 1.1em; color: #999">javascript</a> <a href="/tags/%E6%9C%AA%E5%AE%8C%E7%BB%93/" style="font-size: 1.43em; color: #99a6b9">未完结</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.17em; color: #999c9f">笔记</a> <a href="/tags/%E5%85%B1%E6%A8%A1%E6%94%BB%E5%87%BB/" style="font-size: 1.1em; color: #999">共模攻击</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">工具</a> <a href="/tags/linux/" style="font-size: 1.1em; color: #999">linux</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 1.17em; color: #999c9f">转载</a> <a href="/tags/rsa/" style="font-size: 1.1em; color: #999">rsa</a> <a href="/tags/obsidian/" style="font-size: 1.17em; color: #999c9f">obsidian</a> <a href="/tags/reverse/" style="font-size: 1.23em; color: #999ea6">reverse</a> <a href="/tags/ida/" style="font-size: 1.1em; color: #999">ida</a> <a href="/tags/spc/" style="font-size: 1.1em; color: #999">spc</a> <a href="/tags/c%E8%AF%AD%E8%A8%80/" style="font-size: 1.1em; color: #999">c语言</a> <a href="/tags/butterfly/" style="font-size: 1.1em; color: #999">butterfly</a> <a href="/tags/fluid/" style="font-size: 1.1em; color: #999">fluid</a> <a href="/tags/web/" style="font-size: 1.23em; color: #999ea6">web</a> <a href="/tags/github/" style="font-size: 1.17em; color: #999c9f">github</a> <a href="/tags/misc/" style="font-size: 1.17em; color: #999c9f">misc</a> <a href="/tags/%E7%BE%8E%E4%BA%9A/" style="font-size: 1.3em; color: #99a1ac">美亚</a> <a href="/tags/ctf/" style="font-size: 1.5em; color: #99a9bf">ctf</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/SQL/" style="font-size: 1.1em; color: #999">SQL</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 1.1em; color: #999">软件</a> <a href="/tags/Modbus/" style="font-size: 1.1em; color: #999">Modbus</a> <a href="/tags/%E4%BB%A3%E7%A0%81/" style="font-size: 1.1em; color: #999">代码</a> <a href="/tags/y2025/" style="font-size: 1.43em; color: #99a6b9">y2025</a> <a href="/tags/wp/" style="font-size: 1.23em; color: #999ea6">wp</a> <a href="/tags/crypto/" style="font-size: 1.23em; color: #999ea6">crypto</a> <a href="/tags/dirsearch/" style="font-size: 1.1em; color: #999">dirsearch</a> <a href="/tags/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" style="font-size: 1.1em; color: #999">应急响应</a> <a href="/tags/%E9%9D%92%E5%B0%91%E5%B9%B4%E9%9D%B6%E5%9C%BA/" style="font-size: 1.1em; color: #999">青少年靶场</a> <a href="/tags/LSB/" style="font-size: 1.1em; color: #999">LSB</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/08/">
+            <span class="card-archive-list-date">
+              八月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/04/">
+            <span class="card-archive-list-date">
+              四月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              二月 2026
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">9</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">14</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">21</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">73</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">236.3k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-10-12T15:23:09.431Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By luoyinhui</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.0"></script><script src="/js/main.js?v=5.5.0"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js?v=1.1.0"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo-vercel01.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('/pluginsSrc/twikoo/dist/twikoo.all.min.js?v=1.6.44').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script id="click-heart" src="/pluginsSrc/butterfly-extsrc/dist/click-heart.min.js?v=1.1.6" async="async" mobile="false"></script><link rel="stylesheet" href="/pluginsSrc/aplayer/dist/APlayer.min.css?v=1.10.1" media="print" onload="this.media='all'"><script src="/pluginsSrc/aplayer/dist/APlayer.min.js?v=1.10.1"></script><script src="/pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js?v=1.1.6"></script><div class="aplayer no-destroy" id="global-aplayer"></div><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script>(function(){
+  if (window.__globalAPlayer__) return;
+  function init(){
+    var el=document.getElementById('global-aplayer');
+    if (!el || !window.APlayer) { setTimeout(init, 100); return; }
+    window.__globalAPlayer__ = new APlayer({
+      container: el,
+      fixed: true,
+      autoplay: false,
+      preload: 'none',
+      storageName: 'aplayer-setting-global',
+      lrcType: 0,
+      audio: [{
+        name: '簇拥烈日的花 - 迟里乌布',
+        artist: 'Unknown',
+        url: '/audio/flower.flac',
+        cover: '/img/music-cover.png',
+        type: 'auto'
+      }]
+    });
+    try { window.__globalAPlayer__.audio && (window.__globalAPlayer__.audio.playbackRate = 1) } catch(e){}
+  }
+  init();
+})()</script><script src="/pluginsSrc/pjax/pjax.min.js?v=0.2.8"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-switch"><span class="search-switch-item active" data-type="local">本地搜索</span><span class="search-switch-item" data-type="algolia">Algolia</span></div><div id="local-search-panel"><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"></div><hr><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="algolia-search-panel" style="display:none"><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><span class="algolia-poweredBy-text">Search powered by Algolia</span></div></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.0"></script><script src="/pluginsSrc/algoliasearch/dist/lite/builds/browser.umd.js?v=5.37.0"></script><script src="/js/search/algolia.js?v=5.5.0"></script></div><!-- hexo injector body_end start --><script>window.toggleHistory = function(btn) {
+  var history = document.getElementById('updates-history');
+  if (history.style.display === 'none') {
+    history.style.display = 'block';
+    btn.innerText = '收起';
+  } else {
+    history.style.display = 'none';
+    btn.innerText = '显示更多';
+  }
+}
+</script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item swiper-outer" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2026-02-20</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/97c40ef2/&quot;);" href="javascript:void(0);" alt="">【项目】obsidian-hexo-helper插件：实现Obsidian+Hexo博客语法兼容</a><div class="blog-slider__text">一个小插件，ai搓出来的（</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(../assets/preview.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-12-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/35b57171/&quot;);" href="javascript:void(0);" alt="">【项目】hexo-butterfly-updates-heatmap插件介绍</a><div class="blog-slider__text">参考语雀热力图制作的hexo热力图插件~~（嘶后面发现和github热力图也很像）</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-10-01</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/ef1d4e7/&quot;);" href="javascript:void(0);" alt="">【笔记】markdown-github+vscode/obsidian使用文档</a><div class="blog-slider__text">markdown语法在基于github+vscode/obsidian背景下的使用与探索笔记</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-12-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/989aec00/&quot;);" href="javascript:void(0);" alt="">【刷题】青少年靶场练习</a><div class="blog-slider__text">初步接触应急响应题目，跟随强帝步伐嘻嘻~~</div></div></div><div class="blog-slider__item swiper-slide" style="background:url(/img/shouye.png);border-radius:0;opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="blog-slider__content"><span class="blog-slider__code">2025-08-16</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/c3315bb0/&quot;);" href="javascript:void(0);" alt="">【笔记】十六进制文件头尾特征</a><div class="blog-slider__text">重要的misc知识点！！！</div></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = '/links/,/link/'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="/js/swiper/swiper.min.js"></script><script defer data-pjax src="/js/swiper/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
